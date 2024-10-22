@@ -1,0 +1,35 @@
+header {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  z-index: 1030;
+}
+
+header a img {
+  height: 100px; /* Default height for larger screens */
+  width: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Optional: for hover effects */
+}
+
+header a:hover img {
+  transform: scale(1.1); /* Optional: Hover effect to scale up */
+  opacity: 0.8; /* Optional: Hover effect to change opacity */
+}
+
+/* Media Query for screens that are 600px wide or less */
+@media (max-width: 600px) {
+  header a img {
+    height: 50px; /* Reduced height for smaller screens */
+  }
+}
+
+.gradient-x-overlay-sm-primary::before {
+  background-image: linear-gradient(45deg,transparent,rgba(254,189,71,.05))
+}
+
+.go-to:focus:hover, .go-to:hover {
+  background-color: #27B4C7;
+}
+.link-secondary[href]:hover, .nav-segment .nav-link:hover {
+  color: #27B4C7 !important;
+}
