@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Room-Object Treemap Visualization</title>
+  <!-- Include Plotly.js from CDN -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Room-Object Treemap Visualization</h1>
+
+  <div class="controls">
+    <div class="control">
+      <label for="object-type-dropdown">Filter by Object Type:</label>
+      <select id="object-type-dropdown" multiple></select>
+    </div>
+    <div class="control">
+      <label for="search-input">Search for Room or Object:</label>
+      <input type="text" id="search-input" placeholder="Search...">
+    </div>
+  </div>
+
+  <button id="switch-button">Switch to Sunburst</button>
+
+  <div id="chart"></div>
+
+  <div id="summary-stats"></div>
+
+  <p>Click on rectangles to zoom in. Hover over them for more info. Use the filters and search to explore the data.</p>
+
+  <!-- Include the main JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
