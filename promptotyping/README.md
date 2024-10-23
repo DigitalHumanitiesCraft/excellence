@@ -1,4 +1,4 @@
-# Promptotyping
+# Promptotyping by DH Craft O(M)G
 
 > Combining prompt engineering with rapid prototyping for data-driven frontend development
 
