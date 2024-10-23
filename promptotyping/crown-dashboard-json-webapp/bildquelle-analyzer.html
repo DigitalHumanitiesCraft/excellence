@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildquellen-Analyse - CROWN Forschungs-Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">CROWN Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="bildquelle-analyzer.html">Bildquellen-Analyse</a></li>
+                    <!-- Add other navigation items as needed -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Bildquellen-Analyse</h1>
+        <p class="lead mb-4">Übersicht und Analyse aller Bildquellen im CROWN Forschungsprojekt.</p>
+
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3">
+                <div class="stat-box">
+                    <h3>Gesamtzahl der Bildquellen</h3>
+                    <p id="bildquelleCount" class="display-4">-</p>
+                </div>
+            </div>
+            <div class="col-md-8 mb-3">
+                <div class="stat-box">
+                    <h3>Verteilung nach Medium</h3>
+                    <div id="mediumTreemap"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">Filter</h4>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="ansichtFilter" class="form-label">Ansicht:</label>
+                        <select id="ansichtFilter" class="form-select">
+                            <option value="all">Alle Ansichten</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="farbeFilter" class="form-label">Farbe:</label>
+                        <select id="farbeFilter" class="form-select">
+                            <option value="all">Alle Farben</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="mediumFilter" class="form-label">Medium:</label>
+                        <select id="mediumFilter" class="form-select">
+                            <option value="all">Alle Medien</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="internetFilter" class="form-label">Im Internet verfügbar:</label>
+                        <select id="internetFilter" class="form-select">
+                            <option value="all">Alle</option>
+                            <option value="true">Ja</option>
+                            <option value="false">Nein</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="relevanzFilter" class="form-label">Relevanz für Restaurierungsgeschichte:</label>
+                        <select id="relevanzFilter" class="form-select">
+                            <option value="all">Alle</option>
+                            <option value="true">Ja</option>
+                            <option value="false">Nein</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="resetFilters" class="btn btn-secondary">Filter zurücksetzen</button>
+            </div>
+        </div>
+
+        <h2 class="mb-3">Bildquellen Galerie</h2>
+        <div id="bildquelleGallery" class="row">
+            <!-- Bildquelle cards will be populated dynamically -->
+        </div>
+    </div>
+
+    <footer class="text-center mt-4">
+        <div class="container">
+            <p>&copy; 2024 CROWN Forschungs-Dashboard. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/bildquelle-analyzer.js"></script>
+</body>
+</html>

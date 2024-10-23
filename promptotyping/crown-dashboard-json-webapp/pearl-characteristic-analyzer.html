@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perlenanalyse - Kronenforschungs-Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">CROWN-Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="pearl-characteristic-analyzer.html">Perlenanalyse</a></li>
+                    <!-- Add other navigation items as needed -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Perlenanalyse</h1>
+        <p class="lead mb-4">Katalogisieren und analysieren Sie die Eigenschaften der in der Krone verwendeten Perlen.</p>
+
+        <!-- Summary Statistics -->
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3">
+                <div id="totalPearls" class="stat-box">
+                    <h3>Gesamtzahl der Perlen</h3>
+                    <p id="pearlCount" class="display-4"></p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div id="rissStat" class="stat-box">
+                    <h3>Perlen mit Riss</h3>
+                    <p id="rissCount" class="display-4"></p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div id="kratzerStat" class="stat-box">
+                    <h3>Perlen mit Kratzer</h3>
+                    <p id="kratzerCount" class="display-4"></p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div id="fehlstelleStat" class="stat-box">
+                    <h3>Perlen mit Fehlstelle</h3>
+                    <p id="fehlstelleCount" class="display-4"></p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div id="bohrlochStat" class="stat-box">
+                    <h3>Perlen mit Bohrloch</h3>
+                    <p id="bohrlochCount" class="display-4"></p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div id="formDistribution" class="stat-box">
+                    <h3>Formverteilung</h3>
+                    <canvas id="formChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">Filter</h4>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="formFilter" class="form-label">Form:</label>
+                        <select id="formFilter" class="form-select">
+                            <option value="all">Alle Formen</option>
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="rissFilter" class="form-label">Riss:</label>
+                        <select id="rissFilter" class="form-select">
+                            <option value="all">Alle</option>
+                            <option value="Ja">Ja</option>
+                            <option value="Nein">Nein</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="kratzerFilter" class="form-label">Kratzer:</label>
+                        <select id="kratzerFilter" class="form-select">
+                            <option value="all">Alle</option>
+                            <option value="Ja">Ja</option>
+                            <option value="Nein">Nein</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="fehlstelleFilter" class="form-label">Fehlstelle:</label>
+                        <select id="fehlstelleFilter" class="form-select">
+                            <option value="all">Alle</option>
+                            <option value="Ja">Ja</option>
+                            <option value="Nein">Nein</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="bohrlochFilter" class="form-label">Bohrloch:</label>
+                        <select id="bohrlochFilter" class="form-select">
+                            <option value="all">Alle</option>
+                            <option value="Ja">Ja</option>
+                            <option value="Nein">Nein</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="resetFilters" class="btn btn-secondary">Filter zurücksetzen</button>
+            </div>
+        </div>
+
+        <!-- Pearl Gallery -->
+        <h4 class="mb-3">Perlen Galerie</h4>
+        <div id="pearlGallery" class="row">
+            <!-- Pearl cards will be populated dynamically -->
+        </div>
+    </div>
+
+    <footer class="text-center mt-4">
+        <div class="container">
+            <p>&copy; 2024 CROWN Forschungs-Dashboard. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/pearl-characteristic-analyzer.js"></script>
+</body>
+</html>

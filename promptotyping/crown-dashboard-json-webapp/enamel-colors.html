@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enamel Colors - Crown Research Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .bar:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 576px) {
+            table {
+                font-size: 12px;
+            }
+            .chart-container {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Crown Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="text-center">Enamel Colors</h1>
+        <p class="text-center">Total Enamel Colors: <span id="totalColors"></span></p>
+
+        <!-- Chart Container -->
+        <div class="chart-container mb-4">
+            <div id="colorChart" role="img" aria-label="Bar chart displaying enamel colors.">
+                <noscript><p>Your browser does not support JavaScript or it's disabled. The chart cannot be displayed.</p></noscript>
+            </div>
+        </div>
+
+        <!-- Search Input -->
+        <input type="text" id="searchInput" placeholder="Search Objects..." class="form-control mb-3">
+
+        <!-- Objects Table -->
+        <h3>Objects with Selected Color</h3>
+        <div class="table-responsive">
+            <table class="table table-striped" id="colorObjectsTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Object ID</th>
+                        <th scope="col">Object Name</th>
+                        <th scope="col">Component (Bestandteil)</th>
+                        <th scope="col">Condition</th>
+                        <th scope="col">Interventions</th>
+                        <th scope="col">Media</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/enamel-colors.js"></script>
+</body>
+</html>

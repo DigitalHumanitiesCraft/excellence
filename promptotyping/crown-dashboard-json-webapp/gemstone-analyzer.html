@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Gemstone Analyzer - CROWN Research Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Lightbox CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+      rel="stylesheet"
+    >
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CROWN Research Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <!-- Other navigation items -->
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="gemstone-analyzer.html">Gemstone Analyzer</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container mt-5">
+        <h1 class="mb-4">Gemstone Analyzer</h1>
+
+        <!-- Filters Section -->
+        <section id="filters" class="mb-4">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <input type="text" id="search" class="form-control" placeholder="Search by Name or Number">
+                </div>
+                <div class="col-md-3">
+                    <select id="filter-color" class="form-select">
+                        <option value="">Filter by Color</option>
+                        <!-- Options populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select id="filter-material" class="form-select">
+                        <option value="">Filter by Material</option>
+                        <!-- Options populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select id="filter-shape" class="form-select">
+                        <option value="">Filter by Shape</option>
+                        <!-- Options populated by JavaScript -->
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section id="statistics" class="mb-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <canvas id="materialChart"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <canvas id="colorChart"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <canvas id="shapeChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gemstone List Section -->
+        <section id="gemstone-list">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Object Number</th>
+                        <th>Name</th>
+                        <th>Material</th>
+                        <th>Color</th>
+                        <th>Shape</th>
+                    </tr>
+                </thead>
+                <tbody id="gemstone-table-body">
+                    <!-- Rows populated by JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Gemstone Detail Section -->
+        <section id="gemstone-detail" class="d-none">
+            <button id="back-button" class="btn btn-secondary mb-3">Back to List</button>
+            <div id="basic-info" class="mb-4">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div id="condition-attributes" class="mb-4">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div id="scientific-data" class="mb-4">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div id="intervention-history" class="mb-4">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div id="media-gallery" class="mb-4">
+                <!-- Populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Export Options -->
+        <section id="export-options" class="mb-5">
+            <button id="export-csv" class="btn btn-primary">Export to CSV</button>
+            <button id="export-json" class="btn btn-secondary">Export to JSON</button>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lightbox JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"
+    ></script>
+    <!-- Gemstone Analyzer JS -->
+    <script src="js/gemstone-analyzer.js"></script>
+</body>
+</html>
