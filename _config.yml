@@ -1,0 +1,2 @@
+markdown: kramdown
+include: ["promptotyping"]  # Ensure subfolder gets processed
