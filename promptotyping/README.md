@@ -1,3 +1,8 @@
+---
+layout: default  # This tells Jekyll to use the 'default.html' layout
+title: Promptotyping Documentation
+---
+
 # Promptotyping
 
 > Combining prompt engineering with rapid prototyping for data-driven frontend development
