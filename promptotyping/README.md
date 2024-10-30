@@ -111,12 +111,4 @@ DH Craft is led by Christian Steiner and Christopher Pollin, focusing on innovat
 - Consultation for digital humanities projects
 
 ## Citation
-If you use Promptotyping in your research, please cite:
-```bibtex
-@misc{dhcraft2024promptotyping,
-  title={Promptotyping: AI-Enhanced Rapid Prototyping for Data-Driven Applications},
-  author={Steiner, Christian and Pollin, Christopher},
-  year={2024},
-  url={https://github.com/DigitalHumanitiesCraft/excellence/tree/main/promptotyping}
-}
-```
+To cite this project in your research, please refer to the [CITATION.cff](CITATION.cff) file. You can also use GitHub's citation feature by clicking on the "Cite this repository" button on our GitHub page.
