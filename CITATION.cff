@@ -6,7 +6,7 @@ title: >-
   Promptotyping: AI-Enhanced Rapid Prototyping for
   Data-Driven Applications
 message: 'If you use this methodology, please cite it as below.'
-type: software
+type: dataset
 authors:
   - family-names: Steiner
     given-names: Christian
