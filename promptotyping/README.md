@@ -94,15 +94,15 @@ Enhance the prototype through targeted follow-up prompts:
 ## Example Promptotypes
 
 ### [Crown Dashboard JSON Webapp](promptotyping/crown-dashboard-json-webapp)
-<img src="promptotyping/crown-dashboard-json-webapp/thumbnail.jpg" alt="Crown Dashboard Preview" width="400"/>
+<img src="crown-dashboard-json-webapp/thumbnail.jpg" alt="Crown Dashboard Preview" width="400"/>
 A web application for visualizing and managing Crown dashboard data in JSON format.
 
 ### [Hamlet Digital Edition TEI-to-Frontend](promptotyping/hamlet-digital-edition-tei-to-frontend-webapp)
-<img src="promptotyping/hamlet-digital-edition-tei-to-frontend-webapp/thumbnail.jpg" alt="Hamlet Digital Edition Preview" width="400"/>
+<img src="hamlet-digital-edition-tei-to-frontend-webapp/thumbnail.jpg" alt="Hamlet Digital Edition Preview" width="400"/>
 A frontend application that transforms TEI-encoded Hamlet editions into an interactive web interface.
 
 ### [imareal Room Object Webapp](promptotyping/imareal-room-object-webapp)
-<img src="promptotyping/imareal-room-object-webapp/thumbnail.jpg" alt="imareal Room Object Preview" width="400"/>
+<img src="imareal-room-object-webapp/thumbnail.jpg" alt="imareal Room Object Preview" width="400"/>
 A web application for exploring and visualizing room objects from the imareal collection.
 
 ---
