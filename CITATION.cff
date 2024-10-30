@@ -1,31 +1,31 @@
 cff-version: 1.2.0
 message: "If you use this methodology, please cite it as below."
 authors:
-  - family-names: "Steiner"
-    given-names: "Christian"
-  - family-names: "Pollin"
-    given-names: "Christopher"
+- family-names: "Steiner"
+  given-names: "Christian"
+- family-names: "Pollin"
+  given-names: "Christopher"
 title: "Promptotyping: AI-Enhanced Rapid Prototyping for Data-Driven Applications"
 version: 1.0.0
-date-released: 2024
+date-released: "2024"
 url: "https://github.com/DigitalHumanitiesCraft/excellence"
 repository-code: "https://github.com/DigitalHumanitiesCraft/excellence"
 repository-artifact: "https://github.com/DigitalHumanitiesCraft/excellence/tree/main/promptotyping"
 keywords:
-  - promptotyping
-  - digital humanities
-  - rapid prototyping
-  - AI-assisted development
-  - methodology
+- promptotyping
+- "digital humanities"
+- "rapid prototyping"
+- "AI-assisted development"
+- methodology
 type: report
 abstract: "Promptotyping is an innovative methodology that combines prompt engineering with rapid prototyping to accelerate the development of data-driven frontend applications. It offers a structured approach to leveraging AI in the development workflow while maintaining user-centered design principles."
 identifiers:
-  - type: url
-    value: "https://github.com/DigitalHumanitiesCraft/excellence/tree/main/promptotyping"
-    description: Promptotyping methodology documentation
+- type: url
+  value: "https://github.com/DigitalHumanitiesCraft/excellence/tree/main/promptotyping"
+  description: "Promptotyping methodology documentation"
 references:
-  - authors:
-      - family-names: "Digital Humanities Craft Team"
-    title: "Excellence in Digital Humanities"
-    type: repository
-    url: "https://github.com/DigitalHumanitiesCraft/excellence"
+- authors:
+  - family-names: "Digital Humanities Craft Team"
+  title: "Excellence in Digital Humanities"
+  type: repository
+  url: "https://github.com/DigitalHumanitiesCraft/excellence"
