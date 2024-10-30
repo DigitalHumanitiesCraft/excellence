@@ -1,69 +1,122 @@
 # Promptotyping by DH Craft
-
-> Combining prompt engineering with rapid prototyping for data-driven frontend development
+> Transforming data-driven frontend development through AI-assisted prototyping
 
 ## What is Promptotyping?
-
-Promptotyping is an innovative approach to software development that leverages generative AI to streamline the creation of data-driven frontend applications. It bridges the gap between prompt engineering and rapid prototyping, making complex data visualization development more efficient and user-centered.
+Promptotyping is an innovative methodology that combines prompt engineering with rapid prototyping to accelerate the development of data-driven frontend applications. It offers a structured approach to leveraging AI in the development workflow while maintaining user-centered design principles.
 
 ## Key Features
+- 🤖 **AI-Enhanced Workflow**: Systematically uses AI prompting for design, code generation, and optimization
+- 📊 **Data-First Approach**: Specialized in handling complex research datasets and visualizations
+- 🔄 **Rapid Iteration**: Combines Extreme Programming principles with AI assistance
+- 📝 **Structured Communication**: Uses standardized data sheets and prompts for clear stakeholder collaboration
+- 🎯 **User-Centered**: Emphasizes intuitive interfaces for complex data visualization
 
-- 🚀 **AI-Powered Design**: Uses generative AI to quickly create formal sketches for frontend designs and technical specifications
-- 📊 **Data-Focused**: Specializes in creating interfaces for complex data visualization and research datasets
-- 🔄 **Rapid Development**: Incorporates Extreme Programming principles accelerated by AI-generated code suggestions
-- 📝 **Enhanced Communication**: Uses concise data descriptions (in Markdown) to improve collaboration between data experts and developers
-- 🎯 **User-Centered**: Emphasizes creating intuitive interfaces for complex data visualization
+## The Promptotyping Process
+1. **Data Understanding**
+   - Create structured data sheets in Markdown
+   - Define data relationships and visualization requirements
+   - Document edge cases and special considerations
 
-## Core Components
+2. **Prompt Design**
+   - Craft systematic prompts for AI tools
+   - Focus on specific aspects (UI, logic, data handling)
+   - Iterate based on AI responses
 
-1. **Requirements Specification**
-   - AI-assisted creation of frontend and technology specifications
-   - Formal sketching of interface designs
+3. **Rapid Prototyping**
+   - Generate initial code with AI assistance
+   - Quick implementation cycles
+   - Continuous stakeholder feedback
 
-2. **Data Sheet**
-   - Compact Markdown documentation for data description
-   - Serves as a bridge between data experts and developers
+4. **Refinement**
+   - Optimize based on user feedback
+   - Enhance visualizations
+   - Document successful patterns
 
-3. **Rapid Development Process**
-   - Integration of Extreme Programming principles
-   - AI-enhanced code generation and suggestions
+## Best Practices
+1. **Data Documentation**
+   - Use clear, structured formats
+   - Include example data
+   - Document edge cases
 
-4. **Data-Driven Interface Design**
-   - Focus on research data visualization
-   - AI assistance in optimizing data representations
+2. **Prompt Engineering**
+   - Be specific and detailed
+   - Include context and constraints
+   - Iterate based on results
 
-## Benefits
+3. **Prototype Development**
+   - Start small, iterate quickly
+   - Get early user feedback
+   - Document successful patterns
 
-- Significantly reduced development time for data-intensive applications
-- Improved communication between stakeholders
-- Quick visualization of complex datasets
-- Enhanced quality of data-driven interfaces
-- Seamless integration of human expertise with AI capabilities
+## Example Workflow
 
-## Challenges
+### Step 1: Data Sheet Creation
+```markdown
+# Project: Historical Transaction Visualization
+## Data Structure
+- Date (ISO format: YYYY-MM-DD)
+- Transaction Type (Credit/Debit)
+- Amount (Decimal, 2 places)
+- Person (String)
+- Status (Integer, reference)
+```
 
-- Integration with existing development workflows
-- Maintaining data quality and integrity
-- Ethical considerations in AI-assisted development
+### Step 2: Initial Prompt
+```markdown
+Create a React component that:
+1. Displays historical transactions in a sortable table
+2. Shows monetary values with period-appropriate formatting
+3. Includes filters for date ranges and transaction types
+4. Uses Tailwind CSS for styling
+```
 
-## Getting Started
+### Step 3: Initial Implementation
+Transform AI-generated code into a working prototype by integrating it into your development environment. The generated code typically includes:
+- Component structure
+- Styling definitions
+- Basic functionality
+- Data integration points
 
-To implement promptotyping in your project:
+### Step 4: Quick Deployment
+Launch your prototype using lightweight deployment solutions:
+- Push to GitHub Pages
+- Deploy to Surge.sh
+- Share URL with stakeholders
+- Gather immediate feedback
 
-1. Define your data structure using markdown documentation
-2. Use AI tools to generate initial interface designs
-3. Implement rapid prototyping cycles with AI assistance
-4. Iterate based on stakeholder feedback
-5. Refine and optimize data visualizations
+### Step 5: Iterative Refinement
+Enhance the prototype through targeted follow-up prompts:
+- Address stakeholder feedback
+- Optimize performance
+- Add features
+- Refine user interface
+
+## Tools and Resources
+- Recommended AI Tools: [List of specific tools]
+- Template Prompts: [Link to template repository]
+- Data Sheet Templates: [Link to examples]
 
 ## Contributing
+We welcome contributions to improve Promptotyping:
+- Share case studies
+- Submit prompt templates
+- Propose methodology improvements
+- Report success stories
 
-We welcome contributions to improve the promptotyping methodology! Please feel free to:
-- Submit issues for discussion
-- Propose enhancements
-- Share your experiences and case studies
-- Contribute to documentation
+## About DH Craft
+DH Craft is led by Christian Steiner and Christopher Pollin, focusing on innovative approaches to digital humanities development. We offer:
 
-## License
+- Promptotyping implementation services
+- Training and workshops
+- Consultation for digital humanities projects
 
-[MIT License](LICENSE)
+## Citation
+If you use Promptotyping in your research, please cite:
+```bibtex
+@misc{dhcraft2024promptotyping,
+  title={Promptotyping: AI-Enhanced Rapid Prototyping for Data-Driven Applications},
+  author={Steiner, Christian and Pollin, Christopher},
+  year={2024},
+  url={https://github.com/DigitalHumanitiesCraft/excellence/tree/main/promptotyping}
+}
+```
