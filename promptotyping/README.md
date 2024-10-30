@@ -94,8 +94,19 @@ Enhance the prototype through targeted follow-up prompts:
 ## Example Promptotypes
 
 ### [Crown Dashboard JSON Webapp](crown-dashboard-json-webapp)
-<img src="crown-dashboard-json-webapp/thumbnail.jpg" alt="Crown Dashboard Preview" width="400"/>
-A web application for visualizing and managing Crown dashboard data in JSON format.
+<div class="card overflow-hidden">
+  <div class="row g-0">
+    <div class="col-sm-4 bg-repeat-0 bg-size-cover" style="background-image: url(crown-dashboard-json-webapp/thumbnail.jpg); min-height: 12rem;"></div>
+    <div class="col-sm-8">
+      <div class="card-body">
+        <h5 class="card-title">Crown Dashboard</h5>
+        <p class="card-text fs-sm">A web application for visualizing and managing Crown dashboard data in JSON format.</p>
+        <a class="btn btn-sm btn-primary" href="#">Web App</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 ### [Hamlet Digital Edition TEI-to-Frontend](hamlet-digital-edition-tei-to-frontend-webapp)
 <img src="hamlet-digital-edition-tei-to-frontend-webapp/thumbnail.jpg" alt="Hamlet Digital Edition Preview" width="400"/>
