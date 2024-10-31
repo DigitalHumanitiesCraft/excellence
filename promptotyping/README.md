@@ -103,11 +103,6 @@ Each example demonstrates different aspects of the Promptotyping methodology:
 - Complex user interfaces for research data
 - Interactive Digital Editions
 
-## Tools and Resources
-- Recommended AI Tools: [List of specific tools]
-- Template Prompts: [Link to template repository]
-- Data Sheet Templates: [Link to examples]
-
 ## Contributing
 We welcome contributions to improve Promptotyping:
 - Share case studies
