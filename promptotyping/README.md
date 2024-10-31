@@ -92,7 +92,6 @@ Enhance the prototype through targeted follow-up prompts:
 - Refine user interface
 
 ## Example Promptotypes
-### Go to [Overview](overview.html) to learn more
 
 - [Crown Dashboard JSON Webapp](crown-dashboard-json-webapp)
 - [Hamlet Digital Edition TEI-to-Frontend](hamlet-digital-edition-tei-to-frontend-webapp)
