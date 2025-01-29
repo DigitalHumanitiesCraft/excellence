@@ -94,7 +94,7 @@ Sam Witteveen gibt einen guten Überblick über das R1 Modell von DeepSeek. [htt
 
 [^8]:  Tonmoy, S. et al. (2024) systematisieren die verschiedenen Techniken zur Vermeidung von Halluzinationen in LLMs und kategorisieren sie in zwei Hauptansätze: Prompt Engineering (mit Schwerpunkt auf Methoden wie Retrieval-Augmented Generation) und die Entwicklung neuer Modellarchitekturen. 2024\. [https://doi.org/10.48550/arXiv.2401.01313](https://doi.org/10.48550/arXiv.2401.01313). 
 
-[^9]:  Yann Lecun: Meta AI, Open Source, Limits of LLMs, AGI & the Future of AI | Lex Fridman Podcast. [https://youtu.be/5t1vTLU7s40?si=X75VeC3vbgPfoMaF](https://youtu.be/5t1vTLU7s40?si=X75VeC3vbgPfoMaF) 
+[^9]:  Yann Lecun: Meta AI, Open Source, Limits of LLMs, AGI & the Future of AI. Lex Fridman Podcast. [https://youtu.be/5t1vTLU7s40?si=X75VeC3vbgPfoMaF](https://youtu.be/5t1vTLU7s40?si=X75VeC3vbgPfoMaF) 
 
 [^10]:  Abstraction and Reasoning Corpus. [https://arcprize.org/arc](https://arcprize.org/arc)
 
