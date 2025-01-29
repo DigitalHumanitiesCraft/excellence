@@ -82,8 +82,7 @@ Gerade deshalb ist die Rolle der Expert:innen im Loop entscheidend. Im Jahr 2025
 
 [^2]:  [https://x.com/sama/status/1876104315296968813](https://x.com/sama/status/1876104315296968813)
 
-[^3]:  DeepSeek-R1 Release. [https://api-docs.deepseek.com/news/news250120](https://api-docs.deepseek.com/news/news250120)   
-Sam Witteveen gibt einen guten Überblick über das R1 Modell von DeepSeek. [https://youtu.be/gzZihJ5miZE?si=mWdD8NvG-O-Gaq81](https://youtu.be/gzZihJ5miZE?si=mWdD8NvG-O-Gaq81)
+[^3]:  DeepSeek-R1 Release. [https://api-docs.deepseek.com/news/news250120](https://api-docs.deepseek.com/news/news250120)<br>Sam Witteveen gibt einen guten Überblick über das R1 Modell von DeepSeek [https://youtu.be/gzZihJ5miZE?si=mWdD8NvG-O-Gaq81](https://youtu.be/gzZihJ5miZE?si=mWdD8NvG-O-Gaq81)
 
 [^4]:  Ein weitere Blick auf “Reasoning”: DO REASONING MODELS ACTUALLY SEARCH?. [https://youtu.be/2xFTNXK6AzQ?si=Lg67ylgk3EqwpWcJ](https://youtu.be/2xFTNXK6AzQ?si=Lg67ylgk3EqwpWcJ) 
 
