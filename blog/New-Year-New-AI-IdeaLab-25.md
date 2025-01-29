@@ -1,7 +1,6 @@
 # **New Year, New AI. Das große Monopoly um die “Intelligence”**
 
-Slides: 
-https://docs.google.com/presentation/d/e/2PACX-1vTJFsKykxv1qOii3NFDEdi9UJ70k_w03_z8MPxEmSedxEXGASQ0pcFh3G-cUbrvd1DeJBb_e9GPoVkq/pub 
+[Slides](https://docs.google.com/presentation/d/e/2PACX-1vTJFsKykxv1qOii3NFDEdi9UJ70k_w03_z8MPxEmSedxEXGASQ0pcFh3G-cUbrvd1DeJBb_e9GPoVkq/pub)
 
 # **AI Monopoly**
 
