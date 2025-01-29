@@ -7,10 +7,10 @@ title: >-
 message: 'If you use this methodology, please cite it as below.'
 type: dataset
 authors:
-  - family-names: Steiner
-    given-names: Christian
   - family-names: Pollin
     given-names: Christopher
+  - family-names: Steiner
+    given-names: Christian
 identifiers:
   - type: url
     value: >-
