@@ -100,8 +100,7 @@ Gerade deshalb ist die Rolle der Expert:innen im Loop entscheidend. Im Jahr 2025
 
 [^11]:  Spannende Arbeit dazu von Laura Ruis ([https://lauraruis.github.io](https://lauraruis.github.io)): How Do AI Models Actually Think?. [https://youtu.be/14DXtvRJeNU](https://youtu.be/14DXtvRJeNU). Und Ruis, Laura et. al. 2024\. „Procedural Knowledge in Pretraining Drives Reasoning in Large Language Models“. arXiv. [https://doi.org/10.48550/arXiv.2411.12580](https://doi.org/10.48550/arXiv.2411.12580). 
 
-[^12]:  Kahneman, Daniel. 2011\. Thinking, fast and slow. Thinking, fast and slow.  
-Andrej Karpathy bringt es als Beispiel in seiner Einführung in LLMs: \[1hr Talk\] Intro to Large Language Models. [https://youtu.be/zjkBMFhNj\_g?si=rssWKGWqW-sH5nVt](https://youtu.be/zjkBMFhNj_g?si=rssWKGWqW-sH5nVt) 
+[^12]:  Kahneman, Daniel. 2011\. Thinking, fast and slow. Thinking, fast and slow.<br>Andrej Karpathy bringt es als Beispiel in seiner Einführung in LLMs: \[1hr Talk\] Intro to Large Language Models. [https://youtu.be/zjkBMFhNj\_g?si=rssWKGWqW-sH5nVt](https://youtu.be/zjkBMFhNj_g?si=rssWKGWqW-sH5nVt) 
 
 [^13]:  Chollet, François. 2019\. „On the Measure of Intelligence“. arXiv. [https://doi.org/10.48550/arXiv.1911.01547](https://doi.org/10.48550/arXiv.1911.01547).  
 
