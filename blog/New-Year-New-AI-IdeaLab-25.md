@@ -77,6 +77,8 @@ Die Folgen dieser Entwicklung sind weitreichend. Wir erleben bereits eine teilwe
 
 Gerade deshalb ist die Rolle der Expert:innen im Loop entscheidend. Im Jahr 2025 – und darüber hinaus – bleibt menschliche Expertise unverzichtbar für die Prüfung und verantwortungsvolle Nutzung von KI. Dies erfordert kontinuierliches Lernen, kritisches Denken, ethisches Handeln und die Akzeptanz eines fundamentalen Paradigmenwechsels. Wer mit diesen Technologien arbeitet, muss bereit sein zu lernen, zu experimentieren und offen über Chancen wie Risiken zu diskutieren. Das Monopol darf nicht den Tech-Oligarchen überlassen werden.
 
+*Christopher Pollin - DH Craft*
+
 [^1]:  Bester Überblick: AI Explained. Nothing Much Happens in AI, Then Everything Does All At Once [https://www.youtube.com/watch?v=FraQpapjQ18\&t=2s](https://www.youtube.com/watch?v=FraQpapjQ18&t=2s) 
 
 [^2]:  [https://x.com/sama/status/1876104315296968813](https://x.com/sama/status/1876104315296968813)
