@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/876623126.svg)](https://doi.org/10.5281/zenodo.14160875)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14160876.svg)](https://doi.org/10.5281/zenodo.14160876)
 
 # DH Craft Excellence Repository
 
