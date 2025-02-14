@@ -32,7 +32,7 @@ Ist das ein Hype? Zweifellos. Ist es gleichzeitig eine fundamentale Realität un
 
 Deep Research erreicht bei spezifischen Aufgaben eine deutlich bessere Performance als andere verfügbare Systeme. Perplexity ist zwar beeindruckend (und wird ebenfalls immer besser), kommt aber (noch) nicht an die Leistung im konkreten Task “professionellen akademische Recherche” an Deep Research heran. Diese Entwicklung deutet darauf hin, dass Task-A(G)I-Systeme bis 2026, so der Reigen der Ankündigungen der Tech-Konzerne, aber auch der Beobachter:innen, weitere Bereiche transformieren werden. Es spricht nichts dagegen, dass ähnliche – noch nicht existierende – Systeme für “Deep Coding” oder “Deep Math” entwickelt werden. Diese o3-basierten Agents[^14] könnten dann über längere Zeit arbeiten und fertig getestete Software produzieren, sowie komplexe Probleme durchrechnen. Der eigentliche Wert der Ergebnisse entsteht aber erst durch die Verifizierung durch Expert:innen – genauso wie durch präzises Prompting des Reasoning-Modells. Aber das ist ein Thema für einen anderen Blogpost...
 
-*Christopher Pollin \- Digital Humanities Craft*
+*Christopher Pollin \- [Digital Humanities Craft](https://dhcraft.org/)*
 
 [^1]:  Three Observations. [https://blog.samaltman.com](https://blog.samaltman.com)
 
