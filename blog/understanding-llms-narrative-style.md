@@ -1,7 +1,7 @@
 # Understanding Large Language Models: A Comprehensive Guide (Comprehensive Narrative Edition)
 *Based on Andrej Karpathy's "[Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI)"*
 
-> As we move into 2025, Large Language Models (LLMs) have become a central pillar of modern AI, reimagining everything from customer support chats to creative writing assistants—and even helping with scientific research. > They can feel magical, but underneath, they rest on clear, well-defined principles. By looking at how these models are built, how they “see” our text, and how they “think”, we gain not just a technical understanding, but also practical strategies for using them responsibly.
+> As we move into 2025, Large Language Models (LLMs) have become a central pillar of modern AI, reimagining everything from customer support chats to creative writing assistants—and even helping with scientific research. They can feel magical, but underneath, they rest on clear, well-defined principles. By looking at how these models are built, how they “see” our text, and how they “think”, we gain not just a technical understanding, but also practical strategies for using them responsibly.
 
 ---
 
