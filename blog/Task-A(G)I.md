@@ -48,8 +48,7 @@ Deep Research erreicht bei spezifischen Aufgaben eine deutlich bessere Performan
 
 [^7]:  Hierbei wird nicht nur das Endergebnis geprüft, sondern jeder einzelne Schritt der Gedankenkette auf Korrektheit validiert. Diese Verifikation kann durch das Modell selbst oder durch ein zweites, spezialisiertes Modell (einen sogenannten Verifier) erfolgen. Der Schlüssel ist, dass Fehler lokalisiert werden können, anstatt die ganze Lösung als falsch zu verwerfen. [https://dev.to/rogiia/the-rise-of-reasoner-models-scaling-test-time-compute-33e3](https://dev.to/rogiia/the-rise-of-reasoner-models-scaling-test-time-compute-33e3) 
 
-[^8]:  AI Explained. AGI: (gets close), Humans: 'Who Gets to Own it?'. [https://youtu.be/oUtbRMatq7s?si=afotrzgSisbw6Uuy](https://youtu.be/oUtbRMatq7s?si=afotrzgSisbw6Uuy).  
-Interessanter X-Post von Andrej Karpathy. [https://x.com/karpathy/status/1883941452738355376](https://x.com/karpathy/status/1883941452738355376) 
+[^8]:  AI Explained. AGI: (gets close), Humans: 'Who Gets to Own it?'. [https://youtu.be/oUtbRMatq7s?si=afotrzgSisbw6Uuy](https://youtu.be/oUtbRMatq7s?si=afotrzgSisbw6Uuy). Interessanter X-Post von Andrej Karpathy. [https://x.com/karpathy/status/1883941452738355376](https://x.com/karpathy/status/1883941452738355376) 
 
 [^9]:  [https://openai.com/index/introducing-deep-research](https://openai.com/index/introducing-deep-research/)
 
