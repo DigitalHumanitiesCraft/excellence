@@ -1,7 +1,38 @@
 # Understanding Large Language Models: A Comprehensive Guide (Comprehensive Narrative Edition)
 *Based on Andrej Karpathy's "[Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI)"*
 
-As we move into 2025, Large Language Models (LLMs) have become a central pillar of modern AI, reimagining everything from customer support chats to creative writing assistants—and even helping with scientific research. They can feel magical, but underneath, they rest on clear, well-defined principles. By looking at how these models are built, how they “see” our text, and how they “think”, we gain not just a technical understanding, but also practical strategies for using them responsibly.
+> As we move into 2025, Large Language Models (LLMs) have become a central pillar of modern AI, reimagining everything from customer support chats to creative writing assistants—and even helping with scientific research. > They can feel magical, but underneath, they rest on clear, well-defined principles. By looking at how these models are built, how they “see” our text, and how they “think”, we gain not just a technical understanding, but also practical strategies for using them responsibly.
+
+---
+
+# Table of Contents
+
+1. [Foundations: What Exactly Is an LLM?](#foundations-what-exactly-is-an-llm)  
+2. [Tokenization: How Text Becomes Model-Readable](#tokenization-how-text-becomes-model-readable)  
+3. [The Three-Stage Journey: Pre-training, SFT, and Reinforcement Learning](#the-three-stage-journey-pre-training-sft-and-reinforcement-learning)  
+   - 3.1 [Pre-training: Consuming the Internet](#31-pre-training-consuming-the-internet)  
+   - 3.2 [Supervised Fine-tuning (SFT): Learning by Example](#32-supervised-fine-tuning-sft-learning-by-example)  
+   - 3.3 [Reinforcement Learning: Polishing Reasoning Skills](#33-reinforcement-learning-polishing-reasoning-skills)  
+4. [Inside an LLM’s “Mind”: Context Windows & Cognitive Quirks](#inside-an-llms-mind-context-windows--cognitive-quirks)  
+   - 4.1 [The Context Window as Working Memory](#41-the-context-window-as-working-memory)  
+   - 4.2 [“Swiss Cheese” Gaps: Surprising Failures](#42-swiss-cheese-gaps-surprising-failures)  
+   - 4.3 [Base Models vs. Instruct Models vs. “Thinking” Models](#43-base-models-vs-instruct-models-vs-thinking-models)  
+5. [A Concrete Example: Emily’s Apples and Oranges](#a-concrete-example-emilys-apples-and-oranges)  
+6. [Behind the Scenes: Infrastructure, GPUs, and a Gold Rush](#behind-the-scenes-infrastructure-gpus-and-a-gold-rush)  
+7. [Commercial vs. Open Weights: Choosing a Model](#commercial-vs-open-weights-choosing-a-model)  
+   - 7.1 [Commercial Leaders](#71-commercial-leaders)  
+   - 7.2 [Open Weights Movement](#72-open-weights-movement)  
+   - 7.3 [Local Deployment](#73-local-deployment)  
+8. [Good Practices and Pitfalls](#good-practices-and-pitfalls)  
+   - 8.1 [Matching the Model to the Task](#81-matching-the-model-to-the-task)  
+   - 8.2 [The “Swiss Cheese” Problem](#82-the-swiss-cheese-problem)  
+   - 8.3 [Unverifiable RL: Gaming the Reward](#83-unverifiable-rl-gaming-the-reward)  
+9. [Where LLMs Are Headed](#where-llms-are-headed)  
+   - 9.1 [Multimodality](#91-multimodality)  
+   - 9.2 [Extended Context and True Agency](#92-extended-context-and-true-agency)  
+   - 9.3 [Continued Democratization](#93-continued-democratization)  
+10. [Conclusion: The Power and the Pitfalls](#conclusion-the-power-and-the-pitfalls)
+
 
 ---
 
