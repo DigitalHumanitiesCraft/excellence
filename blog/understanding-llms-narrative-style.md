@@ -158,13 +158,14 @@ Suppose you ask:
    - A quick completion: “\$3.”  
    - Works here by luck, but might fail if numbers change or if the arithmetic is more involved.
 
-2. **Chain-of-Thought (Thinking) Approach**  
-   ```
-   1. Cost of 2 oranges = 2 x $2 = $4
-   2. Remainder for apples = $13 - $4 = $9
-   3. Each apple costs $9 / 3 = $3
-   4. Verification: 3 * 3 + 2 * 2 = $13 ✓
-   ```
+2. **Chain-of-Thought (Thinking) Approach** 
+ 
+    ```
+       1. Cost of 2 oranges = 2 x $2 = $4
+       2. Remainder for apples = $13 - $4 = $9
+       3. Each apple costs $9 / 3 = $3
+       4. Verification: 3 * 3 + 2 * 2 = $13 ✓
+    ``` 
    
    By distributing reasoning across multiple tokens, the model avoids errors from cramming all logic into one step.
 
