@@ -1,5 +1,5 @@
 # Understanding Large Language Models (LLMs)
-*Based on Andrej Karpathy's "Deep Dive into LLMs like ChatGPT"*
+*Based on Andrej Karpathy's "[Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI)"*
 
 > **Abstract:** This comprehensive guide provides an in-depth exploration of Large Language Models (LLMs) as of early 2025, covering their fundamental architecture, development pipeline, cognitive characteristics, and practical applications. The document begins with core concepts, explaining token-based processing, neural foundations, and the evolution of LLM technology. It then details the three-stage development pipeline: pre-training on internet-scale datasets, supervised fine-tuning for assistant capabilities, and reinforcement learning for enhanced reasoning abilities.
 >
