@@ -1,6 +1,14 @@
 # Understanding Large Language Models (LLMs)
 *Based on Andrej Karpathy's "Deep Dive into LLMs like ChatGPT"*
 
+> **Abstract:** This comprehensive guide provides an in-depth exploration of Large Language Models (LLMs) as of early 2025, covering their fundamental architecture, development pipeline, cognitive characteristics, and practical applications. The document begins with core concepts, explaining token-based processing, neural foundations, and the evolution of LLM technology. It then details the three-stage development pipeline: pre-training on internet-scale datasets, supervised fine-tuning for assistant capabilities, and reinforcement learning for enhanced reasoning abilities.
+>
+> The guide introduces the novel "Swiss cheese" model of LLM capabilities, analyzing their unique cognitive architecture, behavioral patterns, and limitations. Technical implementation aspects are thoroughly covered, including infrastructure requirements, model engineering practices, and optimization techniques. Special attention is given to emerging capabilities such as thinking models and tool use, along with detailed deployment strategies for both cloud and local installations.
+>
+> The document concludes with practical applications, examining current market dynamics, implementation strategies, and future directions. It incorporates recent developments through early 2025, including the rise of open-weights models, advances in reasoning capabilities, and the emergence of multimodal systems. This guide serves as a comprehensive resource for developers, researchers, and practitioners working with state-of-the-art language models.
+>
+> *Keywords: Large Language Models, Natural Language Processing, Machine Learning, Artificial Intelligence, Neural Networks, Reinforcement Learning, Model Development, AI Systems*
+
 ## Table of Contents
 
 ### I. Core Concepts & Foundations
