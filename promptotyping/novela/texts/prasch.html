@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johann Ludwig Prasch: Psyche Cretica - NOVELA Project</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/novela-custom.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <!-- Alpheios embedding CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alpheios-embedded@latest/dist/style/style.min.css"/>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">NOVELA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="textsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Texts
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="textsDropdown">
+                            <li><a class="dropdown-item active" href="prasch.html">Johann Ludwig Prasch</a></li>
+                            <li><a class="dropdown-item" href="holberg.html">Ludvig Holberg</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-muted" href="#">More texts coming soon</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="analysisDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Analysis
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="analysisDropdown">
+                            <li><a class="dropdown-item" href="../visualizations/speech-analysis.html">Speech Representation</a></li>
+                            <li><a class="dropdown-item" href="../visualizations/narrative-structure.html">Narrative Structure</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about.html">About</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search texts" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Text Header -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h1>Psyche Cretica</h1>
+                <h2 class="h4 mb-3">Johann Ludwig Prasch</h2>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <span class="badge bg-secondary me-2">Latin Novel</span>
+                        <span class="badge bg-secondary me-2">17th Century</span>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary" id="toggleTranslation">Hide Translation</button>
+                        <button type="button" class="btn btn-outline-primary" id="toggleNotes">Show Notes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text Controls -->
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Text Analysis Tools</h3>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="highlightEntities">
+                                <label class="form-check-label" for="highlightEntities">Highlight Named Entities</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="highlightSpeech">
+                                <label class="form-check-label" for="highlightSpeech">Highlight Speech Types</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="enableAlpheios" checked>
+                                <label class="form-check-label" for="enableAlpheios">Enable Alpheios Tools</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Text Content -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="text-content">
+                    <div class="row g-0">
+                        <!-- Latin Text Column -->
+                        <div class="col-lg-6 latin-text" id="latinText">
+                            <div class="p-3 text-column">
+                                <p data-paragraph-id="p1">
+                                    <span data-sentence-id="s1" class="sentence">Quo tempore Graecia, a barbaris incolumis et Romani quoque expers iugi, virtutum artiumque exemplis felicissime florebat, princeps quidam Atheniensium, Theophrastus nomine, vix orta luce venatum exiit.<span class="footnote-ref" data-footnote-id="1">1</span></span>
+                                    <span data-sentence-id="s2" class="sentence">Praecesserant catuli, Sparta nuper atque Creta missi, et impositae famulorum cervicibus Cumaeae<span class="footnote-ref" data-footnote-id="2">2</span> plagae.</span>
+                                    <span data-sentence-id="s3" class="sentence">Ipse volucri subsequens equo, crispat manu venabulum interque comites maiestate non minus oris quam corporis mole eminet et, quamvis senio provectior, gaudet nemorum viriditati robustam inferre canitiem.</span>
+                                    <span data-sentence-id="s4" class="sentence">Quo magis fidem inveniebat, quod a Nestore genus ducere maternum ferebatur.</span>
+                                </p>
+                                <p data-paragraph-id="p2">
+                                    <span data-sentence-id="s5" class="sentence">Iamque sylvam penetraverant, cum ex nemore vicino bubulci quidam fistula cantillantes, pecus eo propellunt.</span>
+                                    <span data-sentence-id="s6" class="sentence">Quibus conspectis, heros venator appropinquat, et num quam feram nuper vidissent, interrogat.</span>
+                                    <span data-sentence-id="s7" class="sentence">Cui subulcorum maximus natu: <span data-speech-type="direct">"Vidimus omnino, domine, sed inusitatam nobis, et nescio an tibi quoque."</span></span>
+                                    <span data-sentence-id="s8" class="sentence"><span data-speech-type="indirect">Rogatus, ut explicaret</span>, <span data-speech-type="direct">"Leonem," inquit, "videramus cum leone committi, et, quo miraculum augeatur, faemella erat: sed victor quis fuerit, pro certo affirmare non possum. Tam cito enim ambo nostros refugere conspectus, ut nec oculis prospicere, nec auribus sequi potuerimus."</span></span>
+                                </p>
+                                <p data-paragraph-id="p3">
+                                    <span data-sentence-id="s9" class="sentence">Theophrastus, his auditis, ad certamen ferarum properare, praesertim insoliti generis, festinat, vixque hoc erat affatus, cum magno strepitu canes non procul irruerent.</span>
+                                    <span data-sentence-id="s10" class="sentence">Concitatiore cursu illuc evehitur, ubi caninis latratibus sylva personabat; ac mox in conspectu terribile monstrum observat, non bestiam quidem, sed homine audacius quid, ac quasi supra hominem.</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- English Translation Column -->
+                        <div class="col-lg-6 english-text" id="englishText">
+                            <div class="p-3 text-column">
+                                <p data-paragraph-id="p1">
+                                    <span data-sentence-id="s1" class="sentence">At a time when Greece, safe from barbarians and also free from the Roman yoke, was flourishing most happily with examples of virtues and arts, a certain leader of the Athenians, named Theophrastus, went out hunting at barely the break of dawn.</span>
+                                    <span data-sentence-id="s2" class="sentence">The hunting dogs had gone ahead, recently sent from Sparta and Crete, and the Cumaean hunting nets were placed on the shoulders of the servants.</span>
+                                    <span data-sentence-id="s3" class="sentence">Following on a swift horse, he brandishes a hunting spear in his hand and stands out among his companions no less in the majesty of his face than in the bulk of his body, and, although rather advanced in age, he delights in bringing his robust old age into the greenery of the forests.</span>
+                                    <span data-sentence-id="s4" class="sentence">This seemed all the more credible because he was said to trace his maternal lineage from Nestor.</span>
+                                </p>
+                                <p data-paragraph-id="p2">
+                                    <span data-sentence-id="s5" class="sentence">And now they had penetrated the forest, when from a nearby grove some herdsmen, playing tunes on their pipes, drove their cattle there.</span>
+                                    <span data-sentence-id="s6" class="sentence">Seeing them, the hero hunter approaches and asks if they had recently seen any wild beast.</span>
+                                    <span data-sentence-id="s7" class="sentence">To him the oldest of the swineherds replied: "We have indeed seen one, lord, but it was unusual to us, and I don't know if it would be to you as well."</span>
+                                    <span data-sentence-id="s8" class="sentence">Asked to explain, he said, "We saw a lion fighting with a lion, and, to make the marvel greater, one was a female: but which was the victor, I cannot say for certain. For they both fled from our sight so quickly that we could neither see ahead with our eyes nor follow with our ears."</span>
+                                </p>
+                                <p data-paragraph-id="p3">
+                                    <span data-sentence-id="s9" class="sentence">Theophrastus, having heard this, hastens to hurry to the battle of the beasts, especially of an unusual kind, and he had barely spoken when the dogs rushed in with a great noise not far away.</span>
+                                    <span data-sentence-id="s10" class="sentence">He is carried there by a more rapid course, where the forest resounded with canine barks; and soon he observes a terrible monster in view, not a beast indeed, but something more daring than a human, and as if above human.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footnotes Section (Hidden by Default) -->
+    <div class="container mb-5 d-none" id="footnotesSection">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="h5 mb-0">Notes</h3>
+                    </div>
+                    <div class="card-body">
+                        <ol class="footnotes-list">
+                            <li id="footnote-1" class="footnote">
+                                <p>The beginning of the story evokes classical epic, where the hero is introduced with his lineage and noble qualities.</p>
+                            </li>
+                            <li id="footnote-2" class="footnote">
+                                <p>Cumae was a Greek colony in southern Italy, known for various crafts. The reference to "Cumaean nets" suggests high-quality hunting equipment.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast container for footnotes -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>NOVELA Project</h5>
+                    <p>
+                        Digital Edition of Latin Novels from the 17th and 18th Centuries
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">Home</a></li>
+                        <li><a href="prasch.html" class="text-white">Texts</a></li>
+                        <li><a href="../visualizations/speech-analysis.html" class="text-white">Analysis</a></li>
+                        <li><a href="../about.html" class="text-white">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://alpheios.net" class="text-white" target="_blank">Alpheios Tools</a></li>
+                        <li><a href="https://tei-c.org" class="text-white" target="_blank">TEI Guidelines</a></li>
+                        <li><a href="https://github.com/your-username/novela-project" class="text-white" target="_blank">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col text-center">
+                    <p class="mb-0">&copy; 2025 NOVELA Project. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Alpheios Embedded Library -->
+    <script src="https://cdn.jsdelivr.net/npm/alpheios-embedded@latest/dist/alpheios-embedded.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="../js/novela-core.js"></script>
+    <script src="../js/novela-highlighting.js"></script>
+    
+    <!-- Alpheios Activation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize Alpheios
+            window.AlpheiosEmbed.importDependencies({
+                mode: 'custom',
+                clientId: 'novela-project'
+            }).then(embedLib => {
+                window.alpheiosInstance = embedLib;
+                
+                // Activate Alpheios on Latin text
+                if (document.getElementById('enableAlpheios').checked) {
+                    embedLib.activate({
+                        selector: '.latin-text',
+                        triggerEvent: 'click',
+                        popupMode: true,
+                        enableMouseMoveInteraction: false
+                    });
+                }
+            }).catch(e => {
+                console.error("Error activating Alpheios: ", e);
+            });
+            
+            // Handle UI interactions
+            setupTextInteractions();
+        });
+        
+        function setupTextInteractions() {
+            // Sentence highlighting on mouseover
+            document.querySelectorAll('.latin-text .sentence').forEach(sentence => {
+                sentence.addEventListener('mouseover', function() {
+                    const sentenceId = this.getAttribute('data-sentence-id');
+                    highlightCorrespondingSentence(sentenceId);
+                });
+                
+                sentence.addEventListener('mouseout', function() {
+                    const sentenceId = this.getAttribute('data-sentence-id');
+                    removeHighlightFromSentence(sentenceId);
+                });
+            });
+            
+            document.querySelectorAll('.english-text .sentence').forEach(sentence => {
+                sentence.addEventListener('mouseover', function() {
+                    const sentenceId = this.getAttribute('data-sentence-id');
+                    highlightCorrespondingSentence(sentenceId);
+                });
+                
+                sentence.addEventListener('mouseout', function() {
+                    const sentenceId = this.getAttribute('data-sentence-id');
+                    removeHighlightFromSentence(sentenceId);
+                });
+            });
+            
+            // Footnote references
+            document.querySelectorAll('.footnote-ref').forEach(ref => {
+                ref.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const footnoteId = this.getAttribute('data-footnote-id');
+                    showFootnote(footnoteId);
+                });
+            });
+            
+            // Toggle translation visibility
+            document.getElementById('toggleTranslation').addEventListener('click', function() {
+                const englishText = document.getElementById('englishText');
+                const isHidden = englishText.classList.contains('d-none');
+                
+                if (isHidden) {
+                    englishText.classList.remove('d-none');
+                    this.textContent = 'Hide Translation';
+                    document.getElementById('latinText').classList.remove('col-lg-12');
+                    document.getElementById('latinText').classList.add('col-lg-6');
+                } else {
+                    englishText.classList.add('d-none');
+                    this.textContent = 'Show Translation';
+                    document.getElementById('latinText').classList.remove('col-lg-6');
+                    document.getElementById('latinText').classList.add('col-lg-12');
+                }
+            });
+            
+            // Toggle footnotes section
+            document.getElementById('toggleNotes').addEventListener('click', function() {
+                const notesSection = document.getElementById('footnotesSection');
+                const isHidden = notesSection.classList.contains('d-none');
+                
+                if (isHidden) {
+                    notesSection.classList.remove('d-none');
+                    this.textContent = 'Hide Notes';
+                } else {
+                    notesSection.classList.add('d-none');
+                    this.textContent = 'Show Notes';
+                }
+            });
+            
+            // Toggle entity highlighting
+            document.getElementById('highlightEntities').addEventListener('change', function() {
+                if (this.checked) {
+                    document.querySelectorAll('[data-entity-type]').forEach(entity => {
+                        entity.classList.add('entity-highlight');
+                    });
+                } else {
+                    document.querySelectorAll('[data-entity-type]').forEach(entity => {
+                        entity.classList.remove('entity-highlight');
+                    });
+                }
+            });
+            
+            // Toggle speech highlighting
+            document.getElementById('highlightSpeech').addEventListener('change', function() {
+                if (this.checked) {
+                    document.querySelectorAll('[data-speech-type]').forEach(speech => {
+                        speech.classList.add('speech-highlight');
+                        // Add specific class based on speech type
+                        const speechType = speech.getAttribute('data-speech-type');
+                        speech.classList.add(`speech-${speechType}`);
+                    });
+                } else {
+                    document.querySelectorAll('[data-speech-type]').forEach(speech => {
+                        speech.classList.remove('speech-highlight');
+                        // Remove specific classes
+                        speech.classList.remove('speech-direct', 'speech-indirect', 'speech-free-indirect');
+                    });
+                }
+            });
+            
+            // Toggle Alpheios
+            document.getElementById('enableAlpheios').addEventListener('change', function() {
+                if (this.checked) {
+                    if (window.alpheiosInstance) {
+                        window.alpheiosInstance.activate({
+                            selector: '.latin-text',
+                            triggerEvent: 'click',
+                            popupMode: true,
+                            enableMouseMoveInteraction: false
+                        });
+                    }
+                } else {
+                    if (window.alpheiosInstance) {
+                        window.alpheiosInstance.deactivate();
+                    }
+                }
+            });
+        }
+        
+        function highlightCorrespondingSentence(sentenceId) {
+            document.querySelectorAll(`[data-sentence-id="${sentenceId}"]`).forEach(element => {
+                element.classList.add('highlighted');
+            });
+        }
+        
+        function removeHighlightFromSentence(sentenceId) {
+            document.querySelectorAll(`[data-sentence-id="${sentenceId}"]`).forEach(element => {
+                element.classList.remove('highlighted');
+            });
+        }
+        
+        function showFootnote(id) {
+            const footnote = document.getElementById(`footnote-${id}`);
+            if (!footnote) return;
+            
+            // Create Bootstrap toast for footnote
+            const toastEl = document.createElement('div');
+            toastEl.className = 'toast';
+            toastEl.setAttribute('role', 'alert');
+            toastEl.setAttribute('aria-live', 'assertive');
+            toastEl.setAttribute('aria-atomic', 'true');
+            
+            toastEl.innerHTML = `
+                <div class="toast-header">
+                    <strong class="me-auto">Note ${id}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    ${footnote.innerHTML}
+                </div>
+            `;
+            
+            document.querySelector('.toast-container').appendChild(toastEl);
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+            
+            // Remove toast element after it's hidden
+            toastEl.addEventListener('hidden.bs.toast', function() {
+                toastEl.remove();
+            });
+        }
+    </script>
+    </body>
+    </html>

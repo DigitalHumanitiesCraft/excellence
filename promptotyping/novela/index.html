@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVELA - Novels in Latin</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/novela-custom.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">NOVELA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="textsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Texts
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="textsDropdown">
+                            <li><a class="dropdown-item" href="texts/prasch.html">Johann Ludwig Prasch</a></li>
+                            <li><a class="dropdown-item" href="texts/holberg.html">Ludvig Holberg</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-muted" href="#">More texts coming soon</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="analysisDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Analysis
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="analysisDropdown">
+                            <li><a class="dropdown-item" href="visualizations/speech-analysis.html">Speech Representation</a></li>
+                            <li><a class="dropdown-item" href="visualizations/narrative-structure.html">Narrative Structure</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search texts" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid hero-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold">NOVELA Project</h1>
+                    <h2 class="h3 mb-4">Novels in Latin: Digital Edition</h2>
+                    <p class="lead">
+                        An innovative digital platform for the exploration of 24 Latin novels from the 17th and 18th centuries.
+                    </p>
+                    <div class="mt-4">
+                        <a href="texts/prasch.html" class="btn btn-primary btn-lg me-2">Start Reading</a>
+                        <a href="about.html" class="btn btn-outline-secondary btn-lg">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <img src="img/book-illustration.svg" alt="Decorative book illustration" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Texts Section -->
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Featured Texts</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Johann Ludwig Prasch</h3>
+                        <h4 class="card-subtitle mb-2 text-muted">Psyche Cretica</h4>
+                        <p class="card-text">
+                            A shorter Latin novel that tells the story of Psyche in a Cretan setting. The work incorporates elements of classical mythology with innovative narrative techniques.
+                        </p>
+                        <a href="texts/prasch.html" class="btn btn-primary">Read Text</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Ludvig Holberg</h3>
+                        <h4 class="card-subtitle mb-2 text-muted">Nicolai Klimii iter subterraneum</h4>
+                        <p class="card-text">
+                            A longer satirical novel that follows the journey of Nicolaus Klim into a subterranean world. The work is noted for its social critique and philosophical elements.
+                        </p>
+                        <a href="texts/holberg.html" class="btn btn-primary">Read Text</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Description -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-center mb-4">About the Project</h2>
+                <p>
+                    The NOVELA ("Novels in Latin") project aims to create a comprehensive digital edition of 24 Latin novels from the 17th and 18th centuries. This digital platform goes beyond traditional editions by offering innovative ways to explore, analyze, and understand these important literary works.
+                </p>
+                <p>
+                    Our approach emphasizes both philological accuracy and digital innovation, providing scholars, students, and general readers with powerful tools for textual exploration. The platform offers parallel Latin-English reading, linguistic analysis through Alpheios integration, and advanced visualization of narrative structures.
+                </p>
+                <p>
+                    Through the use of TEI/XML encoding and Linked Open Data principles, we aim to make these texts not only readable but also analyzable and reusable for diverse scholarly purposes.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container-fluid bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Features</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                                </svg>
+                            </div>
+                            <h3>Parallel Text Display</h3>
+                            <p>
+                                Read Latin texts with modern English translations in parallel, with synchronized highlighting for easy comparison.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
+                                    <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/>
+                                    <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.059c.285.784.75 1.543 1.343 2.208-.506.064-1.071.358-1.525.638-.25-.65-.437-1.284-.52-1.91h-.548c-.11.585-.35 1.187-.635 1.745-.635-.488-1.266-1.016-1.623-1.745H4.689c-.11.585-.299 1.178-.635 1.745-.46-.373-.749-.914-.902-1.745h-.548c-.084.626-.247 1.226-.458 1.747-.464-.289-1.06-.644-1.56-.696.591-.651 1.031-1.409 1.311-2.194h-1.61V8h3v-.039c-.285-.785-.75-1.551-1.343-2.216.508-.064 1.096-.355 1.55-.636.368.978.906 1.858 1.618 2.634.506-.4.956-.861 1.325-1.393C5.572 6.008 5.219 5.658 5 5.5c.218-.195.625-.452.756-.5.246.247.435.525.558.843.242-.249.513-.486.85-.695-.225-.316-.43-.62-.618-.927h2.461c-.197.314-.45.645-.688.953.422.234.956.457 1.347.558-.259-.312-.56-.649-.749-.999h2.133l-.147-.5h-1.851c-.148.416-.324.804-.519 1.154-.289-.18-.603-.358-.96-.497v-.013h-.001c.235-.563.38-1.155.38-1.644 0-.324-.103-.697-.257-.995C9.73 1.921 10.602 2 11.5 2a1.5 1.5 0 0 1 1.5 1.5A1.5 1.5 0 0 1 11.5 5c-.517 0-.98-.187-1.342-.435.248.435.442.95.489 1.435H11.5c.212 0 .416-.028.6-.08v-.015c-.287-.054-.705-.22-.963-.445.128-.132.247-.294.34-.477l.834.157c.134.358.191.69.191.964 0 .308-.096.705-.254 1.068-.123-.312-.304-.647-.426-.88-.376.212-.98.517-1.155.694.16.384.319.772.468 1.142.61-.138 1.139-.477 1.407-.895a.5.5 0 1 1 .858.514C13.024 8.733 11.5 9.5 9 9.5a.5.5 0 0 1 0-1c1.116 0 2.326-.31 3.184-.789-.149-.527-.316-1.051-.535-1.57C11.04 6.45 10.076 6.9 9 7l.002-.001z"/>
+                                </svg>
+                            </div>
+                            <h3>Linguistic Analysis</h3>
+                            <p>
+                                Explore Latin vocabulary with integrated Alpheios tools for dictionary lookup and morphological analysis of any word.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"/>
+                                </svg>
+                            </div>
+                            <h3>Narrative Analysis</h3>
+                            <p>
+                                Visualize speech patterns, narrative structures, and thematic elements with interactive charts and text highlighting.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4">Join the NOVELA Project</h2>
+                <p class="lead">
+                    Explore the rich world of Latin novels from the 17th and 18th centuries. Start reading today or learn more about our digital humanities approach.
+                </p>
+                <div class="mt-4">
+                    <a href="texts/prasch.html" class="btn btn-primary btn-lg me-2">Start Reading</a>
+                    <a href="about.html" class="btn btn-outline-secondary btn-lg">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>NOVELA Project</h5>
+                    <p>
+                        Digital Edition of Latin Novels from the 17th and 18th Centuries
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="texts/prasch.html" class="text-white">Texts</a></li>
+                        <li><a href="visualizations/speech-analysis.html" class="text-white">Analysis</a></li>
+                        <li><a href="about.html" class="text-white">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://alpheios.net" class="text-white" target="_blank">Alpheios Tools</a></li>
+                        <li><a href="https://tei-c.org" class="text-white" target="_blank">TEI Guidelines</a></li>
+                        <li><a href="https://github.com/your-username/novela-project" class="text-white" target="_blank">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col text-center">
+                    <p class="mb-0">&copy; 2025 NOVELA Project. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast container for footnotes -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/novela-core.js"></script>
+</body>
+</html>
