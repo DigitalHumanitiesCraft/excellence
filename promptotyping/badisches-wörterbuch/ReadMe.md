@@ -1,6 +1,6 @@
-# Badisches Wörterbuch Online
+> Claude Chat: https://claude.ai/share/43c48ad0-9f41-499d-9eca-9585d6348f2f
 
-![Badisches Wörterbuch](https://via.placeholder.com/800x200?text=Badisches+W%C3%B6rterbuch+Online)
+# Badisches Wörterbuch Online
 
 A client-side web application for browsing the Badisches Wörterbuch (Dictionary of Baden Dialects) with advanced search capabilities and a responsive user interface.
 
