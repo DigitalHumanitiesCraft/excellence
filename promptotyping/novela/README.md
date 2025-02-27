@@ -1,3 +1,6 @@
+> Live at https://dhcraft.org/excellence/promptotyping/novela/
+> Prompting: https://claude.ai/share/818ec81a-248f-4565-97fa-ab70148b9640
+
 # NOVELA Project
 
 NOVELA (Novels in Latin) is a digital edition platform for the exploration of Latin novels from the 17th and 18th centuries. This project provides an interactive web-based environment for reading, analyzing, and visualizing these important literary works.
