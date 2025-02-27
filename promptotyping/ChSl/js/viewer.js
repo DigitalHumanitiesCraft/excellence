@@ -5,6 +5,7 @@
 
 import { calculateBoundingBox } from './parser.js';
 import { applyAnnotations } from './annotations.js';
+import { clearSearchHighlights } from './search.js';
 
 // State variables
 let currentImage = null;
@@ -15,6 +16,11 @@ let isDragging = false;
 let lastMouseX = 0;
 let lastMouseY = 0;
 let highlightedLine = null;
+let isScrollingSynced = true;
+let isScrollingTriggeredBySync = false;
+let linePositionMap = new Map();
+let zoomLevel = 1.0;
+let panOffset = { x: 0, y: 0 };
 
 /**
  * Initialize the document viewer
@@ -35,26 +41,14 @@ function initViewer() {
     docContainer.addEventListener('mouseup', endDrag);
     docContainer.addEventListener('mouseleave', endDrag);
     
-    // Set up line highlighting on hover
-    const transcriptionContainer = document.getElementById('transcription-container');
-    transcriptionContainer.addEventListener('mouseover', (event) => {
-        if (event.target.classList.contains('transcription-line')) {
-            highlightLine(event.target.dataset.lineId);
-        }
-    });
+    // Add mouse wheel zoom support
+    docContainer.addEventListener('wheel', handleWheel, { passive: false });
     
-    transcriptionContainer.addEventListener('mouseout', (event) => {
-        if (event.target.classList.contains('transcription-line')) {
-            unhighlightLine();
-        }
-    });
+    // Set up synchronization between views
+    setupViewSynchronization();
     
-    // Handle clicks on transcription lines to scroll to corresponding image area
-    transcriptionContainer.addEventListener('click', (event) => {
-        if (event.target.classList.contains('transcription-line')) {
-            scrollToLine(event.target.dataset.lineId);
-        }
-    });
+    // Add toggle button for synchronization
+    createSyncToggleButton();
 }
 
 /**
@@ -65,9 +59,22 @@ function initViewer() {
  * @return {Promise} Promise that resolves when the document is loaded
  */
 async function loadDocument(imageUrl, docData, annotations = null) {
+    // Reset view state
+    currentScale = 1.0;
+    panOffset = { x: 0, y: 0 };
+    highlightedLine = null;
+    linePositionMap.clear();
+    
     // Store the current document data
     currentData = docData;
     currentAnnotations = annotations;
+    
+    // Clear any existing content
+    document.getElementById('highlight-overlay').innerHTML = '';
+    document.getElementById('transcription-container').innerHTML = '';
+    
+    // Clear any search highlights
+    clearSearchHighlights();
     
     // Load the document image
     return new Promise((resolve, reject) => {
@@ -77,7 +84,6 @@ async function loadDocument(imageUrl, docData, annotations = null) {
             currentImage = docImage;
             
             // Reset view
-            currentScale = 1.0;
             docImage.style.transform = `scale(${currentScale})`;
             
             // Render the document components
@@ -90,7 +96,15 @@ async function loadDocument(imageUrl, docData, annotations = null) {
             }
             
             // Reset page navigation
-            updatePageNavigation(1, 1); // For now assuming single page
+            const totalPages = docData.metadata.totalPages || 1;
+            const currentPage = docData.metadata.currentPage || 1;
+            updatePageNavigation(currentPage, totalPages);
+            
+            // Build the position map for synchronized scrolling
+            buildLinePositionMap(docData);
+            
+            // Initial fit to width for better viewing
+            setTimeout(fitToWidth, 100);
             
             resolve();
         };
@@ -126,7 +140,21 @@ function renderTranscription(docData) {
             const lineElem = document.createElement('div');
             lineElem.className = 'transcription-line';
             lineElem.dataset.lineId = line.id;
-            lineElem.textContent = line.text;
+            lineElem.textContent = line.text || '';
+            
+            // Add line coordinates as data attributes for better integration
+            if (line.coordinates && line.coordinates.length > 0) {
+                const bbox = calculateBoundingBox(line.coordinates);
+                lineElem.dataset.x = bbox.x;
+                lineElem.dataset.y = bbox.y;
+                lineElem.dataset.width = bbox.width;
+                lineElem.dataset.height = bbox.height;
+            }
+            
+            // Add event listeners for interaction
+            lineElem.addEventListener('mouseover', () => highlightLine(line.id));
+            lineElem.addEventListener('mouseout', unhighlightLine);
+            lineElem.addEventListener('click', () => scrollToLine(line.id));
             
             regionElem.appendChild(lineElem);
         });
@@ -147,7 +175,7 @@ function createHighlightOverlay(docData) {
     docData.textRegions.forEach(region => {
         // Create the region highlight element
         const regionHighlight = document.createElement('div');
-        regionHighlight.className = 'text-region-highlight';
+        regionHighlight.className = 'text-region-highlight region';
         regionHighlight.dataset.regionId = region.id;
         regionHighlight.style.display = 'none'; // Hide by default
         
@@ -164,9 +192,14 @@ function createHighlightOverlay(docData) {
         region.lines.forEach(line => {
             // Create the line highlight element
             const lineHighlight = document.createElement('div');
-            lineHighlight.className = 'text-region-highlight';
+            lineHighlight.className = 'text-region-highlight line';
             lineHighlight.dataset.lineId = line.id;
             lineHighlight.style.display = 'none'; // Hide by default
+            
+            // Add event listeners for interaction
+            lineHighlight.addEventListener('mouseover', () => highlightLine(line.id));
+            lineHighlight.addEventListener('mouseout', unhighlightLine);
+            lineHighlight.addEventListener('click', () => scrollToTranscriptionLine(line.id));
             
             // Position the highlight based on coordinates
             const lineBbox = calculateBoundingBox(line.coordinates);
@@ -178,6 +211,191 @@ function createHighlightOverlay(docData) {
             overlayContainer.appendChild(lineHighlight);
         });
     });
+}
+
+/**
+ * Build a map of line positions for synchronization
+ * @param {object} docData - Parsed document data
+ */
+function buildLinePositionMap(docData) {
+    linePositionMap.clear();
+    
+    // Process all text regions
+    docData.textRegions.forEach(region => {
+        region.lines.forEach(line => {
+            const lineBbox = calculateBoundingBox(line.coordinates);
+            
+            // Store the position of this line in the image
+            linePositionMap.set(line.id, {
+                imagePos: {
+                    x: lineBbox.x,
+                    y: lineBbox.y,
+                    width: lineBbox.width,
+                    height: lineBbox.height
+                },
+                // We'll add transcription position later
+                transcriptionPos: null
+            });
+        });
+    });
+    
+    // Now map transcription positions
+    document.querySelectorAll('.transcription-line').forEach(lineElem => {
+        const lineId = lineElem.dataset.lineId;
+        if (linePositionMap.has(lineId)) {
+            const rect = lineElem.getBoundingClientRect();
+            const containerRect = document.getElementById('transcription-container').getBoundingClientRect();
+            
+            linePositionMap.get(lineId).transcriptionPos = {
+                top: lineElem.offsetTop,
+                height: lineElem.offsetHeight,
+                element: lineElem
+            };
+        }
+    });
+}
+
+/**
+ * Set up synchronization between document view and transcription
+ */
+function setupViewSynchronization() {
+    const docContainer = document.getElementById('document-container');
+    const transcriptionContainer = document.getElementById('transcription-container');
+    
+    // Sync scrolling from document to transcription
+    docContainer.addEventListener('scroll', () => {
+        if (!isScrollingSynced || isScrollingTriggeredBySync) return;
+        
+        isScrollingTriggeredBySync = true;
+        
+        // Find the line closest to the center of the viewport
+        const centerX = docContainer.scrollLeft + docContainer.clientWidth / 2;
+        const centerY = docContainer.scrollTop + docContainer.clientHeight / 2;
+        
+        let closestLine = null;
+        let closestDistance = Infinity;
+        
+        // Iterate through all line positions
+        for (const [lineId, positions] of linePositionMap.entries()) {
+            const imgPos = positions.imagePos;
+            if (!imgPos) continue;
+            
+            // Calculate the center of this line
+            const lineCenter = {
+                x: imgPos.x + imgPos.width / 2,
+                y: imgPos.y + imgPos.height / 2
+            };
+            
+            // Calculate distance to viewport center
+            const distance = Math.sqrt(
+                Math.pow(lineCenter.x - centerX, 2) + 
+                Math.pow(lineCenter.y - centerY, 2)
+            );
+            
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestLine = lineId;
+            }
+        }
+        
+        // Scroll to the closest line in the transcription
+        if (closestLine && linePositionMap.has(closestLine)) {
+            const transcPos = linePositionMap.get(closestLine).transcriptionPos;
+            if (transcPos) {
+                transcriptionContainer.scrollTop = transcPos.top - transcriptionContainer.clientHeight / 2 + transcPos.height / 2;
+            }
+        }
+        
+        setTimeout(() => {
+            isScrollingTriggeredBySync = false;
+        }, 100);
+    });
+    
+    // Sync scrolling from transcription to document
+    transcriptionContainer.addEventListener('scroll', () => {
+        if (!isScrollingSynced || isScrollingTriggeredBySync) return;
+        
+        isScrollingTriggeredBySync = true;
+        
+        // Find the line closest to the center of the viewport
+        const centerY = transcriptionContainer.scrollTop + transcriptionContainer.clientHeight / 2;
+        
+        let closestLine = null;
+        let closestDistance = Infinity;
+        
+        // Iterate through all line positions
+        for (const [lineId, positions] of linePositionMap.entries()) {
+            const transcPos = positions.transcriptionPos;
+            if (!transcPos) continue;
+            
+            // Calculate the center of this line
+            const lineCenter = transcPos.top + transcPos.height / 2;
+            
+            // Calculate distance to viewport center
+            const distance = Math.abs(lineCenter - centerY);
+            
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestLine = lineId;
+            }
+        }
+        
+        // Scroll to the closest line in the document
+        if (closestLine && linePositionMap.has(closestLine)) {
+            const imgPos = linePositionMap.get(closestLine).imagePos;
+            if (imgPos) {
+                const lineCenter = {
+                    x: imgPos.x + imgPos.width / 2,
+                    y: imgPos.y + imgPos.height / 2
+                };
+                
+                docContainer.scrollLeft = lineCenter.x - docContainer.clientWidth / 2;
+                docContainer.scrollTop = lineCenter.y - docContainer.clientHeight / 2;
+            }
+        }
+        
+        setTimeout(() => {
+            isScrollingTriggeredBySync = false;
+        }, 100);
+    });
+}
+
+/**
+ * Create a toggle button for synchronization
+ */
+function createSyncToggleButton() {
+    // Check if the button already exists
+    if (document.getElementById('sync-toggle')) {
+        return;
+    }
+    
+    // Create the sync toggle button
+    const syncButton = document.createElement('button');
+    syncButton.id = 'sync-toggle';
+    syncButton.className = 'tool-button active';
+    syncButton.title = 'Toggle Synchronization';
+    syncButton.innerHTML = '↔';
+    syncButton.addEventListener('click', toggleSynchronization);
+    
+    // Add it to the tool panel
+    const toolPanel = document.querySelector('.tool-panel');
+    toolPanel.appendChild(syncButton);
+}
+
+/**
+ * Toggle synchronized scrolling
+ */
+function toggleSynchronization() {
+    isScrollingSynced = !isScrollingSynced;
+    const syncButton = document.getElementById('sync-toggle');
+    
+    if (isScrollingSynced) {
+        syncButton.classList.add('active');
+        syncButton.title = 'Disable Synchronization';
+    } else {
+        syncButton.classList.remove('active');
+        syncButton.title = 'Enable Synchronization';
+    }
 }
 
 /**
@@ -198,6 +416,9 @@ function highlightLine(lineId) {
     const lineHighlight = document.querySelector(`.text-region-highlight[data-line-id="${lineId}"]`);
     if (lineHighlight) {
         lineHighlight.style.display = 'block';
+        
+        // Add pulsating animation for better visibility
+        lineHighlight.classList.add('pulsate');
     }
     
     // Store the highlighted line
@@ -220,6 +441,7 @@ function unhighlightLine() {
     const lineHighlights = document.querySelectorAll('.text-region-highlight');
     lineHighlights.forEach(highlight => {
         highlight.style.display = 'none';
+        highlight.classList.remove('pulsate');
     });
     
     highlightedLine = null;
@@ -230,21 +452,46 @@ function unhighlightLine() {
  * @param {string} lineId - ID of the line to scroll to
  */
 function scrollToLine(lineId) {
-    const lineHighlight = document.querySelector(`.text-region-highlight[data-line-id="${lineId}"]`);
-    if (!lineHighlight) return;
+    if (!linePositionMap.has(lineId)) return;
     
-    // Get the line position
-    const lineRect = lineHighlight.getBoundingClientRect();
-    const containerRect = document.getElementById('document-container').getBoundingClientRect();
+    const imgPos = linePositionMap.get(lineId).imagePos;
+    if (!imgPos) return;
     
-    // Calculate the scroll position to center the line
-    const scrollX = lineRect.left + lineRect.width / 2 - containerRect.width / 2;
-    const scrollY = lineRect.top + lineRect.height / 2 - containerRect.height / 2;
+    const docContainer = document.getElementById('document-container');
     
-    // Scroll to the line
-    document.getElementById('document-container').scrollTo({
-        left: scrollX,
-        top: scrollY,
+    // Calculate scroll position to center on the line
+    const scrollLeft = imgPos.x + imgPos.width / 2 - docContainer.clientWidth / 2;
+    const scrollTop = imgPos.y + imgPos.height / 2 - docContainer.clientHeight / 2;
+    
+    // Smooth scroll to the position
+    docContainer.scrollTo({
+        left: scrollLeft,
+        top: scrollTop,
+        behavior: 'smooth'
+    });
+    
+    // Highlight the line
+    highlightLine(lineId);
+}
+
+/**
+ * Scroll to a specific line in the transcription
+ * @param {string} lineId - ID of the line to scroll to
+ */
+function scrollToTranscriptionLine(lineId) {
+    if (!linePositionMap.has(lineId)) return;
+    
+    const transcPos = linePositionMap.get(lineId).transcriptionPos;
+    if (!transcPos) return;
+    
+    const transcriptionContainer = document.getElementById('transcription-container');
+    
+    // Calculate scroll position to center on the line
+    const scrollTop = transcPos.top - transcriptionContainer.clientHeight / 2 + transcPos.height / 2;
+    
+    // Smooth scroll to the position
+    transcriptionContainer.scrollTo({
+        top: scrollTop,
         behavior: 'smooth'
     });
     
@@ -270,16 +517,54 @@ function updatePageNavigation(currentPage, totalPages) {
  * @param {number} delta - Amount to zoom (positive for zoom in, negative for zoom out)
  */
 function zoom(delta) {
+    // Store current view center
+    const docContainer = document.getElementById('document-container');
+    const viewportCenterX = docContainer.scrollLeft + docContainer.clientWidth / 2;
+    const viewportCenterY = docContainer.scrollTop + docContainer.clientHeight / 2;
+    
     // Calculate new scale, with limits
-    const newScale = Math.max(0.2, Math.min(5.0, currentScale + delta));
-    if (newScale === currentScale) return;
+    const oldScale = currentScale;
+    currentScale = Math.max(0.2, Math.min(5.0, currentScale + delta));
+    
+    if (currentScale === oldScale) return;
+    
+    const scaleFactor = currentScale / oldScale;
     
     // Apply the new scale
-    currentScale = newScale;
     document.getElementById('document-image').style.transform = `scale(${currentScale})`;
-    
-    // Adjust the highlight overlay scale
     document.getElementById('highlight-overlay').style.transform = `scale(${currentScale})`;
+    
+    // Adjust scroll to maintain center point
+    const newScrollLeft = viewportCenterX * scaleFactor - docContainer.clientWidth / 2;
+    const newScrollTop = viewportCenterY * scaleFactor - docContainer.clientHeight / 2;
+    
+    docContainer.scrollLeft = newScrollLeft;
+    docContainer.scrollTop = newScrollTop;
+    
+    // Update zoom level indicator if it exists
+    const zoomLevelElem = document.querySelector('.zoom-level');
+    if (zoomLevelElem) {
+        zoomLevelElem.textContent = `${Math.round(currentScale * 100)}%`;
+    } else {
+        // Create zoom indicator if it doesn't exist
+        const newZoomLevel = document.createElement('div');
+        newZoomLevel.className = 'zoom-level';
+        newZoomLevel.textContent = `${Math.round(currentScale * 100)}%`;
+        document.getElementById('document-panel').appendChild(newZoomLevel);
+    }
+}
+
+/**
+ * Handle mouse wheel zoom
+ * @param {Event} event - Wheel event
+ */
+function handleWheel(event) {
+    // Only zoom if Ctrl key is pressed
+    if (event.ctrlKey) {
+        event.preventDefault();
+        const delta = event.deltaY < 0 ? 0.1 : -0.1;
+        zoom(delta);
+    }
 }
 
 /**
@@ -291,9 +576,22 @@ function fitToWidth() {
     const containerWidth = document.getElementById('document-panel').clientWidth;
     const imageWidth = currentImage.naturalWidth;
     
-    currentScale = containerWidth / imageWidth;
+    // Calculate scale to fit width with a small margin
+    currentScale = (containerWidth - 20) / imageWidth;
+    
     document.getElementById('document-image').style.transform = `scale(${currentScale})`;
     document.getElementById('highlight-overlay').style.transform = `scale(${currentScale})`;
+    
+    // Update zoom level indicator
+    const zoomLevelElem = document.querySelector('.zoom-level');
+    if (zoomLevelElem) {
+        zoomLevelElem.textContent = `${Math.round(currentScale * 100)}%`;
+    }
+    
+    // Center the image vertically
+    const docContainer = document.getElementById('document-container');
+    docContainer.scrollLeft = 0;
+    docContainer.scrollTop = 0;
 }
 
 /**
@@ -307,13 +605,25 @@ function fitToPage() {
     const imageWidth = currentImage.naturalWidth;
     const imageHeight = currentImage.naturalHeight;
     
-    const scaleX = containerWidth / imageWidth;
-    const scaleY = containerHeight / imageHeight;
+    const scaleX = (containerWidth - 20) / imageWidth;
+    const scaleY = (containerHeight - 20) / imageHeight;
     
     // Use the smaller scale to ensure the entire image fits
     currentScale = Math.min(scaleX, scaleY);
+    
     document.getElementById('document-image').style.transform = `scale(${currentScale})`;
     document.getElementById('highlight-overlay').style.transform = `scale(${currentScale})`;
+    
+    // Update zoom level indicator
+    const zoomLevelElem = document.querySelector('.zoom-level');
+    if (zoomLevelElem) {
+        zoomLevelElem.textContent = `${Math.round(currentScale * 100)}%`;
+    }
+    
+    // Center the image
+    const docContainer = document.getElementById('document-container');
+    docContainer.scrollLeft = (imageWidth * currentScale - containerWidth) / 2;
+    docContainer.scrollTop = 0;
 }
 
 /**
@@ -321,10 +631,14 @@ function fitToPage() {
  * @param {Event} event - Mouse event
  */
 function startDrag(event) {
-    if (event.target.id === 'document-image') {
+    if (event.target.id === 'document-image' || event.target.id === 'highlight-overlay') {
         isDragging = true;
         lastMouseX = event.clientX;
         lastMouseY = event.clientY;
+        
+        // Change cursor style
+        document.body.style.cursor = 'grabbing';
+        
         event.preventDefault();
     }
 }
@@ -345,15 +659,18 @@ function drag(event) {
     
     lastMouseX = event.clientX;
     lastMouseY = event.clientY;
+    
     event.preventDefault();
 }
 
 /**
  * End dragging the document image
- * @param {Event} event - Mouse event
  */
 function endDrag() {
-    isDragging = false;
+    if (isDragging) {
+        isDragging = false;
+        document.body.style.cursor = 'default';
+    }
 }
 
 // Export the functions that need to be accessed by other modules
@@ -362,5 +679,9 @@ export {
     loadDocument,
     highlightLine,
     unhighlightLine,
-    scrollToLine
+    scrollToLine,
+    scrollToTranscriptionLine,
+    fitToWidth,
+    fitToPage,
+    zoom
 };

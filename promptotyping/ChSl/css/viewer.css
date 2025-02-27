@@ -9,6 +9,7 @@
     flex-direction: column;
     padding: 1rem 0;
     align-items: center;
+    z-index: 20; /* Ensure it's above other elements but below modals */
 }
 
 .tool-button {
@@ -24,11 +25,13 @@
     background-color: var(--secondary-bg);
     color: var(--primary-text);
     border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
 }
 
 .tool-button:hover {
     background-color: var(--accent-color);
     color: white;
+    transform: translateY(-2px);
 }
 
 .tool-button.active {
@@ -51,14 +54,17 @@
     overflow: auto;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center; /* Changed to center for better positioning */
+    padding: 1rem;
 }
 
 #document-image {
-    max-width: 100%;
+    max-width: 96%; /* Reduced slightly to avoid edge hugging */
+    max-height: 90vh; /* Set max height to ensure visibility */
     height: auto;
     cursor: move;
     transition: transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Add subtle shadow for depth */
 }
 
 .highlight-overlay {
@@ -66,6 +72,7 @@
     top: 0;
     left: 0;
     pointer-events: none;
+    z-index: 5;
 }
 
 .text-region-highlight {
@@ -73,6 +80,21 @@
     background-color: var(--highlight-color);
     border: 1px dashed rgba(0, 0, 0, 0.3);
     pointer-events: none;
+}
+
+.text-region-highlight.active {
+    background-color: rgba(255, 200, 0, 0.4); /* Brighter highlight for active regions */
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.text-region-highlight.pulsate {
+    animation: pulsate 1.5s ease-in-out infinite;
+}
+
+@keyframes pulsate {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
 }
 
 /* Transcription Panel */
@@ -90,6 +112,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--header-bg);
 }
 
 .page-nav {
@@ -107,13 +130,15 @@
     flex: 1;
     overflow-y: auto;
     padding: 1rem;
+    line-height: 1.8; /* Increased line height for better readability */
 }
 
 .transcription-line {
     margin-bottom: 0.5rem;
-    padding: 0.25rem 0;
+    padding: 0.25rem 0.5rem; /* Added horizontal padding */
     cursor: pointer;
     border-radius: 4px;
+    transition: background-color 0.15s ease;
 }
 
 .transcription-line:hover {
@@ -132,6 +157,7 @@
     overflow: hidden;
     background-color: var(--secondary-bg);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
 .collection-item:hover {
@@ -141,9 +167,11 @@
 
 .collection-thumbnail {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
+    height: 200px; /* Increased height */
+    object-fit: contain; /* Changed to contain to avoid cropping */
     border-bottom: 1px solid var(--border-color);
+    background-color: var(--document-bg);
+    padding: 0.5rem;
 }
 
 .collection-item-info {
@@ -151,13 +179,13 @@
 }
 
 .collection-item-title {
-    font-size: 0.875rem;
+    font-size: 0.95rem; /* Larger font size */
     font-weight: bold;
     margin-bottom: 0.25rem;
 }
 
 .collection-item-meta {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--secondary-text);
 }
 
@@ -166,11 +194,29 @@
     position: absolute;
     bottom: 1rem;
     right: 1rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 0.75rem;
     border-radius: 4px;
     font-size: 0.875rem;
     box-shadow: 0 2px 4px var(--shadow-color);
+    z-index: 10;
+}
+
+/* View mode styles */
+.content-container.document-only .transcription-panel {
+    display: none;
+}
+
+.content-container.document-only .document-panel {
+    flex: 1;
+}
+
+.content-container.transcription-only .document-panel {
+    display: none;
+}
+
+.content-container.transcription-only .transcription-panel {
+    flex: 1;
 }
 
 /* Media queries for responsive layout */
@@ -211,5 +257,9 @@
 
     .tool-button {
         margin: 0 0.5rem;
+    }
+    
+    #document-image {
+        max-height: 45vh; /* Adjust for mobile view */
     }
 }

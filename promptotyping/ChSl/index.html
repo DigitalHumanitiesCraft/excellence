@@ -7,99 +7,123 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/viewer.css">
     <link rel="stylesheet" href="css/annotations.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="A lightweight viewer for historical documents with PAGE XML transcriptions, designed for medieval Slavic manuscript materials.">
+    <meta name="keywords" content="historical documents, PAGE XML, Transkribus, medieval Slavic manuscripts, transcription viewer">
+    <meta name="author" content="Historical Document Viewer Project">
 </head>
 <body>
     <!-- Top Navigation Bar -->
     <header class="top-nav">
         <div class="nav-left">
-            <button id="back-button" class="nav-button">← Back to Collection</button>
+            <button id="back-button" class="nav-button" title="Back to Collection">
+                ← Back to Collection
+            </button>
         </div>
         <div class="nav-center">
-            <h1 id="document-title">Document Title</h1>
-            <p id="document-metadata">Metadata will appear here</p>
+            <h1 id="document-title">Document Viewer</h1>
+            <div id="document-metadata"></div>
         </div>
         <div class="nav-right">
-            <button id="view-toggle" class="nav-button">Toggle View</button>
+            <button id="view-toggle" class="nav-button" title="Toggle View">Toggle View</button>
         </div>
     </header>
 
-    <main class="content-container">
+    <div class="content-container">
         <!-- Tool Panel -->
-        <aside class="tool-panel">
+        <div class="tool-panel">
             <button id="zoom-in" class="tool-button" title="Zoom In">+</button>
-            <button id="zoom-out" class="tool-button" title="Zoom Out">-</button>
+            <button id="zoom-out" class="tool-button" title="Zoom Out">−</button>
             <button id="fit-width" class="tool-button" title="Fit to Width">↔</button>
-            <button id="fit-page" class="tool-button" title="Fit to Page">□</button>
-            <button id="annotation-toggle" class="tool-button" title="Toggle Annotations">A</button>
-        </aside>
+            <button id="fit-page" class="tool-button" title="Fit to Page">⊞</button>
+            <button id="annotation-toggle" class="tool-button" title="Toggle Annotations">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </button>
+            <!-- Additional tool buttons can be added here or via JavaScript -->
+        </div>
 
-        <!-- Document Display Panel -->
-        <section id="document-panel" class="document-panel">
+        <!-- Document Panel -->
+        <div id="document-panel" class="document-panel">
             <div id="document-container" class="document-container">
-                <img id="document-image" src="" alt="Historical Document">
+                <img id="document-image" class="document-image" alt="Document Image">
                 <div id="highlight-overlay" class="highlight-overlay"></div>
             </div>
-        </section>
+            <div class="zoom-level">100%</div>
+        </div>
 
         <!-- Transcription Panel -->
-        <section id="transcription-panel" class="transcription-panel">
+        <div id="transcription-panel" class="transcription-panel">
             <div class="panel-header">
-                <h2>Transcription</h2>
+                <h3>Transcription</h3>
                 <div class="page-nav">
-                    <button id="prev-page" class="page-nav-button">Previous</button>
+                    <button id="prev-page" class="page-nav-button">&#9664;</button>
                     <span id="page-indicator">Page 1 of 1</span>
-                    <button id="next-page" class="page-nav-button">Next</button>
+                    <button id="next-page" class="page-nav-button">&#9654;</button>
                 </div>
             </div>
             <div id="transcription-container" class="transcription-container"></div>
-        </section>
-    </main>
-
-    <!-- Search Panel (Collapsed by default) -->
-    <div id="search-panel" class="search-panel collapsed">
-        <div class="search-header">
-            <h3>Search Documents</h3>
-            <button id="close-search" class="close-button">×</button>
         </div>
-        <div class="search-form">
-            <input type="text" id="search-input" placeholder="Enter search terms...">
-            <button id="search-button">Search</button>
-        </div>
-        <div class="search-options">
-            <label><input type="checkbox" id="search-transcription"> Transcription</label>
-            <label><input type="checkbox" id="search-annotations"> Annotations</label>
-        </div>
-        <div id="search-results" class="search-results"></div>
     </div>
 
-    <!-- Collection Browser (Hidden by default) -->
+    <!-- Collection Browser -->
     <div id="collection-browser" class="collection-browser hidden">
         <div class="browser-header">
             <h2>Document Collection</h2>
             <button id="close-browser" class="close-button">×</button>
         </div>
-        <div id="collection-items" class="collection-items"></div>
+        <div class="browser-content">
+            <div id="collection-info" class="collection-info"></div>
+            <div id="collection-items" class="collection-items"></div>
+        </div>
     </div>
 
-    <!-- Institutional Footer -->
+    <!-- Search Panel -->
+    <div id="search-panel" class="search-panel collapsed">
+        <div class="search-header">
+            <h3>Search</h3>
+            <button id="close-search" class="close-button">×</button>
+        </div>
+        <div class="search-content">
+            <div class="search-form">
+                <input type="text" id="search-input" class="search-input" placeholder="Enter search term...">
+                <button id="search-button">Search</button>
+            </div>
+            <div class="search-options">
+                <label>
+                    <input type="checkbox" id="search-transcription" checked>
+                    Search in transcriptions
+                </label>
+                <label>
+                    <input type="checkbox" id="search-annotations" checked>
+                    Search in annotations
+                </label>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading-indicator" class="loading-indicator hidden">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-left">
-            <p>© 2025 Historical Document Archive</p>
+            <span>Historical Document Viewer</span>
         </div>
         <div class="footer-right">
-            <a href="#" class="footer-link">Privacy Policy</a>
-            <a href="#" class="footer-link">Terms of Use</a>
-            <a href="#" class="footer-link">Contact</a>
+            <a href="#" class="footer-link" id="metadata-link">Document Metadata</a>
+            <span>|</span>
+            <a href="#" class="footer-link" id="help-link">Help</a>
         </div>
     </footer>
 
-    <!-- Loading indicator -->
-    <div id="loading-indicator" class="loading-indicator hidden">
-        <div class="spinner"></div>
-        <p>Loading...</p>
-    </div>
-
-    <!-- Scripts -->
-    <script src="js/app.js" type="module"></script>
+    <!-- Application Scripts -->
+    <script type="module" src="js/app.js"></script>
+    <script src="js/diagnostic-tests.js"></script>
 </body>
 </html>

@@ -20,6 +20,8 @@
     --tool-bg: #f0f0f0;
     --header-bg: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --annotation-tooltip-bg: #ffffff;
+    --annotation-tooltip-border: #e0e0e0;
 
     /* Font variables */
     --heading-font: 'Merriweather', 'Georgia', serif;
@@ -29,7 +31,7 @@
     /* Size variables */
     --header-height: 4rem;
     --footer-height: 3rem;
-    --tool-panel-width: 3rem;
+    --tool-panel-width: 10rem;
 }
 
 body {
@@ -221,6 +223,7 @@ button:hover {
     border: none;
     font-size: 1.5rem;
     color: var(--secondary-text);
+    transition: color 0.2s ease;
 }
 
 .close-button:hover {
@@ -274,6 +277,44 @@ button:hover {
     overflow-y: auto;
     border-top: 1px solid var(--border-color);
     padding-top: 1rem;
+}
+
+/* Error toast */
+.error-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f44336;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: opacity 0.3s, transform 0.3s;
+    max-width: 80%;
+}
+
+.error-toast.hidden {
+    opacity: 0;
+    transform: translateX(-50%) translateY(30px);
+    pointer-events: none;
+}
+
+.error-message {
+    flex: 1;
+    margin-right: 12px;
+}
+
+.error-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 4px;
 }
 
 /* Media queries for responsiveness */
