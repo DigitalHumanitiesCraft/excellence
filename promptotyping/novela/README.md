@@ -1,4 +1,5 @@
 > Live at https://dhcraft.org/excellence/promptotyping/novela/
+
 > Prompting: https://claude.ai/share/818ec81a-248f-4565-97fa-ab70148b9640
 
 # NOVELA Project
