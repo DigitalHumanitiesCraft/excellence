@@ -1,4 +1,6 @@
-> Claude Chat: https://claude.ai/share/43c48ad0-9f41-499d-9eca-9585d6348f2f
+> Prompting: https://claude.ai/share/43c48ad0-9f41-499d-9eca-9585d6348f2f
+>
+> Live at: https://dhcraft.org/excellence/promptotyping/badisches-wo%CC%88rterbuch/
 
 # Badisches Wörterbuch Online
 
