@@ -1,0 +1,227 @@
+{
+  "title": "TRAINING_VALIDATION_SET_Combined_VKS_2_Silvestrovskij_Paterik_0.01",
+  "description": "A collection of medieval Slavic manuscript materials from the Transkribus platform",
+  "creator": "achim.rabus@slavistik.uni-freiburg.de",
+  "collectionId": "32071",
+  "documentId": "723215",
+  "pageCount": 24,
+  "documents": [
+    {
+      "id": "doc1",
+      "title": "Folio 13ob-14",
+      "date": "Medieval Slavic",
+      "imageFileName": "13ob-14.jpg",
+      "xmlFileName": "13ob-14.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Manuscript page with Cyrillic text"
+    },
+    {
+      "id": "doc2",
+      "title": "Folio 23ob-24",
+      "date": "Medieval Slavic",
+      "imageFileName": "23ob-24.jpg",
+      "xmlFileName": "23ob-24.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Manuscript page with Cyrillic text"
+    },
+    {
+      "id": "doc3",
+      "title": "Sin995 Seite 003",
+      "date": "Medieval Slavic",
+      "imageFileName": "Sin995_700-1017_Seite_003.jpg",
+      "xmlFileName": "Sin995_700-1017_Seite_003.xml",
+      "source": "Manuscript Sin995",
+      "description": "Page 3 from Sin995 manuscript"
+    },
+    {
+      "id": "doc4",
+      "title": "Sin995 Seite 051",
+      "date": "Medieval Slavic",
+      "imageFileName": "Sin995_700-1017_Seite_051.jpg",
+      "xmlFileName": "Sin995_700-1017_Seite_051.xml",
+      "source": "Manuscript Sin995",
+      "description": "Page 51 from Sin995 manuscript"
+    },
+    {
+      "id": "doc5",
+      "title": "Sin995 Seite 093",
+      "date": "Medieval Slavic",
+      "imageFileName": "Sin995_700-1017_Seite_093.jpg",
+      "xmlFileName": "Sin995_700-1017_Seite_093.xml",
+      "source": "Manuscript Sin995",
+      "description": "Page 93 from Sin995 manuscript"
+    },
+    {
+      "id": "doc6",
+      "title": "Usp. Teil 1 Sin995 Page 139",
+      "date": "Medieval Slavic",
+      "imageFileName": "Usp. Teil 1 Sin995_349-700-139.png",
+      "xmlFileName": "Usp. Teil 1 Sin995_349-700-139.xml",
+      "source": "Uspenskij Sbornik",
+      "description": "Page 139 from Uspenskij Sbornik manuscript"
+    },
+    {
+      "id": "doc7",
+      "title": "Usp. Teil 1 Sin995 Page 200",
+      "date": "Medieval Slavic",
+      "imageFileName": "Usp. Teil 1 Sin995_349-700-200.png",
+      "xmlFileName": "Usp. Teil 1 Sin995_349-700-200.xml",
+      "source": "Uspenskij Sbornik",
+      "description": "Page 200 from Uspenskij Sbornik manuscript"
+    },
+    {
+      "id": "doc8",
+      "title": "Cyril of Jerusalem Catechism Page 20",
+      "date": "11th century, East Slavic",
+      "imageFileName": "Katechesen_Kyrill_Jerusalem_ostslavisch_11_Jahrhundert-20.png",
+      "xmlFileName": "Katechesen_Kyrill_Jerusalem_ostslavisch_11_Jahrhundert-20.xml",
+      "source": "Catechisms of Cyril of Jerusalem",
+      "description": "Page 20 from East Slavic Catechism"
+    },
+    {
+      "id": "doc9",
+      "title": "Manuscript Page 0091",
+      "date": "Medieval Slavic",
+      "imageFileName": "0091.jpg",
+      "xmlFileName": "0091.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Manuscript page with Cyrillic text"
+    },
+    {
+      "id": "doc10",
+      "title": "Document Image 1549973012",
+      "date": "Medieval Slavic",
+      "imageFileName": "1549973012-27689-image.jpg",
+      "xmlFileName": "1549973012-27689-image.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Manuscript page with Cyrillic text"
+    },
+    {
+      "id": "doc11",
+      "title": "Document Image 1549973279",
+      "date": "Medieval Slavic",
+      "imageFileName": "1549973279-29637-image.jpg",
+      "xmlFileName": "1549973279-29637-image.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Manuscript page with Cyrillic text"
+    },
+    {
+      "id": "doc12",
+      "title": "Folio Example 1",
+      "date": "Medieval Slavic",
+      "imageFileName": "13ob-14.jpg",
+      "xmlFileName": "13ob-14.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Contains text beginning with \"терпьцю бориса и глѣба. понѹдихъ-сѧ и на дрѹгоѥ и-сповѣданьѥ прити...\"",
+      "annotationFileName": "13ob-14.json"
+    },
+    {
+      "id": "doc13",
+      "title": "Sin995 Page Sample 1",
+      "date": "Medieval Slavic",
+      "imageFileName": "Sin995_700-1017_Seite_003.jpg",
+      "xmlFileName": "Sin995_700-1017_Seite_003.xml",
+      "source": "Manuscript Sin995",
+      "description": "Sample page from Sin995 manuscript"
+    },
+    {
+      "id": "doc14",
+      "title": "Cyril Catechism Sample 1",
+      "date": "11th century, East Slavic",
+      "imageFileName": "Katechesen_Kyrill_Jerusalem_ostslavisch_11_Jahrhundert-20.png",
+      "xmlFileName": "Katechesen_Kyrill_Jerusalem_ostslavisch_11_Jahrhundert-20.xml",
+      "source": "Catechisms of Cyril of Jerusalem",
+      "description": "Sample page from Cyril of Jerusalem Catechism"
+    },
+    {
+      "id": "doc15",
+      "title": "Uspenskij Sample 1",
+      "date": "Medieval Slavic",
+      "imageFileName": "Usp. Teil 1 Sin995_349-700-139.png",
+      "xmlFileName": "Usp. Teil 1 Sin995_349-700-139.xml",
+      "source": "Uspenskij Sbornik",
+      "description": "Sample page from Uspenskij Sbornik manuscript"
+    },
+    {
+      "id": "doc16",
+      "title": "Additional Document 1",
+      "date": "Medieval Slavic",
+      "imageFileName": "1549973012-27689-image.jpg",
+      "xmlFileName": "1549973012-27689-image.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Additional manuscript page"
+    },
+    {
+      "id": "doc17",
+      "title": "Additional Document 2",
+      "date": "Medieval Slavic",
+      "imageFileName": "1549973279-29637-image.jpg",
+      "xmlFileName": "1549973279-29637-image.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Additional manuscript page"
+    },
+    {
+      "id": "doc18",
+      "title": "Additional Document 3",
+      "date": "Medieval Slavic",
+      "imageFileName": "0091.jpg",
+      "xmlFileName": "0091.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Additional manuscript page"
+    },
+    {
+      "id": "doc19",
+      "title": "Sin995 Additional Page 1",
+      "date": "Medieval Slavic",
+      "imageFileName": "Sin995_700-1017_Seite_051.jpg",
+      "xmlFileName": "Sin995_700-1017_Seite_051.xml",
+      "source": "Manuscript Sin995",
+      "description": "Additional page from Sin995 manuscript"
+    },
+    {
+      "id": "doc20",
+      "title": "Sin995 Additional Page 2",
+      "date": "Medieval Slavic",
+      "imageFileName": "Sin995_700-1017_Seite_093.jpg",
+      "xmlFileName": "Sin995_700-1017_Seite_093.xml",
+      "source": "Manuscript Sin995",
+      "description": "Additional page from Sin995 manuscript"
+    },
+    {
+      "id": "doc21",
+      "title": "Uspenskij Additional Page",
+      "date": "Medieval Slavic",
+      "imageFileName": "Usp. Teil 1 Sin995_349-700-200.png",
+      "xmlFileName": "Usp. Teil 1 Sin995_349-700-200.xml",
+      "source": "Uspenskij Sbornik",
+      "description": "Additional page from Uspenskij Sbornik manuscript"
+    },
+    {
+      "id": "doc22",
+      "title": "Folio Additional Page",
+      "date": "Medieval Slavic",
+      "imageFileName": "23ob-24.jpg",
+      "xmlFileName": "23ob-24.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Additional folio page"
+    },
+    {
+      "id": "doc23",
+      "title": "Cyril Catechism Additional Page",
+      "date": "11th century, East Slavic",
+      "imageFileName": "Katechesen_Kyrill_Jerusalem_ostslavisch_11_Jahrhundert-20.png",
+      "xmlFileName": "Katechesen_Kyrill_Jerusalem_ostslavisch_11_Jahrhundert-20.xml",
+      "source": "Catechisms of Cyril of Jerusalem",
+      "description": "Additional page from Cyril of Jerusalem Catechism"
+    },
+    {
+      "id": "doc24",
+      "title": "Final Document Page",
+      "date": "Medieval Slavic",
+      "imageFileName": "13ob-14.jpg",
+      "xmlFileName": "13ob-14.xml",
+      "source": "Silvestrovskij Paterik",
+      "description": "Final document in the collection"
+    }
+  ]
+}

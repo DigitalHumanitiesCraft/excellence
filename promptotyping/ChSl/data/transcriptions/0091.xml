@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15/pagecontent.xsd">
+    <Metadata>
+        <Creator>prov=University of Rostock/Institute of Mathematics/CITlab|PLANET AI GmbH/Gundram Leifert/gundram.leifert@planet-ai.de:name=Combined_Full_VKS_2(htr_id=12425)::::v=2.6.7
+prov=University of Rostock/Institute of Mathematics/CITlab|PLANET AI GmbH/Tobias Gruening/tobias.gruening@planet-ai.de:name=de.uros.citlab.module.baseline2polygon.B2PSeamMultiOriented:v=2.6.7
+prov=University of Rostock/Institute of Mathematics/CITlab|PLANET AI GmbH/Tobias Gruening/tobias.gruening@planet-ai.de:name=/net_tf/LA73_249_0mod360.pb:de.uros.citlab.segmentation.CITlab_LA_ML:v=2.6.7
+Transkribus</Creator>
+        <Created>2021-03-15T19:17:39.703+01:00</Created>
+        <LastChange>2021-03-19T15:41:28.461+01:00</LastChange>
+        <TranskribusMetadata docId="723215" pageId="27790862" pageNr="24" tsid="61235192" status="GT" userId="26314" imgUrl="https://files.transkribus.eu/Get?id=QUAQHMRLJBDWGMVIWNXMJUSQ&amp;fileType=view" xmlUrl="https://files.transkribus.eu/Get?id=HREQRZMSWBKZAKKYKHUZFXRP" imageId="19095414"/>
+    </Metadata>
+    <Page imageFilename="0091.jpg" imageWidth="1750" imageHeight="1166">
+        <ReadingOrder>
+            <OrderedGroup id="ro_1736513793716" caption="Regions reading order">
+                <RegionRefIndexed index="0" regionRef="r2"/>
+                <RegionRefIndexed index="1" regionRef="r3"/>
+                <RegionRefIndexed index="2" regionRef="r4"/>
+                <RegionRefIndexed index="3" regionRef="r5"/>
+                <RegionRefIndexed index="4" regionRef="r6"/>
+                <RegionRefIndexed index="5" regionRef="r7"/>
+            </OrderedGroup>
+        </ReadingOrder>
+        <TextRegion orientation="0.0" id="r2" custom="readingOrder {index:0;}">
+            <Coords points="284,126 284,932 558,932 558,126"/>
+            <TextLine id="r2l1" custom="readingOrder {index:0;}">
+                <Coords points="289,156 351,153 371,161 396,151 417,157 425,149 478,160 525,156 524,122 514,118 466,128 443,119 383,116 348,128 288,117"/>
+                <Baseline points="294,152 319,149 344,148 369,148 394,147 419,147 444,147 469,147 494,146 520,146"/>
+                <TextEquiv>
+                    <Unicode>снѣста ѿ него. во тъ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l2" custom="readingOrder {index:1;}">
+                <Coords points="281,190 349,183 379,197 419,182 460,192 486,183 520,186 520,154 489,161 463,154 455,162 429,151 416,157 391,151 362,162 332,154 281,156"/>
+                <Baseline points="286,182 311,179 336,178 362,177 387,178 413,178 438,179 464,180 489,180 515,179"/>
+                <TextEquiv>
+                    <Unicode>дн҃ь см҃ртию да ѹ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l3" custom="readingOrder {index:2;}">
+                <Coords points="279,213 318,227 333,216 376,222 404,215 414,221 525,218 525,195 510,188 453,194 398,189 389,181 377,190 279,188"/>
+                <Baseline points="284,209 310,210 336,210 362,210 388,211 415,211 441,211 467,211 493,211 520,210"/>
+                <TextEquiv>
+                    <Unicode>мрета. искони же </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l4" custom="readingOrder {index:3;}">
+                <Coords points="288,248 378,253 393,247 419,257 456,249 470,258 502,245 521,258 538,250 539,220 470,216 441,225 386,217 318,227 289,217"/>
+                <Baseline points="293,242 319,241 346,241 373,241 399,241 426,241 453,241 479,241 506,242 533,242"/>
+                <TextEquiv>
+                    <Unicode>ненавидѧи добра. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l5" custom="readingOrder {index:4;}">
+                <Coords points="282,292 312,283 360,287 374,279 409,288 425,280 469,286 482,280 518,292 545,279 545,253 504,249 465,259 366,248 324,259 298,247 281,258"/>
+                <Baseline points="286,280 311,278 336,277 362,276 387,276 413,275 438,275 463,275 489,275 514,275 540,275"/>
+                <TextEquiv>
+                    <Unicode>дьꙗволъ иже бѣ ре-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l6" custom="readingOrder {index:5;}">
+                <Coords points="287,319 314,324 343,316 368,325 385,317 407,325 448,314 471,327 504,311 534,325 533,286 512,279 503,288 483,280 433,289 392,284 375,294 365,285 331,282 286,291"/>
+                <Baseline points="291,308 317,309 343,310 370,310 396,310 422,309 449,309 475,308 501,308 528,307"/>
+                <TextEquiv>
+                    <Unicode>клъ. да створю пре-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l7" custom="readingOrder {index:6;}">
+                <Coords points="294,347 417,354 428,347 480,354 497,348 508,355 545,345 545,317 523,324 506,312 470,325 450,317 436,324 424,315 408,324 294,319"/>
+                <Baseline points="299,341 325,342 352,343 379,343 406,343 432,342 459,342 486,341 513,341 540,342"/>
+                <TextEquiv>
+                    <Unicode>столъ свои на звѣ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l8" custom="readingOrder {index:7;}">
+                <Coords points="296,389 497,389 556,380 555,341 509,353 436,346 417,355 367,347 295,352"/>
+                <Baseline points="300,378 327,377 354,376 381,375 408,374 436,374 463,373 490,372 517,372 551,371"/>
+                <TextEquiv>
+                    <Unicode>здахъ. и сриновенꙸ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l9" custom="readingOrder {index:8;}">
+                <Coords points="299,413 334,419 354,411 364,421 395,423 433,413 498,423 517,413 549,424 549,381 496,389 299,391"/>
+                <Baseline points="304,408 330,407 357,407 384,407 410,407 437,407 464,407 490,407 517,407 544,406"/>
+                <TextEquiv>
+                    <Unicode>бꙑⷭ҇ на землю за го-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l10" custom="readingOrder {index:9;}">
+                <Coords points="296,453 358,439 406,449 436,438 465,447 497,440 508,450 542,439 541,408 501,421 466,421 449,412 421,421 389,411 354,410 339,421 295,413"/>
+                <Baseline points="301,441 327,440 353,439 379,439 405,438 432,438 458,438 484,437 510,436 537,434"/>
+                <TextEquiv>
+                    <Unicode>рдость ѥго. тъ ꙗк ⷪ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l11" custom="readingOrder {index:10;}">
+                <Coords points="299,481 340,475 361,485 389,472 414,483 432,474 461,484 487,471 532,477 541,474 541,442 451,448 435,439 414,449 370,442 361,451 354,445 299,451"/>
+                <Baseline points="304,468 329,468 355,468 381,468 407,468 432,468 458,468 484,467 510,467 536,467"/>
+                <TextEquiv>
+                    <Unicode>же преже рѣхъ и не-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l12" custom="readingOrder {index:11;}">
+                <Coords points="307,512 347,505 358,514 370,506 450,502 460,510 509,503 524,514 541,503 541,475 489,472 420,484 404,476 359,485 328,476 307,481"/>
+                <Baseline points="296,501 340,499 368,499 396,499 424,500 452,500 480,500 508,499 536,498"/>
+                <TextEquiv>
+                    <Unicode>навистникъ. пре-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l13" custom="readingOrder {index:12;}">
+                <Coords points="303,539 345,535 358,545 399,533 430,547 465,533 508,549 544,532 559,537 559,494 523,513 491,505 459,510 450,501 418,515 394,503 359,514 345,505 303,509"/>
+                <Baseline points="308,529 334,529 360,529 387,530 413,530 440,530 466,530 493,530 519,529 554,526"/>
+                <TextEquiv>
+                    <Unicode>же ѹвѣда иже зап ⷪ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l14" custom="readingOrder {index:13;}">
+                <Coords points="297,568 322,565 344,574 361,565 412,566 442,577 462,566 511,576 551,568 552,543 534,538 505,548 493,536 435,550 398,533 382,544 346,545 328,535 298,545"/>
+                <Baseline points="302,559 329,561 356,562 383,563 410,564 437,565 464,566 491,566 518,565 546,563"/>
+                <TextEquiv>
+                    <Unicode>вѣда бъ҃ адамови· </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l15" custom="readingOrder {index:14;}">
+                <Coords points="297,605 410,598 443,611 487,599 515,612 546,610 547,567 509,576 462,567 443,577 413,567 353,574 298,569"/>
+                <Baseline points="302,591 328,593 355,594 381,594 408,595 434,595 461,595 487,595 514,596 541,598"/>
+                <TextEquiv>
+                    <Unicode>вземъ ѿ дрѣва да-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l16" custom="readingOrder {index:15;}">
+                <Coords points="297,635 391,630 410,639 449,632 487,642 521,631 556,638 556,608 441,610 394,607 386,599 297,604"/>
+                <Baseline points="302,625 329,626 357,626 385,626 412,626 440,627 468,628 495,628 523,629 564,631"/>
+                <TextEquiv>
+                    <Unicode>сть женѣ ѥго. ѻна </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l17" custom="readingOrder {index:16;}">
+                <Coords points="301,663 387,676 458,663 491,671 504,662 518,674 552,668 552,640 519,630 488,640 437,631 410,641 371,631 301,637"/>
+                <Baseline points="306,657 332,658 359,658 386,658 413,658 439,658 466,658 493,659 520,660 564,661"/>
+                <TextEquiv>
+                    <Unicode>же вкушьши пода-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l18" custom="readingOrder {index:17;}">
+                <Coords points="302,699 351,693 364,702 371,696 390,701 399,693 442,708 471,697 538,703 546,702 547,675 507,678 480,668 465,676 437,669 389,678 303,662"/>
+                <Baseline points="307,688 333,689 359,690 385,691 411,692 437,692 463,693 489,693 515,694 541,694"/>
+                <TextEquiv>
+                    <Unicode>сть адаму. и ѻба </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l19" custom="readingOrder {index:18;}">
+                <Coords points="297,728 321,738 346,729 390,739 438,731 452,740 510,741 535,728 561,728 561,697 527,700 517,710 501,697 297,700"/>
+                <Baseline points="302,719 329,721 356,722 383,723 410,723 437,723 464,723 491,723 518,723 556,723"/>
+                <TextEquiv>
+                    <Unicode>преступиста зап ⷪ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l20" custom="readingOrder {index:19;}">
+                <Coords points="299,763 424,758 432,765 563,768 559,725 519,739 433,733 373,740 299,731"/>
+                <Baseline points="304,753 329,755 354,756 380,756 405,757 431,757 456,757 481,757 507,758 532,758 558,758"/>
+                <TextEquiv>
+                    <Unicode>вѣдь би҃ю. и того ра-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l21" custom="readingOrder {index:20;}">
+                <Coords points="300,793 362,795 387,806 427,791 439,797 557,794 557,768 549,767 300,763"/>
+                <Baseline points="305,787 332,788 359,788 387,789 414,789 442,790 469,790 497,790 524,789 552,788"/>
+                <TextEquiv>
+                    <Unicode>ди изгнанъ бꙑ и-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l22" custom="readingOrder {index:21;}">
+                <Coords points="301,831 317,837 370,824 395,837 406,826 422,836 436,825 490,833 517,825 553,834 553,798 441,798 428,791 388,805 301,798"/>
+                <Baseline points="306,820 332,820 359,821 386,821 413,821 440,821 467,821 494,821 521,821 548,821"/>
+                <TextEquiv>
+                    <Unicode>з раꙗ. и зачатъ и </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l23" custom="readingOrder {index:22;}">
+                <Coords points="295,864 336,856 395,868 449,859 464,872 479,862 540,870 555,865 556,836 450,824 424,835 407,826 397,835 345,826 296,833"/>
+                <Baseline points="301,852 326,853 351,853 376,854 401,854 426,854 451,854 476,854 501,854 526,855 551,856"/>
+                <TextEquiv>
+                    <Unicode>жена ѥго ѥвга и ро-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l24" custom="readingOrder {index:23;}">
+                <Coords points="303,897 333,888 390,899 416,892 444,902 471,893 504,904 562,898 562,868 550,865 513,871 447,859 401,871 303,861"/>
+                <Baseline points="308,888 335,887 363,887 391,887 418,888 446,888 474,888 501,888 529,888 566,885"/>
+                <TextEquiv>
+                    <Unicode>ди каина. и пакꙑ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r2l25" custom="readingOrder {index:24;}">
+                <Coords points="297,931 325,941 343,929 358,939 403,925 448,931 467,944 497,932 519,945 550,928 551,899 298,897"/>
+                <Baseline points="303,917 330,917 357,918 384,918 411,919 438,920 465,921 492,921 519,922 546,921"/>
+                <TextEquiv>
+                    <Unicode>приложи и роди а-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextEquiv>
+                <Unicode>снѣста ѿ него. во тъ &#13;
+дн҃ь см҃ртию да ѹ-&#13;
+мрета. искони же &#13;
+ненавидѧи добра. &#13;
+дьꙗволъ иже бѣ ре-&#13;
+клъ. да створю пре-&#13;
+столъ свои на звѣ-&#13;
+здахъ. и сриновенꙸ &#13;
+бꙑⷭ҇ на землю за го-&#13;
+рдость ѥго. тъ ꙗк ⷪ-&#13;
+же преже рѣхъ и не-&#13;
+навистникъ. пре-&#13;
+же ѹвѣда иже зап ⷪ-&#13;
+вѣда бъ҃ адамови· &#13;
+вземъ ѿ дрѣва да-&#13;
+сть женѣ ѥго. ѻна &#13;
+же вкушьши пода-&#13;
+сть адаму. и ѻба &#13;
+преступиста зап ⷪ-&#13;
+вѣдь би҃ю. и того ра-&#13;
+ди изгнанъ бꙑ и-&#13;
+з раꙗ. и зачатъ и &#13;
+жена ѥго ѥвга и ро-&#13;
+ди каина. и пакꙑ &#13;
+приложи и роди а-</Unicode>
+            </TextEquiv>
+        </TextRegion>
+        <TextRegion orientation="0.0" id="r3" custom="readingOrder {index:1;}">
+            <Coords points="586,125 586,932 854,932 854,125"/>
+            <TextLine id="r3l1" custom="readingOrder {index:0;}">
+                <Coords points="580,153 655,160 687,151 720,163 840,169 836,127 730,135 666,122 646,130 614,113 582,119"/>
+                <Baseline points="586,145 613,147 641,148 669,149 696,150 724,151 752,152 779,154 807,156 835,158"/>
+                <TextEquiv>
+                    <Unicode>велѧ. нъ да не продо-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l2" custom="readingOrder {index:1;}">
+                <Coords points="586,190 638,185 660,194 702,184 728,193 844,193 845,169 822,164 789,169 678,153 655,160 588,156"/>
+                <Baseline points="592,177 619,177 647,177 674,178 702,179 729,181 757,183 784,184 812,184 840,183"/>
+                <TextEquiv>
+                    <Unicode>лжю рѣчии нъ воско-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l3" custom="readingOrder {index:2;}">
+                <Coords points="586,221 623,216 683,223 698,216 708,226 734,218 763,223 773,216 800,216 801,192 771,198 761,190 722,194 697,185 661,194 616,184 599,192 587,188"/>
+                <Baseline points="592,208 617,207 643,208 668,209 694,211 719,213 745,213 770,213 796,210"/>
+                <TextEquiv>
+                    <Unicode>рѣ извѣщаю ⁘ ~ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l4" custom="readingOrder {index:3;}">
+                <Coords points="569,259 652,243 670,251 765,249 789,260 832,256 833,227 570,216"/>
+                <Baseline points="574,240 600,240 639,240 666,240 693,242 719,243 746,244 773,245 800,246 827,248"/>
+                <TextEquiv>
+                    <Unicode>Ѹмножешемсѧ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l5" custom="readingOrder {index:4;}">
+                <Coords points="589,282 668,288 722,282 755,292 771,284 815,294 847,289 848,260 799,262 778,253 756,260 700,248 676,255 652,243 614,255 590,252"/>
+                <Baseline points="594,273 621,274 649,274 676,275 704,276 731,278 759,279 786,279 814,280 842,281"/>
+                <TextEquiv>
+                    <Unicode>члв҃кмъ по земь-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l6" custom="readingOrder {index:5;}">
+                <Coords points="592,319 830,321 855,317 856,290 757,293 709,282 663,292 593,290"/>
+                <Baseline points="597,308 622,309 647,309 672,310 698,311 723,311 748,311 774,311 799,312 824,312 850,312"/>
+                <TextEquiv>
+                    <Unicode>ли. и видѣвъ нена-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l7" custom="readingOrder {index:6;}">
+                <Coords points="586,355 673,348 695,361 804,350 842,360 842,317 698,327 586,315"/>
+                <Baseline points="591,341 618,343 645,344 673,344 700,345 727,345 755,345 782,345 809,346 837,346"/>
+                <TextEquiv>
+                    <Unicode>видѧ рода члв҃ц </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l8" custom="readingOrder {index:7;}">
+                <Coords points="592,384 637,387 693,377 725,385 750,378 761,386 828,385 828,354 810,351 798,358 774,351 766,359 713,355 695,361 669,348 647,356 620,348 592,356"/>
+                <Baseline points="597,376 622,374 647,374 672,373 697,373 722,373 747,373 772,374 797,375 823,375"/>
+                <TextEquiv>
+                    <Unicode>диꙗволъ ѹмно-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l9" custom="readingOrder {index:8;}">
+                <Coords points="594,410 633,417 665,409 680,418 692,408 744,416 827,413 844,410 844,376 783,386 692,377 594,385"/>
+                <Baseline points="599,406 625,404 652,404 679,403 705,403 732,403 759,404 785,405 812,405 839,406"/>
+                <TextEquiv>
+                    <Unicode>жениꙗ члв҃къ. съ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l10" custom="readingOrder {index:9;}">
+                <Coords points="592,444 620,439 656,454 674,442 725,451 779,441 847,451 841,416 592,413"/>
+                <Baseline points="597,432 624,434 651,435 678,436 705,437 733,437 760,438 787,438 814,438 862,439"/>
+                <TextEquiv>
+                    <Unicode>твори имъ кланⷽ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l11" custom="readingOrder {index:10;}">
+                <Coords points="598,475 676,472 694,482 781,471 807,480 826,477 826,442 814,448 788,448 779,440 769,448 740,443 728,451 695,443 675,455 667,448 656,454 642,443 598,447"/>
+                <Baseline points="603,466 630,467 657,467 684,468 712,467 739,467 766,467 793,467 821,468"/>
+                <TextEquiv>
+                    <Unicode>тисѧ идоломъ. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l12" custom="readingOrder {index:11;}">
+                <Coords points="601,505 641,503 680,514 705,498 769,516 789,516 803,505 823,516 841,513 841,478 744,473 719,483 685,476 601,481"/>
+                <Baseline points="592,500 631,500 657,499 682,499 708,499 733,499 759,500 784,500 810,500 860,505"/>
+                <TextEquiv>
+                    <Unicode>а не бу҃ створшему </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l13" custom="readingOrder {index:12;}">
+                <Coords points="596,537 643,535 694,550 716,539 783,535 852,542 852,510 836,505 789,505 771,515 731,505 691,514 596,512"/>
+                <Baseline points="601,530 628,530 655,530 683,531 710,531 737,531 765,532 792,531 819,531 860,537"/>
+                <TextEquiv>
+                    <Unicode>н҃бо и землю. бл҃гꙑ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l14" custom="readingOrder {index:13;}">
+                <Coords points="600,576 643,570 670,577 695,568 732,576 845,574 845,542 816,536 758,537 697,550 661,541 600,542"/>
+                <Baseline points="605,564 631,563 657,563 683,563 709,564 735,564 761,564 787,564 813,564 852,563"/>
+                <TextEquiv>
+                    <Unicode>и же бъ҃ ѻжедаꙗ и</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l15" custom="readingOrder {index:14;}">
+                <Coords points="595,611 625,604 718,611 744,598 839,600 845,599 845,571 732,577 680,568 595,579"/>
+                <Baseline points="600,598 626,595 653,594 680,593 706,593 733,593 760,593 786,593 813,592 840,590"/>
+                <TextEquiv>
+                    <Unicode>долготерпѧи. по-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l16" custom="readingOrder {index:15;}">
+                <Coords points="595,634 614,633 636,646 655,633 674,644 720,631 770,643 812,640 820,632 853,638 852,599 595,610"/>
+                <Baseline points="600,630 627,629 655,628 682,627 710,627 737,627 765,627 792,627 820,627 848,626"/>
+                <TextEquiv>
+                    <Unicode>каꙗниꙗ ихъ. по-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l17" custom="readingOrder {index:16;}">
+                <Coords points="600,668 624,678 640,665 669,676 706,663 766,671 807,663 825,672 859,660 859,633 829,639 802,631 789,639 776,628 749,641 737,632 675,644 660,637 637,646 599,642"/>
+                <Baseline points="604,662 629,661 654,661 679,660 704,660 729,659 754,659 779,658 804,657 829,656 854,656"/>
+                <TextEquiv>
+                    <Unicode>сла к нимъ ст҃ꙑꙗ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l18" custom="readingOrder {index:17;}">
+                <Coords points="606,698 640,708 656,696 728,704 754,695 799,702 849,697 862,693 861,659 825,672 749,668 729,677 682,668 668,676 645,666 605,672"/>
+                <Baseline points="593,694 636,694 662,694 688,693 713,693 739,693 765,692 790,691 816,690 857,688"/>
+                <TextEquiv>
+                    <Unicode>пррⷪ҇кꙑ ѻни же и т ⷺ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l19" custom="readingOrder {index:18;}">
+                <Coords points="600,740 704,730 756,739 858,726 857,694 802,704 743,697 725,709 682,701 624,708 614,699 599,706"/>
+                <Baseline points="605,728 631,727 657,726 683,725 709,725 735,725 761,724 787,723 813,722 853,719"/>
+                <TextEquiv>
+                    <Unicode>хъ не послушашⷶ. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l20" custom="readingOrder {index:19;}">
+                <Coords points="602,768 711,763 736,771 752,763 773,769 815,764 830,759 830,735 813,729 793,739 711,731 601,738"/>
+                <Baseline points="606,760 633,759 660,759 688,759 715,759 742,759 770,758 797,757 825,755"/>
+                <TextEquiv>
+                    <Unicode>нъ и тѣмь доса-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l21" custom="readingOrder {index:20;}">
+                <Coords points="606,802 655,794 702,801 713,794 730,805 768,805 799,790 811,799 826,790 839,795 838,764 824,760 806,768 721,770 605,764"/>
+                <Baseline points="611,793 638,791 666,790 694,790 722,789 749,789 777,788 805,786 833,785"/>
+                <TextEquiv>
+                    <Unicode>диша. а инѣхъ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l22" custom="readingOrder {index:21;}">
+                <Coords points="600,832 856,826 855,786 817,798 801,790 772,801 725,803 654,794 599,805"/>
+                <Baseline points="605,823 632,823 659,823 687,823 714,822 741,821 769,820 796,819 823,818 851,817"/>
+                <TextEquiv>
+                    <Unicode>побиша. и то имꙸ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l23" custom="readingOrder {index:22;}">
+                <Coords points="603,863 641,861 663,873 679,862 737,870 757,858 781,866 825,857 841,865 840,827 603,837"/>
+                <Baseline points="608,857 633,857 658,857 684,857 709,857 734,856 760,855 785,854 810,852 836,851"/>
+                <TextEquiv>
+                    <Unicode>творѧщи ни ту</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l24" custom="readingOrder {index:23;}">
+                <Coords points="601,897 642,894 652,901 662,894 677,901 702,895 725,903 753,891 833,893 846,889 846,864 792,858 779,867 746,860 737,869 702,863 621,874 601,868"/>
+                <Baseline points="606,889 632,889 658,888 684,888 710,888 736,887 762,887 788,886 814,885 841,883"/>
+                <TextEquiv>
+                    <Unicode>сѧ бъ҃ прогнѣва </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r3l25" custom="readingOrder {index:24;}">
+                <Coords points="598,932 638,925 681,943 744,929 763,938 800,934 810,925 832,931 852,922 851,893 803,889 727,903 641,895 597,903"/>
+                <Baseline points="603,921 630,922 657,922 684,922 711,922 738,921 765,920 792,919 819,916 847,913"/>
+                <TextEquiv>
+                    <Unicode>на созданиѥ сво-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextEquiv>
+                <Unicode>велѧ. нъ да не продо-&#13;
+лжю рѣчии нъ воско-&#13;
+рѣ извѣщаю ⁘ ~ &#13;
+Ѹмножешемсѧ &#13;
+члв҃кмъ по земь-&#13;
+ли. и видѣвъ нена-&#13;
+видѧ рода члв҃ц &#13;
+диꙗволъ ѹмно-&#13;
+жениꙗ члв҃къ. съ-&#13;
+твори имъ кланⷽ-&#13;
+тисѧ идоломъ. &#13;
+а не бу҃ створшему &#13;
+н҃бо и землю. бл҃гꙑ-&#13;
+и же бъ҃ ѻжедаꙗ и&#13;
+долготерпѧи. по-&#13;
+каꙗниꙗ ихъ. по-&#13;
+сла к нимъ ст҃ꙑꙗ &#13;
+пррⷪ҇кꙑ ѻни же и т ⷺ-&#13;
+хъ не послушашⷶ. &#13;
+нъ и тѣмь доса-&#13;
+диша. а инѣхъ &#13;
+побиша. и то имꙸ &#13;
+творѧщи ни ту&#13;
+сѧ бъ҃ прогнѣва &#13;
+на созданиѥ сво-</Unicode>
+            </TextEquiv>
+        </TextRegion>
+        <TextRegion orientation="0.0" id="r4" custom="readingOrder {index:2;}">
+            <Coords points="945,121 945,931 1193,931 1193,121"/>
+            <TextLine id="r4l1" custom="readingOrder {index:0;}">
+                <Coords points="943,164 1015,155 1033,161 1039,154 1071,164 1118,150 1176,152 1192,147 1190,117 1122,105 1079,116 1062,107 1019,124 991,111 939,106"/>
+                <Baseline points="947,155 973,154 1000,152 1027,150 1053,149 1080,147 1107,146 1133,144 1160,142 1187,141"/>
+                <TextEquiv>
+                    <Unicode>ѥ. нъ млⷭ҇рдоваше </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l2" custom="readingOrder {index:1;}">
+                <Coords points="946,194 982,188 1005,193 1012,186 1030,196 1046,183 1076,193 1105,180 1179,179 1178,155 1117,150 1092,161 1041,155 1029,161 1023,155 944,165"/>
+                <Baseline points="950,186 978,183 1006,181 1034,180 1062,179 1090,178 1118,177 1146,176 1174,174"/>
+                <TextEquiv>
+                    <Unicode>ѻ твари своѥи. и </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l3" custom="readingOrder {index:2;}">
+                <Coords points="949,221 983,229 1009,219 1039,228 1065,215 1119,216 1143,226 1189,215 1189,190 1091,185 1065,194 1039,188 1026,198 989,189 949,199"/>
+                <Baseline points="954,214 979,212 1005,211 1030,211 1056,212 1081,212 1107,213 1132,213 1158,212 1184,210"/>
+                <TextEquiv>
+                    <Unicode>изволисѧ млⷭ҇рди-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l4" custom="readingOrder {index:3;}">
+                <Coords points="940,256 1004,247 1070,256 1160,245 1188,253 1187,220 1141,227 1110,216 1070,225 995,216 984,228 939,230"/>
+                <Baseline points="945,247 971,244 997,244 1024,243 1050,243 1077,243 1103,243 1130,243 1156,241 1202,240"/>
+                <TextEquiv>
+                    <Unicode>ѥ ѥго ѥже имѧше </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l5" custom="readingOrder {index:4;}">
+                <Coords points="946,285 979,294 1024,281 1045,293 1062,281 1166,283 1182,276 1182,253 1160,245 1108,257 1078,250 1052,258 999,248 979,260 946,259"/>
+                <Baseline points="951,277 976,277 1001,277 1026,277 1051,277 1076,277 1101,277 1126,276 1151,275 1177,273"/>
+                <TextEquiv>
+                    <Unicode>къ твари своѥи. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l6" custom="readingOrder {index:5;}">
+                <Coords points="949,322 971,331 979,322 1008,327 1061,315 1089,323 1165,312 1193,323 1192,281 1122,284 1110,292 1081,286 1045,294 1024,281 988,293 948,289"/>
+                <Baseline points="953,311 979,310 1005,310 1031,310 1057,310 1083,310 1109,310 1135,310 1161,309 1187,307"/>
+                <TextEquiv>
+                    <Unicode>пусти бо сн҃а своѥ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l7" custom="readingOrder {index:6;}">
+                <Coords points="941,360 1096,350 1132,357 1154,346 1187,344 1187,315 1146,315 1115,325 1068,325 1061,318 1026,327 979,322 971,330 941,321"/>
+                <Baseline points="946,346 972,345 998,345 1024,345 1050,345 1077,345 1103,345 1129,344 1155,343 1182,340"/>
+                <TextEquiv>
+                    <Unicode>го ѥдиночадаго. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l8" custom="readingOrder {index:7;}">
+                <Coords points="947,384 1054,379 1069,389 1116,389 1162,377 1183,380 1182,347 1125,358 1086,352 1080,358 1026,353 1000,360 981,351 947,360"/>
+                <Baseline points="952,378 977,377 1002,377 1027,377 1052,376 1077,376 1102,375 1127,375 1152,374 1190,373"/>
+                <TextEquiv>
+                    <Unicode>иже съшедъ съ н҃бсꙵ</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l9" custom="readingOrder {index:8;}">
+                <Coords points="946,415 983,414 994,422 1014,413 1057,413 1066,422 1083,416 1091,421 1100,413 1129,421 1157,414 1167,421 1174,418 1173,379 1115,390 945,385"/>
+                <Baseline points="951,409 978,410 1005,409 1032,409 1060,408 1087,407 1114,406 1141,406 1197,407"/>
+                <TextEquiv>
+                    <Unicode>и вселисѧ въ ст҃у-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l10" custom="readingOrder {index:9;}">
+                <Coords points="944,455 979,448 1026,459 1035,450 1080,454 1094,444 1160,449 1188,442 1188,424 1167,410 1133,421 1057,417 1038,425 1024,414 1002,422 983,414 944,419"/>
+                <Baseline points="949,439 975,439 1001,440 1027,440 1053,439 1079,439 1105,439 1131,438 1157,437 1183,437"/>
+                <TextEquiv>
+                    <Unicode>ю дв҃цю и рожесѧ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l11" custom="readingOrder {index:10;}">
+                <Coords points="946,477 1010,475 1048,483 1060,475 1079,473 1088,481 1112,472 1151,481 1181,472 1180,443 1160,448 1138,441 1117,449 1094,443 1075,454 1046,447 1027,458 1018,451 998,455 945,445"/>
+                <Baseline points="951,469 976,470 1001,470 1026,470 1051,469 1076,469 1101,468 1126,468 1151,467 1176,466"/>
+                <TextEquiv>
+                    <Unicode>ѿ неꙗ дв҃ьства </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l12" custom="readingOrder {index:11;}">
+                <Coords points="942,510 953,506 970,517 988,507 1040,514 1060,506 1074,513 1102,502 1127,512 1155,502 1166,510 1181,506 1181,472 1151,481 1082,476 1058,486 1015,477 942,481"/>
+                <Baseline points="947,500 972,500 997,500 1023,500 1048,499 1074,499 1099,498 1125,498 1150,499 1176,499"/>
+                <TextEquiv>
+                    <Unicode>же не вреже. ꙗко-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l13" custom="readingOrder {index:12;}">
+                <Coords points="947,539 988,535 1008,546 1030,534 1044,541 1055,535 1074,546 1093,536 1148,533 1170,543 1179,539 1179,505 1163,511 1150,503 1139,513 1119,505 1092,513 1060,506 1049,513 947,509"/>
+                <Baseline points="952,529 979,530 1007,530 1035,529 1063,529 1090,529 1118,529 1146,529 1174,529"/>
+                <TextEquiv>
+                    <Unicode>же преже ржⷭ҇тва </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l14" custom="readingOrder {index:13;}">
+                <Coords points="942,576 1036,576 1048,565 1174,569 1174,543 1149,544 1135,536 1113,536 1104,545 1089,538 1072,545 1050,538 1000,545 987,535 942,541"/>
+                <Baseline points="947,565 974,564 1002,562 1030,562 1058,561 1085,561 1113,561 1141,562 1169,563"/>
+                <TextEquiv>
+                    <Unicode>дв҃ою. тако же и </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l15" custom="readingOrder {index:14;}">
+                <Coords points="943,604 966,601 981,609 992,599 1030,604 1052,598 1088,600 1109,611 1126,604 1163,607 1170,605 1170,573 1139,566 1108,574 1065,566 1051,576 943,576"/>
+                <Baseline points="948,594 975,592 1002,592 1029,591 1056,591 1083,592 1110,592 1137,592 1165,591"/>
+                <TextEquiv>
+                    <Unicode>по ржⷭ҇твѣ пребꙑⷭ҇</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l16" custom="readingOrder {index:15;}">
+                <Coords points="946,640 960,644 982,629 1038,644 1062,632 1089,640 1120,632 1149,638 1168,632 1168,605 1110,611 1039,598 994,599 973,612 946,609"/>
+                <Baseline points="951,627 977,627 1004,626 1030,626 1057,627 1083,627 1110,628 1136,628 1163,627"/>
+                <TextEquiv>
+                    <Unicode>дв҃ою. Гⷭ҇у же наше-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l17" custom="readingOrder {index:16;}">
+                <Coords points="941,668 976,673 1006,664 1028,674 1071,661 1089,672 1145,665 1155,675 1170,668 1171,639 1157,642 1135,632 1115,645 1105,636 1071,642 1062,633 1038,645 995,632 942,640"/>
+                <Baseline points="947,657 974,656 1001,656 1029,657 1056,658 1083,659 1111,659 1138,659 1166,658"/>
+                <TextEquiv>
+                    <Unicode>му иⷭ҇су. ꙗкоже пре-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l18" custom="readingOrder {index:17;}">
+                <Coords points="946,701 983,707 1022,693 1037,709 1097,700 1118,709 1131,699 1179,697 1180,672 1155,674 1146,665 1123,675 1110,666 1097,673 1070,661 1029,674 1006,664 947,672"/>
+                <Baseline points="951,686 978,688 1006,690 1034,691 1062,691 1090,692 1118,692 1146,692 1174,691"/>
+                <TextEquiv>
+                    <Unicode>же ркохомъ. роже-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l19" custom="readingOrder {index:18;}">
+                <Coords points="945,736 1006,739 1016,732 1106,740 1146,733 1172,740 1189,737 1189,696 1118,708 1053,697 1037,709 1022,694 1005,706 945,702"/>
+                <Baseline points="950,719 976,722 1002,723 1028,725 1054,725 1080,726 1106,726 1132,725 1158,724 1184,723"/>
+                <TextEquiv>
+                    <Unicode>шусѧ ѿ ст҃ꙑꙗ дв҃цѣ. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l20" custom="readingOrder {index:19;}">
+                <Coords points="941,762 958,772 1089,763 1107,774 1123,764 1195,764 1195,733 1167,728 1120,739 1034,733 992,739 980,729 967,737 941,728"/>
+                <Baseline points="946,753 973,754 1000,755 1027,756 1054,756 1081,756 1108,756 1135,756 1162,755 1190,754"/>
+                <TextEquiv>
+                    <Unicode>и хрьщешемусѧ ѿ и-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l21" custom="readingOrder {index:20;}">
+                <Coords points="940,798 983,794 1064,805 1106,794 1137,801 1158,794 1194,806 1195,764 1107,774 1095,763 958,772 941,762"/>
+                <Baseline points="945,784 972,787 999,789 1026,790 1053,790 1080,789 1107,789 1134,789 1161,789 1189,791"/>
+                <TextEquiv>
+                    <Unicode>вана намъ ѻбразꙸ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l22" custom="readingOrder {index:21;}">
+                <Coords points="942,827 1043,835 1052,827 1079,826 1099,835 1115,826 1130,832 1144,826 1172,837 1172,801 1144,803 1118,794 1074,805 964,803 942,794"/>
+                <Baseline points="947,821 974,822 1002,823 1029,823 1057,823 1084,823 1112,822 1139,822 1167,821"/>
+                <TextEquiv>
+                    <Unicode>давъ. да и мꙑ и </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l23" custom="readingOrder {index:22;}">
+                <Coords points="943,853 969,867 1050,860 1198,865 1198,831 1189,828 1166,838 1140,829 1089,838 1069,831 1027,837 943,830"/>
+                <Baseline points="948,849 975,852 1002,855 1029,856 1056,856 1084,856 1111,855 1138,855 1165,856 1193,858"/>
+                <TextEquiv>
+                    <Unicode>крⷭ҇тимсѧ во имѧ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l24" custom="readingOrder {index:23;}">
+                <Coords points="942,889 1008,897 1035,891 1067,900 1124,890 1146,900 1161,891 1193,893 1194,866 1092,861 1020,869 959,863 943,854"/>
+                <Baseline points="948,881 974,884 1001,885 1028,887 1055,888 1081,889 1108,889 1135,889 1162,888 1189,888"/>
+                <TextEquiv>
+                    <Unicode>ѥго. таче потомъ и-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r4l25" custom="readingOrder {index:24;}">
+                <Coords points="947,935 986,938 998,928 1023,939 1053,928 1068,942 1099,927 1158,938 1193,927 1194,893 1146,900 1125,890 1076,901 1036,891 993,900 948,891"/>
+                <Baseline points="952,915 978,917 1004,919 1030,920 1056,920 1083,921 1109,921 1135,921 1161,920 1188,919"/>
+                <TextEquiv>
+                    <Unicode>збра .в҃ӏ. ѹчн҃ка ꙗ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextEquiv>
+                <Unicode>ѥ. нъ млⷭ҇рдоваше &#13;
+ѻ твари своѥи. и &#13;
+изволисѧ млⷭ҇рди-&#13;
+ѥ ѥго ѥже имѧше &#13;
+къ твари своѥи. &#13;
+пусти бо сн҃а своѥ-&#13;
+го ѥдиночадаго. &#13;
+иже съшедъ съ н҃бсꙵ&#13;
+и вселисѧ въ ст҃у-&#13;
+ю дв҃цю и рожесѧ &#13;
+ѿ неꙗ дв҃ьства &#13;
+же не вреже. ꙗко-&#13;
+же преже ржⷭ҇тва &#13;
+дв҃ою. тако же и &#13;
+по ржⷭ҇твѣ пребꙑⷭ҇&#13;
+дв҃ою. Гⷭ҇у же наше-&#13;
+му иⷭ҇су. ꙗкоже пре-&#13;
+же ркохомъ. роже-&#13;
+шусѧ ѿ ст҃ꙑꙗ дв҃цѣ. &#13;
+и хрьщешемусѧ ѿ и-&#13;
+вана намъ ѻбразꙸ &#13;
+давъ. да и мꙑ и &#13;
+крⷭ҇тимсѧ во имѧ &#13;
+ѥго. таче потомъ и-&#13;
+збра .в҃ӏ. ѹчн҃ка ꙗ-</Unicode>
+            </TextEquiv>
+        </TextRegion>
+        <TextRegion orientation="0.0" id="r5" custom="readingOrder {index:3;}">
+            <Coords points="1236,119 1236,928 1509,928 1509,119"/>
+            <TextLine id="r5l1" custom="readingOrder {index:0;}">
+                <Coords points="1235,144 1269,154 1325,145 1359,145 1371,153 1448,143 1462,150 1473,146 1472,105 1419,100 1396,111 1376,100 1346,100 1331,113 1309,105 1234,121"/>
+                <Baseline points="1240,140 1265,141 1290,141 1316,142 1341,141 1366,141 1392,140 1417,139 1442,139 1468,139"/>
+                <TextEquiv>
+                    <Unicode>же и апⷭ҇лꙑ нареⷱ҇. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l2" custom="readingOrder {index:1;}">
+                <Coords points="1231,184 1388,175 1414,182 1472,173 1471,147 1448,143 1441,149 1302,145 1230,154"/>
+                <Baseline points="1236,172 1261,173 1287,174 1313,174 1338,173 1364,172 1390,171 1415,170 1441,170 1467,169"/>
+                <TextEquiv>
+                    <Unicode>и много ꙗ ѹча-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l3" custom="readingOrder {index:2;}">
+                <Coords points="1233,214 1289,212 1318,224 1334,213 1407,217 1458,204 1505,218 1514,215 1513,174 1416,185 1389,175 1331,176 1282,190 1255,182 1232,188"/>
+                <Baseline points="1238,207 1265,207 1292,207 1319,207 1346,206 1373,205 1400,204 1427,203 1454,201 1481,200 1509,198"/>
+                <TextEquiv>
+                    <Unicode>ше. ѻ црⷭ҇твѣ нбⷭ҇нмь. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l4" custom="readingOrder {index:3;}">
+                <Coords points="1243,254 1277,243 1310,245 1327,256 1346,242 1387,250 1398,240 1421,252 1442,240 1476,243 1496,234 1495,210 1461,204 1441,213 1424,207 1410,217 1332,215 1318,224 1307,216 1278,223 1266,211 1242,216"/>
+                <Baseline points="1227,239 1275,239 1302,239 1329,238 1356,238 1383,237 1410,236 1437,235 1464,234 1491,233"/>
+                <TextEquiv>
+                    <Unicode>сказаше имъ мь-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l5" custom="readingOrder {index:4;}">
+                <Coords points="1241,279 1322,276 1336,285 1376,286 1411,273 1427,283 1458,271 1487,276 1499,270 1498,241 1468,237 1456,246 1442,240 1390,250 1373,242 1329,256 1285,246 1275,255 1256,248 1240,254"/>
+                <Baseline points="1246,274 1273,273 1300,272 1328,272 1355,271 1383,270 1410,270 1438,269 1465,268 1493,267"/>
+                <TextEquiv>
+                    <Unicode>ногаждꙑ имъ чю-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l6" custom="readingOrder {index:5;}">
+                <Coords points="1238,323 1263,312 1279,320 1314,313 1329,320 1344,310 1373,322 1432,306 1491,315 1490,275 1457,271 1437,283 1378,284 1285,277 1275,286 1237,279"/>
+                <Baseline points="1242,310 1269,307 1296,306 1323,305 1350,304 1377,304 1404,303 1431,303 1458,302 1485,301"/>
+                <TextEquiv>
+                    <Unicode>деса створь предъ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l7" custom="readingOrder {index:6;}">
+                <Coords points="1241,347 1482,347 1481,314 1460,309 1241,323"/>
+                <Baseline points="1246,340 1271,340 1297,339 1323,338 1348,337 1374,337 1400,336 1425,336 1451,336 1477,335"/>
+                <TextEquiv>
+                    <Unicode>ними. и прѣдъ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l8" custom="readingOrder {index:7;}">
+                <Coords points="1238,381 1493,373 1499,339 1399,352 1354,343 1332,351 1237,350"/>
+                <Baseline points="1242,371 1267,371 1292,371 1317,370 1342,370 1368,369 1393,368 1418,368 1443,367 1468,367 1494,366"/>
+                <TextEquiv>
+                    <Unicode>всимъ народомъ. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l9" custom="readingOrder {index:8;}">
+                <Coords points="1235,414 1486,401 1484,371 1234,381"/>
+                <Baseline points="1239,403 1265,403 1292,402 1319,400 1346,399 1372,398 1399,397 1426,396 1453,395 1480,396"/>
+                <TextEquiv>
+                    <Unicode>ꙗкоже ст҃оѥ ѥѹа-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l10" custom="readingOrder {index:9;}">
+                <Coords points="1239,439 1358,437 1369,444 1401,432 1483,432 1483,402 1467,409 1239,408"/>
+                <Baseline points="1244,432 1270,431 1296,431 1322,430 1348,429 1374,429 1400,428 1426,427 1452,426 1478,426"/>
+                <TextEquiv>
+                    <Unicode>нг҃ли свидитель-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l11" custom="readingOrder {index:10;}">
+                <Coords points="1234,476 1267,467 1283,477 1438,462 1494,470 1493,430 1373,442 1233,440"/>
+                <Baseline points="1239,463 1264,463 1289,463 1314,462 1339,461 1364,461 1389,460 1414,459 1439,458 1464,458 1489,457"/>
+                <TextEquiv>
+                    <Unicode>ствуѥть. по семь </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l12" custom="readingOrder {index:11;}">
+                <Coords points="1233,509 1277,497 1330,510 1355,496 1401,493 1430,505 1491,501 1490,468 1442,463 1392,471 1375,463 1358,472 1337,466 1313,476 1275,479 1256,471 1232,478"/>
+                <Baseline points="1238,496 1265,495 1293,494 1320,493 1348,492 1375,491 1403,490 1430,489 1458,489 1486,490"/>
+                <TextEquiv>
+                    <Unicode>же см҃рти вкуси. </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l13" custom="readingOrder {index:12;}">
+                <Coords points="1236,531 1344,528 1365,543 1393,528 1428,535 1436,527 1489,526 1488,501 1477,497 1434,502 1423,495 1395,503 1355,496 1330,509 1277,498 1235,506"/>
+                <Baseline points="1241,525 1268,526 1295,526 1322,525 1349,524 1376,523 1403,522 1430,521 1457,521 1484,522"/>
+                <TextEquiv>
+                    <Unicode>волею стрⷭ҇тию сво-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l14" custom="readingOrder {index:13;}">
+                <Coords points="1232,567 1296,572 1340,563 1353,571 1401,558 1438,567 1465,561 1464,532 1405,536 1392,528 1365,543 1276,530 1232,535"/>
+                <Baseline points="1237,558 1264,559 1292,558 1320,558 1348,557 1376,556 1404,555 1432,556 1460,557"/>
+                <TextEquiv>
+                    <Unicode>ѥю. и положенъ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l15" custom="readingOrder {index:14;}">
+                <Coords points="1237,594 1347,604 1372,592 1501,593 1500,567 1491,563 1398,559 1296,572 1280,563 1236,567"/>
+                <Baseline points="1241,589 1266,588 1291,588 1317,587 1342,587 1368,587 1393,586 1418,586 1444,585 1469,585 1495,585"/>
+                <TextEquiv>
+                    <Unicode>бꙑⷭ҇ во гробѣ. и сни-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l16" custom="readingOrder {index:15;}">
+                <Coords points="1234,637 1303,624 1353,637 1391,625 1407,633 1445,632 1453,640 1476,633 1475,592 1361,594 1345,604 1299,594 1233,594"/>
+                <Baseline points="1239,623 1264,622 1290,621 1316,621 1342,622 1367,622 1393,622 1419,621 1445,619 1471,617"/>
+                <TextEquiv>
+                    <Unicode>де на ада и дерь-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l17" custom="readingOrder {index:16;}">
+                <Coords points="1235,669 1273,657 1318,669 1385,669 1421,658 1436,667 1452,661 1489,668 1490,624 1453,640 1445,631 1406,635 1390,627 1354,635 1323,627 1304,636 1282,626 1235,637"/>
+                <Baseline points="1240,653 1267,653 1294,653 1321,653 1348,654 1375,654 1402,655 1429,655 1456,654 1484,652"/>
+                <TextEquiv>
+                    <Unicode>жаву ѥго раздру-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l18" custom="readingOrder {index:17;}">
+                <Coords points="1235,696 1262,692 1282,702 1319,693 1353,700 1374,690 1439,695 1459,685 1505,691 1504,664 1492,662 1437,667 1421,658 1412,667 1318,670 1274,657 1234,669"/>
+                <Baseline points="1240,688 1266,688 1292,687 1318,687 1344,687 1370,686 1396,686 1422,685 1448,684 1474,683 1500,682"/>
+                <TextEquiv>
+                    <Unicode>ши. самого же свѧ-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l19" custom="readingOrder {index:18;}">
+                <Coords points="1234,731 1251,741 1265,732 1321,733 1330,726 1344,735 1357,723 1452,729 1465,719 1486,727 1496,722 1496,695 1421,698 1399,690 1377,706 1320,693 1301,704 1262,692 1234,701"/>
+                <Baseline points="1239,718 1264,719 1289,720 1314,720 1339,720 1365,719 1390,718 1415,717 1440,716 1465,715 1491,715"/>
+                <TextEquiv>
+                    <Unicode>за и держимꙑꙗ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l20" custom="readingOrder {index:19;}">
+                <Coords points="1237,760 1277,755 1287,764 1336,765 1350,754 1374,765 1437,751 1458,763 1476,761 1475,723 1381,734 1357,723 1344,732 1270,732 1251,742 1236,732"/>
+                <Baseline points="1241,751 1266,752 1291,753 1317,752 1342,751 1368,750 1393,749 1419,748 1444,747 1470,748"/>
+                <TextEquiv>
+                    <Unicode>свободи дш҃а. и </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l21" custom="readingOrder {index:20;}">
+                <Coords points="1236,794 1515,786 1514,755 1459,764 1438,751 1395,764 1235,760"/>
+                <Baseline points="1241,785 1267,785 1294,785 1321,784 1348,784 1375,783 1401,782 1428,781 1455,780 1482,780 1509,779"/>
+                <TextEquiv>
+                    <Unicode>гл҃а имъ идѣта въ </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l22" custom="readingOrder {index:21;}">
+                <Coords points="1243,827 1289,826 1312,837 1396,821 1428,833 1456,821 1496,829 1495,784 1457,791 1437,784 1389,797 1372,786 1339,788 1296,802 1282,793 1242,793"/>
+                <Baseline points="1248,817 1275,818 1302,818 1329,818 1356,817 1383,816 1410,816 1437,816 1464,816 1491,818"/>
+                <TextEquiv>
+                    <Unicode>раи. ѻни же раду-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l23" custom="readingOrder {index:22;}">
+                <Coords points="1235,858 1294,867 1324,856 1351,866 1438,853 1465,863 1477,854 1502,856 1502,829 1487,833 1458,821 1449,829 1395,833 1362,824 1313,838 1254,824 1235,832"/>
+                <Baseline points="1240,852 1265,852 1291,852 1317,851 1342,851 1368,850 1394,850 1419,849 1445,848 1471,848 1497,847"/>
+                <TextEquiv>
+                    <Unicode>ющесѧ идоша хва-</Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l24" custom="readingOrder {index:23;}">
+                <Coords points="1233,893 1261,889 1298,899 1314,890 1371,895 1387,887 1403,894 1420,882 1436,890 1498,883 1497,858 1478,854 1470,862 1436,853 1373,867 1318,856 1294,867 1233,871"/>
+                <Baseline points="1238,885 1263,885 1289,885 1314,884 1340,884 1365,883 1391,882 1416,882 1442,881 1467,880 1493,879"/>
+                <TextEquiv>
+                    <Unicode>лѧще ба҃. самъ же </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextLine id="r5l25" custom="readingOrder {index:24;}">
+                <Coords points="1239,926 1283,927 1303,941 1329,925 1366,938 1386,930 1449,934 1474,916 1509,922 1508,891 1494,884 1453,895 1421,883 1404,894 1238,893"/>
+                <Baseline points="1244,918 1269,917 1295,917 1321,916 1347,916 1373,915 1399,914 1425,914 1451,913 1477,912 1503,911"/>
+                <TextEquiv>
+                    <Unicode>въ третии дн҃ь въ- </Unicode>
+                </TextEquiv>
+            </TextLine>
+            <TextEquiv>
+                <Unicode>же и апⷭ҇лꙑ нареⷱ҇. &#13;
+и много ꙗ ѹча-&#13;
+ше. ѻ црⷭ҇твѣ нбⷭ҇нмь. &#13;
+сказаше имъ мь-&#13;
+ногаждꙑ имъ чю-&#13;
+деса створь предъ &#13;
+ними. и прѣдъ &#13;
+всимъ народомъ. &#13;
+ꙗкоже ст҃оѥ ѥѹа-&#13;
+нг҃ли свидитель-&#13;
+ствуѥть. по семь &#13;
+же см҃рти вкуси. &#13;
+волею стрⷭ҇тию сво-&#13;
+ѥю. и положенъ &#13;
+бꙑⷭ҇ во гробѣ. и сни-&#13;
+де на ада и дерь-&#13;
+жаву ѥго раздру-&#13;
+ши. самого же свѧ-&#13;
+за и держимꙑꙗ &#13;
+свободи дш҃а. и &#13;
+гл҃а имъ идѣта въ &#13;
+раи. ѻни же раду-&#13;
+ющесѧ идоша хва-&#13;
+лѧще ба҃. самъ же &#13;
+въ третии дн҃ь въ- </Unicode>
+            </TextEquiv>
+        </TextRegion>
+        <TextRegion orientation="0.0" id="r6" custom="readingOrder {index:4;}">
+            <Coords points="1579,0 1579,149 1633,149 1633,0"/>
+            <TextEquiv>
+                <Unicode></Unicode>
+            </TextEquiv>
+        </TextRegion>
+        <TextRegion orientation="0.0" id="r7" custom="readingOrder {index:5;}">
+            <Coords points="1598,502 1598,654 1628,654 1628,502"/>
+            <TextEquiv>
+                <Unicode></Unicode>
+            </TextEquiv>
+        </TextRegion>
+    </Page>
+</PcGts>

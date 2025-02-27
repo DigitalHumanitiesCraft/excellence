@@ -1,0 +1,215 @@
+/* Viewer-specific CSS for Historical Document Viewer */
+
+/* Tool Panel */
+.tool-panel {
+    width: var(--tool-panel-width);
+    background-color: var(--tool-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    align-items: center;
+}
+
+.tool-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    padding: 0;
+    font-size: 1.25rem;
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border-color);
+}
+
+.tool-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.tool-button.active {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Document Panel */
+.document-panel {
+    flex: 3;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--document-bg);
+}
+
+.document-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#document-image {
+    max-width: 100%;
+    height: auto;
+    cursor: move;
+    transition: transform 0.2s ease;
+}
+
+.highlight-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.text-region-highlight {
+    position: absolute;
+    background-color: var(--highlight-color);
+    border: 1px dashed rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+/* Transcription Panel */
+.transcription-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border-color);
+    background-color: var(--secondary-bg);
+}
+
+.panel-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-nav-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.transcription-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.transcription-line {
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.transcription-line:hover {
+    background-color: var(--highlight-color);
+}
+
+.transcription-line.active {
+    background-color: var(--highlight-color);
+    font-weight: bold;
+}
+
+/* Document collection item */
+.collection-item {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--secondary-bg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.collection-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.collection-thumbnail {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.collection-item-info {
+    padding: 0.75rem;
+}
+
+.collection-item-title {
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.collection-item-meta {
+    font-size: 0.75rem;
+    color: var(--secondary-text);
+}
+
+/* Zoom controls */
+.zoom-level {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Media queries for responsive layout */
+@media (max-width: 900px) {
+    .document-panel {
+        flex: 2;
+    }
+
+    .transcription-panel {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .document-panel, .transcription-panel {
+        flex: none;
+        height: 50%;
+    }
+
+    .transcription-panel {
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .tool-panel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0.5rem 0;
+        z-index: 40;
+        border-top: 1px solid var(--border-color);
+        border-right: none;
+    }
+
+    .tool-button {
+        margin: 0 0.5rem;
+    }
+}

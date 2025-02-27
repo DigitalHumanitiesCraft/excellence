@@ -1,0 +1,168 @@
+/* Annotations-specific CSS for Historical Document Viewer */
+
+/* Annotation styles */
+.annotation {
+    display: inline;
+    border-radius: 2px;
+    padding: 0 2px;
+    margin: 0 1px;
+    cursor: help;
+}
+
+/* Named Entity Recognition (NER) */
+.annotation.ner-person {
+    background-color: rgba(255, 170, 170, 0.3);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.5);
+}
+
+.annotation.ner-location {
+    background-color: rgba(170, 255, 170, 0.3);
+    border-bottom: 1px solid rgba(0, 128, 0, 0.5);
+}
+
+.annotation.ner-organization {
+    background-color: rgba(170, 170, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 255, 0.5);
+}
+
+.annotation.ner-date {
+    background-color: rgba(255, 255, 170, 0.3);
+    border-bottom: 1px solid rgba(128, 128, 0, 0.5);
+}
+
+.annotation.ner-misc {
+    background-color: rgba(170, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 128, 128, 0.5);
+}
+
+/* Part-of-speech (POS) tagging */
+.annotation.pos-noun {
+    background-color: rgba(230, 190, 255, 0.3);
+    border-bottom: 1px dashed rgba(128, 0, 128, 0.5);
+}
+
+.annotation.pos-verb {
+    background-color: rgba(255, 200, 170, 0.3);
+    border-bottom: 1px dashed rgba(255, 128, 0, 0.5);
+}
+
+.annotation.pos-adj {
+    background-color: rgba(190, 230, 255, 0.3);
+    border-bottom: 1px dashed rgba(0, 128, 255, 0.5);
+}
+
+.annotation.pos-adv {
+    background-color: rgba(220, 255, 220, 0.3);
+    border-bottom: 1px dashed rgba(0, 180, 0, 0.5);
+}
+
+.annotation.pos-other {
+    background-color: rgba(220, 220, 220, 0.3);
+    border-bottom: 1px dashed rgba(100, 100, 100, 0.5);
+}
+
+/* Morphological analysis */
+.annotation.morph {
+    position: relative;
+    text-decoration: underline dotted rgba(0, 0, 0, 0.3);
+}
+
+/* Annotation tooltip */
+.annotation-tooltip {
+    position: absolute;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    z-index: 100;
+    font-size: 0.875rem;
+}
+
+.annotation-tooltip-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.annotation-tooltip-content {
+    color: var(--primary-text);
+}
+
+.annotation-tooltip-category {
+    font-size: 0.75rem;
+    color: var(--secondary-text);
+    margin-bottom: 0.25rem;
+}
+
+.annotation-tooltip-definition {
+    margin-bottom: 0.5rem;
+}
+
+/* Search result highlighting */
+.search-highlight {
+    background-color: rgba(255, 215, 0, 0.4);
+    border-radius: 2px;
+}
+
+/* Annotation legend */
+.annotation-legend {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 0.75rem;
+    max-width: 200px;
+    z-index: 20;
+    display: none;
+}
+
+.annotation-legend.visible {
+    display: block;
+}
+
+.legend-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.25rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    margin-right: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Annotation toggle classes */
+.annotations-hidden .annotation {
+    background-color: transparent !important;
+    border-bottom: none !important;
+    text-decoration: none !important;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .annotation-tooltip {
+        max-width: 90%;
+    }
+    
+    .annotation-legend {
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 90%;
+    }
+}

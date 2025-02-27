@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Document Viewer</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/viewer.css">
+    <link rel="stylesheet" href="css/annotations.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button id="back-button" class="nav-button">← Back to Collection</button>
+        </div>
+        <div class="nav-center">
+            <h1 id="document-title">Document Title</h1>
+            <p id="document-metadata">Metadata will appear here</p>
+        </div>
+        <div class="nav-right">
+            <button id="view-toggle" class="nav-button">Toggle View</button>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <!-- Tool Panel -->
+        <aside class="tool-panel">
+            <button id="zoom-in" class="tool-button" title="Zoom In">+</button>
+            <button id="zoom-out" class="tool-button" title="Zoom Out">-</button>
+            <button id="fit-width" class="tool-button" title="Fit to Width">↔</button>
+            <button id="fit-page" class="tool-button" title="Fit to Page">□</button>
+            <button id="annotation-toggle" class="tool-button" title="Toggle Annotations">A</button>
+        </aside>
+
+        <!-- Document Display Panel -->
+        <section id="document-panel" class="document-panel">
+            <div id="document-container" class="document-container">
+                <img id="document-image" src="" alt="Historical Document">
+                <div id="highlight-overlay" class="highlight-overlay"></div>
+            </div>
+        </section>
+
+        <!-- Transcription Panel -->
+        <section id="transcription-panel" class="transcription-panel">
+            <div class="panel-header">
+                <h2>Transcription</h2>
+                <div class="page-nav">
+                    <button id="prev-page" class="page-nav-button">Previous</button>
+                    <span id="page-indicator">Page 1 of 1</span>
+                    <button id="next-page" class="page-nav-button">Next</button>
+                </div>
+            </div>
+            <div id="transcription-container" class="transcription-container"></div>
+        </section>
+    </main>
+
+    <!-- Search Panel (Collapsed by default) -->
+    <div id="search-panel" class="search-panel collapsed">
+        <div class="search-header">
+            <h3>Search Documents</h3>
+            <button id="close-search" class="close-button">×</button>
+        </div>
+        <div class="search-form">
+            <input type="text" id="search-input" placeholder="Enter search terms...">
+            <button id="search-button">Search</button>
+        </div>
+        <div class="search-options">
+            <label><input type="checkbox" id="search-transcription"> Transcription</label>
+            <label><input type="checkbox" id="search-annotations"> Annotations</label>
+        </div>
+        <div id="search-results" class="search-results"></div>
+    </div>
+
+    <!-- Collection Browser (Hidden by default) -->
+    <div id="collection-browser" class="collection-browser hidden">
+        <div class="browser-header">
+            <h2>Document Collection</h2>
+            <button id="close-browser" class="close-button">×</button>
+        </div>
+        <div id="collection-items" class="collection-items"></div>
+    </div>
+
+    <!-- Institutional Footer -->
+    <footer class="footer">
+        <div class="footer-left">
+            <p>© 2025 Historical Document Archive</p>
+        </div>
+        <div class="footer-right">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Use</a>
+            <a href="#" class="footer-link">Contact</a>
+        </div>
+    </footer>
+
+    <!-- Loading indicator -->
+    <div id="loading-indicator" class="loading-indicator hidden">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js" type="module"></script>
+</body>
+</html>
