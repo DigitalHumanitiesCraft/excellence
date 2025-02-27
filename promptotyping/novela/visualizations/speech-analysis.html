@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Representation Analysis - NOVELA Project</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link href="../css/novela-custom.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">NOVELA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="textsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Texts
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="textsDropdown">
+                            <li><a class="dropdown-item" href="../texts/prasch.html">Johann Ludwig Prasch</a></li>
+                            <li><a class="dropdown-item" href="../texts/holberg.html">Ludvig Holberg</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-muted" href="#">More texts coming soon</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="analysisDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Analysis
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="analysisDropdown">
+                            <li><a class="dropdown-item active" href="speech-analysis.html">Speech Representation</a></li>
+                            <li><a class="dropdown-item" href="narrative-structure.html">Narrative Structure</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about.html">About</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search texts" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h1>Speech Representation Analysis</h1>
+                <p class="lead">
+                    Explore how speech and thought are represented across the Latin novels in our collection.
+                </p>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <!-- Explanation Section -->
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="h4 card-title">Understanding Speech Representation</h2>
+                        <p>
+                            Speech representation refers to how an author presents characters' words and thoughts in a narrative. 
+                            We identify three main types:
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Direct Speech</strong> - The exact words of a character, typically in quotation marks.
+                                <div class="p-2 mt-1 mb-2 bg-light rounded">
+                                    <span class="speech-direct p-1">"Vidimus omnino, domine, sed inusitatam nobis, et nescio an tibi quoque."</span>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Indirect Speech</strong> - Reporting character speech in the third person.
+                                <div class="p-2 mt-1 mb-2 bg-light rounded">
+                                    <span class="speech-indirect p-1">Rogatus, ut explicaret...</span>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Free Indirect Speech</strong> - A blend of direct and indirect speech that gives insight into a character's thoughts while maintaining the narrator's voice.
+                                <div class="p-2 mt-1 mb-2 bg-light rounded">
+                                    <span class="speech-free-indirect p-1">Theophrastus, his auditis, ad certamen ferarum properare, praesertim insoliti generis, festinat...</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <p>
+                            By analyzing patterns of speech representation, we can gain insights into narrative techniques, characterization, and stylistic evolution across historical Latin novels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visualization Section -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="h3 mb-3">Comparative Analysis</h2>
+                
+                <!-- Text Selection -->
+                <div class="mb-4">
+                    <label for="textSelect" class="form-label">Select text(s) to analyze:</label>
+                    <div class="d-flex gap-2">
+                        <select class="form-select" id="textSelect">
+                            <option value="all" selected>All Texts</option>
+                            <option value="prasch">Johann Ludwig Prasch - Psyche Cretica</option>
+                            <option value="holberg">Ludvig Holberg - Nicolai Klimii iter subterraneum</option>
+                        </select>
+                        <button class="btn btn-primary" id="updateVisualization">Update</button>
+                    </div>
+                </div>
+                
+                <!-- Main Visualization -->
+                <div class="row">
+                    <!-- Chart Area -->
+                    <div class="col-lg-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                Speech Type Distribution
+                            </div>
+                            <div class="card-body">
+                                <canvas id="speechChart" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Cards -->
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <div class="card speech-stats-card" style="border-left: 5px solid var(--direct-speech);">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Direct Speech</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Characters speaking directly</h6>
+                                        <p class="card-text">
+                                            <span class="h2" id="directSpeechCount">182</span> instances
+                                            (<span id="directSpeechPercent">45</span>% of total)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card speech-stats-card" style="border-left: 5px solid var(--indirect-speech);">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Indirect Speech</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Reported speech in narrative</h6>
+                                        <p class="card-text">
+                                            <span class="h2" id="indirectSpeechCount">130</span> instances
+                                            (<span id="indirectSpeechPercent">35</span>% of total)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card speech-stats-card" style="border-left: 5px solid var(--free-indirect-speech);">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Free Indirect Speech</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Blended perspective</h6>
+                                        <p class="card-text">
+                                            <span class="h2" id="freeIndirectSpeechCount">55</span> instances
+                                            (<span id="freeIndirectSpeechPercent">20</span>% of total)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Visualizations -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                Speech Distribution by Text Section
+                            </div>
+                            <div class="card-body">
+                                <canvas id="speechDistributionChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text Samples Section -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="h3 mb-3">Speech Type Examples</h2>
+                
+                <!-- Tabs for different speech types -->
+                <ul class="nav nav-tabs" id="speechTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="direct-tab" data-bs-toggle="tab" data-bs-target="#direct" type="button" role="tab" aria-controls="direct" aria-selected="true">Direct Speech</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="indirect-tab" data-bs-toggle="tab" data-bs-target="#indirect" type="button" role="tab" aria-controls="indirect" aria-selected="false">Indirect Speech</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="free-indirect-tab" data-bs-toggle="tab" data-bs-target="#free-indirect" type="button" role="tab" aria-controls="free-indirect" aria-selected="false">Free Indirect Speech</button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="speechTabContent">
+                    <!-- Direct Speech Examples -->
+                    <div class="tab-pane fade show active" id="direct" role="tabpanel" aria-labelledby="direct-tab">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Examples of Direct Speech</h4>
+                                <div class="example-text p-3 bg-light rounded">
+                                    <p>
+                                        <strong>From Prasch's "Psyche Cretica":</strong>
+                                    </p>
+                                    <p>
+                                        Cui subulcorum maximus natu: <span class="speech-direct p-1">"Vidimus omnino, domine, sed inusitatam nobis, et nescio an tibi quoque."</span>
+                                    </p>
+                                    <p>
+                                        <span class="speech-direct p-1">"Leonem," inquit, "videramus cum leone committi, et, quo miraculum augeatur, faemella erat: sed victor quis fuerit, pro certo affirmare non possum. Tam cito enim ambo nostros refugere conspectus, ut nec oculis prospicere, nec auribus sequi potuerimus."</span>
+                                    </p>
+                                </div>
+                                <p class="mt-3">
+                                    Direct speech presents the exact words of characters, preserving their distinct voice and perspective. In Latin texts, this is often marked with inquit ("he/she said") or similar verbs of speaking.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indirect Speech Examples -->
+                    <div class="tab-pane fade" id="indirect" role="tabpanel" aria-labelledby="indirect-tab">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Examples of Indirect Speech</h4>
+                                <div class="example-text p-3 bg-light rounded">
+                                    <p>
+                                        <strong>From Prasch's "Psyche Cretica":</strong>
+                                    </p>
+                                    <p>
+                                        <span class="speech-indirect p-1">Rogatus, ut explicaret...</span>
+                                    </p>
+                                    <p>
+                                        <span class="speech-indirect p-1">Theophrastus, his auditis, ad certamen ferarum properare, praesertim insoliti generis, festinat...</span>
+                                    </p>
+                                </div>
+                                <p class="mt-3">
+                                    Indirect speech reports character's words through the narrator's voice, typically with subordinate clauses, subjunctive verbs, and pronouns adjusted to the narrator's perspective.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Free Indirect Speech Examples -->
+                    <div class="tab-pane fade" id="free-indirect" role="tabpanel" aria-labelledby="free-indirect-tab">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Examples of Free Indirect Speech</h4>
+                                <div class="example-text p-3 bg-light rounded">
+                                    <p>
+                                        <strong>From Holberg's "Nicolai Klimii iter subterraneum":</strong>
+                                    </p>
+                                    <p>
+                                        <span class="speech-free-indirect p-1">Quid faceret in tam inopinato casu? Quonam modo evaderet? Nullum effugium patere videbat, nutare arbor, mox et excutiendus erat. At si vivus in barathrum praecipitaretur, nullum esse poterat mortis effugium.</span>
+                                    </p>
+                                </div>
+                                <p class="mt-3">
+                                    Free indirect speech blends the narrator's voice with a character's thoughts, creating a distinctive dual perspective. It often features questions or exclamations that represent a character's internal thoughts without direct quotation marks or reporting verbs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>NOVELA Project</h5>
+                    <p>
+                        Digital Edition of Latin Novels from the 17th and 18th Centuries
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">Home</a></li>
+                        <li><a href="../texts/prasch.html" class="text-white">Texts</a></li>
+                        <li><a href="speech-analysis.html" class="text-white">Analysis</a></li>
+                        <li><a href="../about.html" class="text-white">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://alpheios.net" class="text-white" target="_blank">Alpheios Tools</a></li>
+                        <li><a href="https://tei-c.org" class="text-white" target="_blank">TEI Guidelines</a></li>
+                        <li><a href="https://github.com/your-username/novela-project" class="text-white" target="_blank">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col text-center">
+                    <p class="mb-0">&copy; 2025 NOVELA Project. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="../js/novela-core.js"></script>
+    <script src="../js/novela-visualization.js"></script>
+    
+    <!-- Speech Chart Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the speech type pie chart
+            const speechCtx = document.getElementById('speechChart').getContext('2d');
+            const speechChart = new Chart(speechCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Direct Speech', 'Indirect Speech', 'Free Indirect Speech'],
+                    datasets: [{
+                        data: [182, 130, 55],
+                        backgroundColor: [
+                            'rgba(209, 231, 221, 0.8)',
+                            'rgba(207, 226, 255, 0.8)',
+                            'rgba(248, 215, 218, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgb(25, 135, 84)',
+                            'rgb(13, 110, 253)',
+                            'rgb(220, 53, 69)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${value} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Initialize the speech distribution bar chart
+            const distributionCtx = document.getElementById('speechDistributionChart').getContext('2d');
+            const distributionChart = new Chart(distributionCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Beginning', 'Middle', 'End'],
+                    datasets: [
+                        {
+                            label: 'Direct Speech',
+                            data: [55, 72, 55],
+                            backgroundColor: 'rgba(209, 231, 221, 0.8)',
+                            borderColor: 'rgb(25, 135, 84)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Indirect Speech',
+                            data: [42, 46, 42],
+                            backgroundColor: 'rgba(207, 226, 255, 0.8)',
+                            borderColor: 'rgb(13, 110, 253)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Free Indirect Speech',
+                            data: [15, 22, 18],
+                            backgroundColor: 'rgba(248, 215, 218, 0.8)',
+                            borderColor: 'rgb(220, 53, 69)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            stacked: false,
+                            title: {
+                                display: true,
+                                text: 'Text Section'
+                            }
+                        },
+                        y: {
+                            stacked: false,
+                            title: {
+                                display: true,
+                                text: 'Count'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        title: {
+                            display: false,
+                            text: 'Speech Distribution by Text Section'
+                        }
+                    }
+                }
+            });
+            
+            // Handle text selection changes
+            document.getElementById('updateVisualization').addEventListener('click', function() {
+                const selectedText = document.getElementById('textSelect').value;
+                updateVisualization(selectedText, speechChart, distributionChart);
+            });
+            
+            function updateVisualization(textId, speechChart, distributionChart) {
+                // Sample data for demonstration - in a real implementation, this would load from the server
+                const data = {
+                    'prasch': {
+                        speech: [35, 28, 12],
+                        distribution: [
+                            [12, 14, 9],
+                            [10, 11, 7],
+                            [3, 6, 3]
+                        ]
+                    },
+                    'holberg': {
+                        speech: [147, 102, 43],
+                        distribution: [
+                            [43, 58, 46],
+                            [32, 35, 35],
+                            [12, 16, 15]
+                        ]
+                    },
+                    'all': {
+                        speech: [182, 130, 55],
+                        distribution: [
+                            [55, 72, 55],
+                            [42, 46, 42],
+                            [15, 22, 18]
+                        ]
+                    }
+                };
+                
+                // Update pie chart
+                speechChart.data.datasets[0].data = data[textId].speech;
+                speechChart.update();
+                
+                // Update bar chart
+                for (let i = 0; i < 3; i++) {
+                    distributionChart.data.datasets[i].data = data[textId].distribution[i];
+                }
+                distributionChart.update();
+                
+                // Update stats cards
+                document.getElementById('directSpeechCount').textContent = data[textId].speech[0];
+                document.getElementById('indirectSpeechCount').textContent = data[textId].speech[1];
+                document.getElementById('freeIndirectSpeechCount').textContent = data[textId].speech[2];
+                
+                const total = data[textId].speech.reduce((a, b) => a + b, 0);
+                document.getElementById('directSpeechPercent').textContent = Math.round((data[textId].speech[0] / total) * 100);
+                document.getElementById('indirectSpeechPercent').textContent = Math.round((data[textId].speech[1] / total) * 100);
+                document.getElementById('freeIndirectSpeechPercent').textContent = Math.round((data[textId].speech[2] / total) * 100);
+            }
+        });
+    </script>
+    </body>
+    </html>
