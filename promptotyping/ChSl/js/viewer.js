@@ -84,7 +84,7 @@ async function loadDocument(imageUrl, docData, annotations = null) {
             currentImage = docImage;
             
             // Reset view
-            docImage.style.transform = `scale(${currentScale})`;
+            document.getElementById('transform-container').style.transform = `scale(${currentScale})`;
             
             // Render the document components
             renderTranscription(docData);
@@ -171,6 +171,11 @@ function createHighlightOverlay(docData) {
     const overlayContainer = document.getElementById('highlight-overlay');
     overlayContainer.innerHTML = '';
     
+    // Get the natural image dimensions for percentage calculations
+    const docImage = document.getElementById('document-image');
+    const imageWidth = docImage.naturalWidth;
+    const imageHeight = docImage.naturalHeight;
+    
     // Create highlight elements for each text region
     docData.textRegions.forEach(region => {
         // Create the region highlight element
@@ -179,12 +184,12 @@ function createHighlightOverlay(docData) {
         regionHighlight.dataset.regionId = region.id;
         regionHighlight.style.display = 'none'; // Hide by default
         
-        // Position the highlight based on coordinates
+        // Position using percentages instead of absolute pixels
         const bbox = calculateBoundingBox(region.coordinates);
-        regionHighlight.style.left = `${bbox.x}px`;
-        regionHighlight.style.top = `${bbox.y}px`;
-        regionHighlight.style.width = `${bbox.width}px`;
-        regionHighlight.style.height = `${bbox.height}px`;
+        regionHighlight.style.left = `${(bbox.x / imageWidth) * 100}%`;
+        regionHighlight.style.top = `${(bbox.y / imageHeight) * 100}%`;
+        regionHighlight.style.width = `${(bbox.width / imageWidth) * 100}%`;
+        regionHighlight.style.height = `${(bbox.height / imageHeight) * 100}%`;
         
         overlayContainer.appendChild(regionHighlight);
         
@@ -201,12 +206,12 @@ function createHighlightOverlay(docData) {
             lineHighlight.addEventListener('mouseout', unhighlightLine);
             lineHighlight.addEventListener('click', () => scrollToTranscriptionLine(line.id));
             
-            // Position the highlight based on coordinates
+            // Position using percentages instead of absolute pixels
             const lineBbox = calculateBoundingBox(line.coordinates);
-            lineHighlight.style.left = `${lineBbox.x}px`;
-            lineHighlight.style.top = `${lineBbox.y}px`;
-            lineHighlight.style.width = `${lineBbox.width}px`;
-            lineHighlight.style.height = `${lineBbox.height}px`;
+            lineHighlight.style.left = `${(lineBbox.x / imageWidth) * 100}%`;
+            lineHighlight.style.top = `${(lineBbox.y / imageHeight) * 100}%`;
+            lineHighlight.style.width = `${(lineBbox.width / imageWidth) * 100}%`;
+            lineHighlight.style.height = `${(lineBbox.height / imageHeight) * 100}%`;
             
             overlayContainer.appendChild(lineHighlight);
         });
@@ -220,18 +225,29 @@ function createHighlightOverlay(docData) {
 function buildLinePositionMap(docData) {
     linePositionMap.clear();
     
+    // Get the natural image dimensions for percentage calculations
+    const docImage = document.getElementById('document-image');
+    const imageWidth = docImage.naturalWidth;
+    const imageHeight = docImage.naturalHeight;
+    
     // Process all text regions
     docData.textRegions.forEach(region => {
         region.lines.forEach(line => {
             const lineBbox = calculateBoundingBox(line.coordinates);
             
             // Store the position of this line in the image
+            // Use both pixel and percentage values to support different scenarios
             linePositionMap.set(line.id, {
                 imagePos: {
                     x: lineBbox.x,
                     y: lineBbox.y,
                     width: lineBbox.width,
-                    height: lineBbox.height
+                    height: lineBbox.height,
+                    // Add percentage values for proper scaling
+                    xPercent: (lineBbox.x / imageWidth) * 100,
+                    yPercent: (lineBbox.y / imageHeight) * 100,
+                    widthPercent: (lineBbox.width / imageWidth) * 100,
+                    heightPercent: (lineBbox.height / imageHeight) * 100
                 },
                 // We'll add transcription position later
                 transcriptionPos: null
@@ -275,15 +291,21 @@ function setupViewSynchronization() {
         let closestLine = null;
         let closestDistance = Infinity;
         
+        // Get the current scale of the image
+        const docImage = document.getElementById('document-image');
+        const imageRect = docImage.getBoundingClientRect();
+        const imageScaledWidth = imageRect.width;
+        const imageScaledHeight = imageRect.height;
+        
         // Iterate through all line positions
         for (const [lineId, positions] of linePositionMap.entries()) {
             const imgPos = positions.imagePos;
             if (!imgPos) continue;
             
-            // Calculate the center of this line
+            // Calculate the center of this line using percentage-based positioning
             const lineCenter = {
-                x: imgPos.x + imgPos.width / 2,
-                y: imgPos.y + imgPos.height / 2
+                x: (imgPos.xPercent / 100) * imageScaledWidth + docContainer.scrollLeft,
+                y: (imgPos.yPercent / 100) * imageScaledHeight + docContainer.scrollTop
             };
             
             // Calculate distance to viewport center
@@ -344,9 +366,16 @@ function setupViewSynchronization() {
         if (closestLine && linePositionMap.has(closestLine)) {
             const imgPos = linePositionMap.get(closestLine).imagePos;
             if (imgPos) {
+                // Get the current scale of the image
+                const docImage = document.getElementById('document-image');
+                const imageRect = docImage.getBoundingClientRect();
+                const imageScaledWidth = imageRect.width;
+                const imageScaledHeight = imageRect.height;
+                
+                // Calculate center using percentages for proper scaling
                 const lineCenter = {
-                    x: imgPos.x + imgPos.width / 2,
-                    y: imgPos.y + imgPos.height / 2
+                    x: (imgPos.xPercent / 100) * imageScaledWidth,
+                    y: (imgPos.yPercent / 100) * imageScaledHeight
                 };
                 
                 docContainer.scrollLeft = lineCenter.x - docContainer.clientWidth / 2;
@@ -458,10 +487,20 @@ function scrollToLine(lineId) {
     if (!imgPos) return;
     
     const docContainer = document.getElementById('document-container');
+    const docImage = document.getElementById('document-image');
+    
+    // Use the scaled dimensions for accurate positioning
+    const imageRect = docImage.getBoundingClientRect();
+    const imageScaledWidth = imageRect.width;
+    const imageScaledHeight = imageRect.height;
+    
+    // Calculate position using percentages for proper scaling
+    const centerX = (imgPos.xPercent / 100) * imageScaledWidth;
+    const centerY = (imgPos.yPercent / 100) * imageScaledHeight;
     
     // Calculate scroll position to center on the line
-    const scrollLeft = imgPos.x + imgPos.width / 2 - docContainer.clientWidth / 2;
-    const scrollTop = imgPos.y + imgPos.height / 2 - docContainer.clientHeight / 2;
+    const scrollLeft = centerX - docContainer.clientWidth / 2;
+    const scrollTop = centerY - docContainer.clientHeight / 2;
     
     // Smooth scroll to the position
     docContainer.scrollTo({
@@ -530,9 +569,8 @@ function zoom(delta) {
     
     const scaleFactor = currentScale / oldScale;
     
-    // Apply the new scale
-    document.getElementById('document-image').style.transform = `scale(${currentScale})`;
-    document.getElementById('highlight-overlay').style.transform = `scale(${currentScale})`;
+    // Apply the new scale to the transform container
+    document.getElementById('transform-container').style.transform = `scale(${currentScale})`;
     
     // Adjust scroll to maintain center point
     const newScrollLeft = viewportCenterX * scaleFactor - docContainer.clientWidth / 2;
@@ -579,8 +617,7 @@ function fitToWidth() {
     // Calculate scale to fit width with a small margin
     currentScale = (containerWidth - 20) / imageWidth;
     
-    document.getElementById('document-image').style.transform = `scale(${currentScale})`;
-    document.getElementById('highlight-overlay').style.transform = `scale(${currentScale})`;
+    document.getElementById('transform-container').style.transform = `scale(${currentScale})`;
     
     // Update zoom level indicator
     const zoomLevelElem = document.querySelector('.zoom-level');
@@ -611,8 +648,7 @@ function fitToPage() {
     // Use the smaller scale to ensure the entire image fits
     currentScale = Math.min(scaleX, scaleY);
     
-    document.getElementById('document-image').style.transform = `scale(${currentScale})`;
-    document.getElementById('highlight-overlay').style.transform = `scale(${currentScale})`;
+    document.getElementById('transform-container').style.transform = `scale(${currentScale})`;
     
     // Update zoom level indicator
     const zoomLevelElem = document.querySelector('.zoom-level');
