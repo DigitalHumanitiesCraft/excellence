@@ -6,8 +6,6 @@
 
 A modern web-based viewer for historical manuscripts with dual-view display, annotation support, and advanced navigation features. This application is designed specifically for displaying medieval Slavic manuscript materials from Transkribus exports.
 
-![Historical Document Viewer Screenshot](screenshot.jpg)
-
 ## Features
 
 ### Document Display
