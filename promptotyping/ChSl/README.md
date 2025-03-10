@@ -1,3 +1,7 @@
+> Prompting: [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) Experiment
+>
+> Live at: https://dhcraft.org/excellence/promptotyping/ChSl/
+
 # Historical Document Viewer
 
 A modern web-based viewer for historical manuscripts with dual-view display, annotation support, and advanced navigation features. This application is designed specifically for displaying medieval Slavic manuscript materials from Transkribus exports.
