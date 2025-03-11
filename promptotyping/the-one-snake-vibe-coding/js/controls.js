@@ -8,6 +8,61 @@ class Controls {
         this.keysPressed = {};
         this.setupEventListeners();
     }
+
+
+showInputIndicator(direction) {
+    // Create or reuse indicator element
+    let indicator = document.getElementById('input-indicator');
+    if (!indicator) {
+        indicator = document.createElement('div');
+        indicator.id = 'input-indicator';
+        document.body.appendChild(indicator);
+        
+        // Add style directly for simplicity
+        indicator.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            z-index: 1000;
+            pointer-events: none;
+        `;
+    }
+    
+    // Show direction
+    indicator.textContent = `Input: ${direction.toUpperCase()}`;
+    indicator.style.display = 'block';
+    
+    // Hide after short delay
+    clearTimeout(this.indicatorTimeout);
+    this.indicatorTimeout = setTimeout(() => {
+        indicator.style.display = 'none';
+    }, 300);
+}
+
+// Modify handleKeyDown to call the new method
+handleKeyDown(event) {
+    console.log("Key pressed:", event.code);
+    this.keysPressed[event.code] = true;
+    
+    // Handle direction changes
+    if (this.game.currentState === GAME_STATES.PLAYING) {
+        // Check each direction
+        if (DESKTOP_CONTROLS.UP.includes(event.code)) {
+            this.showInputIndicator('up'); // NEW
+            this.changeDirection(DIRECTIONS.UP);
+        } else if (DESKTOP_CONTROLS.RIGHT.includes(event.code)) {
+            this.showInputIndicator('right'); // NEW
+            this.changeDirection(DIRECTIONS.RIGHT);
+        }
+        // ...rest of method unchanged
+    }
+}
     
     setupEventListeners() {
         // Keyboard events

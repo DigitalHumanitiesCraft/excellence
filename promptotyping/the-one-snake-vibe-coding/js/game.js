@@ -13,6 +13,9 @@ class Game {
         this.canvas.height = 600;
         console.log(`Initial canvas size set to: ${this.canvas.width}x${this.canvas.height}`);
         
+        // Debug mode
+        this.debugMode = false;
+        
         // Game state tracking
         this.currentState = GAME_STATES.MAIN_MENU;
         this.currentLevel = null;
@@ -43,6 +46,9 @@ class Game {
         this.ui = new UI(this);
         this.controls = new Controls(this);
         
+        // Position history for debugging
+        this.positionHistory = [];
+        
         // Active effects
         this.activeEffects = {
             fireShield: { active: false, timeRemaining: 0 },
@@ -59,6 +65,11 @@ class Game {
         
         // Start the game loop
         this.gameLoop(0);
+
+         // Auto-start game after a short delay (for testing only)
+    setTimeout(() => {
+        this.initGame('shire');
+    }, 1000);
     }
     
     // Set the current game state
@@ -93,6 +104,13 @@ class Game {
             // Update state
             this.currentState = state;
             
+            // NEW: Handle state-specific actions
+            if (state === GAME_STATES.PLAYING && !this.snake) {
+                // Auto-initialize if snake doesn't exist
+                console.log("Auto-initializing game with default level");
+                this.initGame('shire');
+            }
+            
             // Perform state-specific actions
             if (state === GAME_STATES.GAME_OVER) {
                 this.ui.showGameOver();
@@ -102,6 +120,14 @@ class Game {
         } catch (error) {
             console.error(`Error setting game state to ${state}:`, error);
         }
+
+        if (state === GAME_STATES.PLAYING) {
+            const gamePlayingElement = document.getElementById('game-playing');
+            if (gamePlayingElement) {
+                gamePlayingElement.style.display = 'block';
+                gamePlayingElement.style.zIndex = '100';
+            }
+        }
     }
     
     // Resize canvas to fit container
@@ -110,15 +136,23 @@ class Game {
             const container = document.getElementById('game-playing');
             
             if (container) {
-                // Set canvas size based on container
-                this.canvas.width = container.clientWidth;
-                this.canvas.height = container.clientHeight;
+                // Get container size
+                let containerWidth = container.clientWidth;
+                let containerHeight = container.clientHeight;
                 
-                // Ensure minimum canvas size
-                if (this.canvas.width <= 0) this.canvas.width = 800;
-                if (this.canvas.height <= 0) this.canvas.height = 600;
+                // Ensure non-zero dimensions
+                if (containerWidth <= 0) containerWidth = 800;
+                if (containerHeight <= 0) containerHeight = 600;
                 
-                console.log(`Canvas resized to: ${this.canvas.width}x${this.canvas.height}`);
+                // Calculate grid-aligned dimensions
+                const gridWidth = Math.floor(containerWidth / GRID_SIZE) * GRID_SIZE;
+                const gridHeight = Math.floor(containerHeight / GRID_SIZE) * GRID_SIZE;
+                
+                // Set canvas size
+                this.canvas.width = gridWidth;
+                this.canvas.height = gridHeight;
+                
+                console.log(`Canvas resized to: ${this.canvas.width}x${this.canvas.height} (grid-aligned)`);
             } else {
                 // Default size if container not found
                 this.canvas.width = 800;
@@ -133,41 +167,57 @@ class Game {
         }
     }
     
+    // Reset the game state
+    resetGame() {
+        console.log("Resetting game state");
+        
+        // Reset game objects
+        this.snake = null;
+        this.obstacles = [];
+        this.collectibles = [];
+        this.horses = [];
+        this.portals = [];
+        
+        // Reset game metrics
+        this.score = 0;
+        this.fireMeter = FIRE_METER_MAX / 2;
+        this.transformationProgress = 0;
+        this.collectiblesObtained = 0;
+        this.currentTransformationStage = 0;
+        
+        // Reset time tracking
+        this.accumulatedTime = 0;
+        this.gameStartTime = 0;
+        
+        // Reset active effects
+        this.activeEffects = {
+            fireShield: { active: false, timeRemaining: 0 },
+            burningTrail: { active: false, timeRemaining: 0 },
+            speedBoost: { active: false, timeRemaining: 0, multiplier: 1 }
+        };
+        
+        // Reset horse spawn timer
+        this.horseSpawnTimer = 0;
+        
+        // Clear particles
+        this.particles.clear();
+        
+        // Clear position history
+        this.positionHistory = [];
+    }
+    
     // Initialize a new game
     initGame(levelId) {
         try {
+            // Reset game state first
+            this.resetGame();
+            
             // Store the game start time for grace period
             this.gameStartTime = performance.now() / 1000;
             console.log("Starting new game at time:", this.gameStartTime);
             
             // Find level config or default to first level
             this.currentLevel = LEVELS.find(level => level.id === levelId) || LEVELS[0];
-            
-            // Reset game state
-            this.score = 0;
-            this.fireMeter = FIRE_METER_MAX / 2;
-            this.transformationProgress = 0;
-            this.collectiblesObtained = 0;
-            this.currentTransformationStage = 0;
-            
-            // Reset game objects
-            this.obstacles = [];
-            this.collectibles = [];
-            this.horses = [];
-            this.portals = [];
-            
-            // Reset active effects
-            this.activeEffects = {
-                fireShield: { active: false, timeRemaining: 0 },
-                burningTrail: { active: false, timeRemaining: 0 },
-                speedBoost: { active: false, timeRemaining: 0, multiplier: 1 }
-            };
-            
-            // Reset horse spawn timer
-            this.horseSpawnTimer = 0;
-            
-            // Clear particles
-            this.particles.clear();
             
             // Initialize snake
             this.initSnake();
@@ -239,7 +289,24 @@ class Game {
             if (this.currentState !== GAME_STATES.PLAYING) return;
             
             // Skip update if snake is not initialized
-            if (!this.snake) return;
+            if (!this.snake) {
+                console.warn("Cannot update game: Snake not initialized");
+                return;
+            }
+            
+            // Track snake position for debugging
+            if (this.debugMode && this.snake.segments.length > 0) {
+                this.positionHistory.push({
+                    x: this.snake.segments[0].x,
+                    y: this.snake.segments[0].y,
+                    time: performance.now()
+                });
+                
+                // Keep history limited to prevent memory issues
+                if (this.positionHistory.length > 100) {
+                    this.positionHistory.shift();
+                }
+            }
             
             // Check transformation stage
             this.checkTransformation();
@@ -602,6 +669,41 @@ class Game {
                     );
                 }
             }
+
+            // Add permanent debug info
+            this.ctx.fillStyle = '#FFFFFF';
+            this.ctx.font = '12px monospace';
+            this.ctx.fillText(`State: ${this.currentState}`, 10, 60);
+            this.ctx.fillText(`Snake: ${this.snake ? 'Initialized' : 'Not Initialized'}`, 10, 80);
+            this.ctx.fillText(`Objects: ${this.obstacles.length} obstacles, ${this.collectibles.length} items`, 10, 100);
+        
+            
+            // Draw position history as a trail in debug mode
+            if (this.debugMode) {
+                const fadeDuration = 3000; // milliseconds
+                const now = performance.now();
+                
+                for (const pos of this.positionHistory) {
+                    const age = now - pos.time;
+                    const alpha = Math.max(0, 1 - (age / fadeDuration));
+                    
+                    this.ctx.fillStyle = `rgba(255, 0, 255, ${alpha})`;
+                    this.ctx.fillRect(
+                        pos.x * GRID_SIZE,
+                        pos.y * GRID_SIZE,
+                        GRID_SIZE/2,
+                        GRID_SIZE/2
+                    );
+                }
+                
+                // Add debug information
+                this.ctx.fillStyle = '#FFFFFF';
+                this.ctx.font = '12px monospace';
+                this.ctx.fillText(`State: ${this.currentState}`, 10, 60);
+                this.ctx.fillText(`Snake: ${this.snake ? 'Initialized' : 'Not Initialized'}`, 10, 80);
+                this.ctx.fillText(`Objects: ${this.obstacles.length} obstacles, ${this.collectibles.length} items`, 10, 100);
+                this.ctx.fillText(`FPS: ${Math.round(1 / (this.deltaTime || 0.016))}`, 10, 120);
+            }
             
             // Add a visible grid
             this.ctx.strokeStyle = '#444444';
@@ -673,5 +775,80 @@ class Game {
             this.ctx.lineTo(this.canvas.width, y);
             this.ctx.stroke();
         }
+    }
+    
+    // Toggle debug mode
+    toggleDebugMode() {
+        this.debugMode = !this.debugMode;
+        console.log(`Debug mode ${this.debugMode ? 'enabled' : 'disabled'}`);
+        return this.debugMode;
+    }
+    
+    // Start a new game (utility method)
+    startNewGame(levelId) {
+        console.log(`Starting new game with level: ${levelId}`);
+        this.resetGame();
+        this.initGame(levelId);
+        this.setGameState(GAME_STATES.PLAYING);
+    }
+    
+    // Pause the game
+    pauseGame() {
+        if (this.currentState === GAME_STATES.PLAYING) {
+            this.setGameState(GAME_STATES.PAUSED);
+        }
+    }
+    
+    // Resume the game
+    resumeGame() {
+        if (this.currentState === GAME_STATES.PAUSED) {
+            this.setGameState(GAME_STATES.PLAYING);
+        }
+    }
+    
+    // End the game with victory or defeat
+    endGame(victory = false) {
+        console.log(`Game ended with ${victory ? 'victory' : 'defeat'}`);
+        this.setGameState(victory ? GAME_STATES.VICTORY : GAME_STATES.GAME_OVER);
+    }
+    
+    // Load the game (for initial loading screen)
+    loadGame() {
+        console.log("Loading game resources");
+        
+        // Check if we need to add a loading state element
+        if (!document.getElementById(GAME_STATES.LOADING)) {
+            // Create loading state element if it doesn't exist
+            const loadingState = document.createElement('div');
+            loadingState.id = GAME_STATES.LOADING;
+            loadingState.className = 'game-state';
+            loadingState.innerHTML = `
+                <h2>Loading Game...</h2>
+                <div style="width: 300px; height: 20px; background: #333; border: 1px solid #d4af37;">
+                    <div id="loading-progress" style="width: 0%; height: 100%; background: #d4af37;"></div>
+                </div>
+            `;
+            const gameContainer = document.getElementById('game-container');
+            if (gameContainer) {
+                gameContainer.appendChild(loadingState);
+            }
+        }
+        
+        // Set to loading state
+        this.setGameState(GAME_STATES.LOADING);
+        
+        // Simulate resource loading
+        const loadingElement = document.getElementById('loading-progress');
+        let progress = 0;
+        
+        const loadingInterval = setInterval(() => {
+            progress += 10;
+            if (loadingElement) loadingElement.style.width = `${progress}%`;
+            
+            if (progress >= 100) {
+                clearInterval(loadingInterval);
+                this.setGameState(GAME_STATES.MAIN_MENU);
+            }
+        }, 150);
     }
 }

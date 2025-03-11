@@ -29,6 +29,7 @@ const DIRECTIONS = {
 
 // Game States
 const GAME_STATES = {
+    LOADING: 'game-loading',
     MAIN_MENU: 'main-menu',
     LEVEL_SELECT: 'level-select-menu',
     PLAYING: 'game-playing',
