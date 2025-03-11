@@ -8,6 +8,11 @@ class Game {
         this.minimapCanvas = document.getElementById('minimap');
         this.minimapCtx = this.minimapCanvas.getContext('2d');
         
+        // Set default canvas size initially
+        this.canvas.width = 800;
+        this.canvas.height = 600;
+        console.log(`Initial canvas size set to: ${this.canvas.width}x${this.canvas.height}`);
+        
         // Game state tracking
         this.currentState = GAME_STATES.MAIN_MENU;
         this.currentLevel = null;
@@ -22,6 +27,7 @@ class Game {
         this.deltaTime = 0;
         this.accumulatedTime = 0;
         this.timeStep = 1000 / 60; // Target 60 FPS
+        this.gameStartTime = 0; // Track when the game starts
         
         // Game objects
         this.snake = null;
@@ -107,10 +113,17 @@ class Game {
                 // Set canvas size based on container
                 this.canvas.width = container.clientWidth;
                 this.canvas.height = container.clientHeight;
+                
+                // Ensure minimum canvas size
+                if (this.canvas.width <= 0) this.canvas.width = 800;
+                if (this.canvas.height <= 0) this.canvas.height = 600;
+                
+                console.log(`Canvas resized to: ${this.canvas.width}x${this.canvas.height}`);
             } else {
                 // Default size if container not found
                 this.canvas.width = 800;
                 this.canvas.height = 600;
+                console.log("Game container not found, using default size: 800x600");
             }
         } catch (error) {
             console.error("Error resizing canvas:", error);
@@ -123,6 +136,10 @@ class Game {
     // Initialize a new game
     initGame(levelId) {
         try {
+            // Store the game start time for grace period
+            this.gameStartTime = performance.now() / 1000;
+            console.log("Starting new game at time:", this.gameStartTime);
+            
             // Find level config or default to first level
             this.currentLevel = LEVELS.find(level => level.id === levelId) || LEVELS[0];
             
@@ -172,6 +189,18 @@ class Game {
     initSnake() {
         const gridWidth = Math.floor(this.canvas.width / GRID_SIZE);
         const gridHeight = Math.floor(this.canvas.height / GRID_SIZE);
+        
+        // Make sure Snake is available
+        if (typeof Snake === 'undefined' && typeof window.Snake === 'function') {
+            // If Snake is defined on window but not globally, use it
+            Snake = window.Snake;
+        }
+        
+        if (typeof Snake !== 'function') {
+            console.error("Snake class is not defined. Check that snake.js is properly loaded.");
+            return;
+        }
+        
         this.snake = new Snake(gridWidth, gridHeight);
     }
     
@@ -208,6 +237,9 @@ class Game {
         try {
             // Skip update if not in playing state
             if (this.currentState !== GAME_STATES.PLAYING) return;
+            
+            // Skip update if snake is not initialized
+            if (!this.snake) return;
             
             // Check transformation stage
             this.checkTransformation();
@@ -252,12 +284,22 @@ class Game {
     
     // Update snake position and check collisions
     updateSnake(deltaTime) {
+        // Skip if snake is not initialized
+        if (!this.snake) return;
+        
         // Calculate grid dimensions
         const gridWidth = Math.floor(this.canvas.width / GRID_SIZE);
         const gridHeight = Math.floor(this.canvas.height / GRID_SIZE);
         
         // Update snake position
         const newHead = this.snake.update(deltaTime, gridWidth, gridHeight);
+        
+        // Add a 1-second grace period after game start before checking collisions
+        const gracePeriod = 1.0; // 1 second
+        const gameTime = performance.now() / 1000 - this.gameStartTime;
+        if (gameTime < gracePeriod) {
+            return;
+        }
         
         // Check for self-collision
         if (this.snake.checkSelfCollision()) {
@@ -266,16 +308,10 @@ class Game {
                 // Fire shield protects against self-collision
                 this.particles.createParticleEffect('FIRE', newHead.x, newHead.y, { x: 0, y: 0 }, 0.3);
             } else {
+                console.log("Game over: Self collision detected");
                 this.gameOver();
                 return;
             }
-        }
-        
-        // Check for burning trail effect
-        if (this.activeEffects.burningTrail.active) {
-            // Leave fire trail behind the snake
-            const tailPosition = this.snake.segments[this.snake.segments.length - 1];
-            this.fireAbilities.createBurningTrailEffect(tailPosition.x, tailPosition.y);
         }
         
         // Check for collisions with obstacles
@@ -286,6 +322,7 @@ class Game {
                     // Fire shield protects against obstacles
                     this.particles.createParticleEffect('FIRE', obstacle.x, obstacle.y, { x: 0, y: 0 }, 0.3);
                 } else {
+                    console.log(`Game over: Obstacle collision at (${obstacle.x},${obstacle.y})`);
                     this.gameOver();
                     return;
                 }
@@ -340,6 +377,8 @@ class Game {
     
     // Update horses
     updateHorses(deltaTime) {
+        if (!this.snake) return;
+        
         for (const horse of this.horses) {
             horse.update(deltaTime, this.snake.segments[0]);
         }
@@ -375,13 +414,18 @@ class Game {
             this.activeEffects.speedBoost.timeRemaining -= deltaTime;
             if (this.activeEffects.speedBoost.timeRemaining <= 0) {
                 this.activeEffects.speedBoost.active = false;
-                this.snake.speed = BASE_MOVEMENT_SPEED;
+                if (this.snake) {
+                    this.snake.speed = BASE_MOVEMENT_SPEED;
+                }
             }
         }
     }
     
     // Check and update transformation stage
     checkTransformation() {
+        // Skip if snake not initialized
+        if (!this.snake) return;
+        
         // Check if enough collectibles for next stage
         for (let i = TRANSFORMATION_STAGES.length - 1; i >= 0; i--) {
             const stage = TRANSFORMATION_STAGES[i];
@@ -397,6 +441,9 @@ class Game {
     
     // Transform snake to new stage
     transformSnake(stageIndex) {
+        // Skip if snake not initialized
+        if (!this.snake) return;
+        
         // Update transformation stage
         this.currentTransformationStage = stageIndex;
         
@@ -415,8 +462,12 @@ class Game {
     
     // Handle collecting an item
     collectItem(collectible) {
+        // Skip if snake not initialized
+        if (!this.snake) return;
+        
         // Increase score
         this.score += collectible.value * SCORE_MULTIPLIER.collectible;
+        console.log(`Collected item! Score: ${this.score}, Value: ${collectible.value}`);
         
         // Increase collectibles count
         this.collectiblesObtained++;
@@ -433,8 +484,12 @@ class Game {
     
     // Handle collision with a horse
     handleHorseCollision(horse) {
+        // Skip if snake not initialized
+        if (!this.snake) return;
+        
         // Increase score
         this.score += SCORE_MULTIPLIER.horse * horse.properties.speed;
+        console.log(`Horse collision! Score: ${this.score}`);
         
         // Apply horse effect
         switch (horse.effect) {
@@ -471,9 +526,14 @@ class Game {
     
     // Teleport snake to new position
     teleportSnake(position) {
+        // Skip if snake not initialized
+        if (!this.snake) return;
+        
         // Move head to exit position
         this.snake.segments[0].x = position.x;
         this.snake.segments[0].y = position.y;
+        
+        console.log(`Snake teleported to (${position.x}, ${position.y})`);
     }
     
     // Game over state
@@ -484,49 +544,79 @@ class Game {
     // Level complete state
     levelComplete() {
         // Add level completion bonus
-        this.score += SCORE_MULTIPLIER.level_completion * this.currentLevel.difficulty;
+        if (this.currentLevel && this.currentLevel.difficulty) {
+            this.score += SCORE_MULTIPLIER.level_completion * this.currentLevel.difficulty;
+        } else {
+            // Default bonus if level has no difficulty
+            this.score += SCORE_MULTIPLIER.level_completion;
+        }
         this.setGameState(GAME_STATES.VICTORY);
     }
     
     // Render game
     render() {
         try {
-            // Clear canvas
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            // Clear canvas with a more visible color
+            this.ctx.fillStyle = '#333333'; // Dark gray background
+            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
             
-            // Draw background based on level
-            this.drawBackground();
+            // Add debug message to canvas
+            this.ctx.fillStyle = '#FFFFFF';
+            this.ctx.font = '20px Arial';
+            this.ctx.fillText('Game Running - Score: ' + this.score, 10, 30);
             
-            // Draw game objects only if in playing state
-            if (this.currentState === GAME_STATES.PLAYING) {
-                // Draw obstacles
-                for (const obstacle of this.obstacles) {
-                    obstacle.draw(this.ctx, GRID_SIZE);
+            // Force all objects to be drawn with high contrast colors
+            
+            // Draw obstacles (bright silver)
+            this.ctx.fillStyle = '#DDDDDD';
+            for (const obstacle of this.obstacles) {
+                this.ctx.fillRect(
+                    obstacle.x * GRID_SIZE,
+                    obstacle.y * GRID_SIZE,
+                    GRID_SIZE,
+                    GRID_SIZE
+                );
+            }
+            
+            // Draw collectibles (bright gold)
+            this.ctx.fillStyle = '#FFDD00';
+            for (const collectible of this.collectibles) {
+                this.ctx.fillRect(
+                    collectible.x * GRID_SIZE,
+                    collectible.y * GRID_SIZE,
+                    GRID_SIZE,
+                    GRID_SIZE
+                );
+            }
+            
+            // Draw the snake (bright green)
+            if (this.snake) {
+                // Always draw the snake
+                this.ctx.fillStyle = '#00FF00';
+                for (const segment of this.snake.segments) {
+                    this.ctx.fillRect(
+                        segment.x * GRID_SIZE,
+                        segment.y * GRID_SIZE,
+                        GRID_SIZE,
+                        GRID_SIZE
+                    );
                 }
-                
-                // Draw collectibles
-                for (const collectible of this.collectibles) {
-                    collectible.draw(this.ctx, GRID_SIZE);
-                }
-                
-                // Draw portals
-                for (const portal of this.portals) {
-                    portal.draw(this.ctx, GRID_SIZE);
-                }
-                
-                // Draw horses
-                for (const horse of this.horses) {
-                    horse.draw(this.ctx, GRID_SIZE);
-                }
-                
-                // Draw fire effects
-                this.fireAbilities.draw(this.ctx, GRID_SIZE);
-                
-                // Draw particles
-                this.particles.draw(this.ctx);
-                
-                // Draw snake
-                this.snake.draw(this.ctx, GRID_SIZE);
+            }
+            
+            // Add a visible grid
+            this.ctx.strokeStyle = '#444444';
+            this.ctx.lineWidth = 1;
+            for (let x = 0; x < this.canvas.width; x += GRID_SIZE) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(x, 0);
+                this.ctx.lineTo(x, this.canvas.height);
+                this.ctx.stroke();
+            }
+            for (let y = 0; y < this.canvas.height; y += GRID_SIZE) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(0, y);
+                this.ctx.lineTo(this.canvas.width, y);
+                this.ctx.stroke();
             }
         } catch (error) {
             console.error("Error in game render:", error);

@@ -1,4 +1,4 @@
-// The One Snake - Level Generation
+// The One Snake - Level Generation (Fixed Grid Issue)
 
 class LevelGenerator {
     constructor(game) {
@@ -6,263 +6,227 @@ class LevelGenerator {
     }
     
     generateLevel(levelConfig) {
-        // Clear existing level
+        // If snake not initialized, skip level generation
+        if (!this.game.snake) {
+            console.error("Snake not initialized, skipping level generation");
+            return;
+        }
+
+        // Clear existing level objects
         this.game.obstacles = [];
         this.game.collectibles = [];
         this.game.portals = [];
         
-        const gridWidth = Math.floor(this.game.canvas.width / GRID_SIZE);
-        const gridHeight = Math.floor(this.game.canvas.height / GRID_SIZE);
+        // Calculate grid dimensions with safety checks
+        let gridWidth = Math.floor(this.game.canvas.width / GRID_SIZE);
+        let gridHeight = Math.floor(this.game.canvas.height / GRID_SIZE);
         
-        // Generate circular paths
-        this.generateCircularPaths(levelConfig, gridWidth, gridHeight);
+        // Debug log the actual values
+        console.log(`Canvas size: ${this.game.canvas.width}x${this.game.canvas.height}, GRID_SIZE: ${GRID_SIZE}`);
         
-        // Place obstacles
-        this.placeObstacles(levelConfig, gridWidth, gridHeight);
+        // Ensure minimum grid size
+        if (gridWidth <= 0 || gridHeight <= 0) {
+            console.error(`Invalid grid dimensions: ${gridWidth}x${gridHeight}. Using default 20x15.`);
+            gridWidth = 20;
+            gridHeight = 15;
+        }
         
-        // Place collectibles
-        this.placeCollectibles(20, gridWidth, gridHeight); // 20 collectibles initially
+        console.log(`Generating level ${levelConfig.id} with grid size: ${gridWidth}x${gridHeight}`);
         
-        // Place portals
-        this.placePortals(levelConfig, gridWidth, gridHeight);
+        // Create a grid representation to track occupied positions
+        this.grid = Array(gridWidth).fill().map(() => Array(gridHeight).fill(false));
         
-        // Ensure at least some objects are created (for test purposes)
-        this.ensureMinimumObjects(gridWidth, gridHeight, levelConfig);
+        // Mark snake positions as occupied
+        this.markSnakePositions();
+        
+        // Generate level elements with difficulty based on level
+        const difficultyMultiplier = levelConfig.difficulty || 1;
+        
+        // Generate objects in order of importance
+        this.generateObstacles(levelConfig, Math.floor(5 * difficultyMultiplier));
+        this.generateCollectibles(10);  // Always at least 10 collectibles
+        this.generatePortals(levelConfig, Math.max(1, Math.floor(levelConfig.portalDensity * 3)));
+        
+        console.log(`Level generation complete. Created: ${this.game.obstacles.length} obstacles, ${this.game.collectibles.length} collectibles, ${this.game.portals.length} portals`);
     }
     
-    ensureMinimumObjects(gridWidth, gridHeight, levelConfig) {
-        // Ensure at least some obstacles exist
-        if (this.game.obstacles.length === 0) {
-            // Add a few obstacles based on level difficulty
-            const minObstacles = 5 * levelConfig.difficulty;
-            for (let i = 0; i < minObstacles; i++) {
-                const x = Math.floor(Math.random() * gridWidth);
-                const y = Math.floor(Math.random() * gridHeight);
-                
-                // Skip if too close to snake start
-                const snakeStartX = Math.floor(gridWidth / 2);
-                const snakeStartY = Math.floor(gridHeight / 2);
-                const distanceToSnake = Math.sqrt(
-                    Math.pow(x - snakeStartX, 2) + 
-                    Math.pow(y - snakeStartY, 2)
-                );
-                
-                if (distanceToSnake < 5) continue;
-                
-                // Add obstacle with a type from the level
-                const obstacleType = levelConfig.obstacles[
-                    Math.floor(Math.random() * levelConfig.obstacles.length)
-                ];
-                this.game.obstacles.push(new Obstacle(x, y, obstacleType));
-            }
-        }
+    // Mark snake positions as occupied in the grid
+    markSnakePositions() {
+        if (!this.game.snake || !this.game.snake.segments) return;
         
-        // Ensure at least some collectibles exist
-        if (this.game.collectibles.length === 0) {
-            const minCollectibles = 10;
-            for (let i = 0; i < minCollectibles; i++) {
-                const x = Math.floor(Math.random() * gridWidth);
-                const y = Math.floor(Math.random() * gridHeight);
+        // Mark each snake segment and a small area around the head as occupied
+        for (const segment of this.game.snake.segments) {
+            if (this.isValidPosition(segment.x, segment.y)) {
+                this.grid[segment.x][segment.y] = true;
                 
-                // Skip if position is occupied
-                if (this.isPositionOccupied(x, y)) continue;
-                
-                this.game.collectibles.push(new Collectible(x, y));
-            }
-        }
-        
-        // Ensure at least some portals exist
-        if (this.game.portals.length === 0) {
-            const minPortalPairs = Math.max(1, Math.floor(levelConfig.portalDensity * 3));
-            
-            for (let i = 0; i < minPortalPairs; i++) {
-                let entranceX = Math.floor(Math.random() * gridWidth);
-                let entranceY = Math.floor(Math.random() * gridHeight);
-                
-                // Skip if position is occupied
-                if (this.isPositionOccupied(entranceX, entranceY)) continue;
-                
-                // Find a position for exit at least 10 units away
-                let exitX, exitY;
-                let validExit = false;
-                let attempts = 0;
-                
-                while (!validExit && attempts < 20) {
-                    attempts++;
-                    exitX = Math.floor(Math.random() * gridWidth);
-                    exitY = Math.floor(Math.random() * gridHeight);
-                    
-                    const distance = Math.sqrt(
-                        Math.pow(entranceX - exitX, 2) + 
-                        Math.pow(entranceY - exitY, 2)
-                    );
-                    
-                    if (distance >= 10 && !this.isPositionOccupied(exitX, exitY)) {
-                        validExit = true;
+                // Extra clearance around the head (first segment)
+                if (segment === this.game.snake.segments[0]) {
+                    // Mark a 3x3 area around head as occupied for safety
+                    for (let dx = -1; dx <= 1; dx++) {
+                        for (let dy = -1; dy <= 1; dy++) {
+                            const nx = segment.x + dx;
+                            const ny = segment.y + dy;
+                            if (this.isValidPosition(nx, ny)) {
+                                this.grid[nx][ny] = true;
+                            }
+                        }
                     }
                 }
-                
-                if (validExit) {
-                    // Choose a portal type from available types
-                    const portalType = 'PALANTIR'; // Default to palantir for reliability
-                    
-                    const exitPortal = new Portal(exitX, exitY, portalType);
-                    const entrancePortal = new Portal(entranceX, entranceY, portalType, exitPortal);
-                    
-                    this.game.portals.push(entrancePortal);
-                    this.game.portals.push(exitPortal);
-                }
             }
         }
     }
     
-    generateCircularPaths(levelConfig, gridWidth, gridHeight) {
-        // Select pattern based on level
-        let patternType;
-        switch (levelConfig.id) {
-            case 'shire':
-                patternType = 'BASIC_LOOP';
-                break;
-            case 'rivendell':
-                patternType = 'CONCENTRIC';
-                break;
-            case 'mirkwood':
-                patternType = 'SPIRAL';
-                break;
-            case 'rohan':
-                patternType = 'FIGURE_EIGHT';
-                break;
-            case 'moria':
-                patternType = 'SPIRAL';
-                break;
-            case 'mordor':
-                patternType = 'CONCENTRIC';
-                break;
-            default:
-                patternType = 'BASIC_LOOP';
-        }
-        
-        // Store pattern for later use in obstacle/collectible placement
-        this.currentPattern = CIRCLE_PATTERNS[patternType];
+    // Check if a position is within grid boundaries
+    isValidPosition(x, y) {
+        return x >= 0 && x < this.grid.length && y >= 0 && y < this.grid[0].length;
     }
     
-    placeObstacles(levelConfig, gridWidth, gridHeight) {
-        // Calculate number of obstacles based on difficulty
-        const baseObstacleCount = 5 * levelConfig.difficulty;
-        const obstacleTypes = levelConfig.obstacles;
-        
-        // Determine cluster types based on level
-        const clusterTypes = [
-            { type: OBSTACLE_CLUSTERS.SMALL, weight: 0.5 },
-            { type: OBSTACLE_CLUSTERS.MEDIUM, weight: 0.3 },
-            { type: OBSTACLE_CLUSTERS.LARGE, weight: 0.2 }
-        ];
-        
-        // Place obstacle clusters
-        let placedObstacles = 0;
-        let attemptCount = 0;
-        const maxAttempts = 100;
-        
-        while (placedObstacles < baseObstacleCount && attemptCount < maxAttempts) {
-            attemptCount++;
-            
-            // Choose a random obstacle type from available types
-            const obstacleType = obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
-            
-            // Choose cluster type
-            const random = Math.random();
-            let cumulativeWeight = 0;
-            let selectedCluster;
-            
-            for (const clusterType of clusterTypes) {
-                cumulativeWeight += clusterType.weight;
-                if (random <= cumulativeWeight) {
-                    selectedCluster = clusterType.type;
-                    break;
-                }
-            }
-            
-            // Get random position for cluster center
-            const centerX = Math.floor(Math.random() * gridWidth);
-            const centerY = Math.floor(Math.random() * gridHeight);
-            
-            // Check if too close to snake starting position
-            const snakeStartX = Math.floor(gridWidth / 2);
-            const snakeStartY = Math.floor(gridHeight / 2);
-            const distanceToSnake = Math.sqrt(
-                Math.pow(centerX - snakeStartX, 2) + 
-                Math.pow(centerY - snakeStartY, 2)
-            );
-            
-            if (distanceToSnake < 5) {
-                continue; // Too close to snake, try again
-            }
-            
-            // Get random count within range
-            const count = Math.floor(
-                selectedCluster.count[0] + 
-                Math.random() * (selectedCluster.count[1] - selectedCluster.count[0] + 1)
-            );
-            
-            // Place obstacles in cluster
-            let clusterPlacedCount = 0;
-            for (let i = 0; i < count; i++) {
-                // Get random position within cluster radius
-                const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * selectedCluster.radius;
-                const offsetX = Math.round(Math.cos(angle) * distance);
-                const offsetY = Math.round(Math.sin(angle) * distance);
-                
-                const obstacleX = centerX + offsetX;
-                const obstacleY = centerY + offsetY;
-                
-                // Check if position is valid
-                if (
-                    obstacleX >= 0 && 
-                    obstacleX < gridWidth && 
-                    obstacleY >= 0 && 
-                    obstacleY < gridHeight &&
-                    !this.isPositionOccupied(obstacleX, obstacleY)
-                ) {
-                    this.game.obstacles.push(new Obstacle(obstacleX, obstacleY, obstacleType));
-                    placedObstacles++;
-                    clusterPlacedCount++;
-                }
-            }
-            
-            // If we couldn't place any in this cluster, it's blocked
-            if (clusterPlacedCount === 0) {
-                attemptCount += 5; // Penalty to avoid too many retries in blocked areas
-            }
-        }
+    // Check if a position is free (not occupied and within boundaries)
+    isPositionFree(x, y) {
+        return this.isValidPosition(x, y) && !this.grid[x][y];
     }
     
-    placeCollectibles(count, gridWidth, gridHeight) {
-        let placedCollectibles = 0;
-        let attemptCount = 0;
-        const maxAttempts = 200; // More attempts for collectibles
+    // Mark a position as occupied
+    markPosition(x, y) {
+        if (this.isValidPosition(x, y)) {
+            this.grid[x][y] = true;
+            return true;
+        }
+        return false;
+    }
+    
+    // Find a free position in the grid
+    findFreePosition() {
+        if (!this.grid || !this.grid.length || !this.grid[0].length) {
+            console.error("Grid not properly initialized");
+            return { x: 0, y: 0 }; // Return a fallback position
+        }
         
-        while (placedCollectibles < count && attemptCount < maxAttempts) {
-            attemptCount++;
-            
-            // Get random position
+        const gridWidth = this.grid.length;
+        const gridHeight = this.grid[0].length;
+        
+        // First try: Random position (20 attempts)
+        for (let i = 0; i < 20; i++) {
             const x = Math.floor(Math.random() * gridWidth);
             const y = Math.floor(Math.random() * gridHeight);
             
-            // Check if position is valid
-            if (!this.isPositionOccupied(x, y)) {
-                this.game.collectibles.push(new Collectible(x, y));
-                placedCollectibles++;
+            if (this.isPositionFree(x, y)) {
+                return { x, y };
             }
         }
+        
+        // Second try: Scan the grid systematically
+        for (let x = 0; x < gridWidth; x += 2) { // Skip every other cell for efficiency
+            for (let y = 0; y < gridHeight; y += 2) {
+                if (this.isPositionFree(x, y)) {
+                    return { x, y };
+                }
+            }
+        }
+        
+        // Last try: Check every single cell
+        for (let x = 0; x < gridWidth; x++) {
+            for (let y = 0; y < gridHeight; y++) {
+                if (this.isPositionFree(x, y)) {
+                    return { x, y };
+                }
+            }
+        }
+        
+        // No free positions found - return a position in the middle
+        console.warn("No free positions found in grid, using center position");
+        return { 
+            x: Math.floor(gridWidth / 2), 
+            y: Math.floor(gridHeight / 2) 
+        };
     }
     
-    placePortals(levelConfig, gridWidth, gridHeight) {
-        // Calculate number of portal pairs based on density
-        const portalPairCount = Math.max(1, Math.floor(levelConfig.portalDensity * 5));
+    // Generate obstacles based on level config
+    generateObstacles(levelConfig, minCount) {
+        console.log(`Generating obstacles for level ${levelConfig.id}, minimum count: ${minCount}`);
         
-        // Portal types available for this level
-        let portalTypes = ['PALANTIR']; // All levels have palantir portals
+        // Get the obstacle types for this level
+        const obstacleTypes = levelConfig.obstacles || ['rocks'];
+        
+        // Place obstacles
+        let count = 0;
+        
+        // Create obstacle clusters
+        while (count < minCount) {
+            // Select random position for cluster center
+            const center = this.findFreePosition();
+            if (!center) break; // No more free positions
+            
+            // Choose a random obstacle type
+            const obstacleType = obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
+            
+            // Determine cluster size (1-5 obstacles)
+            const clusterSize = Math.floor(Math.random() * 5) + 1;
+            
+            // Create the first obstacle at center
+            this.game.obstacles.push(new Obstacle(center.x, center.y, obstacleType));
+            this.markPosition(center.x, center.y);
+            count++;
+            
+            // Add additional obstacles in adjacent positions
+            for (let i = 1; i < clusterSize && count < minCount; i++) {
+                // Try adjacent positions in random order
+                const directions = [
+                    { dx: 1, dy: 0 }, { dx: -1, dy: 0 }, 
+                    { dx: 0, dy: 1 }, { dx: 0, dy: -1 },
+                    { dx: 1, dy: 1 }, { dx: -1, dy: -1 },
+                    { dx: 1, dy: -1 }, { dx: -1, dy: 1 }
+                ];
+                
+                // Shuffle directions
+                for (let j = directions.length - 1; j > 0; j--) {
+                    const k = Math.floor(Math.random() * (j + 1));
+                    [directions[j], directions[k]] = [directions[k], directions[j]];
+                }
+                
+                // Try each direction
+                for (const dir of directions) {
+                    const nx = center.x + dir.dx;
+                    const ny = center.y + dir.dy;
+                    
+                    if (this.isPositionFree(nx, ny)) {
+                        this.game.obstacles.push(new Obstacle(nx, ny, obstacleType));
+                        this.markPosition(nx, ny);
+                        count++;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        console.log(`Generated ${count} obstacles`);
+    }
+    
+    // Generate collectibles throughout the level
+    generateCollectibles(minCount) {
+        console.log(`Generating collectibles, minimum count: ${minCount}`);
+        
+        // Place collectibles evenly across the grid
+        let count = 0;
+        
+        while (count < minCount) {
+            const position = this.findFreePosition();
+            if (!position) break; // No more free positions
+            
+            this.game.collectibles.push(new Collectible(position.x, position.y));
+            this.markPosition(position.x, position.y);
+            count++;
+        }
+        
+        console.log(`Generated ${count} collectibles`);
+    }
+    
+    // Generate portal pairs
+    generatePortals(levelConfig, minPairs) {
+        console.log(`Generating portal pairs, minimum pairs: ${minPairs}`);
+        
+        // Get portal types based on level
+        let portalTypes = ['PALANTIR']; // Default portal type
         
         // Add level-specific portal types
         switch (levelConfig.id) {
@@ -278,200 +242,208 @@ class LevelGenerator {
                 break;
         }
         
-        // Place portal pairs
-        let placedPairs = 0;
-        let attemptCount = 0;
-        const maxAttempts = 100;
+        // Create portal pairs
+        let pairsCreated = 0;
         
-        while (placedPairs < portalPairCount && attemptCount < maxAttempts) {
-            attemptCount++;
+        while (pairsCreated < minPairs) {
+            // Find position for entrance portal
+            const entrancePos = this.findFreePosition();
+            if (!entrancePos) break; // No more free positions
             
-            // Choose a random portal type for this pair
+            // Choose a position for exit portal that's far away
+            const exitPos = this.findDistantPosition(entrancePos);
+            if (!exitPos) break; // Couldn't find suitable exit position
+            
+            // Choose a portal type
             const portalType = portalTypes[Math.floor(Math.random() * portalTypes.length)];
             
-            // Find valid positions for entrance and exit
-            let entranceX, entranceY, exitX, exitY;
-            let validPositions = false;
-            let positionAttempts = 0;
-            const maxPositionAttempts = 20;
+            // Create the portal pair
+            const exitPortal = new Portal(exitPos.x, exitPos.y, portalType);
+            const entrancePortal = new Portal(entrancePos.x, entrancePos.y, portalType, exitPortal);
             
-            while (!validPositions && positionAttempts < maxPositionAttempts) {
-                positionAttempts++;
-                
-                // Get random positions
-                entranceX = Math.floor(Math.random() * gridWidth);
-                entranceY = Math.floor(Math.random() * gridHeight);
-                
-                // Make sure exit is at least 10 units away
-                let validExit = false;
-                let exitAttempts = 0;
-                const maxExitAttempts = 10;
-                
-                while (!validExit && exitAttempts < maxExitAttempts) {
-                    exitAttempts++;
+            this.game.portals.push(entrancePortal);
+            this.game.portals.push(exitPortal);
+            
+            // Mark positions as occupied
+            this.markPosition(entrancePos.x, entrancePos.y);
+            this.markPosition(exitPos.x, exitPos.y);
+            
+            pairsCreated++;
+        }
+        
+        console.log(`Generated ${pairsCreated} portal pairs`);
+    }
+    
+    // Find a position that's far away from a given position
+    findDistantPosition(sourcePos, minDistance = 8) {
+        const gridWidth = this.grid.length;
+        const gridHeight = this.grid[0].length;
+        
+        // First try: find a position on the opposite side of the grid
+        const oppositeX = (sourcePos.x + Math.floor(gridWidth / 2)) % gridWidth;
+        const oppositeY = (sourcePos.y + Math.floor(gridHeight / 2)) % gridHeight;
+        
+        // Check if this position is free
+        if (this.isPositionFree(oppositeX, oppositeY)) {
+            return { x: oppositeX, y: oppositeY };
+        }
+        
+        // Second try: Check positions around the opposite side
+        for (let radius = 1; radius < 5; radius++) {
+            for (let dx = -radius; dx <= radius; dx++) {
+                for (let dy = -radius; dy <= radius; dy++) {
+                    // Skip if not on the perimeter
+                    if (Math.abs(dx) !== radius && Math.abs(dy) !== radius) continue;
                     
-                    exitX = Math.floor(Math.random() * gridWidth);
-                    exitY = Math.floor(Math.random() * gridHeight);
+                    const x = (oppositeX + dx + gridWidth) % gridWidth;
+                    const y = (oppositeY + dy + gridHeight) % gridHeight;
                     
-                    const distance = Math.sqrt(
-                        Math.pow(entranceX - exitX, 2) + 
-                        Math.pow(entranceY - exitY, 2)
-                    );
-                    
-                    if (distance >= 10) {
-                        validExit = true;
+                    if (this.isPositionFree(x, y)) {
+                        return { x, y };
                     }
                 }
-                
-                // Check if both positions are valid
-                if (
-                    validExit &&
-                    !this.isPositionOccupied(entranceX, entranceY) && 
-                    !this.isPositionOccupied(exitX, exitY)
-                ) {
-                    validPositions = true;
-                }
-            }
-            
-            // If valid positions found, create portal pair
-            if (validPositions) {
-                const exitPortal = new Portal(exitX, exitY, portalType);
-                const entrancePortal = new Portal(entranceX, entranceY, portalType, exitPortal);
-                
-                this.game.portals.push(entrancePortal);
-                this.game.portals.push(exitPortal);
-                placedPairs++;
             }
         }
-    }
-    
-    isPositionOccupied(x, y) {
-        // Check if position is occupied by snake
-        if (this.game.snake) {
-            for (const segment of this.game.snake.segments) {
-                if (segment.x === x && segment.y === y) {
-                    return true;
+        
+        // Third try: Find any free position that meets minimum distance
+        for (let x = 0; x < gridWidth; x++) {
+            for (let y = 0; y < gridHeight; y++) {
+                if (this.isPositionFree(x, y)) {
+                    const distance = Math.sqrt(
+                        Math.pow(x - sourcePos.x, 2) + 
+                        Math.pow(y - sourcePos.y, 2)
+                    );
+                    
+                    if (distance >= minDistance) {
+                        return { x, y };
+                    }
                 }
             }
         }
         
-        // Check if position is occupied by obstacle
-        for (const obstacle of this.game.obstacles) {
-            if (obstacle.x === x && obstacle.y === y) {
-                return true;
-            }
-        }
-        
-        // Check if position is occupied by collectible
-        for (const collectible of this.game.collectibles) {
-            if (collectible.x === x && collectible.y === y) {
-                return true;
-            }
-        }
-        
-        // Check if position is occupied by portal
-        for (const portal of this.game.portals) {
-            if (portal.x === x && portal.y === y) {
-                return true;
-            }
-        }
-        
-        return false;
+        // Last resort: Any free position
+        return this.findFreePosition();
     }
     
+    // Used by Game to spawn a new collectible when one is collected
     spawnCollectible() {
+        // Recreate grid to reflect current game state
         const gridWidth = Math.floor(this.game.canvas.width / GRID_SIZE);
         const gridHeight = Math.floor(this.game.canvas.height / GRID_SIZE);
         
-        // Try to find a valid position
-        let attempts = 0;
-        const maxAttempts = 50;
+        // Ensure minimum grid size
+        const safeGridWidth = Math.max(gridWidth, 20);
+        const safeGridHeight = Math.max(gridHeight, 15);
         
-        while (attempts < maxAttempts) {
-            attempts++;
-            
-            // Get random position
-            const x = Math.floor(Math.random() * gridWidth);
-            const y = Math.floor(Math.random() * gridHeight);
-            
-            // Check if position is valid
-            if (!this.isPositionOccupied(x, y)) {
-                this.game.collectibles.push(new Collectible(x, y));
-                return true;
-            }
+        this.grid = Array(safeGridWidth).fill().map(() => Array(safeGridHeight).fill(false));
+        this.markCurrentObjects();
+        
+        // Find a free position
+        const position = this.findFreePosition();
+        if (!position) {
+            console.warn("Failed to spawn a new collectible - no free positions");
+            return false;
         }
         
-        // If all attempts failed, try a more deterministic approach
-        for (let x = 0; x < gridWidth; x += 2) {
-            for (let y = 0; y < gridHeight; y += 2) {
-                if (!this.isPositionOccupied(x, y)) {
-                    this.game.collectibles.push(new Collectible(x, y));
-                    return true;
-                }
-            }
-        }
-        
-        return false;
+        // Create new collectible
+        this.game.collectibles.push(new Collectible(position.x, position.y));
+        console.log(`Spawned new collectible at (${position.x}, ${position.y})`);
+        return true;
     }
     
+    // Used by Game to spawn a new horse
     spawnHorse() {
+        // Recreate grid to reflect current game state
         const gridWidth = Math.floor(this.game.canvas.width / GRID_SIZE);
         const gridHeight = Math.floor(this.game.canvas.height / GRID_SIZE);
         
-        // Pick horse type based on rarity
+        // Ensure minimum grid size
+        const safeGridWidth = Math.max(gridWidth, 20);
+        const safeGridHeight = Math.max(gridHeight, 15);
+        
+        this.grid = Array(safeGridWidth).fill().map(() => Array(safeGridHeight).fill(false));
+        this.markCurrentObjects();
+        
+        // Try to place horse at the edge of the grid
+        const edges = [
+            // Top edge
+            ...Array(safeGridWidth).fill().map((_, x) => ({ x, y: 0 })),
+            // Right edge
+            ...Array(safeGridHeight).fill().map((_, y) => ({ x: safeGridWidth - 1, y })),
+            // Bottom edge
+            ...Array(safeGridWidth).fill().map((_, x) => ({ x, y: safeGridHeight - 1 })),
+            // Left edge
+            ...Array(safeGridHeight).fill().map((_, y) => ({ x: 0, y }))
+        ];
+        
+        // Shuffle the edges array
+        for (let i = edges.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [edges[i], edges[j]] = [edges[j], edges[i]];
+        }
+        
+        // Find first free edge position
+        let position = null;
+        for (const pos of edges) {
+            if (this.isPositionFree(pos.x, pos.y)) {
+                position = pos;
+                break;
+            }
+        }
+        
+        // If no edge position is free, find any free position
+        if (!position) {
+            position = this.findFreePosition();
+            if (!position) {
+                console.warn("Failed to spawn a new horse - no free positions");
+                return false;
+            }
+        }
+        
+        // Select horse type based on rarity
         const horseType = this.selectRandomHorseType();
         
-        // Try to find a valid position
-        let attempts = 0;
-        const maxAttempts = 50;
-        
-        while (attempts < maxAttempts) {
-            attempts++;
-            
-            // Get random position on edge of screen
-            let x, y;
-            const side = Math.floor(Math.random() * 4);
-            
-            switch (side) {
-                case 0: // Top
-                    x = Math.floor(Math.random() * gridWidth);
-                    y = 0;
-                    break;
-                case 1: // Right
-                    x = gridWidth - 1;
-                    y = Math.floor(Math.random() * gridHeight);
-                    break;
-                case 2: // Bottom
-                    x = Math.floor(Math.random() * gridWidth);
-                    y = gridHeight - 1;
-                    break;
-                case 3: // Left
-                    x = 0;
-                    y = Math.floor(Math.random() * gridHeight);
-                    break;
-            }
-            
-            // Check if position is valid
-            if (!this.isPositionOccupied(x, y)) {
-                this.game.horses.push(new Horse(x, y, horseType));
-                return true;
-            }
-        }
-        
-        // If all attempts failed, try to place anywhere
-        for (let i = 0; i < 10; i++) {
-            const x = Math.floor(Math.random() * gridWidth);
-            const y = Math.floor(Math.random() * gridHeight);
-            
-            if (!this.isPositionOccupied(x, y)) {
-                this.game.horses.push(new Horse(x, y, horseType));
-                return true;
-            }
-        }
-        
-        return false;
+        // Create new horse
+        this.game.horses.push(new Horse(position.x, position.y, horseType));
+        console.log(`Spawned ${horseType} horse at (${position.x}, ${position.y})`);
+        return true;
     }
     
+    // Mark all current game objects in the grid
+    markCurrentObjects() {
+        // Mark snake positions
+        this.markSnakePositions();
+        
+        // Mark obstacles
+        for (const obstacle of this.game.obstacles) {
+            if (this.isValidPosition(obstacle.x, obstacle.y)) {
+                this.grid[obstacle.x][obstacle.y] = true;
+            }
+        }
+        
+        // Mark collectibles
+        for (const collectible of this.game.collectibles) {
+            if (this.isValidPosition(collectible.x, collectible.y)) {
+                this.grid[collectible.x][collectible.y] = true;
+            }
+        }
+        
+        // Mark portals
+        for (const portal of this.game.portals) {
+            if (this.isValidPosition(portal.x, portal.y)) {
+                this.grid[portal.x][portal.y] = true;
+            }
+        }
+        
+        // Mark horses
+        for (const horse of this.game.horses) {
+            if (this.isValidPosition(horse.x, horse.y)) {
+                this.grid[horse.x][horse.y] = true;
+            }
+        }
+    }
+    
+    // Select a random horse type based on rarity
     selectRandomHorseType() {
         // Create a weighted selection based on rarity
         const types = Object.keys(HORSE_TYPES);

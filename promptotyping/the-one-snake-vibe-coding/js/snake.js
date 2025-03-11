@@ -1,6 +1,7 @@
 // The One Snake - Snake Entity Implementation
 
-class Snake {
+// Make sure Snake is defined in the global scope
+window.Snake = class Snake {
     constructor(gridWidth, gridHeight) {
         // Initialize snake with default values
         this.segments = [];
@@ -10,20 +11,26 @@ class Snake {
         this.length = BASE_SNAKE_LENGTH;
         this.growing = BASE_SNAKE_LENGTH - 1; // Start with base length - 1 growth pending
         this.visualStage = 1;
+        this.moveTimer = 0; // Timer to control movement speed
+        
+        // Ensure gridWidth and gridHeight are valid numbers
+        gridWidth = (typeof gridWidth === 'number' && gridWidth > 0) ? gridWidth : 20;
+        gridHeight = (typeof gridHeight === 'number' && gridHeight > 0) ? gridHeight : 15;
         
         // Set snake's initial position in middle of grid
         const startX = Math.floor(gridWidth / 2);
         const startY = Math.floor(gridHeight / 2);
         
+        console.log(`Initializing snake at position (${startX}, ${startY})`);
+        
         // Create initial head segment
         this.segments.push({ x: startX, y: startY });
         
-        // Create initial body segments based on direction
+        // Create initial body segments based on direction (to the left of the head)
         for (let i = 1; i < BASE_SNAKE_LENGTH; i++) {
-            const prevSegment = this.segments[i - 1];
             this.segments.push({
-                x: prevSegment.x - this.direction.x,
-                y: prevSegment.y - this.direction.y
+                x: startX - i,
+                y: startY
             });
         }
     }
@@ -33,45 +40,60 @@ class Snake {
         // Update direction from the queue
         this.direction = this.nextDirection;
         
-        // Calculate movement based on speed and time
-        const head = { ...this.segments[0] };
-        head.x += this.direction.x;
-        head.y += this.direction.y;
+        // Increment move timer
+        this.moveTimer += deltaTime;
         
-        // Handle edge wrapping
-        if (head.x < 0) head.x = gridWidth - 1;
-        if (head.x >= gridWidth) head.x = 0;
-        if (head.y < 0) head.y = gridHeight - 1;
-        if (head.y >= gridHeight) head.y = 0;
+        // Move snake when timer exceeds movement threshold (inverse of speed)
+        // Lower threshold = faster movement
+        const moveThreshold = 0.5 / this.speed;
         
-        // Add new head
-        this.segments.unshift(head);
-        
-        // Remove tail or grow
-        if (this.growing > 0) {
-            this.growing--;
-        } else {
-            this.segments.pop();
+        if (this.moveTimer >= moveThreshold) {
+            this.moveTimer = 0; // Reset timer
+            
+            // Calculate movement based on direction
+            const head = { ...this.segments[0] };
+            head.x += this.direction.x;
+            head.y += this.direction.y;
+            
+            // Handle edge wrapping
+            if (head.x < 0) head.x = gridWidth - 1;
+            if (head.x >= gridWidth) head.x = 0;
+            if (head.y < 0) head.y = gridHeight - 1;
+            if (head.y >= gridHeight) head.y = 0;
+            
+            // Add new head
+            this.segments.unshift(head);
+            
+            // Remove tail or grow
+            if (this.growing > 0) {
+                this.growing--;
+            } else {
+                this.segments.pop();
+            }
+            
+            console.log(`Snake moved to: (${head.x}, ${head.y}), Direction: (${this.direction.x}, ${this.direction.y})`);
         }
         
-        return head; // Return new head position for collision checks
+        return this.segments[0]; // Return head position for collision checks
     }
     
     // Change snake direction if valid
     changeDirection(newDirection) {
         // Prevent 180-degree turns by checking if new direction is opposite of current
         const isOpposite = (
-            (this.direction === DIRECTIONS.UP && newDirection === DIRECTIONS.DOWN) ||
-            (this.direction === DIRECTIONS.DOWN && newDirection === DIRECTIONS.UP) ||
-            (this.direction === DIRECTIONS.LEFT && newDirection === DIRECTIONS.RIGHT) ||
-            (this.direction === DIRECTIONS.RIGHT && newDirection === DIRECTIONS.LEFT)
+            (this.direction.x === 0 && this.direction.y === -1 && newDirection.x === 0 && newDirection.y === 1) ||
+            (this.direction.x === 0 && this.direction.y === 1 && newDirection.x === 0 && newDirection.y === -1) ||
+            (this.direction.x === -1 && this.direction.y === 0 && newDirection.x === 1 && newDirection.y === 0) ||
+            (this.direction.x === 1 && this.direction.y === 0 && newDirection.x === -1 && newDirection.y === 0)
         );
         
         if (isOpposite) {
+            console.log("Attempted 180-degree turn prevented");
             return false;
         }
         
         this.nextDirection = newDirection;
+        console.log(`Direction changed to: (${newDirection.x}, ${newDirection.y})`);
         return true;
     }
     
@@ -79,12 +101,14 @@ class Snake {
     grow(segments = 1) {
         this.growing += segments;
         this.length += segments;
+        console.log(`Snake growing by ${segments} segments. Total length: ${this.length}`);
         
         // Enforce maximum snake length
         if (this.length > MAX_SNAKE_LENGTH) {
             // Adjust growing count if we hit max length
             this.growing -= (this.length - MAX_SNAKE_LENGTH);
             this.length = MAX_SNAKE_LENGTH;
+            console.log(`Snake reached maximum length of ${MAX_SNAKE_LENGTH}`);
         }
     }
     
@@ -95,6 +119,7 @@ class Snake {
         for (let i = 4; i < this.segments.length; i++) {
             const segment = this.segments[i];
             if (head.x === segment.x && head.y === segment.y) {
+                console.log(`Self collision detected at segment ${i}`);
                 return true;
             }
         }
@@ -110,12 +135,13 @@ class Snake {
     // Apply a transformation stage to the snake
     applyTransformation(stage) {
         this.visualStage = stage.visualID;
+        console.log(`Snake transformed to stage ${stage.visualID}: ${stage.name}`);
         // Any other transformation effects would be applied here
     }
     
     // Draw snake on canvas
     draw(ctx, gridSize) {
-        // Draw each segment
+        // Draw each segment with increased contrast
         for (let i = 0; i < this.segments.length; i++) {
             const segment = this.segments[i];
             
@@ -123,30 +149,40 @@ class Snake {
             const isHead = i === 0;
             let color;
             
-            // Color based on transformation stage
+            // Color based on transformation stage - FIXED: Brighter colors
             switch (this.visualStage) {
                 case 1: // Serpent
-                    color = isHead ? '#00AA00' : '#008800';
+                    color = isHead ? '#00FF00' : '#00DD00'; // Bright green
                     break;
                 case 2: // Horned Serpent
-                    color = isHead ? '#00AAAA' : '#008888';
+                    color = isHead ? '#00FFFF' : '#00DDDD'; // Bright cyan
                     break;
                 case 3: // Proto-Dragon
-                    color = isHead ? '#AA00AA' : '#880088';
+                    color = isHead ? '#FF00FF' : '#DD00DD'; // Bright magenta
                     break;
                 case 4: // Wingless Dragon
-                    color = isHead ? '#AAAA00' : '#888800';
+                    color = isHead ? '#FFFF00' : '#DDDD00'; // Bright yellow
                     break;
                 case 5: // True Dragon
-                    color = isHead ? '#AA0000' : '#880000';
+                    color = isHead ? '#FF0000' : '#DD0000'; // Bright red
                     break;
                 default:
-                    color = isHead ? '#00AA00' : '#008800';
+                    color = isHead ? '#00FF00' : '#00DD00'; // Bright green
             }
             
-            // Draw segment
+            // Draw segment with border for visibility
             ctx.fillStyle = color;
             ctx.fillRect(
+                segment.x * gridSize,
+                segment.y * gridSize,
+                gridSize,
+                gridSize
+            );
+            
+            // Add border for better visibility
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(
                 segment.x * gridSize,
                 segment.y * gridSize,
                 gridSize,
@@ -156,7 +192,7 @@ class Snake {
             // Add eye details for head
             if (isHead) {
                 // Draw eyes based on direction
-                ctx.fillStyle = '#FFFFFF';
+                ctx.fillStyle = '#000000'; // Black eyes
                 const eyeSize = gridSize / 5;
                 const eyeOffset = gridSize / 3;
                 

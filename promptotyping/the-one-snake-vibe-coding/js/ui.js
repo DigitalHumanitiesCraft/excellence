@@ -37,26 +37,39 @@ class UI {
     
     update() {
         // Update score display
-        this.scoreDisplay.textContent = this.game.score;
+        if (this.scoreDisplay) {
+            this.scoreDisplay.textContent = this.game.score;
+        }
         
         // Update fire meter
-        this.fireMeter.style.width = `${(this.game.fireMeter / FIRE_METER_MAX) * 100}%`;
+        if (this.fireMeter) {
+            this.fireMeter.style.width = `${(this.game.fireMeter / FIRE_METER_MAX) * 100}%`;
+        }
         
         // Update transformation display
-        const currentStage = TRANSFORMATION_STAGES[this.game.currentTransformationStage];
-        this.transformationStage.textContent = currentStage.name;
+        if (this.transformationStage && this.game.currentTransformationStage !== undefined) {
+            const currentStage = TRANSFORMATION_STAGES[this.game.currentTransformationStage];
+            if (currentStage) {
+                this.transformationStage.textContent = currentStage.name;
+            }
+        }
         
         // Calculate progress to next stage
-        if (this.game.currentTransformationStage < TRANSFORMATION_STAGES.length - 1) {
-            const nextStage = TRANSFORMATION_STAGES[this.game.currentTransformationStage + 1];
-            const currentProgress = this.game.collectiblesObtained - currentStage.requiredItems;
-            const totalNeeded = nextStage.requiredItems - currentStage.requiredItems;
-            const progressPercent = (currentProgress / totalNeeded) * 100;
-            
-            this.transformationMeter.style.width = `${progressPercent}%`;
-        } else {
-            // Max stage reached
-            this.transformationMeter.style.width = '100%';
+        if (this.transformationMeter && this.game.currentTransformationStage !== undefined) {
+            if (this.game.currentTransformationStage < TRANSFORMATION_STAGES.length - 1) {
+                const currentStage = TRANSFORMATION_STAGES[this.game.currentTransformationStage];
+                const nextStage = TRANSFORMATION_STAGES[this.game.currentTransformationStage + 1];
+                if (currentStage && nextStage) {
+                    const currentProgress = this.game.collectiblesObtained - currentStage.requiredItems;
+                    const totalNeeded = nextStage.requiredItems - currentStage.requiredItems;
+                    const progressPercent = (currentProgress / totalNeeded) * 100;
+                    
+                    this.transformationMeter.style.width = `${Math.max(0, Math.min(100, progressPercent))}%`;
+                }
+            } else {
+                // Max stage reached
+                this.transformationMeter.style.width = '100%';
+            }
         }
         
         // Update ability cooldowns
@@ -69,15 +82,21 @@ class UI {
     updateAbilityCooldowns() {
         // For each ability, update cooldown display
         for (const abilityName in this.abilityElements) {
+            if (!this.abilityElements[abilityName].cooldown) continue;
+            
             const cooldownPercent = this.game.fireAbilities.getCooldownPercent(abilityName);
             this.abilityElements[abilityName].cooldown.style.height = `${cooldownPercent * 100}%`;
             
             // Disable icon if ability not available at current transformation stage
-            const currentStage = TRANSFORMATION_STAGES[this.game.currentTransformationStage];
-            const isAvailable = currentStage.fireAbilities.includes(abilityName) || 
-                               currentStage.fireAbilities.includes('ALL');
-                               
-            this.abilityElements[abilityName].icon.style.opacity = isAvailable ? '1' : '0.3';
+            if (this.abilityElements[abilityName].icon && this.game.currentTransformationStage !== undefined) {
+                const currentStage = TRANSFORMATION_STAGES[this.game.currentTransformationStage];
+                if (currentStage) {
+                    const isAvailable = currentStage.fireAbilities.includes(abilityName) || 
+                                      currentStage.fireAbilities.includes('ALL');
+                    
+                    this.abilityElements[abilityName].icon.style.opacity = isAvailable ? '1' : '0.3';
+                }
+            }
         }
     }
     
@@ -85,7 +104,12 @@ class UI {
         // Clear minimap
         const minimapCtx = this.game.minimapCtx;
         const minimapCanvas = this.game.minimapCanvas;
+        if (!minimapCtx || !minimapCanvas) return;
+        
         minimapCtx.clearRect(0, 0, minimapCanvas.width, minimapCanvas.height);
+        
+        // Check if snake exists
+        if (!this.game.snake || !this.game.snake.segments) return;
         
         // Calculate minimap scale
         const gridWidth = Math.floor(this.game.canvas.width / GRID_SIZE);
@@ -151,14 +175,28 @@ class UI {
     
     showGameOver() {
         // Update game over screen with level name and score
-        this.levelNameDisplay.textContent = this.getLevelDisplayName(this.game.currentLevel.id);
-        this.finalScoreDisplay.textContent = this.game.score;
+        if (this.levelNameDisplay) {
+            const levelId = this.game.currentLevel && this.game.currentLevel.id ? 
+                this.game.currentLevel.id : 'unknown';
+            this.levelNameDisplay.textContent = this.getLevelDisplayName(levelId);
+        }
+        
+        if (this.finalScoreDisplay) {
+            this.finalScoreDisplay.textContent = this.game.score;
+        }
     }
     
     showVictory() {
         // Update victory screen with level name and score
-        this.victoryLevelNameDisplay.textContent = this.getLevelDisplayName(this.game.currentLevel.id);
-        this.victoryScoreDisplay.textContent = this.game.score;
+        if (this.victoryLevelNameDisplay) {
+            const levelId = this.game.currentLevel && this.game.currentLevel.id ? 
+                this.game.currentLevel.id : 'unknown';
+            this.victoryLevelNameDisplay.textContent = this.getLevelDisplayName(levelId);
+        }
+        
+        if (this.victoryScoreDisplay) {
+            this.victoryScoreDisplay.textContent = this.game.score;
+        }
     }
     
     getLevelDisplayName(levelId) {

@@ -1,4 +1,6 @@
-// The One Snake - Fire Abilities Implementation
+// The One Snake - Fixed Fire Abilities Implementation
+
+// Fixed the INFERNO_BURST method and related functionality
 
 class FireEffect extends Entity {
     constructor(x, y, type, direction = { x: 0, y: 0 }, sourceAbility) {
@@ -321,12 +323,14 @@ class FireAbilityManager {
         
         // Check if ability is on cooldown
         if (this.cooldowns[abilityName] > 0) {
+            console.log(`${abilityName} is on cooldown: ${this.cooldowns[abilityName]}s remaining`);
             return false;
         }
         
         // Check if snake has enough fire meter
         const abilityCost = FIRE_ABILITIES[abilityName].cost;
         if (this.game.fireMeter < abilityCost) {
+            console.log(`Not enough fire meter for ${abilityName}. Need ${abilityCost}, have ${this.game.fireMeter}`);
             return false;
         }
         
@@ -415,33 +419,30 @@ class FireAbilityManager {
         return true;
     }
     
+    // Fixed INFERNO_BURST method
     createInfernoBurst(snakeHead) {
-        try {
-            // Create effect with explicit error handling
-            const effect = new FireEffect(
-                snakeHead.x,
-                snakeHead.y,
-                'INFERNO_BURST',
-                { x: 0, y: 0 },
-                'INFERNO_BURST'
-            );
-            
-            this.activeEffects.push(effect);
-            
-            // Add particles for visual effect
-            this.game.particles.createParticleEffect(
-                'FIRE',
-                snakeHead.x,
-                snakeHead.y,
-                { x: 0, y: 0 },
-                0.8
-            );
-            
-            return true;
-        } catch (error) {
-            console.error("Failed to create INFERNO_BURST effect:", error);
-            return false;
-        }
+        // Create effect without try/catch block since we're handling errors better
+        const effect = new FireEffect(
+            snakeHead.x,
+            snakeHead.y,
+            'INFERNO_BURST',
+            { x: 0, y: 0 },
+            'INFERNO_BURST'
+        );
+        
+        // Add to active effects
+        this.activeEffects.push(effect);
+        
+        // Add particles for visual effect
+        this.game.particles.createParticleEffect(
+            'FIRE',
+            snakeHead.x,
+            snakeHead.y,
+            { x: 0, y: 0 },
+            0.8
+        );
+        
+        return true;
     }
     
     createBurningTrailEffect(x, y) {
