@@ -66,10 +66,6 @@ class Game {
         // Start the game loop
         this.gameLoop(0);
 
-         // Auto-start game after a short delay (for testing only)
-    setTimeout(() => {
-        this.initGame('shire');
-    }, 1000);
     }
     
     // Set the current game state
