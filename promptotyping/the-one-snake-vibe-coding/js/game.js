@@ -619,63 +619,46 @@ class Game {
     // Render game
     render() {
         try {
-            // Clear canvas with a more visible color
-            this.ctx.fillStyle = '#333333'; // Dark gray background
-            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            // Use themed background instead of simple fill
+            this.drawBackground();
             
-            // Add debug message to canvas
-            this.ctx.fillStyle = '#FFFFFF';
-            this.ctx.font = '20px Arial';
-            this.ctx.fillText('Game Running - Score: ' + this.score, 10, 30);
-            
-            // Force all objects to be drawn with high contrast colors
-            
-            // Draw obstacles (bright silver)
-            this.ctx.fillStyle = '#DDDDDD';
+            // Draw game objects using their specific drawing methods
             for (const obstacle of this.obstacles) {
-                this.ctx.fillRect(
-                    obstacle.x * GRID_SIZE,
-                    obstacle.y * GRID_SIZE,
-                    GRID_SIZE,
-                    GRID_SIZE
-                );
+                obstacle.draw(this.ctx, GRID_SIZE);
             }
             
-            // Draw collectibles (bright gold)
-            this.ctx.fillStyle = '#FFDD00';
             for (const collectible of this.collectibles) {
-                this.ctx.fillRect(
-                    collectible.x * GRID_SIZE,
-                    collectible.y * GRID_SIZE,
-                    GRID_SIZE,
-                    GRID_SIZE
-                );
+                collectible.draw(this.ctx, GRID_SIZE);
             }
             
-            // Draw the snake (bright green)
+            for (const portal of this.portals) {
+                portal.draw(this.ctx, GRID_SIZE);
+            }
+            
+            for (const horse of this.horses) {
+                horse.draw(this.ctx, GRID_SIZE);
+            }
+            
+            // Draw snake if it exists
             if (this.snake) {
-                // Always draw the snake
-                this.ctx.fillStyle = '#00FF00';
-                for (const segment of this.snake.segments) {
-                    this.ctx.fillRect(
-                        segment.x * GRID_SIZE,
-                        segment.y * GRID_SIZE,
-                        GRID_SIZE,
-                        GRID_SIZE
-                    );
-                }
+                this.snake.draw(this.ctx, GRID_SIZE);
             }
-
-            // Add permanent debug info
-            this.ctx.fillStyle = '#FFFFFF';
-            this.ctx.font = '12px monospace';
-            this.ctx.fillText(`State: ${this.currentState}`, 10, 60);
-            this.ctx.fillText(`Snake: ${this.snake ? 'Initialized' : 'Not Initialized'}`, 10, 80);
-            this.ctx.fillText(`Objects: ${this.obstacles.length} obstacles, ${this.collectibles.length} items`, 10, 100);
-        
             
-            // Draw position history as a trail in debug mode
+            // Draw fire abilities and particles
+            this.fireAbilities.draw(this.ctx, GRID_SIZE);
+            this.particles.draw(this.ctx);
+            
+            // Only show debug info if debug mode is active
             if (this.debugMode) {
+                // Show debug statistics
+                this.ctx.fillStyle = '#FFFFFF';
+                this.ctx.font = '12px monospace';
+                this.ctx.fillText(`State: ${this.currentState}`, 10, 60);
+                this.ctx.fillText(`Snake: ${this.snake ? 'Initialized' : 'Not Initialized'}`, 10, 80);
+                this.ctx.fillText(`Objects: ${this.obstacles.length} obstacles, ${this.collectibles.length} items`, 10, 100);
+                this.ctx.fillText(`FPS: ${Math.round(1 / (this.deltaTime || 0.016))}`, 10, 120);
+                
+                // Draw position history trail
                 const fadeDuration = 3000; // milliseconds
                 const now = performance.now();
                 
@@ -692,29 +675,21 @@ class Game {
                     );
                 }
                 
-                // Add debug information
-                this.ctx.fillStyle = '#FFFFFF';
-                this.ctx.font = '12px monospace';
-                this.ctx.fillText(`State: ${this.currentState}`, 10, 60);
-                this.ctx.fillText(`Snake: ${this.snake ? 'Initialized' : 'Not Initialized'}`, 10, 80);
-                this.ctx.fillText(`Objects: ${this.obstacles.length} obstacles, ${this.collectibles.length} items`, 10, 100);
-                this.ctx.fillText(`FPS: ${Math.round(1 / (this.deltaTime || 0.016))}`, 10, 120);
-            }
-            
-            // Add a visible grid
-            this.ctx.strokeStyle = '#444444';
-            this.ctx.lineWidth = 1;
-            for (let x = 0; x < this.canvas.width; x += GRID_SIZE) {
-                this.ctx.beginPath();
-                this.ctx.moveTo(x, 0);
-                this.ctx.lineTo(x, this.canvas.height);
-                this.ctx.stroke();
-            }
-            for (let y = 0; y < this.canvas.height; y += GRID_SIZE) {
-                this.ctx.beginPath();
-                this.ctx.moveTo(0, y);
-                this.ctx.lineTo(this.canvas.width, y);
-                this.ctx.stroke();
+                // Draw grid in debug mode
+                this.ctx.strokeStyle = '#444444';
+                this.ctx.lineWidth = 1;
+                for (let x = 0; x < this.canvas.width; x += GRID_SIZE) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(x, 0);
+                    this.ctx.lineTo(x, this.canvas.height);
+                    this.ctx.stroke();
+                }
+                for (let y = 0; y < this.canvas.height; y += GRID_SIZE) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(0, y);
+                    this.ctx.lineTo(this.canvas.width, y);
+                    this.ctx.stroke();
+                }
             }
         } catch (error) {
             console.error("Error in game render:", error);

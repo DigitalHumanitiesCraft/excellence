@@ -1,362 +1,297 @@
-# CLAUDE.md - Implementation Guide
+# CLAUDE.md - Concise Implementation Documentation
 
-## Game Overview
-"The One Snake" - A Lord of the Rings themed snake game where players control Smaug as a serpent, featuring portals, fire abilities, and horse interactions.
+## Overview
+"The One Snake" is a Lord of the Rings themed snake game where a serpent evolves into a dragon through five transformation stages across Middle Earth locations. Built with HTML5 Canvas and JavaScript, it features obstacle avoidance, collectible items, teleportation portals, and special fire abilities.
 
-## Core Systems Implementation
+## Code Structure
 
-### Snake System
 ```
-INIT_SNAKE(length=3, position={x:center, y:center}, direction=RIGHT)
-UPDATE_SNAKE_POSITION(currentDirection, inputDirection)
-CHECK_COLLISION(snakeHead, [gameObjects])
-GROW_SNAKE(segments=1)
-APPLY_FIRE_EFFECT(effectType, duration)
-DRAW_SNAKE(transformationStage)
-```
-
-### Movement System
-```
-DIRECTIONS = {UP: {x:0, y:-1}, RIGHT: {x:1, y:0}, DOWN: {x:0, y:1}, LEFT: {x:-1, y:0}}
-MOVE_SNAKE()
-  - position.x += direction.x * speed
-  - position.y += direction.y * speed
-  - updateBodySegments()
-CHANGE_DIRECTION(newDirection)
-  - if not opposite of current direction
-  - enqueueDirection(newDirection)
+├── index.html        # Game container, UI elements, canvas
+├── style.css         # Fantasy-themed styling, responsive design
+├── constants.js      # Game parameters and configuration 
+├── main.js           # Entry point for initialization
+├── game.js           # Core game controller and loop
+├── snake.js          # Snake entity and movement logic
+├── entities.js       # Game objects (Collectible, Horse, Portal, Obstacle)
+├── levels.js         # Level generation and object placement
+├── abilities.js      # Fire abilities implementation
+├── particles.js      # Visual effects system
+├── ui.js             # HUD and menu management
+└── controls.js       # Keyboard and touch input handling
 ```
 
-### Fire Ability System
-```
-FIRE_ABILITIES = {
-  FLAME_BREATH: {cost:20, cooldown:3s, range:5, damage:100},
-  FIRE_SHIELD: {cost:30, cooldown:5s, duration:3s, protection:100},
-  BURNING_TRAIL: {cost:15, cooldown:2s, duration:5s, damage:50},
-  INFERNO_BURST: {cost:40, cooldown:8s, radius:3, damage:80}
-}
-ACTIVATE_FIRE_ABILITY(abilityType)
-INCREASE_FIRE_METER(amount)
-DECREASE_FIRE_METER(amount)
-DRAW_FIRE_EFFECTS(type, position, direction)
-```
+## Key Constants
 
-### Portal System
-```
-CREATE_PORTAL_PAIR(entrance={x,y}, exit={x,y}, type=PALANTIR)
-TELEPORT_SNAKE(entrancePortal, exitPortal)
-PORTAL_TYPES = {
-  PALANTIR: {cooldown:0s, visualEffect:"blue_swirl"},
-  MORIA: {cooldown:2s, visualEffect:"stone_door", requiresUnlock:true},
-  BLACK_GATE: {cooldown:5s, visualEffect:"dark_energy", oneWay:true},
-  GREY_HAVENS: {cooldown:10s, visualEffect:"white_light", temporary:true}
-}
-DRAW_PORTAL(type, position, state)
-DRAW_PORTAL_TRANSITION(entrancePortal, exitPortal)
-```
+```javascript
+GRID_SIZE = 20                // Pixels per grid unit
+BASE_MOVEMENT_SPEED = 5       // Grid units per second
+BASE_SNAKE_LENGTH = 3         // Initial snake length
+MAX_SNAKE_LENGTH = 100        // Maximum possible length
+FIRE_METER_MAX = 100          // Maximum fire resource
+COLLECTIBLE_VALUE = 10        // Base score for collectibles
 
-### Horse System
-```
-HORSE_TYPES = {
-  SHADOWFAX: {speed:5, effect:"speed_boost", duration:5s, rarity:0.1},
-  MEARAS: {speed:4, effect:"transform_boost", duration:0, rarity:0.2},
-  ROHIRRIM: {speed:3, effect:"none", movementPattern:"formation", rarity:0.3},
-  NAZGUL_STEED: {speed:6, effect:"chase_player", duration:8s, rarity:0.15},
-  BILL_PONY: {speed:2, effect:"drop_treasures", duration:10s, rarity:0.2},
-  ASFALOTH: {speed:4, effect:"create_path", duration:5s, rarity:0.15},
-  BREGO: {speed:3, effect:"danger_warning", duration:0, rarity:0.2}
-}
-SPAWN_HORSE(type, position)
-UPDATE_HORSE_BEHAVIOR(horse, snakePosition)
-HORSE_COLLISION_EFFECT(horse, snake)
-DRAW_HORSE(type, position, state)
-```
+DIRECTIONS = {UP:{x:0,y:-1}, RIGHT:{x:1,y:0}, DOWN:{x:0,y:1}, LEFT:{x:-1,y:0}}
 
-### Transformation System
-```
-TRANSFORMATION_STAGES = [
-  {name:"Serpent", fireAbilities:[FLAME_BREATH], visualID:1, requiredItems:0},
-  {name:"Horned Serpent", fireAbilities:[FLAME_BREATH, BURNING_TRAIL], visualID:2, requiredItems:5},
-  {name:"Proto-Dragon", fireAbilities:[FLAME_BREATH, BURNING_TRAIL, FIRE_SHIELD], visualID:3, requiredItems:10},
-  {name:"Wingless Dragon", fireAbilities:[FLAME_BREATH, BURNING_TRAIL, FIRE_SHIELD, INFERNO_BURST], visualID:4, requiredItems:15},
-  {name:"True Dragon", fireAbilities:[ALL], visualID:5, requiredItems:20}
-]
-UPDATE_TRANSFORMATION(collectiblesObtained)
-DRAW_TRANSFORMATION_EFFECTS(oldStage, newStage)
-```
-
-### Level System
-```
-LEVELS = [
-  {id:"shire", difficulty:1, horseDensity:0.1, portalDensity:0.05, obstacles:["hills", "trees"]},
-  {id:"rivendell", difficulty:2, horseDensity:0.1, portalDensity:0.1, obstacles:["water", "bridges"]},
-  {id:"mirkwood", difficulty:3, horseDensity:0.2, portalDensity:0.1, obstacles:["trees", "spiders"]},
-  {id:"rohan", difficulty:3, horseDensity:0.4, portalDensity:0.1, obstacles:["rocks", "enemies"]},
-  {id:"moria", difficulty:4, horseDensity:0.1, portalDensity:0.3, obstacles:["walls", "chasms"]},
-  {id:"mordor", difficulty:5, horseDensity:0.2, portalDensity:0.2, obstacles:["lava", "enemies"]}
-]
-GENERATE_LEVEL(levelID)
-PLACE_OBSTACLES(level, density)
-GENERATE_CIRCULAR_PATHS(level, complexity)
-PLACE_PORTALS(level, density, types)
-SPAWN_HORSES(level, density, types)
-```
-
-## Collision System
-```
-COLLISION_LAYERS = [
-  SNAKE_LAYER,
-  OBSTACLE_LAYER,
-  COLLECTIBLE_LAYER,
-  HORSE_LAYER,
-  PORTAL_LAYER,
-  FIRE_EFFECT_LAYER
-]
-CHECK_COLLISION(object1, object2)
-HANDLE_COLLISION(object1, object2)
-```
-
-## Visual Effects System
-```
-PARTICLE_TYPES = {
-  FIRE: {colors:["#FF4500", "#FFA500", "#FFD700"], size:2-5, lifetime:0.5-1.5s, emission:10-30/s},
-  SMOKE: {colors:["#A9A9A9", "#808080"], size:3-8, lifetime:1-3s, emission:5-15/s},
-  PORTAL: {colors:["#4B0082", "#8A2BE2", "#9400D3"], size:2-6, lifetime:1-2s, emission:15-25/s},
-  TRANSFORMATION: {colors:["#FFD700", "#FF8C00", "#FF4500"], size:4-10, lifetime:1-2s, emission:30-50/s}
-}
-CREATE_PARTICLE_EFFECT(type, position, direction, duration)
-DRAW_LIGHTING_EFFECT(position, radius, intensity, color)
-APPLY_POST_PROCESSING(effects)
-```
-
-## Input Handling
-```
-DESKTOP_CONTROLS = {
-  UP: [W, ARROW_UP],
-  RIGHT: [D, ARROW_RIGHT],
-  DOWN: [S, ARROW_DOWN],
-  LEFT: [A, ARROW_LEFT],
-  FIRE_ABILITY_1: [SPACE],
-  FIRE_ABILITY_2: [E],
-  FIRE_ABILITY_3: [Q],
-  FIRE_ABILITY_4: [R]
-}
-MOBILE_CONTROLS = {
-  MOVEMENT: SWIPE_DIRECTION,
-  FIRE_ABILITY_1: TAP_BUTTON_1,
-  FIRE_ABILITY_2: TAP_BUTTON_2,
-  FIRE_ABILITY_3: TAP_BUTTON_3,
-  FIRE_ABILITY_4: TAP_BUTTON_4
-}
-HANDLE_INPUT(inputType, inputValue)
-```
-
-## UI System
-```
-UI_ELEMENTS = {
-  SCORE: {position:{x:10, y:10}, size:{w:100, h:30}, type:"text"},
-  FIRE_METER: {position:{x:10, y:50}, size:{w:200, h:20}, type:"bar"},
-  TRANSFORMATION_METER: {position:{x:10, y:80}, size:{w:200, h:20}, type:"segmented_bar"},
-  ABILITY_ICONS: {position:{x:220, y:10}, size:{w:40, h:40}, type:"icon", count:4},
-  MINIMAP: {position:{x:screen.width-110, y:10}, size:{w:100, h:100}, type:"map"}
-}
-DRAW_UI_ELEMENT(element, value)
-UPDATE_UI(gameState)
-```
-
-## Audio System
-```
-SOUND_CATEGORIES = {
-  MUSIC: {volume:0.7, channels:1},
-  SFX: {volume:0.8, channels:8},
-  AMBIENT: {volume:0.5, channels:2},
-  UI: {volume:0.6, channels:2}
-}
-AUDIO_ASSETS = {
-  MUSIC_SHIRE: {file:"shire_theme.mp3", category:MUSIC, loop:true},
-  MUSIC_BATTLE: {file:"battle_theme.mp3", category:MUSIC, loop:true},
-  SFX_FIRE_BREATH: {file:"fire_breath.wav", category:SFX, loop:false},
-  SFX_PORTAL: {file:"portal_activate.wav", category:SFX, loop:false},
-  SFX_HORSE_NEIGH: {file:"horse_neigh.wav", category:SFX, loop:false, variations:3},
-  AMBIENT_MORDOR: {file:"mordor_ambient.mp3", category:AMBIENT, loop:true}
-}
-PLAY_SOUND(soundID, position, volume)
-STOP_SOUND(soundID)
-FADE_SOUND(soundID, targetVolume, duration)
-```
-
-## Game State Management
-```
 GAME_STATES = {
-  MAIN_MENU,
-  LEVEL_SELECT,
-  PLAYING,
-  PAUSED,
-  GAME_OVER,
-  VICTORY
-}
-INIT_GAME()
-UPDATE_GAME_STATE(deltaTime)
-SAVE_GAME(slotID)
-LOAD_GAME(slotID)
-RESET_LEVEL()
-```
-
-## Assets Required
-
-### Sprites
-```
-- Smaug segments (5 transformation stages, 4 directions each)
-- Horse types (7 variants, 4 directions each)
-- Portal types (4 variants, various states)
-- Collectibles and power-ups (10+ types)
-- Environment tiles for each region (6 regions, 20+ tiles each)
-- UI elements (buttons, bars, icons)
-- Fire effect sprites (4 abilities, multiple frames)
-```
-
-### Sounds
-```
-- Background music for each region (6 tracks)
-- Snake movement sounds
-- Fire ability sounds (4 variants)
-- Portal activation/teleportation
-- Horse sounds (variations for each type)
-- Collectible pickup sounds
-- Transformation event sounds
-- UI sound effects
-```
-
-## Level Design Guidelines
-
-### Circular Pattern Templates
-```
-CIRCLE_PATTERNS = {
-  BASIC_LOOP: [{radius:10, obstacles:5, collectibles:3}],
-  FIGURE_EIGHT: [{radius:8, center:{x:5,y:0}}, {radius:8, center:{x:-5,y:0}}],
-  SPIRAL: [{type:"spiral", loops:3, tightness:0.8}],
-  CONCENTRIC: [{radius:5}, {radius:10}, {radius:15}]
+  LOADING: 'game-loading',    // Initial loading screen
+  MAIN_MENU: 'main-menu',     // Title screen
+  LEVEL_SELECT: 'level-select-menu', // Level selection
+  PLAYING: 'game-playing',    // Active gameplay
+  PAUSED: 'game-paused',      // Game paused
+  GAME_OVER: 'game-over',     // Failure state
+  VICTORY: 'victory'          // Level completed
 }
 ```
 
-### Obstacle Placement
-```
-OBSTACLES_PER_DIFFICULTY = {1:5, 2:10, 3:15, 4:20, 5:25}
-OBSTACLE_CLUSTERS = {
-  SMALL: {radius:2, count:2-3},
-  MEDIUM: {radius:4, count:4-6},
-  LARGE: {radius:6, count:7-10}
-}
-```
+## Game Class (game.js)
 
-### Portal Placement Rules
-```
-- Entrances and exits should be at least 10 grid units apart
-- Similar portal types should be visually distinguishable
-- Portals should support circular movement patterns
-- Advanced levels can have portal chains (exit near another entrance)
-```
+Central controller managing:
+- Canvas setup and resizing (grid-aligned dimensions)
+- Game loop with fixed timestep updates (60 FPS target)
+- State transitions and level initialization
+- Game object creation and updates
+- Collision detection with grace period
+- Score tracking and UI updates
+- Debug mode for development
 
-## Performance Targets
-```
-TARGET_FPS = 60
-MINIMUM_FPS = 30
-MAX_PARTICLE_COUNT = {
-  HIGH: 2000,
-  MEDIUM: 1000,
-  LOW: 500
-}
-MAX_ACTIVE_HORSES = {
-  HIGH: 15,
-  MEDIUM: 10,
-  LOW: 5
-}
-QUALITY_SETTINGS = {
-  HIGH: {lightingEffects:true, particleMultiplier:1.0, postProcessing:true},
-  MEDIUM: {lightingEffects:true, particleMultiplier:0.6, postProcessing:false},
-  LOW: {lightingEffects:false, particleMultiplier:0.3, postProcessing:false}
-}
-```
-
-## Implementation Phases
-
-### Phase 1: Core Mechanics
-```
-- Snake movement system
-- Basic collision detection
-- Simple level generation
-- Placeholder graphics
-```
-
-### Phase 2: Game Systems
-```
-- Portal teleportation mechanics
-- Basic fire abilities
-- Horse AI (basic)
-- Collectibles and power-ups
-- User interface elements
-```
-
-### Phase 3: Content Development
-```
-- Full level designs
-- Finalized graphics
-- Complete sound implementation
-- Transformation system
-```
-
-### Phase 4: Polish
-```
-- Visual effects
-- Performance optimization
-- Control refinement
-- Difficulty balancing
-```
-
-### Phase 5: Platform Specific
-```
-- Mobile touch controls
-- Platform-specific optimizations
-- Store integrations
-- Analytics implementation
-```
-
-## Testing Requirements
-```
-TEST_CRITERIA = {
-  CORE_MECHANICS: {
-    movement: "Snake moves in expected direction",
-    collision: "Collisions are detected accurately",
-    growth: "Snake grows by correct amount when eating"
-  },
-  GAME_SYSTEMS: {
-    portals: "Snake teleports correctly between portals",
-    fire: "Fire abilities affect targets as expected",
-    horses: "Horse behaviors match specifications"
-  },
-  PERFORMANCE: {
-    fps: "Maintains target FPS on reference devices",
-    memory: "Memory usage remains below threshold",
-    battery: "Battery usage is optimized for mobile"
+```javascript
+// Core game loop
+gameLoop(timestamp) {
+  // Calculate time delta in seconds
+  this.deltaTime = (timestamp - this.lastFrameTime) / 1000;
+  this.lastFrameTime = timestamp;
+  
+  // Limit delta time to avoid large jumps
+  if (this.deltaTime > 0.1) this.deltaTime = 0.1;
+  
+  // Accumulate time for fixed-step updates
+  this.accumulatedTime += this.deltaTime * 1000;
+  
+  // Only update if in playing state
+  if (this.currentState === GAME_STATES.PLAYING) {
+    while (this.accumulatedTime >= this.timeStep) {
+      this.update(this.timeStep / 1000);
+      this.accumulatedTime -= this.timeStep;
+    }
   }
+  
+  // Always render
+  this.render();
+  
+  // Request next frame
+  requestAnimationFrame((time) => this.gameLoop(time));
 }
 ```
 
-## Important Constants
-```
-GRID_SIZE = 20 // pixels per grid unit
-BASE_MOVEMENT_SPEED = 5 // grid units per second
-BASE_SNAKE_LENGTH = 3
-MAX_SNAKE_LENGTH = 100
-FIRE_METER_MAX = 100
-FIRE_METER_REGEN_RATE = 1 // per second
-COLLECTIBLE_VALUE = 10
-HORSE_SPAWN_INTERVAL = 5 // seconds
-PORTAL_COOLDOWN = 1 // seconds
-DIFFICULTY_MULTIPLIER = 1.2 // per level
-SCORE_MULTIPLIER = {
-  collectible: 1,
-  horse: 5,
-  level_completion: 100
+## Snake Class (snake.js)
+
+Player-controlled entity with:
+- Grid-based movement with smooth timing
+- Direction change management (prevents 180° turns)
+- Segment management for growing after collecting items
+- Screen edge wrapping for continuous movement
+- Self-collision detection with 4-segment grace distance
+- Visual transformation across 5 stages
+
+```javascript
+update(deltaTime, gridWidth, gridHeight) {
+  // Update direction
+  this.direction = this.nextDirection;
+  
+  // Increment move timer
+  this.moveTimer += deltaTime;
+  
+  // Move when timer exceeds threshold (controlled by speed)
+  if (this.moveTimer >= 0.5 / this.speed) {
+    this.moveTimer = 0;
+    
+    // Calculate new head position
+    const head = {...this.segments[0]};
+    head.x += this.direction.x;
+    head.y += this.direction.y;
+    
+    // Handle edge wrapping
+    if (head.x < 0) head.x = gridWidth - 1;
+    if (head.x >= gridWidth) head.x = 0;
+    if (head.y < 0) head.y = gridHeight - 1;
+    if (head.y >= gridHeight) head.y = 0;
+    
+    // Add new head
+    this.segments.unshift(head);
+    
+    // Remove tail or grow
+    if (this.growing > 0) this.growing--;
+    else this.segments.pop();
+  }
+  
+  return this.segments[0]; // Return head position
 }
 ```
+
+## Entity System (entities.js)
+
+Inheritance-based system with base `Entity` class and specialized types:
+- **Collectible**: Items that increase score/transformation with pulsing animation
+- **Horse**: Special units with different behaviors (chase, random movement, formations)
+- **Portal**: Teleportation points with cooldowns and visual effects
+- **Obstacle**: Barriers themed to each level location
+
+```javascript
+class Entity {
+  constructor(x, y, type) {
+    this.x = x;
+    this.y = y;
+    this.type = type;
+    this.active = true;
+  }
+  
+  update(deltaTime) { /* Base method */ }
+  draw(ctx, gridSize) { /* Base method */ }
+}
+```
+
+## Fire Abilities (abilities.js)
+
+Special powers unlocked through transformation:
+- **Flame Breath**: Projects fire in the snake's direction (cost: 20, cooldown: 3s)
+- **Fire Shield**: Temporary collision protection (cost: 30, cooldown: 5s, duration: 3s)
+- **Burning Trail**: Leaves fire behind the snake (cost: 15, cooldown: 2s, duration: 5s)
+- **Inferno Burst**: Creates a circular explosion (cost: 40, cooldown: 8s, radius: 3)
+
+The `FireAbilityManager` handles:
+- Cooldown tracking
+- Fire meter consumption
+- Effect creation and application
+- Damage calculations (for future enemy implementation)
+
+## Level Generation (levels.js)
+
+`LevelGenerator` creates procedural levels with:
+- Grid-based position tracking for collision avoidance
+- Safe object placement algorithms with multiple fallbacks
+- Obstacle clustering based on level themes
+- Portal pair creation with minimum distance requirements
+- Dynamic collectible and horse spawning during gameplay
+
+```javascript
+// Find a free position on the grid
+findFreePosition() {
+  // Random attempts first (20 tries)
+  for (let i = 0; i < 20; i++) {
+    const x = Math.floor(Math.random() * this.grid.length);
+    const y = Math.floor(Math.random() * this.grid[0].length);
+    if (this.isPositionFree(x, y)) return {x, y};
+  }
+  
+  // Systematic scan if random fails (every other cell)
+  for (let x = 0; x < this.grid.length; x += 2) {
+    for (let y = 0; y < this.grid[0].length; y += 2) {
+      if (this.isPositionFree(x, y)) return {x, y};
+    }
+  }
+  
+  // Complete scan as last resort
+  for (let x = 0; x < this.grid.length; x++) {
+    for (let y = 0; y < this.grid[0].length; y++) {
+      if (this.isPositionFree(x, y)) return {x, y};
+    }
+  }
+  
+  // Fallback to center if grid is full
+  return { 
+    x: Math.floor(this.grid.length / 2), 
+    y: Math.floor(this.grid[0].length / 2) 
+  };
+}
+```
+
+## Particle System (particles.js)
+
+Creates visual effects with:
+- Particle creation with randomized properties (size, color, velocity)
+- Physics-based movement with drag and gravity
+- Four particle types:
+  - **FIRE**: Rising particles with shrinking size
+  - **SMOKE**: Growing particles with upward drift
+  - **PORTAL**: Star-shaped particles with rotation
+  - **TRANSFORMATION**: Diamond-shaped particles with pulsing
+- Particle pooling with maximum count for performance
+
+## Controls (controls.js)
+
+Handles user input with:
+- Keyboard mapping for directions (WASD/Arrows) and abilities
+- Touch and swipe detection for mobile devices
+- Menu navigation and button interaction
+- Direction change validation to prevent impossible moves
+- Responsive controls based on device type
+
+## UI System (ui.js)
+
+Manages game interface with:
+- Score display and fire meter visualization
+- Transformation progress tracking with stages
+- Ability cooldown visualization (4 abilities)
+- Menu screens for game states (main, level select, paused, game over, victory)
+- Minimap showing level layout and object positions
+
+## Transformation System
+
+Progression through 5 stages based on collectibles obtained:
+1. **Serpent** (0 items): Basic form with Flame Breath only
+2. **Horned Serpent** (5 items): Adds Burning Trail ability
+3. **Proto-Dragon** (10 items): Adds Fire Shield ability
+4. **Wingless Dragon** (15 items): Adds Inferno Burst ability
+5. **True Dragon** (20 items): Enhanced abilities and final form
+
+Each stage has unique visual appearance and unlocks additional abilities.
+
+## Levels (Middle Earth Locations)
+
+Six themed levels with increasing difficulty:
+1. **The Shire**: Gentle hills and trees (Difficulty: 1)
+2. **Rivendell**: Water and bridges (Difficulty: 2)
+3. **Mirkwood**: Dense trees and spiders (Difficulty: 3)
+4. **Rohan**: Open plains with many horses (Difficulty: 3)
+5. **Moria**: Tight passages and chasms with many portals (Difficulty: 4)
+6. **Mordor**: Dangerous terrain with lava and enemies (Difficulty: 5)
+
+Each level has:
+- Unique obstacle types and density
+- Themed background colors
+- Varying portal and horse spawn rates
+- Difficulty-scaled object counts
+
+## Game Flow
+
+1. Initial loading screen with progress bar
+2. Player selects level from main menu
+3. Game initializes snake and level objects
+4. Snake moves continuously, player changes direction
+5. Collecting items increases score and transformation progress
+6. The snake transforms as thresholds are reached
+7. Fire meter allows activation of special abilities
+8. Portals teleport the snake across the level
+9. Horses provide temporary buffs when collected
+10. Obstacles and self-collision must be avoided (unless Fire Shield is active)
+11. Collecting 30 items completes the level
+12. Progression continues through all Middle Earth locations
+
+## Debugging Features
+
+Built-in tools for development:
+- Debug mode toggle with extended information display
+- Position history tracking with visual trail
+- Object highlighting and coordinate display
+- FPS counter and object counts
+- State logging and transition controls
+
+## Key Implementation Details
+
+- Fixed timestep game loop for consistent updates
+- Grid-based collision for efficient detection
+- Canvas rendering with high-contrast colors
+- Responsive design for various screen sizes
+- Error handling throughout critical functions
+- Automatic game initialization when entering PLAYING state
+- Grace period after game start before collision checks
