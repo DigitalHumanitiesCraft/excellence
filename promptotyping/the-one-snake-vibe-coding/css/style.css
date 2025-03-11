@@ -202,7 +202,7 @@ a:hover {
     position: absolute;
     width: 100px;
     height: 150px;
-    background: url('../assets/flame.png') no-repeat center center / contain;
+    background: url('/excellence/promptotyping/the-one-snake-vibe-coding/assets/flame.png') no-repeat center center / contain;
     opacity: 0.8;
     animation: flame-dance 3s ease-in-out infinite;
     pointer-events: none;
@@ -827,11 +827,11 @@ a:hover {
 }
 
 .music-icon {
-    background-image: url('../assets/music-icon.png');
+    background-image: url('/excellence/promptotyping/the-one-snake-vibe-coding/assets/music-icon.png');
 }
 
 .sound-icon {
-    background-image: url('../assets/sound-icon.png');
+    background-image: url('/excellence/promptotyping/the-one-snake-vibe-coding/assets/sound-icon.png');
 }
 
 .music-off .music-icon,

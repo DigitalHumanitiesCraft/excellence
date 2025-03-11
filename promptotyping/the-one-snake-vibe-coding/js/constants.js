@@ -35,7 +35,8 @@ const GAME_STATES = {
     PLAYING: 'game-playing',
     PAUSED: 'game-paused',
     GAME_OVER: 'game-over',
-    VICTORY: 'victory'
+    VICTORY: 'victory',
+    HOW_TO_PLAY: 'how-to-play-screen' // Added How to Play state
 };
 
 // Fire Abilities

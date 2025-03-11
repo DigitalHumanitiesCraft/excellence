@@ -9,60 +9,40 @@ class Controls {
         this.setupEventListeners();
     }
 
-
-showInputIndicator(direction) {
-    // Create or reuse indicator element
-    let indicator = document.getElementById('input-indicator');
-    if (!indicator) {
-        indicator = document.createElement('div');
-        indicator.id = 'input-indicator';
-        document.body.appendChild(indicator);
-        
-        // Add style directly for simplicity
-        indicator.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.7);
-            color: black;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-family: monospace;
-            z-index: 1000;
-            pointer-events: none;
-        `;
-    }
-    
-    // Show direction
-    indicator.textContent = `Input: ${direction.toUpperCase()}`;
-    indicator.style.display = 'block';
-    
-    // Hide after short delay
-    clearTimeout(this.indicatorTimeout);
-    this.indicatorTimeout = setTimeout(() => {
-        indicator.style.display = 'none';
-    }, 300);
-}
-
-// Modify handleKeyDown to call the new method
-handleKeyDown(event) {
-    console.log("Key pressed:", event.code);
-    this.keysPressed[event.code] = true;
-    
-    // Handle direction changes
-    if (this.game.currentState === GAME_STATES.PLAYING) {
-        // Check each direction
-        if (DESKTOP_CONTROLS.UP.includes(event.code)) {
-            this.showInputIndicator('up'); // NEW
-            this.changeDirection(DIRECTIONS.UP);
-        } else if (DESKTOP_CONTROLS.RIGHT.includes(event.code)) {
-            this.showInputIndicator('right'); // NEW
-            this.changeDirection(DIRECTIONS.RIGHT);
+    showInputIndicator(direction) {
+        // Create or reuse indicator element
+        let indicator = document.getElementById('input-indicator');
+        if (!indicator) {
+            indicator = document.createElement('div');
+            indicator.id = 'input-indicator';
+            document.body.appendChild(indicator);
+            
+            // Add style directly for simplicity
+            indicator.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(255, 255, 255, 0.7);
+                color: black;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-family: monospace;
+                z-index: 1000;
+                pointer-events: none;
+            `;
         }
-        // ...rest of method unchanged
+        
+        // Show direction
+        indicator.textContent = `Input: ${direction.toUpperCase()}`;
+        indicator.style.display = 'block';
+        
+        // Hide after short delay
+        clearTimeout(this.indicatorTimeout);
+        this.indicatorTimeout = setTimeout(() => {
+            indicator.style.display = 'none';
+        }, 300);
     }
-}
     
     setupEventListeners() {
         // Keyboard events
@@ -71,9 +51,11 @@ handleKeyDown(event) {
         
         // Touch events for mobile
         const swipeArea = document.getElementById('swipe-area');
-        swipeArea.addEventListener('touchstart', (event) => this.handleTouchStart(event));
-        swipeArea.addEventListener('touchmove', (event) => this.handleTouchMove(event));
-        swipeArea.addEventListener('touchend', (event) => this.handleTouchEnd(event));
+        if (swipeArea) {
+            swipeArea.addEventListener('touchstart', (event) => this.handleTouchStart(event));
+            swipeArea.addEventListener('touchmove', (event) => this.handleTouchMove(event));
+            swipeArea.addEventListener('touchend', (event) => this.handleTouchEnd(event));
+        }
         
         // Mobile ability buttons
         const abilityButtons = document.querySelectorAll('.mobile-ability');
@@ -97,11 +79,35 @@ handleKeyDown(event) {
             this.game.setGameState(GAME_STATES.MAIN_MENU);
         });
         
+        // How to Play
+        document.getElementById('how-to-play').addEventListener('click', () => {
+            this.game.setGameState(GAME_STATES.HOW_TO_PLAY);
+        });
+        
+        document.getElementById('back-from-instructions').addEventListener('click', () => {
+            this.game.setGameState(GAME_STATES.MAIN_MENU);
+        });
+        
+        // Audio controls
+        const toggleMusic = document.getElementById('toggle-music');
+        if (toggleMusic) {
+            toggleMusic.addEventListener('click', () => {
+                this.toggleMusic();
+            });
+        }
+        
+        const toggleSound = document.getElementById('toggle-sound');
+        if (toggleSound) {
+            toggleSound.addEventListener('click', () => {
+                this.toggleSound();
+            });
+        }
+        
         // Level select buttons
         const levelButtons = document.querySelectorAll('.level-button');
         levelButtons.forEach(button => {
             button.addEventListener('click', (event) => {
-                const levelId = event.target.getAttribute('data-level');
+                const levelId = event.currentTarget.getAttribute('data-level');
                 this.game.initGame(levelId);
             });
         });
@@ -136,6 +142,43 @@ handleKeyDown(event) {
         document.getElementById('victory-to-menu').addEventListener('click', () => {
             this.game.setGameState(GAME_STATES.MAIN_MENU);
         });
+        
+        // Add sound effects to buttons
+        const menuButtons = document.querySelectorAll('.menu-button, .level-button, .mobile-ability');
+        menuButtons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                this.playSound('menu-hover');
+            });
+            
+            button.addEventListener('click', () => {
+                this.playSound('menu-click');
+            });
+        });
+    }
+    
+    // Play sound effect
+    playSound(soundId) {
+        if (this.game && this.game.audio && !this.game.audio.soundMuted) {
+            const sound = document.getElementById(`sound-${soundId}`);
+            if (sound) {
+                sound.currentTime = 0;
+                sound.play().catch(e => console.log("Error playing sound:", e));
+            }
+        }
+    }
+    
+    // Toggle background music
+    toggleMusic() {
+        if (this.game && this.game.audio) {
+            this.game.audio.toggleMusic();
+        }
+    }
+    
+    // Toggle sound effects
+    toggleSound() {
+        if (this.game && this.game.audio) {
+            this.game.audio.toggleSound();
+        }
     }
     
     handleKeyDown(event) {
@@ -145,12 +188,16 @@ handleKeyDown(event) {
         if (this.game.currentState === GAME_STATES.PLAYING) {
             // Check each direction
             if (DESKTOP_CONTROLS.UP.includes(event.code)) {
+                this.showInputIndicator('up');
                 this.changeDirection(DIRECTIONS.UP);
             } else if (DESKTOP_CONTROLS.RIGHT.includes(event.code)) {
+                this.showInputIndicator('right');
                 this.changeDirection(DIRECTIONS.RIGHT);
             } else if (DESKTOP_CONTROLS.DOWN.includes(event.code)) {
+                this.showInputIndicator('down');
                 this.changeDirection(DIRECTIONS.DOWN);
             } else if (DESKTOP_CONTROLS.LEFT.includes(event.code)) {
+                this.showInputIndicator('left');
                 this.changeDirection(DIRECTIONS.LEFT);
             }
             
@@ -208,15 +255,19 @@ handleKeyDown(event) {
         if (Math.abs(dx) > Math.abs(dy)) {
             // Horizontal swipe
             if (dx > 0) {
+                this.showInputIndicator('right');
                 this.changeDirection(DIRECTIONS.RIGHT);
             } else {
+                this.showInputIndicator('left');
                 this.changeDirection(DIRECTIONS.LEFT);
             }
         } else {
             // Vertical swipe
             if (dy > 0) {
+                this.showInputIndicator('down');
                 this.changeDirection(DIRECTIONS.DOWN);
             } else {
+                this.showInputIndicator('up');
                 this.changeDirection(DIRECTIONS.UP);
             }
         }
@@ -262,6 +313,13 @@ handleKeyDown(event) {
                 this.game.snake.segments[0], 
                 this.game.snake.direction
             );
+            
+            // Play ability sound
+            if (abilityName === 'FIRE_SHIELD') {
+                this.playSound('ability-shield');
+            } else {
+                this.playSound('ability-fire');
+            }
         }
     }
     
