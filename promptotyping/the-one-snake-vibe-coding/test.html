@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The One Snake - Game Test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #test-output {
+            background-color: #000;
+            color: #0f0;
+            font-family: monospace;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #333;
+            height: 500px;
+            overflow-y: auto;
+            white-space: pre;
+        }
+        
+        #test-controls {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        #test-controls button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        
+        .test-pass {
+            color: #0f0;
+        }
+        
+        .test-fail {
+            color: #f00;
+        }
+        
+        .test-info {
+            color: #0ff;
+        }
+        
+        #game-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="test-controls">
+        <h1>The One Snake - Game Test Suite</h1>
+        <button id="run-tests">Run All Tests</button>
+        <button id="view-game">View Game</button>
+    </div>
+    
+    <div id="test-output">Test output will appear here...</div>
+    
+    <!-- Game files loaded but hidden by default -->
+    <div id="game-container">
+        <!-- Original game HTML here -->
+        <div id="main-menu" class="game-state active">
+            <h1>The One Snake</h1>
+            <h2>A Lord of the Rings Snake Adventure</h2>
+            <button id="start-game">Start Game</button>
+            <button id="level-select">Level Select</button>
+        </div>
+
+        <div id="level-select-menu" class="game-state">
+            <h2>Choose Your Realm</h2>
+            <div class="level-buttons">
+                <button data-level="shire" class="level-button">The Shire</button>
+                <button data-level="rivendell" class="level-button">Rivendell</button>
+                <button data-level="mirkwood" class="level-button">Mirkwood</button>
+                <button data-level="rohan" class="level-button">Rohan</button>
+                <button data-level="moria" class="level-button">Moria</button>
+                <button data-level="mordor" class="level-button">Mordor</button>
+            </div>
+            <button id="back-to-main">Back</button>
+        </div>
+
+        <div id="game-playing" class="game-state">
+            <div id="hud">
+                <div id="score-container">Score: <span id="score">0</span></div>
+                <div id="fire-meter-container">
+                    <div id="fire-meter-label">Fire</div>
+                    <div id="fire-meter-wrapper">
+                        <div id="fire-meter"></div>
+                    </div>
+                </div>
+                <div id="transformation-container">
+                    <div id="transformation-label">Form: <span id="transformation-stage">Serpent</span></div>
+                    <div id="transformation-meter-wrapper">
+                        <div id="transformation-meter"></div>
+                    </div>
+                </div>
+                <div id="abilities-container">
+                    <div class="ability" id="ability-1">
+                        <div class="ability-icon">F1</div>
+                        <div class="ability-cooldown"></div>
+                    </div>
+                    <div class="ability" id="ability-2">
+                        <div class="ability-icon">F2</div>
+                        <div class="ability-cooldown"></div>
+                    </div>
+                    <div class="ability" id="ability-3">
+                        <div class="ability-icon">F3</div>
+                        <div class="ability-cooldown"></div>
+                    </div>
+                    <div class="ability" id="ability-4">
+                        <div class="ability-icon">F4</div>
+                        <div class="ability-cooldown"></div>
+                    </div>
+                </div>
+                <div id="minimap-container">
+                    <canvas id="minimap" width="100" height="100"></canvas>
+                </div>
+            </div>
+            <canvas id="game-canvas"></canvas>
+            <div id="mobile-controls">
+                <div id="swipe-area"></div>
+                <div id="ability-buttons">
+                    <button class="mobile-ability" data-ability="1">F1</button>
+                    <button class="mobile-ability" data-ability="2">F2</button>
+                    <button class="mobile-ability" data-ability="3">F3</button>
+                    <button class="mobile-ability" data-ability="4">F4</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-paused" class="game-state">
+            <div class="menu-popup">
+                <h2>Game Paused</h2>
+                <button id="resume-game">Resume</button>
+                <button id="restart-level">Restart Level</button>
+                <button id="exit-to-menu">Exit to Menu</button>
+            </div>
+        </div>
+
+        <div id="game-over" class="game-state">
+            <div class="menu-popup">
+                <h2>Game Over</h2>
+                <p>You were defeated in <span id="level-name">the realm</span></p>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <button id="retry-level">Retry Level</button>
+                <button id="game-over-to-menu">Exit to Menu</button>
+            </div>
+        </div>
+
+        <div id="victory" class="game-state">
+            <div class="menu-popup">
+                <h2>Victory!</h2>
+                <p>You have conquered <span id="victory-level-name">the realm</span></p>
+                <p>Score: <span id="victory-score">0</span></p>
+                <button id="next-level">Next Level</button>
+                <button id="victory-to-menu">Exit to Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load game scripts -->
+    <script src="js/constants.js"></script>
+    <script src="js/snake.js"></script>
+    <script src="js/entities.js"></script>
+    <script src="js/abilities.js"></script>
+    <script src="js/levels.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/game.js"></script>
+    
+    <!-- Load test script -->
+    <script src="js/gameTest.js"></script>
+    <script>
+        // Initialize test functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const testOutput = document.getElementById('test-output');
+            const runTestsButton = document.getElementById('run-tests');
+            const viewGameButton = document.getElementById('view-game');
+            const gameContainer = document.getElementById('game-container');
+            
+            // Override console.log to capture test output
+            const originalConsoleLog = console.log;
+            const originalConsoleError = console.error;
+            
+            console.log = function(message) {
+                if (typeof message === 'string') {
+                    const formattedMessage = message.replace(
+                        /✅ PASS: (.*)/g, 
+                        '<span class="test-pass">✅ PASS: $1</span>'
+                    ).replace(
+                        /❌ FAIL: (.*)/g, 
+                        '<span class="test-fail">❌ FAIL: $1</span>'
+                    );
+                    
+                    testOutput.innerHTML += formattedMessage + '\n';
+                    testOutput.scrollTop = testOutput.scrollHeight;
+                }
+                originalConsoleLog.apply(console, arguments);
+            };
+            
+            console.error = function(message) {
+                if (typeof message === 'string') {
+                    testOutput.innerHTML += `<span class="test-fail">${message}</span>\n`;
+                    testOutput.scrollTop = testOutput.scrollHeight;
+                }
+                originalConsoleError.apply(console, arguments);
+            };
+            
+            // Event listeners for test controls
+            runTestsButton.addEventListener('click', () => {
+                testOutput.innerHTML = '';
+                console.log('<span class="test-info">Starting tests...</span>\n');
+                
+                // Initialize and run tests
+                const tester = new GameTest();
+                tester.runAllTests();
+            });
+            
+            viewGameButton.addEventListener('click', () => {
+                // Toggle game visibility
+                if (gameContainer.style.display === 'none' || !gameContainer.style.display) {
+                    gameContainer.style.display = 'block';
+                    viewGameButton.textContent = 'Hide Game';
+                    
+                    // Initialize game if not already
+                    if (!window.gameInstance) {
+                        window.gameInstance = new Game();
+                    }
+                } else {
+                    gameContainer.style.display = 'none';
+                    viewGameButton.textContent = 'View Game';
+                }
+            });
+            
+            // Log initial message
+            console.log('<span class="test-info">Game test environment loaded. Click "Run All Tests" to begin testing.</span>');
+        });
+    </script>
+</body>
+</html>
