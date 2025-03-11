@@ -109,7 +109,7 @@ Tested and working on:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/the-one-snake.git
+git clone https://github.com/DigitalHumanitiesCraft/excellence/tree/main/promptotyping/the-one-snake-vibe-coding
 
 # Navigate to the project directory
 cd the-one-snake
