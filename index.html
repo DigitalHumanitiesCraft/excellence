@@ -944,7 +944,7 @@
                     href="javascript:;"
                     data-group="workshop"
                     id="workshop"
-                    >Workshops</a
+                    >Andere Workshops</a
                   >
                 </li>
                 <li class="nav-item">
@@ -1677,7 +1677,7 @@
                       >
                     </h3>
                     <span class="card-subtitle text-body"
-                      >excellence.dhcraft.org. 19.10.2024</span
+                      >excellence.dhcraft.org. 12.03.2025</span
                     >
                   </div>
                 </a>
@@ -2644,16 +2644,14 @@
           return;
         } else {
           x.forEach((p) => p.classList.toggle("showLang"));
-          document.documentElement.setAttribute("lang", "de");
+          document.documentElement.setAttribute("lang", "en");
 
-          document.querySelector("#ai-basics").innerHTML = "KI Grundlagen";
-          document.querySelector("#ai-business").innerHTML =
-            "KI für Unternehmen";
-          document.querySelector("#ai-research").innerHTML =
-            "KI in der Forschung";
-          document.querySelector("#ai-teaching").innerHTML = "KI in der Lehre";
-          document.querySelector("#workshop").innerHTML = "Workshops";
-          document.querySelector("#teaching").innerHTML = "Lehre";
+          document.querySelector("#ai-basics").innerHTML = "AI Basics";
+          document.querySelector("#ai-business").innerHTML = "AI for Business";
+          document.querySelector("#ai-research").innerHTML = "AI in Research";
+          document.querySelector("#ai-teaching").innerHTML = "AI in Teaching";
+          document.querySelector("#workshop").innerHTML = "Other Workshops";
+          document.querySelector("#teaching").innerHTML = "Teaching";
         }
       };
       changeLangPage();
@@ -2674,7 +2672,7 @@
           document.querySelector("#ai-research").innerHTML =
             "KI in der Forschung";
           document.querySelector("#ai-teaching").innerHTML = "KI in der Lehre";
-          document.querySelector("#workshop").innerHTML = "Workshops";
+          document.querySelector("#workshop").innerHTML = "Andere Workshops";
           document.querySelector("#teaching").innerHTML = "Lehre";
         }
       }
