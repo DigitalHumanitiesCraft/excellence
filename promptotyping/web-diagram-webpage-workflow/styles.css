@@ -1,0 +1,274 @@
+/* Base Styles and Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Update color variables to match design document */
+    --primary-bg: #FFFFFF;
+    --secondary-bg: #FFFFFF;
+    --primary-text: #121212;
+    --secondary-text: #555555;
+    --border-color: #E0E0E0;
+    
+    /* Add primary colors from design */
+    --deep-space-blue: #0A1128;
+    --cosmic-purple: #3E236E;
+    --electric-blue: #00B2FF;
+    
+    /* Update accent color to match design */
+    --accent-color: #00B2FF; /* Electric Blue */
+    --highlight-color: #FF5700; /* OpenAI color for Fast Take-Off */
+    
+    /* Track colors */
+    --track-tech: #4361EE;
+    --track-method: #4CC9F0;
+    --track-agent: #7209B7;
+    --track-app: #F72585;
+    
+    /* Organization colors */
+    --org-openai: #FF5700;
+    --org-anthropic: #3A86FF;
+    --org-google: #8338EC;
+    --org-academia: #FB5607;
+    --org-manus: #FF006E;
+    
+    /* Keep shadow variables */
+    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    /* Update font family to match design document */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--primary-text);
+    background-color: var(--primary-bg);
+    overflow-x: hidden;
+}
+
+.container {
+    /* Update max-width to match design document */
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 80px; /* Update to match 80px minimum margins */
+}
+
+/* Typography updates to match design document */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Bold */
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+    color: var(--primary-text);
+}
+
+h1 {
+    font-size: 32px; /* Updated to match design */
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 24px; /* Updated to match design */
+    text-align: center;
+    font-style: italic;
+    font-weight: 600; /* Semi-Bold */
+    color: var(--secondary-text);
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 18px; /* Updated to match design */
+    margin-top: 1.5em;
+    color: var(--primary-text);
+}
+
+p {
+    margin-bottom: 1em;
+    font-size: 16px; /* Updated to match design */
+}
+
+/* Code elements use Fira Mono per design */
+code, pre {
+    font-family: 'Fira Mono', monospace;
+    font-size: 14px;
+}
+
+a {
+    color: var(--electric-blue); /* Updated to match design */
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+a:hover {
+    color: var(--cosmic-purple); /* Updated to match design */
+    text-decoration: underline;
+}
+
+/* Layout Components - keep existing structure but update colors */
+header {
+    padding: 30px 0 10px;
+    background-color: var(--secondary-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+}
+
+main {
+    padding: 30px 0 50px;
+}
+
+footer {
+    padding: 20px 0;
+    background-color: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 14px;
+    color: var(--secondary-text);
+}
+
+/* Visualization Container - update styles to match design */
+.visualization-container {
+    background-color: var(--secondary-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    overflow: hidden;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+#visualization {
+    width: 100%;
+    height: 650px;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+/* Update visualization-specific styles for organizational colors */
+.milestone[data-organization="OpenAI"] circle {
+    fill: var(--org-openai);
+}
+
+.milestone[data-organization="Anthropic"] rect {
+    fill: var(--org-anthropic);
+}
+
+.milestone[data-organization="Google"] path {
+    fill: var(--org-google);
+}
+
+.milestone[data-organization="Academia"] path {
+    fill: var(--org-academia);
+}
+
+.milestone[data-organization="Manus"] path {
+    fill: var(--org-manus);
+}
+
+/* Update track colors */
+.track-lane[data-track="Technical Foundations"] {
+    fill: var(--track-tech);
+    opacity: 0.1;
+}
+
+.track-lane[data-track="Methodological Approaches"] {
+    fill: var(--track-method);
+    opacity: 0.1;
+}
+
+.track-lane[data-track="Multi-Agent Systems"] {
+    fill: var(--track-agent);
+    opacity: 0.1;
+}
+
+.track-lane[data-track="Practical Applications"] {
+    fill: var(--track-app);
+    opacity: 0.1;
+}
+
+/* Controls Section - keep structure but update colors */
+.controls {
+    padding: 12px 20px;
+    background-color: #f5f5f7;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Update checkbox styling to match design */
+.legend-toggle input[type="checkbox"]:checked {
+    background-color: var(--electric-blue);
+    border-color: var(--electric-blue);
+}
+
+/* Zoom Controls */
+.zoom-controls button:hover {
+    background-color: var(--electric-blue);
+    color: white;
+    border-color: var(--electric-blue);
+}
+
+/* Update acceleration curve color */
+.acceleration-curve {
+    stroke: var(--highlight-color);
+}
+
+/* Add responsiveness according to design document */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 28px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    .container {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+    
+    .container {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 22px;
+    }
+    
+    h2 {
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+}
+
+/* Attribution - CC BY notice */
+.attribution {
+    font-size: 12px;
+    color: var(--secondary-text);
+    text-align: right;
+    padding: 10px 20px;
+}
