@@ -905,6 +905,15 @@
                   <a
                     class="nav-link active"
                     href="javascript:;"
+                    data-group="all"
+                    id="all"
+                    >Alle</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="javascript:;"
                     data-group="ai-basics"
                     id="ai-basics"
                     >KI Grundlagen</a
@@ -961,12 +970,136 @@
                     >Promptotypes</a
                   >
                 </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="javascript:;"
+                    data-group="blog"
+                    id="blog"
+                    >Blogbeiträge</a
+                  >
+                </li>
               </ul>
               <!-- End Nav -->
             </div>
             <!-- End Nav Scroller -->
 
             <div class="js-shuffle row row-cols-1 row-cols-sm-2 row-cols-md-3">
+              <!-- Card 1 -->
+              <div
+                class="col js-shuffle-item mb-5"
+                data-groups='["ai-research"]'
+              >
+                <a
+                  class="card card-transition text-decoration-none"
+                  href="https://docs.google.com/presentation/d/18f2Wivz9hi60Q6PpVdzwken2me4g3TgoYOfn2OAj1GA/edit?usp=sharing"
+                >
+                  <img
+                    alt="DHd25-Panel-AGKI"
+                    class="card-img-top"
+                    src="../assets/img/work-gallery/Dhd25-Panel-AGKI.png"
+                  />
+                  <div class="card-body">
+                    <h3 class="card-title">
+                      LLM as Helping Hand. More than Chatbots: Multimodal Large
+                      Language Models in geisteswissenschaftlichen Workflows.
+                    </h3>
+                    <span class="card-subtitle text-body"
+                      >Panelbeitrag. DHd Bielefeld. 06.03.2025.</span
+                    >
+                  </div>
+                </a>
+              </div>
+
+              <!-- Card 2 -->
+              <div
+                class="col js-shuffle-item mb-5"
+                data-groups='["ai-research"]'
+              >
+                <a
+                  class="card card-transition text-decoration-none"
+                  href="https://docs.google.com/presentation/d/1WW4Xf0y4xpiV-Ij1MosrcwCcNJRjbCEGVWUO4Kbo744"
+                >
+                  <img
+                    alt="Workshop-Fortgeschrittenes-PE-DHd25"
+                    class="card-img-top"
+                    src="../assets/img/work-gallery/Workshop-Fortgeschrittenes-PE-DHd25.png"
+                  />
+                  <div class="card-body">
+                    <h3 class="card-title">
+                      Fortgeschrittenes Prompt und AI Agent Engineering für
+                      wissenschaftliche Textproduktion
+                    </h3>
+                    <span class="card-subtitle text-body"
+                      >Workshop. DHd Bielefeld. 04.03.2025.</span
+                    >
+                  </div>
+                </a>
+              </div>
+
+              <!-- Card 3 -->
+              <div
+                class="col js-shuffle-item mb-5"
+                data-groups='["ai-business"]'
+              >
+                <a
+                  class="card card-transition text-decoration-none"
+                  href="https://www.youtube.com/watch?v=4Qg4r34PaxI"
+                >
+                  <img
+                    alt="DeepSeek"
+                    class="card-img-top"
+                    src="../assets/img/work-gallery/DeepSeek.png"
+                  />
+                  <div class="card-body">
+                    <h3 class="card-title">
+                      Der DeepSeek Schock: Sind alle intelligenter als Europa?
+                    </h3>
+                    <span class="card-subtitle text-body"
+                      >Spot on AI. Online. 31.01.2025</span
+                    >
+                  </div>
+                </a>
+              </div>
+              <!-- Card 1 -->
+              <div class="col js-shuffle-item mb-5" data-groups='["blog"]'>
+                <a
+                  class="card card-transition text-decoration-none"
+                  href="https://dhcraft.org/excellence/blog/Task-A(G)I"
+                >
+                  <img
+                    alt="Task-AGI"
+                    class="card-img-top"
+                    src="../assets/img/work-gallery/Task-AGI.png"
+                  />
+                  <div class="card-body">
+                    <h3 class="card-title">
+                      OpenAI's Deep Research und erste "Task-A(G)I" Systeme?
+                    </h3>
+                    <span class="card-subtitle text-body">Februar 2025</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="col js-shuffle-item mb-5" data-groups='["blog"]'>
+                <a
+                  class="card card-transition text-decoration-none"
+                  href="https://dhcraft.org/excellence/blog/New-Year-New-AI-IdeaLab-25"
+                >
+                  <img
+                    alt="New-Year-New-AI-IdeaLab-25"
+                    class="card-img-top"
+                    src="../assets/img/work-gallery/New-Year-New-AI-IdeaLab-25.png"
+                  />
+                  <div class="card-body">
+                    <h3 class="card-title">
+                      New Year, New AI. Das große Monopoly um die "Intelligence"
+                    </h3>
+                    <span class="card-subtitle text-body">Jänner 2025</span>
+                  </div>
+                </a>
+              </div>
               <div
                 class="js-shuffle-item col mb-5"
                 data-groups='["ai-business"]'
@@ -2514,13 +2647,18 @@
             this.shuffle = new Shuffle(this.element, {
               itemSelector: ".js-shuffle-item",
               speed: 500,
-              group: "ai-basics",
+              group: Shuffle.ALL_ITEMS,
               sortBy: {
                 reverse: true,
                 by: (element) => {
                   return this.getDateFromItem(element);
                 },
               },
+            });
+            // Apply initial sort after initialization
+            this.shuffle.sort({
+              reverse: true,
+              by: (element) => this.getDateFromItem(element),
             });
 
             // Set up lazy loading for remaining images
