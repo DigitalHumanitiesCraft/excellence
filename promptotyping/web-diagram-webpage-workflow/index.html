@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive visualization showing the emergence of Proto-AGI through interconnected specialized AI systems from 2020-2026">
+    <title>Proto-AGI Development Timeline (2020-2026)</title>
+    <style>
+        /* Basic styling to get started */
+        body { font-family: sans-serif; margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        #visualization { background: white; border-radius: 10px; }
+      </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;700&family=Fira+Mono&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content="Proto-AGI Development Timeline">
+    <meta property="og:description" content="Interactive visualization showing the emergence of Proto-AGI through interconnected specialized AI systems">
+    <meta property="og:image" content="preview.png">
+    <meta property="og:url" content="https://yourusername.github.io/proto-agi-timeline/">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Proto-AGI Development Timeline (2020-2026)</h1>
+            <h2>The emergence of AGI through interconnected specialized systems</h2>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="visualization-container">
+            <div id="visualization"></div>
+            <div class="controls">
+                <div class="legend-toggle">
+                    <input type="checkbox" id="show-connections" checked>
+                    <label for="show-connections">Show connections</label>
+                </div>
+                <div class="zoom-controls">
+                    <button id="zoom-in" aria-label="Zoom in">+</button>
+                    <button id="zoom-reset" aria-label="Reset zoom">Reset</button>
+                    <button id="zoom-out" aria-label="Zoom out">−</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <div class="description">
+                <p>This diagram illustrates how Proto-AGI is emerging through the integration of specialized AI systems across multiple development tracks. The visualization shows key milestones from major AI organizations between 2020-2026.</p>
+                <p>The "Fast Take-Off" curve shows the accelerating pace of development. Connections between nodes represent influence relationships. Node size represents significance, with organization indicated by shape and color.</p>
+                <p><strong>Hover over any node</strong> to see detailed information about each milestone.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>About this Visualization</h3>
+                <p>This interactive visualization is based on the article "Proto-AGI kommt schneller als erwartet" by Christopher Pollin, exploring the evidence for accelerated AGI development through technical innovations, methodological approaches, multi-agent systems, and practical applications.</p>
+                <p>The emergence of AGI is depicted not as a singular breakthrough but through the integration of specialized systems across different development tracks, with a notable acceleration ("Fast Take-Off") beginning in late 2023.</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Created by <a href="https://github.com/yourusername" target="_blank">Your Name</a> | Data last updated: March 2025 | <a href="https://github.com/yourusername/proto-agi-timeline" target="_blank">View source on GitHub</a></p>
+        </div>
+    </footer>
+    
+    
+    <!-- Load data first, then visualization code -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
