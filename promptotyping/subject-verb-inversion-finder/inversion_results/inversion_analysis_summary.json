@@ -1,0 +1,41 @@
+{
+  "total_files": 5,
+  "total_paragraphs": 4546,
+  "total_sentences": 601561,
+  "total_inversions": 22673,
+  "locative_inversions": 11850,
+  "non_locative_inversions": 10823,
+  "inversions_by_file": {
+    "text_acad_2000.txt": 4920,
+    "text_acad_2001.txt": 4571,
+    "text_acad_2002.txt": 4327,
+    "text_acad_2003.txt": 4476,
+    "text_acad_2004.txt": 4379
+  },
+  "complex_inversions_count": 7360,
+  "constituent_types": {
+    "PP (Prepositional Phrase)": 3829,
+    "AdvP (Adverb Phrase)": 3407,
+    "AdvP (Existential)": 6106,
+    "Numeric Expression": 5158,
+    "AP (Adjective Phrase)": 1811,
+    "Coordinated Structure": 871,
+    "PP (Complex Prepositional Phrase)": 1331,
+    "VP (Verb Phrase)": 160
+  },
+  "confidence_levels": {
+    "high": 9388,
+    "medium": 13191,
+    "low": 94
+  },
+  "inversion_types": {
+    "pp_inversion": 3829,
+    "adv_inversion": 3407,
+    "existential": 6106,
+    "numeric_inversion": 5158,
+    "ap_inversion": 1811,
+    "coordinated_inversion": 871,
+    "complex_pp_inversion": 1331,
+    "vp_inversion": 160
+  }
+}

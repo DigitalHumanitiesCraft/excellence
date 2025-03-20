@@ -1,0 +1,42 @@
+{
+  "title": "Subject-Verb Inversion in Academic Writing",
+  "description": "Interactive visualization of subject-verb inversion patterns in academic English texts.",
+  "version": "1.0.0",
+  "lastUpdated": "2025-03-20",
+  "dataSource": {
+    "files": 5,
+    "sentences": 614292,
+    "inversions": 25689
+  },
+  "chartColors": {
+    "constituentTypes": [
+      "#3498db",
+      "#2ecc71",
+      "#f1c40f",
+      "#e74c3c",
+      "#9b59b6",
+      "#1abc9c",
+      "#d35400",
+      "#34495e"
+    ],
+    "confidenceLevels": {
+      "high": "#27ae60",
+      "medium": "#f39c12",
+      "low": "#e74c3c"
+    },
+    "inversionTypes": [
+      "#3498db",
+      "#2ecc71",
+      "#f1c40f",
+      "#e74c3c",
+      "#9b59b6",
+      "#1abc9c",
+      "#d35400",
+      "#34495e"
+    ],
+    "locativeTypes": [
+      "#3498db",
+      "#e74c3c"
+    ]
+  }
+}

@@ -1,0 +1,480 @@
+=== Subject-Verb Inversion Analysis Report ===
+
+Files analyzed: 5
+Total paragraphs: 4546
+Total sentences: 601561
+Total inversions found: 22673 (3.77% of sentences)
+Complex inversions: 7360 (32.46% of all inversions)
+
+=== Confidence Levels ===
+Medium: 13191 (58.2%)
+High: 9388 (41.4%)
+Low: 94 (0.4%)
+
+=== Inversion Types ===
+existential: 6106 (26.9%)
+numeric_inversion: 5158 (22.7%)
+pp_inversion: 3829 (16.9%)
+adv_inversion: 3407 (15.0%)
+ap_inversion: 1811 (8.0%)
+complex_pp_inversion: 1331 (5.9%)
+coordinated_inversion: 871 (3.8%)
+vp_inversion: 160 (0.7%)
+
+=== Constituent Types ===
+AdvP (Existential): 6106 (26.9%)
+Numeric Expression: 5158 (22.7%)
+PP (Prepositional Phrase): 3829 (16.9%)
+AdvP (Adverb Phrase): 3407 (15.0%)
+AP (Adjective Phrase): 1811 (8.0%)
+PP (Complex Prepositional Phrase): 1331 (5.9%)
+Coordinated Structure: 871 (3.8%)
+VP (Verb Phrase): 160 (0.7%)
+
+Locative inversions: 11850 (52.3%)
+Non-locative inversions: 10823 (47.7%)
+
+=== Example inversions (high/medium confidence only) ===
+
+1. From this location , the meaning of an ungulate-excluding fence for native species in Hawaii was clear : On one side were at least some signs of native plant life ; on the opposite side , seemingly nothing . <p> The site was chosen by the working group largely because it had been fenced 40 years earlier by the Territory of Hawaii , protecting it from damage by feral ungulates . " It 's not entirely clear why they fenced it , " Cabin said . " Somebody just took it upon themselves to do it .
+   File: text_acad_2000.txt
+   Type: pp_inversion
+   Constituent type: PP (Prepositional Phrase)
+   Fronted constituent: 'On one side'
+   Verb: 'were'
+   Subject: 'the opposite side'
+   Locative: Yes
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+2. Now this is one of the only dry forest pieces that 's been fenced for any length of time in the state . " <p> The fence also saved Kaupulehu mauka @ @ @ @ @ @ @ @ @ @ forms of clearing that destroyed dry forest elsewhere .
+   File: text_acad_2000.txt
+   Type: adv_inversion
+   Constituent type: AdvP (Adverb Phrase)
+   Fronted constituent: 'Now this'
+   Verb: 'is'
+   Subject: 'a @ @ @ @ @ @ @ @ @ @ forms of clearing that destroyed dry forest elsewhere'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+3. In short , a fire today generally spells the end of a native plant @ @ @ @ @ @ @ @ @ @ burned a couple years ago last fall , " Cabin said , pointing down the slope and to the north . " There was a huge fire on this whole side of the island .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'was'
+   Subject: 'this whole side of the island'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+4. In the study published in April , the researchers found 16 nonnative plants new to the preserve . " One of the species that 's really come in heavy in some places is this guy , " said Cabin , walking over to a milkweed plant and pulling it up .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One of the species that 's really'
+   Verb: 'come'
+   Subject: 'this guy'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+5. Most studies cited were of interactions in which the presence of a particular species or functional group provides a resource that can support a suite of organisms across the surface ( one-to-many interactions ) .
+   File: text_acad_2000.txt
+   Type: ap_inversion
+   Constituent type: AP (Adjective Phrase)
+   Fronted constituent: 'Most studies cited'
+   Verb: 'were'
+   Subject: 'a particular species or functional group provides a resource that can support a suite of organisms across the surface ( one-to-many interactions )'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+6. Less was known about the extent to which biodiversity above and below the surface is linked by species-specific couplings ( 1:1 interactions ) , or whether high species diversity on one side of soils or sediments @ @ @ @ @ @ @ @ @ @ . <p> Important differences in the processes connecting biota above and below the surface of soils and sediments within and across domains were also revealed .
+   File: text_acad_2000.txt
+   Type: ap_inversion
+   Constituent type: AP (Adjective Phrase)
+   Fronted constituent: 'Less was known about the extent to which biodiversity above and below the surface'
+   Verb: 'is'
+   Subject: 'a above and below the surface of soils and sediments within and across domains were also revealed'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+7. However , the species specificity of symbiotic associations can vary greatly , and many mutualists , parasites , and predators have broad host ranges . <p> There was also evidence from all domains that a high species diversity @ @ @ @ @ @ @ @ @ @ litter timing and quality , chemical composition among plankton ) and promote high species diversity of consumers ( e.g. , detritivorous invertebrates or bacteria ) on the other side of the soil or sediment surface .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'was'
+   Subject: 'a high species diversity @ @ @ @ @ @ @ @ @ @ litter timing and quality'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+8. One difficulty is that information on bacterial species richness in most ecosystems is quite limited . <p> Step 3 .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One difficulty'
+   Verb: 'is'
+   Subject: 'that information on bacterial species richness in most ecosystems is quite limited'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+9. Among these influences are the combined effects of drilling and burrowing by macrofauna , sloughing and exudates in the rhizosphere , decomposition and nutrient turnover in litter and organic layers , and humus and soil aggregate formation , as well as direct trophic interactions .
+   File: text_acad_2000.txt
+   Type: pp_inversion
+   Constituent type: PP (Prepositional Phrase)
+   Fronted constituent: 'Among these influences'
+   Verb: 'are'
+   Subject: 'the combined effects of drilling and burrowing by macrofauna'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+10. Do key species or functional groups above or below the surface contribute to maintaining high biodiversity on the other side of the surface ? <p> There are three primary categories of mechanisms by which organisms in one compartment can affect biodiversity in the other .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'are'
+   Subject: 'one compartment can affect biodiversity in the other'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Likely a question, not inversion, Common inversion verb, Subject much longer than fronted element
+
+11. One category is @ @ @ @ @ @ @ @ @ @ aboveground organism could be so tightly linked to a certain belowground organism ( through mutualism , for example ) that loss of one guarantees loss of the other .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One category'
+   Verb: 'is'
+   Subject: 'a certain belowground organism ( through mutualism , for example ) that loss of one guarantees loss of the other'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+12. Although all of these interactions clearly influence growing conditions and nutrient availability , modification of growing conditions for organisms on the other side of the soil surface is not necessarily synonymous with increasing their diversity . <p> Three mechanisms by which asymmetric effects could enhance diversity are through keystone species , direct positive interactions , and environmental modification .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'Three mechanisms by which asymmetric effects could enhance diversity'
+   Verb: 'are'
+   Subject: 'one species'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+13. Structural vegetation and connections with sedimentary biota <p> There are approximately 50 described mangrove species and 45 species of seagrass , but in both of these systems , a given area typically will contain only a few relatively common species .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'are'
+   Subject: 'a given area typically will contain only a few relatively common species'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+14. There is evidence from research on seagrass ( Edgar 1983 ) , mangal ( Gee and Somerfield 1997 ) , and salt marsh ecosystems ( Levin and Talley , in press ) that different fauna tend to be associated with different vegetation types both above and below the SWI .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'is'
+   Subject: 'a tend to be associated with different vegetation types both above and below the SWI'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+15. One complication in linking above- and below-SWI species numbers and composition is seasonal and annual variability in below-SWI organisms .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One complication in linking above- and below-SWI species numbers and composition'
+   Verb: 'is'
+   Subject: 'S'
+   Locative: No
+   Confidence: Medium
+   Validation: Common inversion verb
+
+16. Among the best known of these are dinoflagellate cysts , which serve as a hardy resting stage and can seed toxic blooms , leading to paralytic shellfish poisoning through ingestion of toxic dinoflagellates by suspension-feeding bivalves .
+   File: text_acad_2000.txt
+   Type: pp_inversion
+   Constituent type: PP (Prepositional Phrase)
+   Fronted constituent: 'Among the best known of these'
+   Verb: 'are'
+   Subject: 'a hardy resting stage and can seed toxic blooms'
+   Locative: Yes
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+17. There are also intriguing examples of high-diversity shelf habitats ( Gray et al . 1997 ) , illustrating the need for better sampling coverage to achieve generalizations . <p> Although there are some similarities in patterns of above- and below-SWI communities over broad spatial scales ( Boucher and Lambshead 1995 , Angel 1997 ) , there is little evidence for cause and effect .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'are'
+   Subject: 'her and Lambshead 1995'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+18. There is ample evidence that food pulses support a somewhat-specialized subsetqof species in this environment , and there is some evidence that different food resources may support different faunas ( Snelgrove et al . 1992 ) .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'is'
+   Subject: 'this environment'
+   Locative: Yes
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+19. One current theory is that small-scale patchiness in food supply is critical in promoting deep-sea diversity ( Grassle and Sanders 1973 ) .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One current theory'
+   Verb: 'is'
+   Subject: 'a diversity ( Grassle and Sanders 1973 )'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+20. There is some congruence in global-scale patterns of surface productivity and deep-sea biodiversity patterns that suggests ecological coupling through the @ @ @ @ @ @ @ @ @ @ The bathymetric diversity pattern has been related to a gradient in productivity that decreases from the coast to the deep ocean .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'is'
+   Subject: 'a biodiversity patterns that suggests ecological coupling through the @ @ @ @ @ @ @ @ @ @ The bathymetric diversity pattern has been related to a gradient in productivity that decreases from the coast to the deep ocean'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+21. There is sufficient benthic and pelagic biodiversity data to begin testing this idea more thoroughly . <p> Figure 2a .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'is'
+   Subject: 'this idea more thoroughly'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+22. There is little evidence that pelagic predators feeding on infauna are particularly selective with respect to species composition , but successional mosaics may be created by patchy predation .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'is'
+   Subject: 'a are particularly selective with respect to species composition'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+23. Moreover , different life spans and turnover times for plants and soil organisms could lead to the decoupling of the above- and belowground subsystems resulting from perturbations or disturbance events . <p> Most of the vegetation change occurring today is very likely to cause a major shift in plant life form and @ @ @ @ @ @ @ @ @ @ herbaceous plants ( Jackson et al . 2000 ) .
+   File: text_acad_2000.txt
+   Type: ap_inversion
+   Constituent type: AP (Adjective Phrase)
+   Fronted constituent: 'Most of the vegetation change occurring today'
+   Verb: 'is'
+   Subject: 'a major shift in plant life form and @ @ @ @ @ @ @ @ @ @ herbaceous plants ( Jackson et al . 2000 )'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+24. The sensitivity of above- and belowground relationships to changes in species composition has important implications for prioritizing future research and management ( Hooper et al . 2000 ) . <p> Two areas are particularly important : intensification of land use and catastrophic events caused by changes in both climate and atmospheric inputs affecting the boundaries of communities at their ecological limits .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'Two areas'
+   Verb: 'are'
+   Subject: 'their ecological limits'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+25. There is a need for research networks and for setting up new experiments in poorly known but important habitats ( e.g. , tropical forests ; high latitudes ) .
+   File: text_acad_2000.txt
+   Type: existential
+   Constituent type: AdvP (Existential)
+   Fronted constituent: 'There'
+   Verb: 'is'
+   Subject: 'a need for research networks and for setting up new experiments in poorly known but important habitats ( e.g. , tropical forests ; high latitudes )'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+
+=== Complex Inversion Examples ===
+
+1. In the study published in April , the researchers found 16 nonnative plants new to the preserve . " One of the species that 's really come in heavy in some places is this guy , " said Cabin , walking over to a milkweed plant and pulling it up .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One of the species that 's really'
+   Verb: 'come'
+   Subject: 'this guy'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+2. One difficulty is that information on bacterial species richness in most ecosystems is quite limited . <p> Step 3 .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One difficulty'
+   Verb: 'is'
+   Subject: 'that information on bacterial species richness in most ecosystems is quite limited'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+3. One category is @ @ @ @ @ @ @ @ @ @ aboveground organism could be so tightly linked to a certain belowground organism ( through mutualism , for example ) that loss of one guarantees loss of the other .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One category'
+   Verb: 'is'
+   Subject: 'a certain belowground organism ( through mutualism , for example ) that loss of one guarantees loss of the other'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+4. Although all of these interactions clearly influence growing conditions and nutrient availability , modification of growing conditions for organisms on the other side of the soil surface is not necessarily synonymous with increasing their diversity . <p> Three mechanisms by which asymmetric effects could enhance diversity are through keystone species , direct positive interactions , and environmental modification .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'Three mechanisms by which asymmetric effects could enhance diversity'
+   Verb: 'are'
+   Subject: 'one species'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+5. One complication in linking above- and below-SWI species numbers and composition is seasonal and annual variability in below-SWI organisms .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One complication in linking above- and below-SWI species numbers and composition'
+   Verb: 'is'
+   Subject: 'S'
+   Locative: No
+   Confidence: Medium
+   Validation: Common inversion verb
+
+6. One current theory is that small-scale patchiness in food supply is critical in promoting deep-sea diversity ( Grassle and Sanders 1973 ) .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One current theory'
+   Verb: 'is'
+   Subject: 'a diversity ( Grassle and Sanders 1973 )'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+7. The sensitivity of above- and belowground relationships to changes in species composition has important implications for prioritizing future research and management ( Hooper et al . 2000 ) . <p> Two areas are particularly important : intensification of land use and catastrophic events caused by changes in both climate and atmospheric inputs affecting the boundaries of communities at their ecological limits .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'Two areas'
+   Verb: 'are'
+   Subject: 'their ecological limits'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+8. Three years were to pass before my mother begged for her crippled son 's refiah from that divine calligrapher , but I still wonder whether my passion for godly lettering was n't just another aspect of the ethnic wars that threatened me .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'Three years'
+   Verb: 'were'
+   Subject: 'that divine calligrapher'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+9. And as my agnostic voice joined with the voices of Savannah Jews to proclaim God 's singularity to the world , I suddenly felt not merely at home , but at peace , at peace with that one God I yearned for but could no longer believe in ; at peace with that one people , some of whom no longer considered me part of " the tribe " ; at peace with the memory-obsessed self that writers are condemned to live with ; and at peace with this melting pot called America . <p> In a world in which religious civil war threatens to destroy a Jewish state where non-observant and ultra-Orthodox can no longer even agree on what a Jew is , that age-old declaration of God 's oneness soared into the soft Southern air of a neo-Gothic @ @ @ @ @ @ @ @ @ @ used to cry , ruler punctuating the air as if it were God 's sword .
+   File: text_acad_2000.txt
+   Type: coordinated_inversion
+   Constituent type: Coordinated Structure
+   Fronted constituent: 'In a world in which religious civil war threatens to destroy a Jewish state where non-observant and ultra-Orthodox can no longer even agree on what a Jew'
+   Verb: 'is'
+   Subject: 'a neo-Gothic @ @ @ @ @ @ @ @ @ @ used to cry'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Very long fronted constituent
+
+10. Ignoring the ethical claims of vegetarianism , they can more easily dismiss it as dementia . <p> Assigned by a muckraking weekly called Appeal to Reason to investigate working conditions in the Chicago stockyards , Upton Sinclair was converted to vegetarianism -- for merely three years , admittedly -- by observing the process by which living animals are transformed into food . " One could not stand and watch very long without becoming philosophical , without beginning to deal in symbols and similes , and to hear the hog squeal of the universe , " he wrote in The Jungle , the novel that provoked passage of the Pure Food and Drug Act of 1906 .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One could not'
+   Verb: 'stand'
+   Subject: 'that provoked passage of the Pure Food and Drug Act of 1906'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+11. Fermi and his group in Rome , in the mid-thirties , wanted to produce elements heavier than those found in nature -- " transuranic " elements , beyond uranium in the Periodic @ @ @ @ @ @ @ @ @ @ uranium 238 with a neutron , they expected to get uranium 239 . ( Two numbers are associated with each element .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'Two numbers'
+   Verb: 'are'
+   Subject: 'each element'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+12. In those directions where more particles were detected , so the argument went , more were coming through because of holes ( chambers ) in the solid material .
+   File: text_acad_2000.txt
+   Type: complex_pp_inversion
+   Constituent type: PP (Complex Prepositional Phrase)
+   Fronted constituent: 'In those directions where more particles'
+   Verb: 'were'
+   Subject: 'more were coming through because of holes ( chambers ) in the solid material'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Subject starts with determiner, Common inversion verb, Subject much longer than fronted element
+
+13. One of the first titles available on the Rocket eBook was Arthur Golden 's Memoirs of a Geisha .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One of the first titles available on the Rocket eBook'
+   Verb: 'was'
+   Subject: 'a Geisha'
+   Locative: No
+   Confidence: High
+   Validation: Subject starts with determiner, Common inversion verb
+
+14. Would such books really survive the predations of teenage pirates , the taste of MP3 still in their mouths ? " When e-books happen , they 're gone , " Brass said . <p> One of the remarkable things about the book is how long the same concerns have surrounded it : archivability , affordability , freedom to publish .
+   File: text_acad_2000.txt
+   Type: numeric_inversion
+   Constituent type: Numeric Expression
+   Fronted constituent: 'One of the remarkable things about the book'
+   Verb: 'is'
+   Subject: 'the same concerns have surrounded it'
+   Locative: No
+   Confidence: Medium
+   Validation: Subject starts with determiner, Likely a question, not inversion, Common inversion verb
+
+15. It seems strange to say , even now , but for me the work always had a certain quality not of learning , necessarily , but rather of remembering . <p> Over time I became familiar with a certain bemused look on the faces of people to whom I mentioned that I was studying Yiddish .
+   File: text_acad_2000.txt
+   Type: complex_pp_inversion
+   Constituent type: PP (Complex Prepositional Phrase)
+   Fronted constituent: 'Over time I became familiar with a certain bemused look on the faces of people to whom I mentioned that I'
+   Verb: 'was'
+   Subject: 'Yiddish'
+   Locative: Yes
+   Confidence: Medium
+   Validation: Common inversion verb, Very long fronted constituent

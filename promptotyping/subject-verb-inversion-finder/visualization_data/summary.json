@@ -1,0 +1,34 @@
+{
+  "total_files": 5,
+  "total_paragraphs": 4477,
+  "total_sentences": 614292,
+  "total_inversions": 25689,
+  "locative_inversions": 14321,
+  "non_locative_inversions": 11368,
+  "complex_inversions_count": 7729,
+  "constituent_types": {
+    "PP (Prepositional Phrase)": 4926,
+    "AdvP (Adverb Phrase)": 3855,
+    "AP (Adjective Phrase)": 1966,
+    "AdvP (Existential)": 7053,
+    "PP (Complex Prepositional Phrase)": 1585,
+    "Numeric Expression": 5043,
+    "Coordinated Structure": 1101,
+    "VP (Verb Phrase)": 160
+  },
+  "confidence_levels": {
+    "high": 11012,
+    "medium": 14573,
+    "low": 104
+  },
+  "inversion_types": {
+    "pp_inversion": 4926,
+    "adv_inversion": 3855,
+    "ap_inversion": 1966,
+    "existential": 7053,
+    "complex_pp_inversion": 1585,
+    "numeric_inversion": 5043,
+    "coordinated_inversion": 1101,
+    "vp_inversion": 160
+  }
+}

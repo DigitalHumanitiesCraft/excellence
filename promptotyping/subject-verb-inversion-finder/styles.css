@@ -1,0 +1,486 @@
+/* ====== STATE STYLING ====== */
+
+/* Empty state styling */
+.empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.empty-state-text {
+    color: #6c757d;
+    font-size: 1.1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Loading state */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.spinner-border {
+    margin-bottom: 15px;
+}
+
+/* ====== UTILITY CLASSES ====== */
+
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bg-light-hover:hover {
+    background-color: #f8f9fa;
+}
+
+/* ====== ANIMATION EFFECTS ====== */
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}/* Main styles for Subject-Verb Inversion Visualization */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+}
+
+/* ====== CARD AND CONTAINER STYLES ====== */
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ====== CHART STYLES ====== */
+
+/* Chart containers */
+.chart-container {
+    height: 400px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* ====== DASHBOARD STATS STYLES ====== */
+
+/* Dashboard statistics */
+.stats-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0;
+}
+
+.stats-label {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+/* Header styling */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1.5rem 0;
+    margin-bottom: 30px;
+}
+
+/* Table interactions */
+.example-row {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.example-row:hover {
+    background-color: #f1f8ff;
+}
+
+/* ====== BADGE AND HIGHLIGHT STYLES ====== */
+
+/* Confidence badges */
+.badge-high {
+    background-color: #27ae60;
+}
+
+.badge-medium {
+    background-color: #f39c12;
+}
+
+.badge-low {
+    background-color: #e74c3c;
+}
+
+/* Text highlighting */
+.highlight {
+    background-color: #ffff99;
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+/* Highlight classes for syntax tree */
+.highlight-fronted {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+.highlight-verb {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.highlight-subject {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* ====== FILTER SECTION STYLES ====== */
+
+/* Filter section */
+#filters {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+}
+
+#filters .form-group {
+    margin-bottom: 15px;
+}
+
+#filters label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+/* Filter toggle button */
+#toggle-filters {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+/* Modal styling */
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+}
+
+/* Footer styling */
+footer {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+    color: #777;
+}
+
+/* Syntax tree styling */
+.syntax-tree {
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.tree-node {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.node-label {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+}
+
+.node-children {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.node-children:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+.tree-leaf {
+    margin: 0 5px;
+}
+
+/* Comparison view styling */
+.example-item {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* ====== CONTEXT VIEW STYLES ====== */
+
+/* Context view styling */
+.current-sentence {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 3px solid #007bff;
+    margin: 10px 0;
+}
+
+.previous-sentence, .next-sentence {
+    padding: 10px 15px;
+    color: #6c757d;
+    position: relative;
+}
+
+.previous-sentence::before, .next-sentence::before {
+    font-family: "bootstrap-icons";
+    margin-right: 5px;
+    position: absolute;
+    left: -5px;
+    color: #adb5bd;
+}
+
+.previous-sentence::before {
+    content: "↑";
+    top: 10px;
+}
+
+.next-sentence::before {
+    content: "↓";
+    top: 10px;
+}
+
+#context-content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
+/* Enhanced tab styling */
+.nav-tabs .nav-link {
+    color: #495057;
+}
+
+.nav-tabs .nav-link.active {
+    color: #007bff;
+    font-weight: 500;
+}
+
+/* Pattern visualization */
+.pattern-visualization {
+    margin: 20px 0;
+}
+
+.pattern-part {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 8px 15px;
+}
+
+.pattern-part.fronted {
+    background-color: #d1ecf1;
+}
+
+.pattern-part.verb {
+    background-color: #f8d7da;
+}
+
+.pattern-part.subject {
+    background-color: #d4edda;
+}
+
+/* Arc styling for dependency trees */
+.arc {
+    position: absolute;
+    border: 1px solid #6c757d;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom: none;
+}
+
+.arc-label {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.arc-highlight {
+    border-color: #007bff;
+    border-width: 2px;
+}
+
+/* Legend styling */
+.legend-item {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    vertical-align: middle;
+    border-radius: 3px;
+}
+
+.legend-item.highlight-fronted {
+    background-color: #d1ecf1;
+}
+
+.legend-item.highlight-verb {
+    background-color: #f8d7da;
+}
+
+.legend-item.highlight-subject {
+    background-color: #d4edda;
+}
+
+/* ====== RESPONSIVE STYLES ====== */
+
+/* Responsive adjustments */
+@media (max-width: 1199px) {
+    .stats-number {
+        font-size: 2.2rem;
+    }
+    
+    .chart-container {
+        height: 350px;
+    }
+}
+
+@media (max-width: 991px) {
+    .stats-number {
+        font-size: 1.8rem;
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+    
+    .card-header h5 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-number {
+        font-size: 1.5rem;
+    }
+    
+    .card-header h5 {
+        font-size: 1rem;
+    }
+    
+    .syntax-tree {
+        overflow-x: scroll;
+        padding: 10px;
+    }
+    
+    .node-label {
+        max-width: 150px;
+        font-size: 0.9rem;
+        padding: 3px 8px;
+    }
+    
+    .dependency-tree {
+        overflow-x: scroll;
+        padding: 10px 0;
+    }
+    
+    .pattern-visualization {
+        flex-direction: column;
+    }
+    
+    .pattern-part {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    /* Stack the comparison view vertically on small screens */
+    #comparison-results .col-md-6 {
+        margin-bottom: 20px;
+    }
+    
+    /* Make filters stack on small screens */
+    #filters .col-md-3 {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-number {
+        font-size: 1.3rem;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    header .lead {
+        font-size: 1rem;
+    }
+    
+    .card-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    /* Simplify tabs on small screens */
+    .nav-tabs .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Adjust modal for small screens */
+    .modal-body {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "categories": [
+    "Linguistics", 
+    "Literature", 
+    "Biology", 
+    "Chemistry", 
+    "Physics", 
+    "Mathematics", 
+    "History", 
+    "Psychology", 
+    "Sociology", 
+    "Economics", 
+    "Other"
+  ],
+  "mappings": {
+    "text_acad_2000.txt": "Linguistics",
+    "text_acad_2001.txt": "Literature",
+    "text_acad_2002.txt": "History",
+    "text_acad_2003.txt": "Sociology",
+    "text_acad_2004.txt": "Biology"
+  }
+}

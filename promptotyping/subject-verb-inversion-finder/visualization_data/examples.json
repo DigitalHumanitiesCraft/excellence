@@ -1,0 +1,1442 @@
+[
+  {
+    "type": "pp_inversion",
+    "sentence": "At the time what it looked like to my eyes was a remarkable loss of authority .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "At the time what it looked like to my eyes",
+    "verb": "was",
+    "subject": "a remarkable loss of authority",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Now my friend was on the defensive .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Now my friend",
+    "verb": "was",
+    "subject": "the defensive",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In such redemption was the possibility of black reparation .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In such redemption",
+    "verb": "was",
+    "subject": "the possibility of black reparation",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "ap_inversion",
+    "sentence": "Most of them are liberals who see racial separatism as wrong .",
+    "constituent_type": "AP (Adjective Phrase)",
+    "fronted_constituent": "Most of them",
+    "verb": "are",
+    "subject": "liberals who see racial separatism as wrong",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is no difference between giving black students a separate lounge and leaving twenty dollars in the tip plate on the way out the door . <p> What @ @ @ @ @ @ @ @ @ @ administrators ( and faculties ) have been subdued by this paradigm is their refusal to lead black students , to tell them what they honestly think , to insist that they perform at a higher academic level , and to ask them to integrate themselves fully into campus life .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "no difference between giving black students a separate lounge and leaving twenty dollars in the tip plate on the way out the door",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is an aerial photograph , much reproduced in reformist books on housing and urbanism , of one of our first housing projects , set in the midst of a sea of slums and tenements in Brooklyn .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "one of our first housing projects",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "Around the buildings is an expanse of empty land , which will be dedicated to playgrounds and greenery .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "Around the buildings",
+    "verb": "is",
+    "subject": "an expanse of empty land",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Now here is something one has to ponder .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Now here",
+    "verb": "is",
+    "subject": "one has to ponder",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "There are no trees on the street .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "are",
+    "subject": "no trees on the street",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is no front yard .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "no front yard",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is a tiny backyard with a brick outhouse .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "a tiny backyard with a brick outhouse",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The local authorities were committed to flats : <p> In discussing with the relevant officers the reasons for choosing flats as a form of development in Sunderland the interviewer was told that \" high-rise blocks are essential to the skyline of the town . \" Seven blocks of 16-storied flats were built at Gilley Law , on the outskirts of the town , as a result of an \" aesthetic choice . \" <p> The mind boggles at the thought of sixteen-story apartment houses in Sunderland , where the top density of the area to be cleared ( two-story houses ) was only sixty-eight rooms per acre .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In discussing with the relevant officers the reasons for choosing flats as a form of development in Sunderland the interviewer was told that \" high-rise blocks",
+    "verb": "are",
+    "subject": "an \" aesthetic choice",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "On the other side of the house were the quiet backyards .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "On the other side of the house",
+    "verb": "were",
+    "subject": "the quiet backyards",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One must take into account that they had lived there a long time and had their shopping places and churches and friends and relatives nearby .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One must take into account that they had",
+    "verb": "lived",
+    "subject": "their shopping places and churches and friends and relatives nearby",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Perhaps there is still a way for the architect , without becoming -- as so many modern form-makers have insisted -- the dictator of an environment to provide a process , a set of tools , a mechanism whereby individual action can cumulate to great harmonious wholes .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Perhaps there",
+    "verb": "is",
+    "subject": "any modern form-makers have insisted -- the dictator of an environment to provide a process",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "Section : Life and Letters <p> In the house of literature there are many anterooms .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In the house of literature there",
+    "verb": "are",
+    "subject": "any anterooms",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "There are all kinds of widows -- and widowers -- whom I will have , for reasons of length , to overlook : for example , widows who have themselves had their own careers in the literary world , such as Mary Shelley or Diana Trilling ; or homosexual partners who have outlived their literary \" spouses \" ; or widows of men involved in arts other than literature , such as Gertrud Schoenberg or Olgivanna , the widow of Frank Lloyd Wright .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "are",
+    "subject": "other than literature",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There were conflicts galore , beginning no later than the funeral .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "were",
+    "subject": "no later than the funeral",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "Florence had been Hardy 's nurse for years before he died ; it was natural for her to want to assume the same duties for Barrie . <p> There was no way Florence was ever going to become Lady Barrie , no matter how many fond hopes she may have cherished .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "was",
+    "subject": "no way Florence was ever going to become Lady Barrie",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One of his most famous Tolstoyan principles was the renunciation of all @ @ @ @ @ @ @ @ @ @ and diaries should belong to anyone at all .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One of his most famous Tolstoyan principles",
+    "verb": "was",
+    "subject": "one at all",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "There are many who believe Sonya Tolstoy was seriously mentally ill by this point ; whether or not this is true , it is nonetheless clear that her remorse and her guilt were real : she believed that she was responsible for her husband 's death .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "are",
+    "subject": "any who believe Sonya Tolstoy was seriously mentally ill by this point",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There was no weapon she would not use in her campaign of self-defense : she was warding off in advance the attacks she knew one day would be made upon her .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "was",
+    "subject": "no weapon she would not use in her campaign of self-defense",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "She was cut out to play her role , and she played it with great flair . <p> In a sense Sonya Tolstoy was widowed twice , for the ingenious writer with whom she had fallen in love had died , figuratively , around 1882 , when Tolstoy abandoned the art of fiction for more lofty philosophical and religious pursuits .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In a sense Sonya Tolstoy",
+    "verb": "was",
+    "subject": "more lofty philosophical and religious pursuits",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "When Tolstoy died , both the exhilaration of battle and the torment of love were dead to Sonya Tolstoy . <p> One aspect that all literary widows seem to share is an element , to a greater or lesser degree , of theatricality or role-playing , as though in rising to meet the occasion of widowhood they found it necessary to enhance their personality .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One aspect that all literary widows seem to share",
+    "verb": "is",
+    "subject": "their personality",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "I 'd much rather be receiving some royalties from his books than be the widow of an immortal . \" <p> One literary widow comes to mind whose role-playing was not a theatrical pose , but a matter of survival ; to whom profits from royalties and copyrights were for decades completely irrelevant , since anyone could be arrested merely for distributing , and certainly for publishing , her husband 's work .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One literary widow",
+    "verb": "comes",
+    "subject": "its from royalties and copyrights were for decades completely irrelevant",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "At this time she was at last permitted to live in Moscow , where she received countless literary pilgrims , both Russian and foreign , and had the luxury , at last , of openly playing the role of the great poet 's widow .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "At this time she",
+    "verb": "was",
+    "subject": "an and foreign",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Often in the tiny kitchen of her apartment there was a crowd of people waiting to see her , standing patiently as if in line for bread in a bakery . <p> During the thirty years between the time Osip Mandelstam died and the time of Mrs. Mandelstam 's bitterly triumphant return to Moscow , she witnessed events that one would think were beyond the powers of language to relate .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Often in the tiny kitchen of her apartment there",
+    "verb": "was",
+    "subject": "one would think were beyond the powers of language to relate",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In the foreground stands my mother , whose voice I know ; in the middle distance my grandfather , whose voice I hear but can not understand ; and at his back only a dark and vacant tunnel of time .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In the foreground",
+    "verb": "stands",
+    "subject": "his back only a dark and vacant tunnel of time",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Then at last I was undressed , drowsing in front of the warm kitchen range , and laid in bed with a hot brick at my feet . <p> Perhaps the dream came that night .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Then at last I",
+    "verb": "was",
+    "subject": "that night",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "There was a sauna at the water 's edge , and on weekend visits it was my grandfather 's privilege to start the fire early in the afternoon and to tend it in the stove improvised from a @ @ @ @ @ @ @ @ @ @ was his privilege , too , to make the bathing switches , not of the traditional birch twigs but of the fragrant tips of white cedar , which grew along that shore .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "was",
+    "subject": "its it was my grandfather 's privilege to start the fire early in the afternoon and to tend it in the stove improvised from a @ @ @ @ @ @ @ @ @ @ was his privilege",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "ap_inversion",
+    "sentence": "Most of his family and his wife 's had remained in Finland , and now he was doubly isolated , for his children had married and left home , flowing into the mainstream of English-speaking life .",
+    "constituent_type": "AP (Adjective Phrase)",
+    "fronted_constituent": "Most of his family and his wife 's had",
+    "verb": "remained",
+    "subject": "his children had married and left home",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is , some claim , a distinctive Finnish gaze , in which some Finns simply are not with you for a while , their eyes focused somewhere beyond you on an inner horizon .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "their eyes focused somewhere beyond you on an inner horizon",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Then I was aware of my grandfather standing over me , his dark hand thrust out .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Then I",
+    "verb": "was",
+    "subject": "his dark hand thrust out",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Here it was that my grandfather had gone underground , with others like himself , in small cars connected to the great hoist by the long and lengthening umbilical cord on which their lives depended .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Here it",
+    "verb": "was",
+    "subject": "one underground",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "At the end of the shift the men were retrieved , a more precious cargo , drawn back up the dripping shafts and delivered to the day , or night , to walk back down the hill to their homes below .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "At the end of the shift the men",
+    "verb": "were",
+    "subject": "their homes below",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "To dig the winter ground is deadly hard work ; and even today , winter dead are stored for spring burial and brought to the cemetery , tiers of coffins on a flatbed truck , to be lowered into an earth now soft enough to receive them .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "To dig the winter ground",
+    "verb": "is",
+    "subject": "an earth now soft enough to receive them",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In later years I have lived in California , in the Northwest , and in the South -- but in time an inner compass asserted itself , and I turned my face again and again to the North .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In later years I have",
+    "verb": "lived",
+    "subject": "an inner compass asserted itself",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is plenty of firewood , and birch trees aplenty for the traditional birch switches .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "the traditional birch switches",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is a famous anecdote about Paul Claudel , who had hoped to convert him from Protestantism to Catholicism , pointing one mealtime to a pan in which something was being flambed , and proclaiming : \" That is how Gide will sizzle in Hell ! \" Gide 's homosexual friends showed no eagerness to risk public obloquy , while the heterosexual ones tended to turn a blind eye to his deviance , although @ @ @ @ @ @ @ @ @ @ whom I met after the war had been careful to keep his son out of reach of Gide 's attentions .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "no eagerness to risk public obloquy",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is no suggestion anywhere in Gide 's writings that he ever had a sexual relationship with a person of his own age , apart from some hanky-panky under the dining room table with the concierge 's son , when they were both toddlers .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "no suggestion anywhere in Gide 's writings that he ever had a sexual relationship with a person of his own age",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Perhaps Gide just took it for granted that such @ @ @ @ @ @ @ @ @ @ or perhaps he was concentrating so single-mindedly on his own pleasure that he remained oblivious of the moral issue as it concerned the boy prostitutes .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Perhaps Gide just took it for granted that such @ @ @ @ @ @ @ @ @ @ or perhaps he",
+    "verb": "was",
+    "subject": "his own pleasure that he remained oblivious of the moral issue as it concerned the boy prostitutes",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "Morality @ @ @ @ @ @ @ @ @ @ between the various promptings of Nature , favoring some and suppressing others , in the supposed interest of the general good . <p> As it happens , Gide formulates Corydon 's naturalistic claim more bluntly in a short diary entry : \" In the name of what God or what ideal do you forbid me to live according to my nature ? \" If the Marquis de Sade had put this question , the humanistic answer would have been : \" God does n't come into it .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In the name of what God or what ideal do you forbid me to",
+    "verb": "live",
+    "subject": "his question",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There are only too many examples of this .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "are",
+    "subject": "any examples of this",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Perhaps he was tempted to be provocative and paradoxical since he was hiding behind the persona of Corydon .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Perhaps he",
+    "verb": "was",
+    "subject": "a of Corydon",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "Whatever his courage in \" coming out , \" he must have known that he was pursuing his chosen course with Sadian or Nietzschean ruthlessness as far as she was concerned -- indeed , he transparently admits as much both by the contents and the title of the novel \" L'Immoraliste \" -- and this can not enhance his acceptability as a model in the cause of homosexuality . <p> There are two further complications in Gide 's peculiar sexuality .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "are",
+    "subject": "her complications in Gide 's peculiar sexuality",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is no indication that he was in love with Elizabeth , and even if he were politely acceding to her request to have a child , he must have known that Madeleine would be bitterly hurt , so once again his morality appears very uncertain . <p> It is almost as if , at times , he were conscientiously trying to be wicked , in order to prove to himself that he was free \" beyond good and evil . \" As Mme Tho records in her deadpan way , even at the height of his involvement with Marc , and during the fateful stay in Grantchester , he seduced another boy at the school that Marc was attending ; the boy told his parents and there was a slight scandal , which had to be hushed up .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "no indication that he was in love with Elizabeth",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Perhaps the most invidious implication of particularism is that racial and ethnic minorities are not and should not try to be part of American culture ; it implies that American culture belongs only to those who are white and European ; it implies that those who are neither white nor European are alienated from American culture by virtue of their race or ethnicity ; it implies that the only culture they do belong to or can ever belong to is the culture of their ancestors , even if their families have lived in this country for generations . <p> The war on so-called Eurocentrism is intended to foster self-esteem among those who are not of European descent .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Perhaps the most invidious implication of particularism",
+    "verb": "is",
+    "subject": "his country for generations",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "Behind every such biography of accomplishment is a story of heroism , perseverance , and self-discipline .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "Behind every such biography of accomplishment",
+    "verb": "is",
+    "subject": "a story of heroism",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One can scarcely pick up an educational journal without learning about a school district that is converting to an ethnocentric curriculum in an attempt to give \" self-esteem \" to children from racial minorities .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One can scarcely pick up an educational journal without learning about a school district that",
+    "verb": "is",
+    "subject": "an ethnocentric curriculum in an attempt to give \" self-esteem \" to children from racial minorities",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "To explain why Fredonians today are in modest circumstances , given their historic eminence , children are taught that somewhere , long ago , @ @ @ @ @ @ @ @ @ @ off as their own , and then oppressed the Fredonians . <p> I first encountered this argument almost twenty years ago , when I was a graduate student .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "To explain why Fredonians today",
+    "verb": "are",
+    "subject": "his argument almost twenty years ago",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "ap_inversion",
+    "sentence": "Yurco , argues that some Egyptian rulers were black , others were not , and that \" the ancient Egyptians did not think in these terms . \" The issue , wrote Yurco , \" is a chimera , cultural baggage from our own society that can only be imposed artificially on ancient Egyptian society . \" <p> Most educationists are not even aware of the debate about whether the ancient Egyptians were black or white , but they are very sensitive to charges that the schools ' curricula are Eurocentric , and they are eager to rid the schools of the taint of Eurocentrism .",
+    "constituent_type": "AP (Adjective Phrase)",
+    "fronted_constituent": "Most educationists",
+    "verb": "are",
+    "subject": "that the schools ' curricula are Eurocentric",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Nonetheless , Eurocentrism provides a better target than Americentrism . <p> In school districts where most children are black and Hispanic , there has been a growing tendency to embrace particularism rather than pluralism .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In school districts where most children",
+    "verb": "are",
+    "subject": "her than pluralism",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In the 1987 revision the time given to Western Europe was reduced to one-quarter of one year , as part of a two-year global studies sequence in which equal time was allotted to seven major world regions @ @ @ @ @ @ @ @ @ @ result of the 1987 revisions in American and world history , New York State had one of the most advanced multicultural history-social studies curricula in the country .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In the 1987 revision the time given to Western Europe",
+    "verb": "was",
+    "subject": "one year",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is no mention of the \" Anglo-Saxons \" who opposed slavery and racism .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "no mention of the \" Anglo-Saxons \" who opposed slavery and racism",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "The African American consultant writes of the Constitution , \" There is something vulgar and revolting in glorifying a process that heaped undeserved rewards on a segment of the population while oppressing the majority . \" <p> The New York task force proposal is not merely about the reconstruction of what is taught .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "that heaped undeserved rewards on a segment of the population while oppressing the majority",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One great advantage of this approach is that students will see that history is a lively study , that textbooks are fallible , that historians disagree , that the writing of history is influenced by the historian 's politics and ideology , that history is written by people who make choices among alternative facts and interpretations , and that history changes as new @ @ @ @ @ @ @ @ @ @ will also learn that cultures and civilizations constantly interact , exchange ideas , and influence one another , and that the idea of racial or ethnic purity is a myth .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One great advantage of this approach",
+    "verb": "is",
+    "subject": "one another",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Perhaps the most dangerous aspect of school history is its tendency to become Official History , a sanctified version of the Truth taught by the state to captive audiences and embedded in beautiful mass-market textbooks as holy writ .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Perhaps the most dangerous aspect of school history",
+    "verb": "is",
+    "subject": "its tendency to become Official History",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "ap_inversion",
+    "sentence": "Most of what we call self-esteem is formed in the home and in a variety of life experiences , not only in school .",
+    "constituent_type": "AP (Adjective Phrase)",
+    "fronted_constituent": "Most of what we call self-esteem",
+    "verb": "is",
+    "subject": "a variety of life experiences",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "On a nightly basis it was possible to track @ @ @ @ @ @ @ @ @ @ .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "On a nightly basis it",
+    "verb": "was",
+    "subject": "possible to track @ @ @ @ @ @ @ @ @ @",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "On either side of the plane were small clusters of tropical islands whose names form a roster of Second World War battles : Vella Lavella , New Georgia , the Russells , Savo Island , and Tulagi .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "On either side of the plane",
+    "verb": "were",
+    "subject": "all clusters of tropical islands whose names form a roster of Second World War battles",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In between were thick , steamy matted , almost impenetrable screens of cassia , liana vines , and twisted creepers , masked here and there by mangrove swamps and clumps of bamboo ....",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In between",
+    "verb": "were",
+    "subject": "most impenetrable screens of cassia",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "The forest seemed almost faunal : arrogant , malevolent , cruel . \" My father described his first impression in an account of the battle that was published in American Heritage : \" At first light we stood along the rail and looked out across the calm , violet water .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "At first light we",
+    "verb": "stood",
+    "subject": "the rail and looked out across the calm",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "From a map in a history I was reading , I recognized Point @ @ @ @ @ @ @ @ @ @ the mouth of the Iluplaces of battle that I previously imagined as remote , in many ways , as Cold Harbor , Ypres , or Kasserine Pass .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "From a map in a history I",
+    "verb": "was",
+    "subject": "any ways",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In my mind Guadalcanal was a black-and-white photograph that showed men coming ashore or hiking jungle trails .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In my mind Guadalcanal",
+    "verb": "was",
+    "subject": "that showed men coming ashore or hiking jungle trails",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In the waiting room was a brass plaque that listed the winners at Guadalcanal of the Congressional Medal of Honor .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In the waiting room",
+    "verb": "was",
+    "subject": "that listed the winners at Guadalcanal of the Congressional Medal of Honor",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "At Gettysburg today it is hard to see the battlefields for the monuments .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "At Gettysburg today it",
+    "verb": "is",
+    "subject": "the battlefields for the monuments",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "At 0500 firing broke out on the left flank which was answered ineffectively .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "At 0500 firing broke out on the left flank which",
+    "verb": "was",
+    "subject": "answered ineffectively",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "His company report indicates , \" Outposts were manned on along the east end of the air field . \" But writing forty years later he remembers , \" There were gaps of hundreds of yards between the fortified positions of our units . ...",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "were",
+    "subject": "our units",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Again I was angered that our Pentagon dollars had never included signs to remember a pivotal battle in the Pacific .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Again I",
+    "verb": "was",
+    "subject": "that our Pentagon dollars had never included signs to remember a pivotal battle in the Pacific",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "As a result , the report reads like a log from a beleaguered clipper ship or Daniel DeFoe 's Journal from a Plague Year : <p> At 0500 a low level bombing attack was sustained in which Private Dan R.",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "At 0500 a low level bombing attack",
+    "verb": "was",
+    "subject": "an R",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In early 1943 , almost before the fighting had ended , \" Guadalcanal Diary \" by Richard Tregaskis and \" Into the Valley \" by John Hersey were published , helping to fuel the legend that was growing .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "Into the Valley \" by John Hersey",
+    "verb": "were",
+    "subject": "that was growing",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Often these are memoirs , like that by Manchester or another by Herbert Merillat , whose diary of the fighting , published in \" Gaudalcanal Remembered , \" fleshed out incidents of the battle that I only knew in fragments .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Often these",
+    "verb": "are",
+    "subject": "other by Herbert Merillat",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "Sledge 's recollections of fighting with the First Marines in subsequent campaigns on Peleliu and Okinawa are so vivid that they encompass the earlier battle as Siegfried Sassoon 's remembrances of the Somme stand also for Passchendaele and Verdun . <p> But it is not only memoirs and novels that can explain to a son his father 's war . \" Acts of War \" by the Sandhurst historian Richard Holmes describes the sociology of battle , with each chapter covering a subject such as what it is like to endure artillery fire , alcohol and combat , why men desert , or what it is to be wounded .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "First Marines in subsequent campaigns on Peleliu and Okinawa",
+    "verb": "are",
+    "subject": "his father 's war",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "The subtitle of \" Into the Valley \" is \" A Skirmish of the Marines , \" and it is to war what the \" Elements of Style \" is to writing-a concise primer . <p> The Matanikau flows into the Sealark Channel through what is now Honiara .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "Into the Valley \"",
+    "verb": "is",
+    "subject": "a concise primer",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "Finally one whispers , \" Jesus , what I 'd give for a piece @ @ @ @ @ @ @ @ @ @ extrapolate that what the men are really fighting for is \" to get the goddamn thing over and get home . \" But when \" Into the Valley \" was reissued in 1989 , Hersey returns to this passage : \" If you ask how a nation could win a war whose soldiers would opt for apple pie rather than a chance for heroic death , I would be inclined to answer that this is one of the main reasons why our side won .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "Into the Valley \"",
+    "verb": "was",
+    "subject": "one of the main reasons why our side won",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There was a lifesaving skepticism and irony embedded in the confused courage of men bred to free choice . \" <p> In his own writing , my father never says why he is fighting .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "was",
+    "subject": "his own writing",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In fact they were followed by a few sentences in which Toynbee asked for a quid pro quo from the working classes . <p> We will ask you to remember this-that we work for you in the hope and trust that if you get material civilisation , if you get a better life , you will really lead a better life .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In fact they",
+    "verb": "were",
+    "subject": "that we work for you in the hope and trust that if you get material civilisation",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "If you will only keep to the love of your fellow men and to great ideals , then we shall find our happiness in helping you , but if you do not , then our reparation will be in vain . <p> Today these passages are likely to offend or embarrass us .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Today these passages",
+    "verb": "are",
+    "subject": "likely to offend or embarrass us",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "To try to understand them as contemporaries did is to come to terms with a culture and society very different from ours-and to come to terms also with attitudes and assumptions on our own part , which may inhibit such an understanding . <p> There are two criticisms commonly made of Victorian philanthropy .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "To try to understand them as contemporaries did is to come to terms with a culture and society very different from ours-and to",
+    "verb": "come",
+    "subject": "our own part",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Thus philanthropy is seen as a means of promoting the social status of the philanthropist , who is pleased to serve on boards and attend charity balls in the company of titled or royal personages , and to receive tokens of gratitude and recognition , preferably in the form of a knighthood or peerage .",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Thus philanthropy",
+    "verb": "is",
+    "subject": "any of titled or royal personages",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There is no evidence one can adduce that can not be interpreted in these invidious terms .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "no evidence one can adduce that can not be interpreted in these invidious terms",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "Yet if Toynbee Hall was not the creation of Toynbee , it was-pace his wife-a fitting memorial to him , for it was inspired by the idea of \" citizenship \" that was at the heart of his philosophy . <p> There is a nice coincidence in the founding of Toynbee Hall in 1884 and the passage that year of the Reform Act that gave the suffrage to most of the working class .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "is",
+    "subject": "most of the working class",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In addition there was a roster of university extension courses that many a modern college might well envy .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In addition there",
+    "verb": "was",
+    "subject": "any a modern college might well envy",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "There were courses on geology , physiology , botany , and chemistry ; on Hebrew , Greek , and Latin ; on European and English history ; and on a wide range of literary subjects- \" The Pilgrim 's Progress , \" Walter Scott , and Browning ; on the Elizabethan dramatists Dekker , Lyly , and , of course , Shakespeare ( this particular month they were reading \" Hamlet \" and \" The Taming of the Shrew \" ) ; on Dante , Goethe , and French literature ( Diderot , Moliere , and \" Hamlet \" in French translation ) @ @ @ @ @ @ @ @ @ @ taking place in the heart of the East End , the poorest section of London .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "were",
+    "subject": "his particular month they were reading \" Hamlet \" and \" The Taming of the Shrew \"",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One is not surprised to find that most of the students attending the university extension courses were , as the economics teacher reported , the \" best sort \" of workers , \" steady , thrifty , interested in the improvement of their order \" ; or that the Latin and Greek students were mainly clerks or small tradesmen , although one was a foreman at the docks .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One is not surprised to find that most of the students attending the university extension courses",
+    "verb": "were",
+    "subject": "one was a foreman at the docks",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "From the beginning the residential function was given at least as much weight as the communal function ; indeed the two were seen as integrally related because they both derived from the idea of citizenship .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "From the beginning the residential function",
+    "verb": "was",
+    "subject": "a of citizenship",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "There are , in fact , very few criticisms currently made of them that they did not anticipate and try to address-and not only criticisms of their policies and institutions , but of themselves personally , their motives and behavior .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "are",
+    "subject": "their policies and institutions",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "But many of them-and most of the more prominent ones-were at least as thoughtful , analytic , and self-critical as their counterparts today . <p> In one respect they were more admirable than their successors .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In one respect they",
+    "verb": "were",
+    "subject": "their successors",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "To one historian this is evidence of an \" authoritarian \" disposition .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "To one historian this",
+    "verb": "is",
+    "subject": "an \" authoritarian \" disposition",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "existential",
+    "sentence": "There were others , however , as serious as Wilson was , and they had the leisure to study and write in the Oxonian campus bordered by the eighteenth-century facades of Nassau Street .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "were",
+    "subject": "an campus bordered by the eighteenth-century facades of Nassau Street",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In old age Wilson would half-nostalgically recall these families who \" were well-to-do or , if not , belonged ' through their family connections , and who occupied positions of responsibility> \" Their conversation afforded perspective on the collegiate scene . <p> There was little academic pressure in the first college years , as Wilson 's letters to Bellinger show . \" Up betimes and to McCosh Hall where I am examined in College Algebra , which , God help me , I fear I did do very ill , \" the freshman writes in the style of Pepys 's \" Diary . \" \" Thence to dinner , and after to Sir Stanley 's chamber ....",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In old age Wilson would half-nostalgically recall these families who \"",
+    "verb": "were",
+    "subject": "their family connections",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In his Greek studies as an upperclassman he was using the gilt-edged editions published at Oxford by the Clarendon Press .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In his Greek studies as an upperclassman he",
+    "verb": "was",
+    "subject": "the gilt-edged editions published at Oxford by the Clarendon Press",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "Ironically , the last major man of letters in the English line was to be an American literary nationalist . <p> In a photograph as an upperclassman Edmund Wilson appears austere and purposeful , looking as if he had been studying more than was socially desirable at Princeton .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In a photograph as an upperclassman Edmund Wilson",
+    "verb": "appears",
+    "subject": "an was socially desirable at Princeton",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "In this way of thinking Wilson was @ @ @ @ @ @ @ @ @ @ himself playing with an eraser instead of applying himself to the page of Homer before him , he grandiloquently despaired- \" Calvin , I understand you ; Jonathan Edwards , you are justifies . \" But he also made life fun for his literary friends , for he loved jokes , parodies , and literary hoaxes .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "In this way of thinking Wilson",
+    "verb": "was",
+    "subject": "his literary friends",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "At the other extreme was John Wyeth- , the \" pure aesthete \" of the class , who seemed all too willing to leave the real world to the Philistines .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "At the other extreme",
+    "verb": "was",
+    "subject": "all too willing to leave the real world to the Philistines",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "existential",
+    "sentence": "Near the end of his life , he recalled how Edmund and he , \" by some mystery \" elected to a club , discussed literature and art at dinner alone among the socialites and jocks , Wilson not in the least intimidated . \" There was something wonderful about him , \" Wyeth said . <p> The campus writers Wilson thought most talented were Stanley Dell , his friend from Hill , John Peale Bishop , who succeeded him as editor of the magazine , and Scott Fitzgerald , who entered the group through his friendship with John .",
+    "constituent_type": "AdvP (Existential)",
+    "fronted_constituent": "There",
+    "verb": "was",
+    "subject": "his friend from Hill",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In Wilson 's attitude there was a measure of snobbery toward someone who was both a practicing Catholic and a product of the Middle West-the latter circumstance from which Fitzgerald rather suffered , though he romanticized it at the end of \" The Great Gatsby \" . <p> One day , as readers of the dedicatory poem for \" The Crack-Up \" know , Scott left at Wilson 's door a story of a bohemian artist called \" Shadow Laurels , \" which for all its romantic cliche , had a lyric power .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In Wilson 's attitude there was a measure of snobbery toward someone who",
+    "verb": "was",
+    "subject": "its romantic cliche",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "To Bellinger he reports that \" Teek Whipple came in and burst into roars of laughter at the sentence I had written , which was My God , girl ! ' said the doctor .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "To Bellinger he reports that \" Teek Whipple",
+    "verb": "came",
+    "subject": "the sentence I had written",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "adv_inversion",
+    "sentence": "Perhaps this perception was accentuated because the university never gave him any money , something Wilson always needed ..",
+    "constituent_type": "AdvP (Adverb Phrase)",
+    "fronted_constituent": "Perhaps this perception",
+    "verb": "was",
+    "subject": "any money",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "pp_inversion",
+    "sentence": "What the figures mean , however , is another matter altogether , one that can be explained more satisfactorily by history than by statistical analysis . <p> At the beginning of this century many people in the United States were worried that there would be too many Ph.D . ' s , not too few @ @ @ @ @ @ @ @ @ @ the increasing hold of the Ph.D .",
+    "constituent_type": "PP (Prepositional Phrase)",
+    "fronted_constituent": "At the beginning of this century many people in the United States",
+    "verb": "were",
+    "subject": "any Ph",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "At a time when Yale is nurturing a number of innovative academic departments -- specifically those in area studies and the social sciences -- some @ @ @ @ @ @ @ @ @ @ arts canon could impede further curricular progress and experimentation . <p> In light of the probable pessimism with which many in this community will greet Kagan 's appointment , the new dean must act quickly and decisively to prove his detractors wrong . <p> After four years of a dean perceived by most undergraduates as unresponsive to their concerns and uninterested in discussing their points of view , Kagan 's most pressing and difficult task will be to restore student faith in the position .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "At a time when Yale",
+    "verb": "is",
+    "subject": "any in this community will greet Kagan 's appointment",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In painting Block as a Pollyanna who believes that the current tax system is always fair , Kahane sets up a straw man .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In painting Block as a Pollyanna who believes that the current tax system",
+    "verb": "is",
+    "subject": "a straw man",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The textbooks suggest that anyone who thinks properly about the issues will reach liberal -- in some cases it seems fair to say radical -- conclusions . <p> To teach students that is to convey an unfortunate message indeed .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "To teach students that",
+    "verb": "is",
+    "subject": "an unfortunate message indeed",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "To refuse a hearing to an opinion because they are sure it is false is to assume that their certainty is the same as absolute certainty .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "To refuse a hearing to an opinion because they are sure it is false is to assume that their certainty",
+    "verb": "is",
+    "subject": "the same as absolute certainty",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In correspondence Dean Szathmary sought to defend her actions with the novel claim that her remarks on Rushton 's scientific credibility were made in her professional capacity , but her denial of his appeal was made in her entirely different capacity as dean , presumably suitably insulated from professional contamination : prosecutor and judge in one. 22 <p> In addition , Rushton 's department is attempting to require him to teach his large lecture sections this fall on videotape , which is again a denial of his academic freedom. 23 Apart from the unacceptability of such a requirement , Rushton will be deprived of his teaching assistant for grading because she will be needed to meet preceptorially with his students after his videotaped lectures .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In correspondence Dean Szathmary sought to defend her actions with the novel claim that her remarks on Rushton 's scientific credibility",
+    "verb": "were",
+    "subject": "his appeal was made in her entirely different capacity as dean",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "First , they claim that the theory is not true and that academic freedom only protects the truth. 24 But we have already considered this argument , and only add now that such a standard would even have failed to protect Galileo against the Inquisition , for , strictly speaking , his theories were false , as were all the leading astronomical theories of the time . <p> @ @ @ @ @ @ @ @ @ @ associated with the Canadian Broadcasting Company ( CBC ) put it in a televised debate with Rushton , \" In a society in which racism is rampant it is not sufficient for a scientist to say ' I am merely giving you truth ' . \" Suzuki 's doctrine is more subtle and so more dangerous .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In a society in which racism",
+    "verb": "is",
+    "subject": "more subtle and so more dangerous",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "At the University of Wisconsin-Milwaukee campus a resolution requiring that all students receive education in the \" life experiences \" of minority groups was hastily pushed through the faculty senate before the faculty as a whole had a chance to review the proposal .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "At the University of Wisconsin-Milwaukee campus a resolution requiring that all students receive education in the \" life experiences \" of minority groups",
+    "verb": "was",
+    "subject": "a whole had a chance to review the proposal",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In April of 1988 the faculty was unaware that the GER resolution was being entertained .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In April of 1988 the faculty was unaware that the GER resolution",
+    "verb": "was",
+    "subject": "being entertained",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "To the extent that this metaphor is tolerable we may hope to categorize the successful uses of metaphors and jokes in terms of how much outside or inside ourselves they take us .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "To the extent that this metaphor",
+    "verb": "is",
+    "subject": "the successful uses of metaphors and jokes in terms of how much outside or inside ourselves they take us",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "To use a joke in this way -- to have hypothesized that it will reach you when it does n't reach me -- is to engage in what I have elsewhere called a kind of fraudulence @ @ @ @ @ @ @ @ @ @ a joke with you because it has made someone else laugh and I might do this when I am the other laugher .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "To use a joke in this way -- to have hypothesized that it will reach you when it does n't reach me --",
+    "verb": "is",
+    "subject": "one else laugh and I might do this when I am the other laugher",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "At that time my father was restarting his insurance business after his time in the army , and he was conducting it out of @ @ @ @ @ @ @ @ @ @ building across the street , leaving his father and brother in the general store , and that is how I remember things . <p> I loved the store .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "At that time my father",
+    "verb": "was",
+    "subject": "other in the general store",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "What I want to propose here is the unofficial one of drifting , in Roland Barthes 's sense of the word , or traveling , in a somewhat more general economy . <p> In DC I met a friend who was only interested in the one session on the one canonical writer who constitutes his field .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In DC I met a friend who",
+    "verb": "was",
+    "subject": "one session on the one canonical writer who constitutes his field",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The lines at the bottom of the first page tell all : \" In the United States there is more space where nobody is than where anybody is .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "In the United States there is more space where nobody",
+    "verb": "is",
+    "subject": "an where anybody is",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Among the most vicious of these was the review of \" Composition as Explanation \" that appeared in The Calendar of Modern Letters , a short-lived but highly intelligent and provocative British periodical , in which Stein was described as possessing \" an intellect so cloudy as to be literally defective . \" Her response to the \" very nice very american \" young man in the Autobiography is , to the contrary , so decisive that it asks to be read not just as one incident in a book comprised of many such incidents but as a declaration of her own independence as a writer , once and for all . \" It 's alright , \" she said to the young man , \" I will write to the director and you might as well tell him also that everything that is written in the manuscript is written with the intention of its being so written and all he has to do is to print it and @ @ @ @ @ @ @ @ @ @ insistence here that her independence and her composition -- the conscious manipulation of her language -- be respected could well have been Emerson 's ; but he did not confront the same obstacles she did .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "Among the most vicious of these was the review of \" Composition as Explanation \" that",
+    "verb": "appeared",
+    "subject": "its being so written and all he has to do is to print it and @ @ @ @ @ @ @ @ @ @ insistence here that her independence and her composition -- the conscious manipulation of her language -- be respected could well have been Emerson 's",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One of the policy issues that was current at the time , a necessary accompaniment of school desegregation , was the future of black teachers as the formerly segregated school systems of the South were dismantled .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One of the policy issues that",
+    "verb": "was",
+    "subject": "a necessary accompaniment of school desegregation",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One would be that a major source of inequality of educational opportunity for black students was the fact that they were being taught by black teachers .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One would be that a major source of inequality of educational opportunity for black students",
+    "verb": "was",
+    "subject": "that they were being taught by black teachers",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One of the things I 've tried to do in the short time I 've been dean is to support , foster , and extend the study of the natural sciences at Yale .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One of the things I 've tried to do in the short time I 've been dean",
+    "verb": "is",
+    "subject": "the study of the natural sciences at Yale",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One of the greatest discoveries of humanist scholars was a copy of Lucretius ' poem On the Nature of Things , which made known to modem scientists the atomic theory of matter first formulated by Democritus of classical Greece .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One of the greatest discoveries of humanist scholars",
+    "verb": "was",
+    "subject": "a copy of Lucretius ' poem On the Nature of Things",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One dean of students estimated that between 6 and 10 percent of the undergraduates at his school ( \" a prestigious southern university \" ) are alcoholics , while another 30 to 40 percent are serious weekend drinkers . <p> The grimmer news about universities doubtless pertains to their large undergraduate populations , rather than to their graduate students .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One dean of students estimated that between 6 and 10 percent of the undergraduates at his school ( \" a prestigious southern university \" )",
+    "verb": "are",
+    "subject": "other 30 to 40 percent are serious weekend drinkers",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One gets the impression that the authors of this document are unacquainted with concepts of tyranny of the majority and freedom of association . <p> The desire to achieve unity on campus is only the beginning .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One gets the impression that the authors of this document",
+    "verb": "are",
+    "subject": "the majority and freedom of association",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "Two weeks into the voyage they informed the faculty that the students were \" norming \" ( translation : developing rules ) .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "Two weeks into the voyage they informed the faculty that the students",
+    "verb": "were",
+    "subject": "\" norming \"",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One hundred and fifteen professors signed a petition requesting a meeting for such @ @ @ @ @ @ @ @ @ @ program merely came to the vestibule of the meeting hall , carried pickets saying \" Socrates Is Dead , \" gaped and gawked into the meeting hall , and refused to come in .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One hundred and fifteen professors signed a petition requesting a meeting for such @ @ @ @ @ @ @ @ @ @ program merely",
+    "verb": "came",
+    "subject": "the vestibule of the meeting hall",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One reason some attend is to travel through all the reasons , or anyway get caught up in as many as possible and see @ @ @ @ @ @ @ @ @ @ possible to have another impossible fantasy : not only to be able to attend every session but to be able to hear every convention-saturated word .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One reason some attend",
+    "verb": "is",
+    "subject": "other impossible fantasy",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One could argue that either response is a legitimate , if minor , pleasure of attending the convention -- and , furthermore , that drifting into and then out of some sort of response ( as opposed to the room of the session ) is more or less the most compelling theoretical desideratum these days , when only a very general sort of interest in just about anything has replaced some clear basis for excluding at least a few things . <p> Of course subjects or authors are excluded .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One could argue that either response",
+    "verb": "is",
+    "subject": "most compelling theoretical desideratum these days",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "One year I spoke briefly to a man who appeared to feel that the convention had been ruined for him because the subject of the president 's address had not been published beforehand .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One year I spoke briefly to a man who",
+    "verb": "appeared",
+    "subject": "that the convention had been ruined for him because the subject of the president 's address had not been published beforehand",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "This frightens some people , who look for One Right Way to glue everything and everybody together and who are repelled by cultural plurality and eclecticism .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One Right Way to glue everything and everybody together and who",
+    "verb": "are",
+    "subject": "repelled by cultural plurality and eclecticism",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "At the end of the procession three people -- a young woman and two young men -- were voluntarily crucified .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "At the end of the procession three people -- a young woman and two young men --",
+    "verb": "were",
+    "subject": "voluntarily crucified",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In economics it would be better to hire a store clerk than a professor since stores and shopping are the stuff of experience : and in courses on urban costumbrismo a peddler or picaroon is preferable to a sociologist or literary scholar because he has the requisite experience .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In economics it would be better to hire a store clerk than a professor since stores and shopping",
+    "verb": "are",
+    "subject": "an costumbrismo a peddler or picaroon is preferable to a sociologist or literary scholar because he has the requisite experience",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "Clearly , anyone who knows enough about education to take such considerations into account does so when deciding which institution is better run , and run by the kind of people we should want to teach and guide our daughters and sons . <p> To obscure all of this by telling parents that price ( or cost ) should not figure in college choice is morally base .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "To obscure all of this by telling parents that price ( or cost ) should not figure in college choice",
+    "verb": "is",
+    "subject": "morally base",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In those days the minimum age for being licensed @ @ @ @ @ @ @ @ @ @ age in high school and unless one 's birthday fell on Saturday or during the summer vacation , one took the morning off from school , went to the county courthouse to take the driving examination , and came back to school before lunch time a legal driver .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In those days the minimum age for being licensed @ @ @ @ @ @ @ @ @ @ age in high school and unless one 's birthday",
+    "verb": "fell",
+    "subject": "one took the morning off from school",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In Poetry and @ @ @ @ @ @ @ @ @ @ America , Stein explained that the only activity that had been \" completely exciting and completely completing \" in school had been the diagraming of sentences , which she described as an experience of completely possessing something and incidentally one 's self . \" It was this contingent grounding of the self in language that constituted her entirely Emersonian response to Emerson 's own quietly astounding description of thought as a stream in \" Natural History of Intellect , \" which James would put to such good use . <p> In my thought I seem to stand on the bank of a river and watch the endless flow of the stream , floating objects of all shapes , colors and natures ; nor can I much detain them as they pass , except by running beside them a little way along the bank .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In my thought I seem to stand on the bank of a river and watch the endless",
+    "verb": "flow",
+    "subject": "an I much detain them as they pass",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In these Stein tried to portray their attitudes toward themselves -- what they looked like to themselves -- by conveying the relation between what they were saying and how they were saying it .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In these Stein tried to portray their attitudes toward themselves -- what they looked like to themselves -- by conveying the relation between what they were saying and how they",
+    "verb": "were",
+    "subject": "saying it",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "Behind Fearful Symmetry , Northrop Frye 's 1947 book on Blake , and Geoffrey Hartman 's well-known essays on Keats 's \" To Autumn \" and the Hyperion poems ( collected in 1975 ) @ @ @ @ @ @ @ @ @ @ sense the Romantic poets were still out ahead of us .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "To Autumn \" and the Hyperion poems ( collected in 1975 ) @ @ @ @ @ @ @ @ @ @ sense the Romantic poets",
+    "verb": "were",
+    "subject": "still out ahead of us",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In a prose poem of 1851 he described a poisoned group of workers : <p> This languishing and pining population . . . who feel a purple and impetuous blood coursing through their veins , and who cast a long , sorrow-laden look at the sunlight and shadows of the great parks . <p> In Baudelaire 's Paris misery and wealth were inextricable .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In Baudelaire 's Paris misery and wealth",
+    "verb": "were",
+    "subject": "inextricable",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In the middle Twenties between Third and Lexington is the equestrian center of New York , where several stores sell saddles , crops , and western apparel .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In the middle Twenties between Third and Lexington",
+    "verb": "is",
+    "subject": "several stores sell saddles",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In this visit one sees the mixture of what is weak and what is strong in his travel writing , as well as what is accidental and what is probably purposeful , what is unconscious and what may very well be quite conscious as the travel writer applies the putatively inconsiderate acrylic of his words to the page .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In this visit one sees the mixture of what is weak and what",
+    "verb": "is",
+    "subject": "his travel writing",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In order to @ @ @ @ @ @ @ @ @ @ phenomenon or one that is idiosyncratic in nature , a variety of diseases and programs should be evaluated .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In order to @ @ @ @ @ @ @ @ @ @ phenomenon or one that",
+    "verb": "is",
+    "subject": "a variety of diseases and programs should be evaluated",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "INFORMATION STRUCTURING <p> Hierarchical Structure <p> In biology the classification of plants and animals is based almost entirely on their structure ( Abercrombie , Hickman and Johnson , 1973 ) , with organisms being classified into a hierarchical series of groups .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In biology the classification of plants and animals",
+    "verb": "is",
+    "subject": "their structure ( Abercrombie , Hickman and Johnson , 1973 )",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "Within the @ @ @ @ @ @ @ @ @ @ former brutality and ethnocentricity of the Suns came from enormous trauma , grief , and pain in their ancient and forgotten history .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "Within the @ @ @ @ @ @ @ @ @ @ former brutality and ethnocentricity of the Suns",
+    "verb": "came",
+    "subject": "their ancient and forgotten history",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "Love expresses the secret in us , our aloneness and our longing for union and reunion ; work expresses the secret in God , the thing in God we have access to , the thing we can bring to bear on the loneliness and the longing . \" To love and to work \" is a formula of balance , as @ @ @ @ @ @ @ @ @ @ that is all work without love as well as from a life that is all love and human relations without achievement .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "To love and to work \"",
+    "verb": "is",
+    "subject": "that is all work without love as well as from a life that is all love and human relations without achievement",
+    "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In the spiritual realm such supposed comprehension of what is to be done and how it is to be done can embody itself in ritual , in meditation , in specific postures , in the suspension of action , in silence , even in Zen 's \" just carrying wood and drawing water , \" if these everyday actions are accompanied by the thought : \" This is it .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In the spiritual realm such supposed comprehension of what is to be done and how it",
+    "verb": "is",
+    "subject": "one can embody itself in ritual",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "Interaction Between Jesus and the World <p> At the center of the gospel story is Jesus 's intimacy with God , Jesus with his Abba .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "Between Jesus and the World <p> At the center of the gospel story",
+    "verb": "is",
+    "subject": "his Abba",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "In the worshiping and ministering life of the church community Peter has @ @ @ @ @ @ @ @ @ @ of the ways in which Christians can live and worship in a liberated community .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In the worshiping and ministering life of the church community Peter has @ @ @ @ @ @ @ @ @ @ of the ways in which Christians can",
+    "verb": "live",
+    "subject": "a liberated community",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "Among the many things they had to begin to learn during their wanderings -- and this is particularly appropriate for South Africa today , though not South Africa alone -- was how the different groups within the Hebrews might become a people , and , more specifically , the people of God .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "Among the many things they had to begin to learn during their wanderings -- and this",
+    "verb": "is",
+    "subject": "one -- was how the different groups within the Hebrews might become a people",
+    "is_locative": true,
+    "confidence": "medium"
+  }
+]
