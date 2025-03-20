@@ -5,8 +5,8 @@
   "lastUpdated": "2025-03-20",
   "dataSource": {
     "files": 5,
-    "sentences": 614292,
-    "inversions": 25689
+    "sentences": 601561,
+    "inversions": 22672
   },
   "chartColors": {
     "constituentTypes": [

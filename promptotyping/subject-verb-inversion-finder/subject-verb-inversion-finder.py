@@ -79,47 +79,90 @@ class EnhancedInversionFinder:
         # Improved pattern for detecting sentence boundaries
         self.sentence_boundary = re.compile(r'(?<=[.!?])\s+(?=[A-Z])')
         
-        # Enhanced patterns for inversions
+        # Common verbs in inversions pattern
+        inversion_verbs = r'(is|are|was|were|come[s]?|came|stand[s]?|stood|remain[s]?|remained|exist[s]?|existed|appear[s]?|appeared|rise[s]?|rose|emerge[s]?|emerged|follow[s]?|followed|grow[s]?|grew|live[s]?|lived|flow[s]?|flowed|run[s]?|ran|rest[s]?|rested|fall[s]?|fell)'
         
-        # 1. Pattern for existential there constructions
-        self.existential_pattern = re.compile(
-            r"(?<!\w)There\s+(is|are|was|were|exists|existed|remains|remained|seems|seemed|appears|appeared|stands|stood|comes|came)\s+"
-        )
+        # Define pattern templates with their configs
+        self.pattern_configs = {
+            # 1. Pattern for existential there constructions
+            "existential": {
+                "pattern": re.compile(
+                    r"(?<!\w)There\s+(is|are|was|were|exists|existed|remains|remained|seems|seemed|appears|appeared|stands|stood|comes|came)\s+"
+                ),
+                "constituent_type": "AdvP (Existential)",
+                "is_locative": True
+            },
+            
+            # 2. Enhanced pattern for prepositional phrases
+            "pp_inversion": {
+                "pattern": re.compile(
+                    r"(?<!\w)(In|On|At|From|To|Into|Under|Over|Within|Behind|Above|Below|Among|Amongst|Between|Through|Across|Around|Along|Near|Beyond|Beside|Outside|Inside|Beneath)\s+([^.,;:!?]+?)\s+" + inversion_verbs + r"\s+"
+                ),
+                "constituent_type": "PP (Prepositional Phrase)",
+                "is_locative": True
+            },
+            
+            # 3. Advanced pattern for PPs with embedded clauses - IMPROVED with case insensitivity
+            "complex_pp_inversion": {
+                "pattern": re.compile(
+                    r"(?<!\w)(In|On|At|From|To|Into|Under|Over|Within|Behind|Above|Below|Among|Amongst|Between|Through|Across|Around|Along|Near|Beyond|Beside|Outside|Inside|Beneath)\s+([^.,;:!?]*?(?:which|that|who|whose|where|when)[^.,;:!?]*?)\s+(is|are|was|were|come[s]?|came|stand[s]?|stood|remain[s]?|remained|exist[s]?|existed|appear[s]?|appeared)\s+",
+                    re.IGNORECASE  # Add case insensitivity to improve detection rate
+                ),
+                "constituent_type": "PP (Complex Prepositional Phrase)",
+                "is_locative": True
+            },
+            
+            # 4. Pattern for adverbial fronted inversions
+            "adv_inversion": {
+                "pattern": re.compile(
+                    r"(?<!\w)(Here|There|Now|Then|Never|Seldom|Rarely|Only|Thus|So|Indeed|Perhaps|Maybe|Today|Yesterday|Tomorrow|Everywhere|Somewhere|Nowhere|Often|Always|Again)\s+([^.,;:!?]*?)\s+" + inversion_verbs + r"\s+"
+                ),
+                "constituent_type": "AdvP (Adverb Phrase)",
+                "is_locative": False  # Will be checked individually
+            },
+            
+            # 5. Pattern for adjective phrases at start
+            "ap_inversion": {
+                "pattern": re.compile(
+                    r"(?<!\w)(Most|More|Less|Least|Especially|Particularly|Significantly|Notably|Central|Crucial|Essential|Paramount|Fundamental|Important|Relevant|Critical|Notable|Primary|First|Last|Foremost)\s+([^.,;:!?]*?)\s+" + inversion_verbs + r"\s+"
+                ),
+                "constituent_type": "AP (Adjective Phrase)",
+                "is_locative": False
+            },
+            
+            # 6. Pattern for participle phrases at start
+            "vp_inversion": {
+                "pattern": re.compile(
+                    r"(?<!\w)(Included|Located|Situated|Standing|Lying|Sitting|Attached|Connected|Surrounding|Emerging|Following|Preceding|Dominating|Accompanying|Hanging|Floating|Reflected|Highlighted|Revealed)\s+([^.,;:!?]*?)\s+" + inversion_verbs + r"\s+"
+                ),
+                "constituent_type": "VP (Verb Phrase)",
+                "is_locative": False  # Will be checked individually
+            },
+            
+            # 7. Pattern for coordinated structures (detecting "and" or "or" in fronted elements)
+            "coordinated_inversion": {
+                "pattern": re.compile(
+                    r"(?<!\w)(In|On|At|From|To|Into|Under|Over|Within|Behind|Above|Below|Among|Amongst|Between|Through|Across|Around|Along)\s+([^.,;:!?]*?\s+(?:and|or)\s+[^.,;:!?]*?)\s+" + inversion_verbs + r"\s+"
+                ),
+                "constituent_type": "Coordinated Structure",
+                "is_locative": True
+            },
+            
+            # 8. Pattern for numeric expressions
+            "numeric_inversion": {
+                "pattern": re.compile(
+                    r"(?<!\w)(One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth)\s+([^.,;:!?]*?)\s+" + inversion_verbs + r"\s+"
+                ),
+                "constituent_type": "Numeric Expression",
+                "is_locative": False
+            }
+        }
         
-        # 2. Enhanced pattern for prepositional phrases - allows for more complex phrases
-        self.pp_inversion_pattern = re.compile(
-            r"(?<!\w)(In|On|At|From|To|Into|Under|Over|Within|Behind|Above|Below|Among|Amongst|Between|Through|Across|Around|Along|Near|Beyond|Beside|Outside|Inside|Beneath)\s+([^.,;:!?]+?)\s+(is|are|was|were|come[s]?|came|stand[s]?|stood|remain[s]?|remained|exist[s]?|existed|appear[s]?|appeared|rise[s]?|rose|emerge[s]?|emerged|follow[s]?|followed|grow[s]?|grew|live[s]?|lived|flow[s]?|flowed|run[s]?|ran|rest[s]?|rested|fall[s]?|fell)\s+"
-        )
+        # Order of pattern checking for standard patterns
+        self.standard_patterns = ["existential", "pp_inversion", "adv_inversion", "ap_inversion", "vp_inversion"]
         
-        # 3. Advanced pattern for PPs with embedded clauses
-        self.complex_pp_pattern = re.compile(
-            r"(?<!\w)(In|On|At|From|To|Into|Under|Over|Within|Behind|Above|Below|Among|Amongst|Between|Through|Across|Around|Along|Near|Beyond|Beside|Outside|Inside|Beneath)\s+([^.,;:!?]*?(?:which|that|who|whose|where|when)[^.,;:!?]*?)\s+(is|are|was|were|come[s]?|came|stand[s]?|stood|remain[s]?|remained|exist[s]?|existed|appear[s]?|appeared|rise[s]?|rose|emerge[s]?|emerged|follow[s]?|followed|grow[s]?|grew|live[s]?|lived|flow[s]?|flowed|run[s]?|ran|rest[s]?|rested|fall[s]?|fell)\s+"
-        )
-        
-        # 4. Pattern for adverbial fronted inversions
-        self.adv_inversion_pattern = re.compile(
-            r"(?<!\w)(Here|There|Now|Then|Never|Seldom|Rarely|Only|Thus|So|Indeed|Perhaps|Maybe|Today|Yesterday|Tomorrow|Everywhere|Somewhere|Nowhere|Often|Always|Again)\s+([^.,;:!?]*?)\s+(is|are|was|were|come[s]?|came|stand[s]?|stood|remain[s]?|remained|exist[s]?|existed|appear[s]?|appeared|rise[s]?|rose|emerge[s]?|emerged|follow[s]?|followed|grow[s]?|grew|live[s]?|lived|flow[s]?|flowed|run[s]?|ran|rest[s]?|rested|fall[s]?|fell)\s+"
-        )
-        
-        # 5. Pattern for adjective phrases at start
-        self.ap_inversion_pattern = re.compile(
-            r"(?<!\w)(Most|More|Less|Least|Especially|Particularly|Significantly|Notably|Central|Crucial|Essential|Paramount|Fundamental|Important|Relevant|Critical|Notable|Primary|First|Last|Foremost)\s+([^.,;:!?]*?)\s+(is|are|was|were|come[s]?|came|stand[s]?|stood|remain[s]?|remained|exist[s]?|existed|appear[s]?|appeared|rise[s]?|rose|emerge[s]?|emerged|follow[s]?|followed|grow[s]?|grew|live[s]?|lived|flow[s]?|flowed|run[s]?|ran|rest[s]?|rested|fall[s]?|fell)\s+"
-        )
-        
-        # 6. Pattern for participle phrases at start
-        self.vp_inversion_pattern = re.compile(
-            r"(?<!\w)(Included|Located|Situated|Standing|Lying|Sitting|Attached|Connected|Surrounding|Emerging|Following|Preceding|Dominating|Accompanying|Hanging|Floating|Reflected|Highlighted|Revealed)\s+([^.,;:!?]*?)\s+(is|are|was|were|come[s]?|came|stand[s]?|stood|remain[s]?|remained|exist[s]?|existed|appear[s]?|appeared|rise[s]?|rose|emerge[s]?|emerged|follow[s]?|followed|grow[s]?|grew|live[s]?|lived|flow[s]?|flowed|run[s]?|ran|rest[s]?|rested|fall[s]?|fell)\s+"
-        )
-        
-        # 7. Pattern for coordinated structures (detecting "and" or "or" in fronted elements)
-        self.coordinated_pattern = re.compile(
-            r"(?<!\w)(In|On|At|From|To|Into|Under|Over|Within|Behind|Above|Below|Among|Amongst|Between|Through|Across|Around|Along)\s+([^.,;:!?]*?\s+(?:and|or)\s+[^.,;:!?]*?)\s+(is|are|was|were|come[s]?|came|stand[s]?|stood|remain[s]?|remained|exist[s]?|existed|appear[s]?|appeared|rise[s]?|rose|emerge[s]?|emerged|follow[s]?|followed|grow[s]?|grew|live[s]?|lived|flow[s]?|flowed|run[s]?|ran|rest[s]?|rested|fall[s]?|fell)\s+"
-        )
-        
-        # 8. Pattern for numeric expressions
-        self.numeric_pattern = re.compile(
-            r"(?<!\w)(One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth)\s+([^.,;:!?]*?)\s+(is|are|was|were|come[s]?|came|stand[s]?|stood|remain[s]?|remained|exist[s]?|existed|appear[s]?|appeared|rise[s]?|rose|emerge[s]?|emerged|follow[s]?|followed|grow[s]?|grew|live[s]?|lived|flow[s]?|flowed|run[s]?|ran|rest[s]?|rested|fall[s]?|fell)\s+"
-        )
+        # Order of pattern checking for complex patterns (checked first)
+        self.complex_patterns = ["coordinated_inversion", "complex_pp_inversion", "numeric_inversion"]
     
     def load_corpus_files(self):
         """Load all corpus files matching the pattern."""
@@ -129,7 +172,7 @@ class EnhancedInversionFinder:
         return files
     
     def read_file(self, file_path):
-        """Read file content with encoding error handling."""
+        """Read file content with improved error handling."""
         try:
             with open(file_path, 'r', encoding='utf-8') as file:
                 return file.read()
@@ -137,9 +180,17 @@ class EnhancedInversionFinder:
             try:
                 with open(file_path, 'r', encoding='latin-1') as file:
                     return file.read()
-            except Exception as e:
-                print(f"Error reading {file_path}: {e}")
-                return ""
+            except UnicodeDecodeError:
+                # Try additional encodings
+                try:
+                    with open(file_path, 'r', encoding='cp1252') as file:
+                        return file.read()
+                except Exception as e:
+                    print(f"Error reading {file_path}: {e}")
+                    return ""
+        except Exception as e:
+            print(f"Error reading {file_path}: {e}")
+            return ""
     
     def clean_text(self, text):
         """Clean text by replacing paragraph markers and normalizing whitespace."""
@@ -157,7 +208,7 @@ class EnhancedInversionFinder:
         return [p.strip() for p in paragraphs if p.strip()]
     
     def extract_sentences(self, paragraph):
-        """Extract sentences more robustly."""
+        """Extract sentences more robustly with improved handling of edge cases."""
         # First, clean the paragraph
         cleaned_para = self.clean_text(paragraph)
         
@@ -179,346 +230,209 @@ class EnhancedInversionFinder:
     def identify_subject(self, text_after_verb):
         """
         Improved method to identify the subject that follows the verb in an inversion.
-        This handles more complex subject structures.
+        This handles more complex subject structures with enhanced pattern matching
+        and provides more consistent results.
         """
-        # Look for the first noun phrase after the verb
-        # First check for determiners/articles followed by words
+        # Skip whitespace at the beginning
+        text_after_verb = text_after_verb.lstrip()
+        
+        # Use a more greedy approach to extract larger chunks
         for marker in self.subject_markers:
-            # Pattern matches determiners followed by a noun phrase up to the next clause break
-            pattern = re.compile(r'(' + re.escape(marker) + r'\s+[^.,;:!?()]+(?:\([^)]*\)[^.,;:!?]*)*)')
+            pattern = re.compile(r'(' + re.escape(marker) + r'\s+[^.,;:!?()]*(?:\([^)]*\)[^.,;:!?()]*)*)')
             match = pattern.search(text_after_verb)
-            if match:
-                # Found a potential subject starting with a determiner
+            if match and len(match.group(1).split()) >= 2:  # Ensure we get a substantial subject
                 return match.group(1).strip()
         
-        # If no determiner found, look for a nominal group
-        # Pattern matches a sequence of words that could form a noun phrase
-        np_pattern = re.compile(r'([A-Z][a-z]*(?:\s+[a-z]+){0,5})')
-        match = np_pattern.search(text_after_verb)
+        # Check for proper nouns and capitalized noun phrases
+        proper_np_pattern = re.compile(r'([A-Z][a-z]+(?:\s+(?:[A-Z][a-z]+|[a-z]+)){0,5}(?=\s*[.,;:!?()]|\s*$))')
+        match = proper_np_pattern.search(text_after_verb)
         if match:
             return match.group(1).strip()
         
-        # If all else fails, take the first substantial chunk up to punctuation or conjunction
-        match = re.search(r'([^.,;:!?()\s]+(?:\s+[^.,;:!?()]+){0,7})', text_after_verb)
-        if match:
-            return match.group(1).strip()
-        
-        return "Unknown subject"
+        # Fall back to simpler pattern if no match found
+        first_chunk = re.search(r'([^.,;:!?()\s]+(?:\s+[^.,;:!?()]+){0,5})', text_after_verb)
+        return first_chunk.group(1).strip() if first_chunk else "Unknown subject"
     
     def validate_inversion(self, sentence, fronted, verb, subject):
         """
-        Validate a potential inversion with heuristic rules.
-        Returns a confidence score: "high", "medium", or "low" plus reasons.
+        Enhanced validation with more deterministic rules to improve confidence assessment consistency.
+        Returns a confidence score: "high", "medium", or "low" plus detailed reasons.
         """
-        confidence = "medium"  # Default
+        # Define absolute criteria for confidence levels
+        confidence = "medium"  # Start with medium confidence
         reasons = []
         
-        # Check if the subject looks legitimate
-        if any(subject.lower().startswith(marker) for marker in self.subject_markers):
+        # Clear criteria for high confidence
+        if (any(subject.lower().startswith(marker) for marker in self.subject_markers) and
+            verb.lower() in self.common_inversion_verbs and
+            len(subject.split()) <= 10):  # Limit subject length for high confidence
             confidence = "high"
-            reasons.append("Subject starts with determiner")
+            reasons.append("Clear subject with determiner and common verb")
         
-        # Check for question patterns (unlikely to be inversions)
-        if "?" in sentence or sentence.lower().startswith("wh"):
+        # Additional high confidence indicators
+        if confidence != "high" and verb.lower() in ["is", "are", "was", "were"] and len(subject.split()) >= 2:
+            confidence = "high"
+            reasons.append("Be-verb with substantial subject")
+        
+        # Medium confidence indicators
+        if confidence != "high":
+            if verb.lower() in self.common_inversion_verbs:
+                reasons.append("Common inversion verb")
+            if len(fronted.split()) < 10:
+                reasons.append("Reasonable fronted constituent length")
+        
+        # Clear low confidence criteria
+        if "?" in sentence or sentence.strip().endswith('?'):
             confidence = "low"
             reasons.append("Likely a question, not inversion")
         
-        # Check for quotation patterns
-        if fronted.count('"') % 2 != 0 or '"' in fronted and '"' in subject:
+        if fronted.count('"') % 2 != 0 or ('"' in fronted and '"' in subject):
             confidence = "low"
-            reasons.append("Quoted text spans front and subject - likely not inversion")
+            reasons.append("Quoted text spans elements")
         
-        # Check verb is a common inversion verb
-        if verb.lower() in self.common_inversion_verbs:
-            if confidence != "high":
-                confidence = "medium"
-            reasons.append("Common inversion verb")
-        
-        # Check for parenthetical elements that could confuse pattern matching
-        if "(" in fronted and ")" not in fronted:
+        if subject == "Unknown subject" or not subject:
             confidence = "low"
-            reasons.append("Unbalanced parentheses in fronted constituent")
+            reasons.append("Subject could not be properly identified")
         
-        # Word count check - extremely long fronted constituents are suspicious
+        if ('(' in fronted and ')' not in fronted) or (')' in fronted and '(' not in fronted):
+            confidence = "low"
+            reasons.append("Unbalanced parentheses")
+        
+        if re.search(r'[;:]\s*$', fronted):
+            confidence = "low"
+            reasons.append("Fronted constituent ends with semicolon or colon")
+        
+        # Length-based adjustments
         fronted_words = len(fronted.split())
-        if fronted_words > 15:
-            if confidence == "high":
-                confidence = "medium"
+        subject_words = len(subject.split())
+        
+        if fronted_words > 15 and confidence == "high":
+            confidence = "medium"
             reasons.append("Very long fronted constituent")
         
-        # Balance check - subjects are typically shorter than fronted elements in inversions
-        subject_words = len(subject.split())
-        if fronted_words < subject_words / 2:
-            if confidence == "high":
-                confidence = "medium"
+        if fronted_words < subject_words / 2 and confidence == "high":
+            confidence = "medium"
             reasons.append("Subject much longer than fronted element")
         
         return confidence, reasons
     
-    def find_complex_inversions(self, sentence):
-        """Advanced inversion finder for complex cases using specialized patterns."""
+    def process_inversion_pattern(self, sentence, pattern_type):
+        """
+        Generic method to process a potential inversion pattern.
+        This reduces code duplication across different inversion types.
+        """
+        # Skip if not a valid pattern type
+        if pattern_type not in self.pattern_configs:
+            return None
+        
+        config = self.pattern_configs[pattern_type]
+        pattern = config["pattern"]
+        constituent_type = config["constituent_type"]
+        is_locative_default = config["is_locative"]
+        
+        match = pattern.search(sentence)
+        if not match:
+            return None
+        
+        # For existential pattern
+        if pattern_type == "existential":
+            verb = match.group(1)
+            fronted = "There"
+            # Get text after the verb to identify the subject
+            after_verb = sentence[match.end():]
+            
+        # For other patterns
+        else:
+            # Extract components (match groups will differ slightly by pattern)
+            if pattern_type in ["pp_inversion", "complex_pp_inversion", "adv_inversion", 
+                               "ap_inversion", "vp_inversion", "coordinated_inversion", 
+                               "numeric_inversion"]:
+                trigger = match.group(1)
+                content = match.group(2) if len(match.groups()) > 1 else ""
+                verb = match.group(3) if len(match.groups()) > 2 else match.group(2)
+                fronted = f"{trigger} {content}".strip()
+                # Get text after the verb to identify the subject
+                after_verb = sentence[match.start() + len(fronted) + len(verb) + 1:]
+            else:
+                # Fallback (shouldn't happen with current patterns)
+                return None
+        
+        # Identify the subject consistently
+        subject = self.identify_subject(after_verb)
+        
+        # Determine if locative based on pattern type and content
+        is_locative = is_locative_default
+        if pattern_type == "adv_inversion":
+            # For adverbial inversions, check if trigger is locative
+            is_locative = match.group(1).lower() in {"here", "there"}
+        elif pattern_type == "vp_inversion":
+            # For verb phrase inversions, certain participles indicate location
+            is_locative = match.group(1).lower() in {"located", "situated"}
+        
+        # Validate this inversion
+        confidence, reasons = self.validate_inversion(sentence, fronted, verb, subject)
+        
+        # Create the inversion object
+        inversion = {
+            "type": pattern_type,
+            "sentence": sentence,
+            "fronted_constituent": fronted,
+            "verb": verb,
+            "subject": subject,
+            "constituent_type": constituent_type,
+            "is_locative": is_locative,
+            "confidence": confidence,
+            "validation_reasons": reasons
+        }
+        
+        return inversion
+    
+    def find_inversions_in_sentence(self, sentence):
+        """
+        Enhanced inversion finder with unified pattern processing to reduce code duplication.
+        Uses a more streamlined approach to check different inversion types.
+        """
         inversions = []
         
         # Skip very short sentences, questions, and sentences with metadata markers
         if len(sentence) < 10 or sentence.endswith('?') or '<<' in sentence:
             return inversions
         
-        # Check for coordinated structures first
-        coord_match = self.coordinated_pattern.search(sentence)
-        if coord_match:
-            preposition = coord_match.group(1)
-            phrase_content = coord_match.group(2)
-            verb = coord_match.group(3)
-            fronted = f"{preposition} {phrase_content}".strip()
-            
-            # Get text after the verb to identify the subject
-            after_verb = sentence[coord_match.start() + len(fronted) + len(verb) + 1:]
-            subject = self.identify_subject(after_verb)
-            
-            # Validate this inversion
-            confidence, reasons = self.validate_inversion(sentence, fronted, verb, subject)
-            
-            inversions.append({
-                "type": "coordinated_inversion",
-                "sentence": sentence,
-                "fronted_constituent": fronted,
-                "verb": verb,
-                "subject": subject,
-                "constituent_type": "Coordinated Structure",
-                "is_locative": any(marker in fronted.lower().split() for marker in self.locative_markers),
-                "confidence": confidence,
-                "validation_reasons": reasons
-            })
-            
-            return inversions
+        # First check complex patterns (may capture more specific cases)
+        for pattern_type in self.complex_patterns:
+            inversion = self.process_inversion_pattern(sentence, pattern_type)
+            if inversion:
+                inversions.append(inversion)
+                return inversions  # Return as soon as we find a complex match
         
-        # Check for complex prepositional phrases with embedded clauses
-        complex_pp_match = self.complex_pp_pattern.search(sentence)
-        if complex_pp_match:
-            preposition = complex_pp_match.group(1)
-            phrase_content = complex_pp_match.group(2)
-            verb = complex_pp_match.group(3)
-            fronted = f"{preposition} {phrase_content}".strip()
-            
-            # Get text after the verb to identify the subject
-            after_verb = sentence[complex_pp_match.start() + len(fronted) + len(verb) + 1:]
-            subject = self.identify_subject(after_verb)
-            
-            # Validate this inversion
-            confidence, reasons = self.validate_inversion(sentence, fronted, verb, subject)
-            
-            inversions.append({
-                "type": "complex_pp_inversion",
-                "sentence": sentence,
-                "fronted_constituent": fronted,
-                "verb": verb,
-                "subject": subject,
-                "constituent_type": "PP (Complex Prepositional Phrase)",
-                "is_locative": any(marker in fronted.lower().split() for marker in self.locative_markers),
-                "confidence": confidence,
-                "validation_reasons": reasons
-            })
-            
-            return inversions
-        
-        # Check for numeric patterns (could be age, order, etc.)
-        numeric_match = self.numeric_pattern.search(sentence)
-        if numeric_match:
-            number = numeric_match.group(1)
-            phrase_content = numeric_match.group(2)
-            verb = numeric_match.group(3)
-            fronted = f"{number} {phrase_content}".strip()
-            
-            # Get text after the verb to identify the subject
-            after_verb = sentence[numeric_match.start() + len(fronted) + len(verb) + 1:]
-            subject = self.identify_subject(after_verb)
-            
-            # Validate this inversion
-            confidence, reasons = self.validate_inversion(sentence, fronted, verb, subject)
-            
-            inversions.append({
-                "type": "numeric_inversion",
-                "sentence": sentence,
-                "fronted_constituent": fronted,
-                "verb": verb,
-                "subject": subject,
-                "constituent_type": "Numeric Expression",
-                "is_locative": False,  # Numeric expressions are rarely locative
-                "confidence": confidence,
-                "validation_reasons": reasons
-            })
-        
-        return inversions
-    
-    def find_inversions_in_sentence(self, sentence):
-        """
-        Enhanced inversion finder that combines standard pattern matching
-        with specialized detection for complex cases.
-        """
-        inversions = []
-        
-        # Skip very short sentences and questions
-        if len(sentence) < 10 or sentence.endswith('?'):
-            return inversions
-        
-        # First try complex pattern recognition for specialized cases
-        complex_inversions = self.find_complex_inversions(sentence)
-        if complex_inversions:
-            return complex_inversions
-        
-        # Check for existential 'there' constructions
-        existential_match = self.existential_pattern.search(sentence)
-        if existential_match:
-            verb = existential_match.group(1)
-            after_verb = sentence[existential_match.end():]
-            
-            # Identify the subject
-            subject = self.identify_subject(after_verb)
-            
-            # Validate
-            confidence, reasons = self.validate_inversion(sentence, "There", verb, subject)
-            
-            inversions.append({
-                "type": "existential",
-                "sentence": sentence,
-                "fronted_constituent": "There",
-                "verb": verb,
-                "subject": subject,
-                "constituent_type": "AdvP (Existential)",
-                "is_locative": True,
-                "confidence": confidence,
-                "validation_reasons": reasons
-            })
-            
-            # Return immediately to avoid double-counting
-            return inversions
-        
-        # Check for prepositional phrase inversions
-        pp_match = self.pp_inversion_pattern.search(sentence)
-        if pp_match:
-            preposition = pp_match.group(1)
-            phrase_content = pp_match.group(2)
-            verb = pp_match.group(3)
-            fronted = f"{preposition} {phrase_content}".strip()
-            
-            # Get text after the verb to identify the subject
-            after_verb = sentence[pp_match.start() + len(fronted) + len(verb) + 1:]
-            subject = self.identify_subject(after_verb)
-            
-            # Validate this inversion
-            confidence, reasons = self.validate_inversion(sentence, fronted, verb, subject)
-            
-            inversions.append({
-                "type": "pp_inversion",
-                "sentence": sentence,
-                "fronted_constituent": fronted,
-                "verb": verb,
-                "subject": subject,
-                "constituent_type": "PP (Prepositional Phrase)",
-                "is_locative": any(marker in fronted.lower().split() for marker in self.locative_markers),
-                "confidence": confidence,
-                "validation_reasons": reasons
-            })
-            
-            # Return to avoid further matching on this sentence
-            return inversions
-        
-        # Check for adverbial inversions
-        adv_match = self.adv_inversion_pattern.search(sentence)
-        if adv_match:
-            adverb = adv_match.group(1)
-            phrase_content = adv_match.group(2)
-            verb = adv_match.group(3)
-            fronted = f"{adverb} {phrase_content}".strip()
-            
-            # Get text after the verb to identify the subject
-            after_verb = sentence[adv_match.start() + len(fronted) + len(verb) + 1:]
-            subject = self.identify_subject(after_verb)
-            
-            # Validate
-            confidence, reasons = self.validate_inversion(sentence, fronted, verb, subject)
-            
-            inversions.append({
-                "type": "adv_inversion",
-                "sentence": sentence,
-                "fronted_constituent": fronted,
-                "verb": verb,
-                "subject": subject,
-                "constituent_type": "AdvP (Adverb Phrase)",
-                "is_locative": adverb.lower() in {"here", "there"},
-                "confidence": confidence,
-                "validation_reasons": reasons
-            })
-            
-            return inversions
-        
-        # Check for adjective phrase inversions
-        ap_match = self.ap_inversion_pattern.search(sentence)
-        if ap_match:
-            adjective = ap_match.group(1)
-            phrase_content = ap_match.group(2)
-            verb = ap_match.group(3)
-            fronted = f"{adjective} {phrase_content}".strip()
-            
-            # Get text after the verb to identify the subject
-            after_verb = sentence[ap_match.start() + len(fronted) + len(verb) + 1:]
-            subject = self.identify_subject(after_verb)
-            
-            # Validate
-            confidence, reasons = self.validate_inversion(sentence, fronted, verb, subject)
-            
-            inversions.append({
-                "type": "ap_inversion",
-                "sentence": sentence,
-                "fronted_constituent": fronted,
-                "verb": verb,
-                "subject": subject,
-                "constituent_type": "AP (Adjective Phrase)",
-                "is_locative": False,  # Adjective phrases are rarely locative
-                "confidence": confidence,
-                "validation_reasons": reasons
-            })
-            
-            return inversions
-        
-        # Check for verb phrase (participle) inversions
-        vp_match = self.vp_inversion_pattern.search(sentence)
-        if vp_match:
-            participle = vp_match.group(1)
-            phrase_content = vp_match.group(2)
-            verb = vp_match.group(3)
-            fronted = f"{participle} {phrase_content}".strip()
-            
-            # Get text after the verb to identify the subject
-            after_verb = sentence[vp_match.start() + len(fronted) + len(verb) + 1:]
-            subject = self.identify_subject(after_verb)
-            
-            # Validate
-            confidence, reasons = self.validate_inversion(sentence, fronted, verb, subject)
-            
-            inversions.append({
-                "type": "vp_inversion",
-                "sentence": sentence,
-                "fronted_constituent": fronted,
-                "verb": verb,
-                "subject": subject,
-                "constituent_type": "VP (Verb Phrase)",
-                "is_locative": participle.lower() in {"located", "situated"},  # Some participles imply location
-                "confidence": confidence,
-                "validation_reasons": reasons
-            })
+        # If no complex patterns matched, try standard patterns
+        for pattern_type in self.standard_patterns:
+            inversion = self.process_inversion_pattern(sentence, pattern_type)
+            if inversion:
+                inversions.append(inversion)
+                return inversions  # Return as soon as we find a standard match
         
         return inversions
     
     def analyze_file(self, file_path):
-        """Analyze a single file for subject-verb inversions."""
+        """Analyze a single file for subject-verb inversions with improved error handling."""
         file_name = os.path.basename(file_path)
         print(f"Processing {file_name}...")
         
         # Read file content
         content = self.read_file(file_path)
         if not content:
-            return {"file": file_name, "inversions": [], "stats": {}}
+            print(f"Warning: Unable to read or empty file: {file_name}")
+            return {"file": file_name, "inversions": [], "stats": {
+                "total_paragraphs": 0,
+                "total_sentences": 0,
+                "total_inversions": 0,
+                "constituent_types": Counter(),
+                "locative_inversions": 0,
+                "non_locative_inversions": 0,
+                "confidence_levels": Counter(),
+                "inversion_types": Counter()
+            }}
         
         # Extract paragraphs
         paragraphs = self.extract_paragraphs(content)
@@ -533,7 +447,7 @@ class EnhancedInversionFinder:
             "locative_inversions": 0,
             "non_locative_inversions": 0,
             "confidence_levels": Counter(),
-            "inversion_types": Counter()  # Track the specific pattern types that matched
+            "inversion_types": Counter()
         }
         
         # Process each paragraph
@@ -543,13 +457,21 @@ class EnhancedInversionFinder:
                 continue
             
             # Extract sentences
-            sentences = self.extract_sentences(para)
-            stats["total_sentences"] += len(sentences)
+            try:
+                sentences = self.extract_sentences(para)
+                stats["total_sentences"] += len(sentences)
+            except Exception as e:
+                print(f"Error extracting sentences from paragraph {para_idx} in {file_name}: {e}")
+                continue
             
             # Process each sentence
             for sent_idx, sentence in enumerate(sentences):
                 # Find inversions in this sentence
-                sentence_inversions = self.find_inversions_in_sentence(sentence)
+                try:
+                    sentence_inversions = self.find_inversions_in_sentence(sentence)
+                except Exception as e:
+                    print(f"Error analyzing sentence {sent_idx} in paragraph {para_idx}: {e}")
+                    continue
                 
                 # Update statistics and store inversions
                 for inv in sentence_inversions:
@@ -568,12 +490,6 @@ class EnhancedInversionFinder:
                     inv["sentence_index"] = sent_idx
                     inv["file"] = file_name
                     
-                    # Add surrounding context
-                    if sent_idx > 0:
-                        inv["previous_sentence"] = sentences[sent_idx - 1]
-                    if sent_idx < len(sentences) - 1:
-                        inv["next_sentence"] = sentences[sent_idx + 1]
-                    
                     inversions.append(inv)
         
         return {
@@ -583,7 +499,7 @@ class EnhancedInversionFinder:
         }
     
     def process_files(self, files=None, max_files=None):
-        """Process multiple files."""
+        """Process multiple files with improved error handling."""
         if files is None:
             files = self.load_corpus_files()
         
@@ -594,7 +510,25 @@ class EnhancedInversionFinder:
         
         for i, file_path in enumerate(files):
             print(f"Processing file {i+1}/{len(files)}")
-            results.append(self.analyze_file(file_path))
+            try:
+                results.append(self.analyze_file(file_path))
+            except Exception as e:
+                print(f"Error processing file {file_path}: {e}")
+                # Create an empty result to maintain file count
+                results.append({
+                    "file": os.path.basename(file_path),
+                    "inversions": [],
+                    "stats": {
+                        "total_paragraphs": 0,
+                        "total_sentences": 0,
+                        "total_inversions": 0,
+                        "constituent_types": Counter(),
+                        "locative_inversions": 0,
+                        "non_locative_inversions": 0,
+                        "confidence_levels": Counter(),
+                        "inversion_types": Counter()
+                    }
+                })
         
         return results
     
@@ -609,13 +543,13 @@ class EnhancedInversionFinder:
             "locative_inversions": sum(r["stats"]["locative_inversions"] for r in results),
             "non_locative_inversions": sum(r["stats"]["non_locative_inversions"] for r in results),
             "confidence_levels": Counter(),
-            "inversion_types": Counter(),  # Aggregate inversion pattern types
+            "inversion_types": Counter(),
             "inversions_by_file": {r["file"]: r["stats"]["total_inversions"] for r in results},
-            "complex_inversions_count": 0,  # Count of specifically complex inversions
+            "complex_inversions_count": 0,
             "all_inversions": []
         }
         
-        # Combine constituent types counters
+        # Combine counters from individual files
         for r in results:
             for const_type, count in r["stats"]["constituent_types"].items():
                 aggregate["constituent_types"][const_type] += count
@@ -642,8 +576,15 @@ class EnhancedInversionFinder:
         confidence_levels = {"high": 3, "medium": 2, "low": 1}
         min_level = confidence_levels.get(min_confidence, 1)
         
-        return [inv for inv in all_inversions 
+        filtered = [inv for inv in all_inversions 
                 if confidence_levels.get(inv.get("confidence", "low"), 0) >= min_level]
+        
+        # Log filtering information
+        total = len(all_inversions)
+        filtered_count = len(filtered)
+        print(f"Filtering: including {filtered_count}/{total} inversions ({total-filtered_count} excluded)")
+        
+        return filtered
     
     def save_results(self, aggregate_results):
         """Save results to various output formats with enhanced details."""
@@ -666,6 +607,11 @@ class EnhancedInversionFinder:
         
         # Filter to high/medium confidence inversions
         filtered_inversions = self.filter_by_confidence(aggregate_results["all_inversions"], "medium")
+        
+        # Ensure validation_reasons are properly serialized
+        for inv in filtered_inversions:
+            if isinstance(inv.get("validation_reasons"), list):
+                inv["validation_reasons_str"] = "; ".join(inv["validation_reasons"])
         
         # Save filtered inversions as CSV
         with open(f"{out_base}_examples.csv", 'w', newline='', encoding='utf-8') as f:
@@ -693,14 +639,15 @@ class EnhancedInversionFinder:
                 # Use the same fieldnames, plus validation reasons
                 fieldnames = [field for field in complex_inversions[0].keys() 
                              if field not in ["previous_sentence", "next_sentence"]]
+                # Add validation_reasons_str if available
+                if "validation_reasons_str" not in fieldnames and "validation_reasons_str" in complex_inversions[0]:
+                    fieldnames.append("validation_reasons_str")
+                
                 writer = csv.DictWriter(f, fieldnames=fieldnames)
                 writer.writeheader()
                 for inversion in complex_inversions:
                     # Create a copy without context fields, but keep validation reasons
                     inv_copy = {k: v for k, v in inversion.items() if k in fieldnames}
-                    # Convert validation_reasons list to string
-                    if "validation_reasons" in inv_copy:
-                        inv_copy["validation_reasons"] = "; ".join(inv_copy["validation_reasons"])
                     writer.writerow(inv_copy)
         
         # Create a comprehensive human-readable report
@@ -821,7 +768,11 @@ class EnhancedInversionFinder:
                 "Within the data collected over decades and analyzed using modern techniques emerges a clear pattern.",
                 "Around the castle and throughout the surrounding forest roamed many wild animals.",
                 "Between the mountains and across the valleys flows a mighty river.",
-                "Central to her argument stands the notion of embodied cognition."
+                "Central to her argument stands the notion of embodied cognition.",
+                # Additional test sentences to improve validation coverage
+                "On the table where we had dinner last night sat a vase of flowers.",
+                "Among the proposals that the committee considered was a plan for reducing costs.",
+                "Beside the road that winds through the mountains stands a small chapel."
             ]
         
         results = {

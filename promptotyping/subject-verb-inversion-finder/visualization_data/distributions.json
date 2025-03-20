@@ -1,10 +1,10 @@
 {
   "by_file": {
-    "text_acad_1990.txt": 5241,
-    "text_acad_1991.txt": 5213,
-    "text_acad_1992.txt": 4940,
-    "text_acad_1993.txt": 5380,
-    "text_acad_1994.txt": 4915
+    "text_acad_2000.txt": 4920,
+    "text_acad_2001.txt": 4571,
+    "text_acad_2002.txt": 4327,
+    "text_acad_2003.txt": 4476,
+    "text_acad_2004.txt": 4378
   },
   "by_confidence": {
     "labels": [
@@ -13,30 +13,30 @@
       "low"
     ],
     "values": [
-      11012,
-      14573,
-      104
+      8959,
+      13591,
+      122
     ]
   },
   "by_constituent": {
     "labels": [
       "PP (Prepositional Phrase)",
       "AdvP (Adverb Phrase)",
-      "AP (Adjective Phrase)",
       "AdvP (Existential)",
-      "PP (Complex Prepositional Phrase)",
       "Numeric Expression",
+      "AP (Adjective Phrase)",
       "Coordinated Structure",
+      "PP (Complex Prepositional Phrase)",
       "VP (Verb Phrase)"
     ],
     "values": [
-      4926,
-      3855,
-      1966,
-      7053,
-      1585,
-      5043,
-      1101,
+      3829,
+      3407,
+      6105,
+      5158,
+      1811,
+      871,
+      1331,
       160
     ]
   },
@@ -44,21 +44,21 @@
     "labels": [
       "pp_inversion",
       "adv_inversion",
-      "ap_inversion",
       "existential",
-      "complex_pp_inversion",
       "numeric_inversion",
+      "ap_inversion",
       "coordinated_inversion",
+      "complex_pp_inversion",
       "vp_inversion"
     ],
     "values": [
-      4926,
-      3855,
-      1966,
-      7053,
-      1585,
-      5043,
-      1101,
+      3829,
+      3407,
+      6105,
+      5158,
+      1811,
+      871,
+      1331,
       160
     ]
   },
@@ -68,8 +68,8 @@
       "Non-locative"
     ],
     "values": [
-      14321,
-      11368
+      12599,
+      10073
     ]
   }
 }
