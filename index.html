@@ -897,89 +897,91 @@
               </span>
 
               <!-- Nav -->
-              <ul
-                class="js-filter-options nav nav-segment nav-pills d-flex mx-auto"
-                style="max-width: 60rem"
-              >
-                <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    href="javascript:;"
-                    data-group="all"
-                    id="all"
-                    >Alle</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="javascript:;"
-                    data-group="ai-basics"
-                    id="ai-basics"
-                    >KI Grundlagen</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="javascript:;"
-                    data-group="ai-business"
-                    id="ai-business"
-                    >KI für Unternehmen</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="javascript:;"
-                    data-group="ai-research"
-                    id="ai-research"
-                    >KI in der Forschung</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="javascript:;"
-                    data-group="ai-teaching"
-                    id="ai-teaching"
-                    >KI in der Lehre</a
-                  >
-                </li>
-
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="javascript:;"
-                    data-group="workshop"
-                    id="workshop"
-                    >Andere Workshops</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="javascript:;"
-                    data-group="teaching"
-                    id="teaching"
-                    >Lehre</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/excellence/promptotyping/"
-                    >Promptotypes</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="javascript:;"
-                    data-group="blog"
-                    id="blog"
-                    >Blogbeiträge</a
-                  >
-                </li>
-              </ul>
+              <!-- Multi-row navigation using only Bootstrap classes -->
+              <div class="container">
+                <ul
+                  class="js-filter-options nav nav-segment nav-pills d-flex flex-wrap justify-content-center mx-auto"
+                  style="max-width: 60rem; border-radius: 0"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      href="javascript:;"
+                      data-group="all"
+                      id="all"
+                      >Alle</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="javascript:;"
+                      data-group="ai-basics"
+                      id="ai-basics"
+                      >KI Grundlagen</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="javascript:;"
+                      data-group="ai-business"
+                      id="ai-business"
+                      >KI für Unternehmen</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="javascript:;"
+                      data-group="ai-research"
+                      id="ai-research"
+                      >KI in der Forschung</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="javascript:;"
+                      data-group="ai-teaching"
+                      id="ai-teaching"
+                      >KI in der Lehre</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="javascript:;"
+                      data-group="workshop"
+                      id="workshop"
+                      >Weitere Workshops</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="javascript:;"
+                      data-group="teaching"
+                      id="teaching"
+                      >Lehre</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/excellence/promptotyping/"
+                      >Promptotypes</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="javascript:;"
+                      data-group="blog"
+                      id="blog"
+                      >Blogbeiträge</a
+                    >
+                  </li>
+                </ul>
+              </div>
               <!-- End Nav -->
             </div>
             <!-- End Nav Scroller -->
@@ -2788,8 +2790,10 @@
           document.querySelector("#ai-business").innerHTML = "AI for Business";
           document.querySelector("#ai-research").innerHTML = "AI in Research";
           document.querySelector("#ai-teaching").innerHTML = "AI in Teaching";
-          document.querySelector("#workshop").innerHTML = "Other Workshops";
+          document.querySelector("#workshop").innerHTML =
+            "Additional Workshops";
           document.querySelector("#teaching").innerHTML = "Teaching";
+          document.querySelector("#blog").innerHTML = "Blog Articles";
         }
       };
       changeLangPage();
@@ -2810,8 +2814,9 @@
           document.querySelector("#ai-research").innerHTML =
             "KI in der Forschung";
           document.querySelector("#ai-teaching").innerHTML = "KI in der Lehre";
-          document.querySelector("#workshop").innerHTML = "Andere Workshops";
+          document.querySelector("#workshop").innerHTML = "Weitere Workshops";
           document.querySelector("#teaching").innerHTML = "Lehre";
+          document.querySelector("#blog").innerHTML = "Blogbeiträge";
         }
       }
 
@@ -2827,8 +2832,10 @@
           document.querySelector("#ai-business").innerHTML = "AI for Business";
           document.querySelector("#ai-research").innerHTML = "AI in Research";
           document.querySelector("#ai-teaching").innerHTML = "AI in Teaching";
-          document.querySelector("#workshop").innerHTML = "Workshops";
+          document.querySelector("#workshop").innerHTML =
+            "Additional Workshops";
           document.querySelector("#teaching").innerHTML = "Teaching";
+          document.querySelector("#blog").innerHTML = "Blog Articles";
         }
       }
     </script>
