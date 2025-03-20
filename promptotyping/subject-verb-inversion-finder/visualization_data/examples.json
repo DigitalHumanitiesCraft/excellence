@@ -1,5 +1,15 @@
 [
   {
+    "type": "complex_pp_inversion",
+    "sentence": "Fences and fires <p> The spot from which the goats fled was at the uppermost edge of Kaupulehu mauka , just beyond the fence .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "from which the goats fled",
+    "verb": "was",
+    "subject": "the uppermost edge of Kaupulehu mauka",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
     "type": "pp_inversion",
     "sentence": "From this location , the meaning of an ungulate-excluding fence for native species in Hawaii was clear : On one side were at least some signs of native plant life ; on the opposite side , seemingly nothing . <p> The site was chosen by the working group largely because it had been fenced 40 years earlier by the Territory of Hawaii , protecting it from damage by feral ungulates . \" It 's not entirely clear why they fenced it , \" Cabin said . \" Somebody just took it upon themselves to do it .",
     "constituent_type": "PP (Prepositional Phrase)",
@@ -15,7 +25,7 @@
     "constituent_type": "AdvP (Adverb Phrase)",
     "fronted_constituent": "Now this",
     "verb": "is",
-    "subject": "that 's been fenced for any length of time in the state",
+    "subject": "any length of time in the state",
     "is_locative": false,
     "confidence": "medium"
   },
@@ -40,24 +50,34 @@
     "confidence": "high"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "In general , the presence of a resource across the interface enhances biodiversity relative to when the resource is absent .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "across the interface enhances biodiversity relative to when the resource",
+    "verb": "is",
+    "subject": "absent",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
     "type": "ap_inversion",
     "sentence": "Most studies cited were of interactions in which the presence of a particular species or functional group provides a resource that can support a suite of organisms across the surface ( one-to-many interactions ) .",
     "constituent_type": "AP (Adjective Phrase)",
     "fronted_constituent": "Most studies cited",
     "verb": "were",
-    "subject": "that can support a suite of organisms across the surface ( one-to-many interactions )",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "ap_inversion",
-    "sentence": "Less was known about the extent to which biodiversity above and below the surface is linked by species-specific couplings ( 1:1 interactions ) , or whether high species diversity on one side of soils or sediments @ @ @ @ @ @ @ @ @ @ . <p> Important differences in the processes connecting biota above and below the surface of soils and sediments within and across domains were also revealed .",
-    "constituent_type": "AP (Adjective Phrase)",
-    "fronted_constituent": "Less was known about the extent to which biodiversity above and below the surface",
-    "verb": "is",
-    "subject": "the processes connecting biota above and below the surface of soils and sediments within and across domains were also revealed",
+    "subject": "any interactions",
     "is_locative": false,
     "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Less was known about the extent to which biodiversity above and below the surface is linked by species-specific couplings ( 1:1 interactions ) , or whether high species diversity on one side of soils or sediments @ @ @ @ @ @ @ @ @ @ . <p> Important differences in the processes connecting biota above and below the surface of soils and sediments within and across domains were also revealed .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to which biodiversity above and below the surface",
+    "verb": "is",
+    "subject": "the processes connecting biota above and below the surface of soils and sediments within and across domains were also revealed",
+    "is_locative": true,
+    "confidence": "medium"
   },
   {
     "type": "existential",
@@ -70,6 +90,66 @@
     "confidence": "medium"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "However , we lack detailed information on which species are coupled and on the extent of this coupling .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on which species",
+    "verb": "are",
+    "subject": "the extent of this coupling",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "However , ecosystem traits that are discontinuously distributed among a few species will be very sensitive to species loss @ @ @ @ @ @ @ @ @ @ the above-surface to below-surface interactions that regulate vital ecosystem functions the vulnerability to global change of the species or functional groups involved in these interactions the sensitivity of the ecosystem function to any changes in species or functional group composition and richness <p> This synthesis highlights the fact that soils and sediments are a dynamic habitat , connecting the ecology , physiology , and biological diversity of above-surface and below-surface domains .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "among a few species will be very sensitive to species loss @ @ @ @ @ @ @ @ @ @ the above-surface to below-surface interactions that regulate vital ecosystem functions the vulnerability to global change of the species or functional groups involved in these interactions the sensitivity of the ecosystem function to any changes in species or functional group composition and richness <p> This synthesis highlights the fact that soils and sediments",
+    "verb": "are",
+    "subject": "the ecology",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Mechanisms that may promote or limit correlations between above-surface and below-surface biodiversity <p> Promoting factors Above-surface and below-surface species or functional groups show similar ( possibly independent ) responses to environmental gradients are influenced by similar historical , biogeographic , and evolutionary factors are connected by physiological and ecological interactions that promote biodiversity across the surface Limiting factors <p> Above-surface and below-surface species or functional groups respond to different environmental gradients respond to @ @ @ @ @ @ @ @ @ @ exposed to environmental conditions are influenced by different historical , biogeographic , and evolutionary factors may be regulated by trophic dynamics at the same side of the soil or sediment surface , rather than from the other side are sampled by different methods that examine biodiversity at different scales are connected by physiological and ecological interactions that reduce biodiversity at the other side of the soil or sediment surface may be regulated by factors that depend on composition of resources from across the surface independent of taxonomic diversity Box 2 : Evidence for and against correlations between biodiversity patterns above and below the surface of soils and sediments For Diversity of several marine pelagic animals ( Angel 1997 ) and sedimentary bivalves , gastropods , and isopods ( Rex et al . 1993 ) generally show similar trends with latitude ( decreasing with increasing latitude ) and depth ( greatest at intermediate depths ) , based on minimal data .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "from the other side are sampled by different methods that examine biodiversity at different scales",
+    "verb": "are",
+    "subject": "that reduce biodiversity at the other side of the soil or sediment surface may be regulated by factors that depend on composition of resources from across the surface independent of taxonomic diversity Box 2",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "We assess the evidence for correlation between aboveground and belowground diversity and conclude that a variety of mechanisms could lead to positive , negative , or no relationship -- depending on the strength and type of interactions among species <p> Understanding linkages between the diversity of organisms above ground and that of organisms below ground constitutes an important challenge for our knowledge of how ecological communities and processes are determined at both local and regional scales .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on the strength and type of interactions among species <p> Understanding linkages between the diversity of organisms above ground and that of organisms below ground constitutes an important challenge for our knowledge of how ecological communities and processes",
+    "verb": "are",
+    "subject": "both local and regional scales",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Belowground , a species approach is not always practical , especially for microbial and many microinvertebrate taxa to which the traditional species concepts are difficult to apply .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to which the traditional species concepts",
+    "verb": "are",
+    "subject": "difficult to apply",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The diversity of various taxa on different islands may also be influenced by island age , with older sites having greater species richness resulting from more @ @ @ @ @ @ @ @ @ @ 1999 ) . <p> The numbers of species above ground and below ground may be correlated also when direct ecological linkages exist , in which case the diversity is considered to be causally related .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "above ground and below ground may be correlated also when direct ecological linkages",
+    "verb": "exist",
+    "subject": "the diversity is considered to be causally related",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
     "type": "numeric_inversion",
     "sentence": "One difficulty is that information on bacterial species richness in most ecosystems is quite limited . <p> Step 3 .",
     "constituent_type": "Numeric Expression",
@@ -80,22 +160,22 @@
     "confidence": "medium"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "Carbon substrate heterogeneity may be related to plant taxonomic diversity when the presence of important plant defense compounds is linked to particular plant taxa , with consequences for the diversity of selective aboveground ( Strong et al . 1984 ) and belowground ( Andersen 1987 ) herbivores .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to plant taxonomic diversity when the presence of important plant defense compounds",
+    "verb": "is",
+    "subject": "the diversity of selective aboveground ( Strong et al . 1984 ) and belowground ( Andersen 1987 ) herbivores",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
     "type": "pp_inversion",
     "sentence": "Among these influences are the combined effects of drilling and burrowing by macrofauna , sloughing and exudates in the rhizosphere , decomposition and nutrient turnover in litter and organic layers , and humus and soil aggregate formation , as well as direct trophic interactions .",
     "constituent_type": "PP (Prepositional Phrase)",
     "fronted_constituent": "Among these influences",
     "verb": "are",
     "subject": "the combined effects of drilling and burrowing by macrofauna",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "Do key species or functional groups above or below the surface contribute to maintaining high biodiversity on the other side of the surface ? <p> There are three primary categories of mechanisms by which organisms in one compartment can affect biodiversity in the other .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "are",
-    "subject": "the other",
     "is_locative": true,
     "confidence": "medium"
   },
@@ -110,6 +190,36 @@
     "confidence": "medium"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "On the other hand , the approximately 160 species of Zygomycete fungi that form arbuscular endomycorrhizal associations are obligate symbionts , although none is host specific ( Morton 1988 , Walker 1992 ) @ @ @ @ @ @ @ @ @ @ plant may be colonized by more than one species of fungus . <p> The extent to which associations are obligate can vary also , even for partners in mutualism .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to which associations",
+    "verb": "are",
+    "subject": "an vary also",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Although the degree of host specificity between legumes and their rhizobial symbionts might lead one to assume that the bacteria are dependent on the plant , this is generally not true .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "between legumes and their rhizobial symbionts might lead one to assume that the bacteria",
+    "verb": "are",
+    "subject": "the plant",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Rhizobia can survive for long periods in the absence of the host , though their numbers tend to multiply when a compatible legume is present ( Giller and Wilson 1991 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to multiply when a compatible legume",
+    "verb": "is",
+    "subject": "present",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
     "type": "numeric_inversion",
     "sentence": "Although all of these interactions clearly influence growing conditions and nutrient availability , modification of growing conditions for organisms on the other side of the soil surface is not necessarily synonymous with increasing their diversity . <p> Three mechanisms by which asymmetric effects could enhance diversity are through keystone species , direct positive interactions , and environmental modification .",
     "constituent_type": "Numeric Expression",
@@ -120,14 +230,144 @@
     "confidence": "high"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "The extent to which this mechanism operates between aboveground and belowground communities is largely undetermined , but there is strong potential for keystone effects across the soil boundary .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to which this mechanism operates between aboveground and belowground communities",
+    "verb": "is",
+    "subject": "the soil boundary",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "These physical , chemical , and biotic modifications lead to environments to which plant roots are attracted or in which seeds may germinate , potentially feeding back to aboveground diversity ( Brussaard 1998 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to environments to which plant roots",
+    "verb": "are",
+    "subject": "attracted or in which seeds may germinate",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Likewise , terrestrial flora and fauna that border waterways or are in contact with the ground water that directly feeds the waterways are above-sediment biota .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in contact with the ground water that directly feeds the waterways",
+    "verb": "are",
+    "subject": "above-sediment biota",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The context and nature of linkages <p> Inputs from the air and watershed provide the milieu in which the interactions between above-sediment and aquatic sediment biodiversity are played out .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "from the air and watershed provide the milieu in which the interactions between above-sediment and aquatic sediment biodiversity",
+    "verb": "are",
+    "subject": "played out",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Categorizing the many ways in which biota living in one realm may influence organisms in the other realm is difficult because there are numerous direct and indirect linkages between the biota and the physical processes ( Figure 2 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in which biota living in one realm may influence organisms in the other realm",
+    "verb": "is",
+    "subject": "numerous direct and indirect linkages between the biota and the physical processes ( Figure 2 )",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "This belief extends from the understanding that a diverse assemblage of plants should increase the period during which high-quality detritus is available to aquatic bottom-dwelling consumers , increase the diversity of epiphytic algal food sources , and enhance the diversity of dissolved organic substrates , which in turn promotes enhanced microbial diversity ( Polunin 1984 , Rosemond 1994 , Kaplan 1998 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "from the understanding that a diverse assemblage of plants should increase the period during which high-quality detritus",
+    "verb": "is",
+    "subject": "the diversity of epiphytic algal food sources",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Since gradients in microbial function may correspond to chemical gradients ( Findlay and Sobczak 2000 ) , microbial biodiversity may also respond to changes in sediment chemistry that are linked to above-sediment plants ( Figure 2 ) . <p> The link to microbial biodiversity is speculative at this point , because the study of microbial species composition in aquatic sediments and its relation to microbial function is in its infancy ( Findlay and Sobczak 2000 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to changes in sediment chemistry that",
+    "verb": "are",
+    "subject": "the study of microbial species composition in aquatic sediments and its relation to microbial function is in its infancy ( Findlay and Sobczak 2000 )",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The influence of aquatic sediment biota on above-sediment biota <p> The mechanisms by which sediment-dwellers influence life above the sediments are less numerous and more difficult to identify than those by which the above-sediment biota influence sediment life .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on above-sediment biota <p> The mechanisms by which sediment-dwellers influence life above the sediments",
+    "verb": "are",
+    "subject": "numerous and more difficult to identify than those by which the above-sediment biota influence sediment life",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Thus , a top research priority should be to document patterns in microbial biodiversity in aquatic sediments , particularly in geographic areas where terrestrial plants and animals are well described .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in geographic areas where terrestrial plants and animals",
+    "verb": "are",
+    "subject": "well described",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Given the expanding sphere of human influence on the oceans , it is imperative @ @ @ @ @ @ @ @ @ @ to which changes in biodiversity are occurring but also how changes in the benthic and pelagic realms might affect each other .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to which changes in biodiversity",
+    "verb": "are",
+    "subject": "each other",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The goals of this article are to summarize the state of knowledge concerning connections and directionality of effects between organisms living above and below the SWI that @ @ @ @ @ @ @ @ @ @ connections that are likely to be important , and to outline approaches that might clarify mechanisms of across-interface biodiversity linkages .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to summarize the state of knowledge concerning connections and directionality of effects between organisms living above and below the SWI that @ @ @ @ @ @ @ @ @ @ connections that",
+    "verb": "are",
+    "subject": "that might clarify mechanisms of across-interface biodiversity linkages",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Some of the best examples of above-below linkages that we will summarize are known to directly involve only one or a few species ; nevertheless , we feel that they do represent an aspect of biodiversity .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "below linkages that we will summarize",
+    "verb": "are",
+    "subject": "few species",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In more specific terms , species richness refers to numbers of species in an area , and composite diversity refers to measures of species diversity that incorporate not only species number but also how individuals are apportioned among those species ( evenness ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to measures of species diversity that incorporate not only species number but also how individuals",
+    "verb": "are",
+    "subject": "those species ( evenness )",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
     "type": "existential",
     "sentence": "Structural vegetation and connections with sedimentary biota <p> There are approximately 50 described mangrove species and 45 species of seagrass , but in both of these systems , a given area typically will contain only a few relatively common species .",
     "constituent_type": "AdvP (Existential)",
     "fronted_constituent": "There",
     "verb": "are",
-    "subject": "these systems",
+    "subject": "few relatively common species",
     "is_locative": true,
-    "confidence": "high"
+    "confidence": "medium"
   },
   {
     "type": "existential",
@@ -140,6 +380,26 @@
     "confidence": "medium"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "Further evidence for an absence of a direct diversity linkage between above-sediment structure and below-sediment biota was found in a Fiji lagoon where above-SWI structural composition is a poor predictor of below-sediment diversity ( Schlacher et al . 1998 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "between above-sediment structure and below-sediment biota was found in a Fiji lagoon where above-SWI structural composition",
+    "verb": "is",
+    "subject": "a poor predictor of below-sediment diversity ( Schlacher et al . 1998 )",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In summary , @ @ @ @ @ @ @ @ @ @ and the sediment beneath ( Figure 1 ) , but evidence suggests that linkages are coincidental in that both communities are affected by similar environmental variables .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in that both communities",
+    "verb": "are",
+    "subject": "affected by similar environmental variables",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
     "type": "numeric_inversion",
     "sentence": "One complication in linking above- and below-SWI species numbers and composition is seasonal and annual variability in below-SWI organisms .",
     "constituent_type": "Numeric Expression",
@@ -147,7 +407,37 @@
     "verb": "is",
     "subject": "seasonal and annual variability in below-SWI organisms",
     "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "A recent study found little variation in sedimentary species colonizing litter from different mangrove species but some differences depending on which living mangrove species the litter @ @ @ @ @ @ @ @ @ @ Variability in sedimentary fauna was attributed to the root structure and geochemistry of the mangrove species .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in sedimentary species colonizing litter from different mangrove species but some differences depending on which living mangrove species the litter @ @ @ @ @ @ @ @ @ @ Variability in sedimentary fauna",
+    "verb": "was",
+    "subject": "the root structure and geochemistry of the mangrove species",
+    "is_locative": true,
     "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Caging experiments focusing on meiofauna living in mangal sediments suggest that the impact of predation on infauna is modest , and the predator and prey communities operate largely independently ( Schrijvers et al . 1995 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on meiofauna living in mangal sediments suggest that the impact of predation on infauna",
+    "verb": "is",
+    "subject": "the predator and prey communities operate largely independently ( Schrijvers et al . 1995 )",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "But in one area of the Baltic where suspension feeders are absent , energy flow is markedly different , with reduced phytoplankton @ @ @ @ @ @ @ @ @ @ to meiofauna .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in one area of the Baltic where suspension feeders",
+    "verb": "are",
+    "subject": "absent",
+    "is_locative": true,
+    "confidence": "high"
   },
   {
     "type": "pp_inversion",
@@ -156,6 +446,16 @@
     "fronted_constituent": "Among the best known of these",
     "verb": "are",
     "subject": "a hardy resting stage and can seed toxic blooms",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Copepod eggs , for example , are extremely hardy and can pass through digestive tracts of macrofauna unharmed , @ @ @ @ @ @ @ @ @ @ be relocated by dredging activities or in guts of organisms that are transplanted for aquaculture .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in guts of organisms that",
+    "verb": "are",
+    "subject": "transplanted for aquaculture",
     "is_locative": true,
     "confidence": "high"
   },
@@ -205,7 +505,17 @@
     "constituent_type": "AdvP (Existential)",
     "fronted_constituent": "There",
     "verb": "is",
-    "subject": "more thoroughly",
+    "subject": "a to begin testing this idea more thoroughly",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The role of predators in creating disequilibria that were described for shallow water has a similar potential application here .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in creating disequilibria that",
+    "verb": "were",
+    "subject": "a similar potential application here",
     "is_locative": true,
     "confidence": "high"
   },
@@ -220,6 +530,136 @@
     "confidence": "medium"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "The efforts of Gina Adams in orchestrating the workshop that led to this synthesis are also greatly appreciated .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in orchestrating the workshop that led to this synthesis",
+    "verb": "are",
+    "subject": "also greatly appreciated",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "<p> We identify the basic types of interaction between vascular plants and soil biota ; describe the sensitivity of each type to changes in species composition ; and , within this framework , evaluate the potential consequences of global change drivers on ecosystem processes <p> Above- and belowground organisms are critical for the biogeochemical cycles that sustain the Earth , but there is limited knowledge on the extent to which the biota below ground and the functions they perform are dependent on the biota above ground , and vice versa .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on the extent to which the biota below ground and the functions they perform",
+    "verb": "are",
+    "subject": "the biota above ground",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Changes in species with traits that are broadly distributed across the community should be minimally recognized at the ecosystem level because more resistant species may compensate for such changes ( Schimel 1995 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in species with traits that",
+    "verb": "are",
+    "subject": "the community should be minimally recognized at the ecosystem level because more resistant species may compensate for such changes ( Schimel 1995 )",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "A greater buildup of litter on the soil surface due to the loss of organisms able to break down recalcitrant materials may drastically alter the availability of nutrients to plants ( Schimel and Gulledge 1998 ) . <p> Mutualistic soil organisms may display traits related to the supply of soil resources to plants that are unique to a few species or conditions .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to the supply of soil resources to plants that",
+    "verb": "are",
+    "subject": "few species or conditions",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "A probable resolution of this paradox is that there may be different effects upon plant performance depending on the number of fungal genotypes that are present ; that is , there is no fungal species specificity but there may be functional specificity ( Read 1998 ) . <p> Figure 1 : Pathways of global change-induced alterations in ecosystem functioning via changes in above-and belowground interactions .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on the number of fungal genotypes that",
+    "verb": "are",
+    "subject": "that is",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "This conclusion is not valid , however , when plant symbionts do not function equally with all hosts , or on occasions when associations are host specific .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on occasions when associations",
+    "verb": "are",
+    "subject": "host specific",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In sharp contrast , biological formation of soil macrostructure is limited to the physical artifacts created by a comparatively small number of soil-moving macroinvertebrates ( earthworms , termites , ants , etc. ) and mammals ( prairie dogs , @ @ @ @ @ @ @ @ @ @ extinction of burrowing macroinvertebrates and mammals is thus expected to have strong effects on plants in systems where soil engineers play a role ( Dangerfield et al . 1998 , Anderson 2000 ) . <p> Rhizophagous animals and soil-borne pathogens can strongly modify the disturbance regime to which the vegetation is subjected ( Vitousek 1990 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to which the vegetation",
+    "verb": "is",
+    "subject": "subjected",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Changes in ecosystem functions created by plant-induced alterations in the disturbance regime to , and resource consumption rates by , soil organisms should thus be confined to situations where essential traits of the vegetation are drastically changed .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to situations where essential traits of the vegetation",
+    "verb": "are",
+    "subject": "drastically changed",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Alterations in species composition of the belowground community may significantly amplify environmental changes to ecosystem processes when the disturbance regime is altered by changes in the species composition of macroengineers or specific pathogens , and when the supply of soil resources is modified either by intimate mutualists or by organisms performing specific transformations within decomposition processes and nutrient cycles . <p> Heirarchy of plant effects on soil biota and vice versa .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in species composition of the belowground community may significantly amplify environmental changes to ecosystem processes when the disturbance regime",
+    "verb": "is",
+    "subject": "the species composition of macroengineers or specific pathogens",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Alterations in ecosystem functions should be great when the soil communities that are affected by climate change include organisms that carry out functions performed by few other organisms .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in ecosystem functions should be great when the soil communities that",
+    "verb": "are",
+    "subject": "few other organisms",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "For example , Eggerton-Warburton and Allen ( 2000 ) reported that increased N deposition converts a species-rich arbuscular- mycorrhizal community into one that is dominated by small-spored mutualists .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "into one that",
+    "verb": "is",
+    "subject": "dominated by small-spored mutualists",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "This may increase the susceptibility of the vegetation to environmental change , because small-spored species exert a net negative C balance on the host that is reminiscent of parasitic , rather than mutualistic , associations ( Eggerton-Warburton and Allen 2000 ) .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on the host that",
+    "verb": "is",
+    "subject": "an mutualistic",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "However , several conditions have been identified in this article under which alterations of above- and belowground interactions are expected to drastically alter ecosystem functioning , because traits affecting the supply of soil resources , consumption rates of resources , and disturbance regime are unique to a few species or taxa .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in this article under which alterations of above- and belowground interactions",
+    "verb": "are",
+    "subject": "few species or taxa",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
     "type": "ap_inversion",
     "sentence": "Moreover , different life spans and turnover times for plants and soil organisms could lead to the decoupling of the above- and belowground subsystems resulting from perturbations or disturbance events . <p> Most of the vegetation change occurring today is very likely to cause a major shift in plant life form and @ @ @ @ @ @ @ @ @ @ herbaceous plants ( Jackson et al . 2000 ) .",
     "constituent_type": "AP (Adjective Phrase)",
@@ -230,14 +670,24 @@
     "confidence": "medium"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "This happens in tropical and subtropical regions experiencing deforestation , in temperate and tropical regions with reforestation and afforestation , and in arid and semiarid systems where there is expansion of woody vegetation .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in arid and semiarid systems where there",
+    "verb": "is",
+    "subject": "expansion of woody vegetation",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
     "type": "numeric_inversion",
     "sentence": "The sensitivity of above- and belowground relationships to changes in species composition has important implications for prioritizing future research and management ( Hooper et al . 2000 ) . <p> Two areas are particularly important : intensification of land use and catastrophic events caused by changes in both climate and atmospheric inputs affecting the boundaries of communities at their ecological limits .",
     "constituent_type": "Numeric Expression",
     "fronted_constituent": "Two areas",
     "verb": "are",
-    "subject": "the boundaries of communities at their ecological limits",
+    "subject": "their ecological limits",
     "is_locative": false,
-    "confidence": "medium"
+    "confidence": "high"
   },
   {
     "type": "existential",
@@ -248,6 +698,36 @@
     "subject": "a need for research networks and for setting up new experiments in poorly known but important habitats ( e.g. , tropical forests ; high latitudes )",
     "is_locative": true,
     "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In this examination , we will concentrate on those forms of human disturbance for which there is information on the effects on above-sediment to aquatic sediment linkages in fresh waters .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on those forms of human disturbance for which there",
+    "verb": "is",
+    "subject": "the effects on above-sediment to aquatic sediment linkages in fresh waters",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Linkages between above-sediment and sediment components and processes in lacustrine ecosystems that are affected by eutrophication .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "between above-sediment and sediment components and processes in lacustrine ecosystems that",
+    "verb": "are",
+    "subject": "affected by eutrophication",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "UV @ @ @ @ @ @ @ @ @ @ ) , as do the changes in water temperature and flow regimes that are expected under climate change scenarios ( Poff et al . 2000 ) . <p> With the increasing levels of greenhouse gases in the atmosphere , it is projected that there will be a steady rise in surface temperatures , both on land and in water .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in water temperature and flow regimes that",
+    "verb": "are",
+    "subject": "that there will be a steady rise in surface temperatures",
+    "is_locative": true,
+    "confidence": "high"
   },
   {
     "type": "existential",
@@ -270,6 +750,16 @@
     "confidence": "medium"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "The singleness and uniqueness of an author 's mind will manifest itself in a recognizable style that may be imitated and parodied but is difficult to forge .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in a recognizable style that may be imitated and parodied but",
+    "verb": "is",
+    "subject": "difficult to forge",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
     "type": "adv_inversion",
     "sentence": "They answer to many names . <p> Now there are two ways the tool kit can @ @ @ @ @ @ @ @ @ @ and eventually decides which tool or tools to choose in order to help explain and interpret it .",
     "constituent_type": "AdvP (Adverb Phrase)",
@@ -285,7 +775,7 @@
     "constituent_type": "AP (Adjective Phrase)",
     "fronted_constituent": "Most graduates of literature programs tend or",
     "verb": "are",
-    "subject": "the world",
+    "subject": "their temperaments and to their convictions about the world",
     "is_locative": false,
     "confidence": "high"
   },
@@ -295,17 +785,57 @@
     "constituent_type": "AdvP (Adverb Phrase)",
     "fronted_constituent": "Today I",
     "verb": "stand",
-    "subject": "this enlarged domain of basic reading",
+    "subject": "other exercises belong to this enlarged domain of basic reading",
     "is_locative": false,
     "confidence": "medium"
   },
   {
-    "type": "pp_inversion",
-    "sentence": "On Being a Believing Nonbeliever <p> May the taste of honey linger Under the bitterest tongue . -- Adrienne Rich , \" At the Jewish New Year \" <p> <p> I was born on May 25 , 1933 -- as propitious a date as any future American essayist could hope for .",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "At the Jewish New Year \" <p> <p> I",
+    "type": "complex_pp_inversion",
+    "sentence": "And I now wince at the alacrity with which we accepted the \" fallacies \" we were taught .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "at the alacrity with which we accepted the \" fallacies \" we",
+    "verb": "were",
+    "subject": "taught",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Born into a nation ravaged by the Depression , I entered a time in which Hitler was solidifying power in Germany , Stalin was cementing control of the Soviet Union with the murder of millions of kulaks and the ruthless suppression of dissent , and Japan was preparing to invade China . <p> I was not destined to become one of those **25;636;TOOLONG children who seemed as numerous in the Bronx of my childhood as the heaps of fallen chestnuts I remember beneath the trees of Van Cortlandt Park .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in which Hitler",
     "verb": "was",
-    "subject": "a date as any future American essayist could hope for",
+    "subject": "numerous in the Bronx of my childhood as the heaps of fallen chestnuts I remember beneath the trees of Van Cortlandt Park",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "In the Pathe newsreel flickering through my mind , I watch a nine-year-old boy roam the empty lots of the Bronx in 1942 , collecting tinfoil and scrap iron for \" the war effort \" -- and I want to warn him that what he is doing has nothing to do with the war effort @ @ @ @ @ @ @ @ @ @ , nothing more .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to warn him that what he",
+    "verb": "is",
+    "subject": "the war effort @ @ @ @ @ @ @ @ @ @",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Home for me remains the cramped one-bedroom apartment I shared with brother and parents in a building and street defined by numbers that was part of a neighborhood defined by a name that no one who lived in that neighborhood had heard of .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "in a building and street defined by numbers that",
+    "verb": "was",
+    "subject": "that no one who lived in that neighborhood had heard of",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Even having enough time to reread Proust ( as good an argument as I can think of for retiring from teaching ) would not jolt memory with as powerful a sense of reaching back into that time when the self and its world were formed .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to reread Proust ( as good an argument as I can think of for retiring from teaching ) would not jolt memory with as powerful a sense of reaching back into that time when the self and its world",
+    "verb": "were",
+    "subject": "formed",
     "is_locative": true,
     "confidence": "medium"
   },
@@ -316,6 +846,56 @@
     "fronted_constituent": "To ask God 's house to confirm one 's singularity",
     "verb": "is",
     "subject": "beyond ordinary vanity",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Yet I already knew that my father 's God was not going to give me back legs that worked as legs were supposed to do .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to give me back legs that worked as legs",
+    "verb": "were",
+    "subject": "supposed to do",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "Nonetheless , I walked to the synagogue and pulled my brace-bound body up the stairs to the sanctuary , and stood with my father and brother to praise the eternal glory of a divinity who was markedly indifferent to my loss . <p> I again walked up those stairs ten years later .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to praise the eternal glory of a divinity who",
+    "verb": "was",
+    "subject": "my loss",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "At twenty-four , I pushed my body forward on the muscular shoulders of a cripple who lifted weights and read too many books and raged against the reality that he was , powerful torso and all , still a cripple .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on the muscular shoulders of a cripple who lifted weights and read too many books and raged against the reality that he",
+    "verb": "was",
+    "subject": "a cripple",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The stained-glass creation scene now looked like the work of a 1930s Soviet artisan , apparatchik kitsch created by someone unable to comprehend the glory of a God whose awesome presence he was expected to capture in glass .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to comprehend the glory of a God whose awesome presence he",
+    "verb": "was",
+    "subject": "expected to capture in glass",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "My mother and uncle remained in the neighborhood until their deaths in 1987 and 1989 , and I would drive there every other week or so to help them deal with the problems of growing old in an America in which aging was an even greater sin than marrying a cripple .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to help them deal with the problems of growing old in an America in which aging",
+    "verb": "was",
+    "subject": "a cripple",
     "is_locative": true,
     "confidence": "medium"
   },
@@ -330,13 +910,43 @@
     "confidence": "high"
   },
   {
+    "type": "complex_pp_inversion",
+    "sentence": "And divisions were magnified by rumors that drifted like fog through streets in which suspicion and animosity were not to dissipate until the fighting turned in favor of the Allies in @ @ @ @ @ @ @ @ @ @ the news from the front was almost uniformly bad .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "through streets in which suspicion and animosity",
+    "verb": "were",
+    "subject": "the fighting turned in favor of the Allies in @ @ @ @ @ @ @ @ @ @ the news from the front was almost uniformly bad",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
     "type": "numeric_inversion",
     "sentence": "Three years were to pass before my mother begged for her crippled son 's refiah from that divine calligrapher , but I still wonder whether my passion for godly lettering was n't just another aspect of the ethnic wars that threatened me .",
     "constituent_type": "Numeric Expression",
     "fronted_constituent": "Three years",
     "verb": "were",
-    "subject": "that divine calligrapher",
+    "subject": "another aspect of the ethnic wars that threatened me",
     "is_locative": false,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "If @ @ @ @ @ @ @ @ @ @ at least for me ) : \" He is our God , we are his people , his divinity is our destiny . \" But I needed no catechism to believe that God 's story was my destiny .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to believe that God 's story",
+    "verb": "was",
+    "subject": "my destiny",
+    "is_locative": true,
+    "confidence": "high"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "The cornerstone on which Common Era and Hebrew dates were carved , 1928 and 5688 , testified to the accommodations demanded by an America that , in my grandmother 's words , would \" kill us with candy . \" It is n't necessary to add that my grandmother spoke Yiddish , a language as foreign to my sons as Sanskrit .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "on which Common Era and Hebrew dates",
+    "verb": "were",
+    "subject": "the accommodations demanded by an America that",
+    "is_locative": true,
     "confidence": "high"
   },
   {
@@ -346,6 +956,16 @@
     "fronted_constituent": "To him we",
     "verb": "were",
     "subject": "the past and floating its dates into the competitive air",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "complex_pp_inversion",
+    "sentence": "He feared the disappearance of our Jewish \" otherness \" even more than my grandmother did , but he was American enough to know that there was nothing he could do about it . @ @ @ @ @ @ @ @ @ @ land , and we fled Saturday morning services , invoking \" our God and God of our fathers \" as we ran toward whatever game we were to play in , at whatever lot or field we were to play it on .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to know that there",
+    "verb": "was",
+    "subject": "an toward whatever game we were to play in",
     "is_locative": true,
     "confidence": "medium"
   },
@@ -360,82 +980,22 @@
     "confidence": "high"
   },
   {
-    "type": "adv_inversion",
-    "sentence": "So much of what happened to the Jews in America was beyond my father .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "So much of what happened to the Jews in America",
+    "type": "complex_pp_inversion",
+    "sentence": "The building was not significantly altered from the time when Lenox was a Jewish avenue .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "from the time when Lenox",
     "verb": "was",
-    "subject": "my father",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "I felt unwanted , an intruder in the house of a God I could no longer acknowledge as my God but for whose presence I still yearned . <p> Then the rabbi asked the congregation to rise for the recitation of the Sh'ma , the acknowledgment of @ @ @ @ @ @ @ @ @ @ in unison , since Moses brought the tablets of the law down from Sinai .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Then the rabbi asked the congregation to",
-    "verb": "rise",
-    "subject": "the recitation of the Sh'ma",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Only then did I feel that I belonged in this synagogue that would have been as alien to my father as the shtetl he grew up in would have been alien to Scarlett O'Hara .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Only then did I feel that I belonged in this synagogue that would have been as alien to my father as the shtetl he",
-    "verb": "grew",
-    "subject": "Hara",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "coordinated_inversion",
-    "sentence": "And as my agnostic voice joined with the voices of Savannah Jews to proclaim God 's singularity to the world , I suddenly felt not merely at home , but at peace , at peace with that one God I yearned for but could no longer believe in ; at peace with that one people , some of whom no longer considered me part of \" the tribe \" ; at peace with the memory-obsessed self that writers are condemned to live with ; and at peace with this melting pot called America . <p> In a world in which religious civil war threatens to destroy a Jewish state where non-observant and ultra-Orthodox can no longer even agree on what a Jew is , that age-old declaration of God 's oneness soared into the soft Southern air of a neo-Gothic @ @ @ @ @ @ @ @ @ @ used to cry , ruler punctuating the air as if it were God 's sword .",
-    "constituent_type": "Coordinated Structure",
-    "fronted_constituent": "In a world in which religious civil war threatens to destroy a Jewish state where non-observant and ultra-Orthodox can no longer even agree on what a Jew",
-    "verb": "is",
-    "subject": "that age-old declaration of God 's oneness soared into the soft Southern air of a neo-Gothic @ @ @ @ @ @ @ @ @ @ used to cry",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "ap_inversion",
-    "sentence": "More genuinely noxious was the mob of butchers and bakers who rioted in Boston in 1837 when Sylvester Graham , Presbyterian minister and the inventor of an eponymous cracker , preached against the @ @ @ @ @ @ @ @ @ @ thing to declare -- as the senior George Bush ( who advertised his populist tastes by munching publicly on fried pork rinds ) did in 1986 -- one 's abhorrence of broccoli . ( Code for vegephobia , the announcement was greeted with sympathetic mirth by commentators who might have recoiled in horror at the implicit racism had the future president dared , instead , to dis jazz . ) But it is quite another matter to crucify those who feed on crucifers . <p> In 276 A.D. , Mani , founder of the religious movement that bore his name , was tortured and executed by the Sasanian rulers of Persia for trying to convert them to his unorthodox ways , which were meatless .",
-    "constituent_type": "AP (Adjective Phrase)",
-    "fronted_constituent": "More genuinely noxious",
-    "verb": "was",
-    "subject": "that bore his name",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Francisco Madero , the president of Mexico from 1911 to 1913 , after leading the revolution that overthrew dictator Porfirio Diaz , was assassinated twice -- once by his own security forces and once by the Encyclopaedia Britannica , whose entry on Madero suggests that his vegetarianism was a defect : \" He was an unimpressive manta -- short , slender , and pale -- and a vegetarian , teetotaler , and spiritualist . \" <p> There once was an American Vegetarian Party , and @ @ @ @ @ @ @ @ @ @ , in 1948 , 1952 , 1956 , and 1960 .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "There once",
-    "verb": "was",
-    "subject": "an American Vegetarian Party",
+    "subject": "a Jewish avenue",
     "is_locative": true,
     "confidence": "high"
   },
   {
-    "type": "pp_inversion",
-    "sentence": "At a rally in South Carolina during his insurgent run for the Republican presidential nomination , Senator John McCain invoked vegetarianism to emphasize how widely he was reaching out to scattered , tiny , and unlikely constituencies . \" I say to independents , Democrats , Libertarians , vegetarians , \" he said in February , \" come on over and vote for me tomorrow . \" Three days later , McCain repeated the jest in Michigan : \" I do n't care if you 're Republican or Democrat or Libertarian or vegetarian . \" <p> Yet vegetarians are not such rare birds .",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "At a rally in South Carolina during his insurgent",
-    "verb": "run",
-    "subject": "the Republican presidential nomination",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "pp_inversion",
-    "sentence": "In the demographics of vegetarianism there is a notable gender gap .",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "In the demographics of vegetarianism there",
-    "verb": "is",
-    "subject": "a notable gender gap",
+    "type": "complex_pp_inversion",
+    "sentence": "Yet like his children and grandchildren , my father had been forced to respond to an America in which a bar mitzvah was no longer a ritual acceptance of responsibility for adulthood .",
+    "constituent_type": "PP (Complex Prepositional Phrase)",
+    "fronted_constituent": "to respond to an America in which a bar mitzvah",
+    "verb": "was",
+    "subject": "no longer a ritual acceptance of responsibility for adulthood",
     "is_locative": true,
     "confidence": "high"
   },
@@ -450,36 +1010,6 @@
     "confidence": "medium"
   },
   {
-    "type": "ap_inversion",
-    "sentence": "Most people assume it was for his Theory of Relativity .",
-    "constituent_type": "AP (Adjective Phrase)",
-    "fronted_constituent": "Most people assume it",
-    "verb": "was",
-    "subject": "his Theory of Relativity",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "ap_inversion",
-    "sentence": "Most of the other judges apparently were anti-Russian .",
-    "constituent_type": "AP (Adjective Phrase)",
-    "fronted_constituent": "Most of the other judges apparently",
-    "verb": "were",
-    "subject": "Russian",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Then the trains will really run on time ! <p> We 're still headed for Fermi .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Then the trains will really",
-    "verb": "run",
-    "subject": "Fermi",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
     "type": "numeric_inversion",
     "sentence": "Fermi and his group in Rome , in the mid-thirties , wanted to produce elements heavier than those found in nature -- \" transuranic \" elements , beyond uranium in the Periodic @ @ @ @ @ @ @ @ @ @ uranium 238 with a neutron , they expected to get uranium 239 . ( Two numbers are associated with each element .",
     "constituent_type": "Numeric Expression",
@@ -488,146 +1018,6 @@
     "subject": "each element",
     "is_locative": false,
     "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "At the time , no one even knew there was such a thing as fission . <p> So when Fermi was awarded the 1938 Nobel Prize for producing new radioactive elements , it was based on a misapprehension .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "So when Fermi",
-    "verb": "was",
-    "subject": "the 1938 Nobel Prize for producing new radioactive elements",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "There is nothing inherently wrong with accidents ; serendipity is a feature of science .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "is",
-    "subject": "a feature of science",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "There were problems .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "were",
-    "subject": "problems",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "pp_inversion",
-    "sentence": "To determine whether there were hidden chambers in the Second Pyramid of Chephren , he set up detectors for cosmic particles traveling through the pyramid .",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "To determine whether there",
-    "verb": "were",
-    "subject": "the Second Pyramid of Chephren",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "In those directions where more particles were detected , so the argument went , more were coming through because of holes ( chambers ) in the solid material .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In those directions where more particles",
-    "verb": "were",
-    "subject": "the argument went",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Maybe that they were clunky devices with poor screens ? <p> We regrouped in Gaithersburg @ @ @ @ @ @ @ @ @ @ same programmers , publishers , and venture capitalists ; same gray suit , rep tie , and Patagonia parka on Dick Brass .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Maybe that they",
-    "verb": "were",
-    "subject": "a parka on Dick Brass",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "There are already millions of computers that run Windows .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "are",
-    "subject": "that run Windows",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "There are also a lot of scanners .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "are",
-    "subject": "a lot of scanners",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "There were lawsuits as a result , but also a rush to find a marketing solution .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "were",
-    "subject": "a result",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "existential",
-    "sentence": "You could scan a book in and read it on Microsoft Reader whether the publisher helped or not . \" We need to foster habits of honest purchase , \" he said , \" before the pirates move in . \" <p> There are other snares for publishers .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "are",
-    "subject": "her snares for publishers",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Perhaps the most radical figure at the conferences was Richard Curtis , the only literary agent to attend .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Perhaps the most radical figure at the conferences",
-    "verb": "was",
-    "subject": "the only literary agent to attend",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "pp_inversion",
-    "sentence": "At the first conference Curtis was an onlooker .",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "At the first conference Curtis",
-    "verb": "was",
-    "subject": "an onlooker",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Now that it is clear there is money to be made , Brass and the publishers have begun to reach an accommodation .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Now that it",
-    "verb": "is",
-    "subject": "the publishers have begun to reach an accommodation",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "Curtis was so glad to be at the table that he barely got his chopsticks out . <p> There were no authors at that lunch table .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "were",
-    "subject": "that lunch table",
-    "is_locative": true,
-    "confidence": "medium"
   },
   {
     "type": "numeric_inversion",
@@ -641,212 +1031,12 @@
   },
   {
     "type": "numeric_inversion",
-    "sentence": "Would such books really survive the predations of teenage pirates , the taste of MP3 still in their mouths ? \" When e-books happen , they 're gone , \" Brass said . <p> One of the remarkable things about the book is how long the same concerns have surrounded it : archivability , affordability , freedom to publish .",
-    "constituent_type": "Numeric Expression",
-    "fronted_constituent": "One of the remarkable things about the book",
-    "verb": "is",
-    "subject": "the same concerns have surrounded it",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "There are five security levels , as if books were a biohazard .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "are",
-    "subject": "a biohazard",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "It seems strange to say , even now , but for me the work always had a certain quality not of learning , necessarily , but rather of remembering . <p> Over time I became familiar with a certain bemused look on the faces of people to whom I mentioned that I was studying Yiddish .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "Over time I became familiar with a certain bemused look on the faces of people to whom I mentioned that I",
-    "verb": "was",
-    "subject": "Yiddish",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "pp_inversion",
-    "sentence": "All the high achievements of poetry -- the highest -- are possible in Yiddish . \" <p> To write in Yiddish instead of some other language was , for most of these poets , a conscious choice . ( The greatest of the Inzikhists , Yankev Glatshteyn , studied law for a time at New York University , while his compatriot Moyshe-Leyb Halpern first published poems in German @ @ @ @ @ @ @ @ @ @ the idea that their truest artistic impulses could be expressed only in this , the historic language of the Jewish people .",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "To write in Yiddish instead of some other language",
-    "verb": "was",
-    "subject": "that their truest artistic impulses could be expressed only in this",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "pp_inversion",
-    "sentence": "Just four years later , in 1923 , an article in the literary journal In Zikh was already complaining about the lack of attention given to Yiddish poetry in the wider world ; as the years passed , the situation continued to deteriorate , and by 1937 the poet A.",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "In Zikh",
-    "verb": "was",
-    "subject": "the lack of attention given to Yiddish poetry in the wider world",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "There are fewer and fewer native speakers left to teach the classes that must suffice to bring the language to future generations . <p> A so-called Yiddish revival among young people has been widely chronicled in recent years ; much is made of the fact that a growing number of American colleges now offer Yiddish courses .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "are",
-    "subject": "that must suffice to bring the language to future generations",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "This , I now see , is impossible : my classroom Yiddish will never be good enough ( that I once had a poem printed in a small Yiddish journal is indicative only of the paucity of contemporary Yiddish poets ) , and , far more important , there is no longer an audience to serve . <p> There comes a point when one ca n't bear any longer to watch the suffering of the beloved , when one has the impulse to pull off the life-support systems and shout , \" Enough !",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "comes",
-    "subject": "the suffering of the beloved",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "ap_inversion",
-    "sentence": "Most of them have never appeared in English , which means that future generations will not have the opportunity to enjoy them , and so I am now beginning work on translation . <p> \" Here , \" we will say , handing our children a photograph , \" you never knew her , but she was beautiful , and we loved her very much . \" <p> By Matthew Goodman <p> <p> Matthew Goodman teaches writing and literature at Vermont College .",
-    "constituent_type": "AP (Adjective Phrase)",
-    "fronted_constituent": "Most of them have never",
-    "verb": "appeared",
-    "subject": "that future generations will not have the opportunity to enjoy them",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Perhaps because I was partially dependent on my father that summer , I could not bear to see a man who was completely dependent on other people , on their good graces , their love , their charity .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Perhaps because I",
-    "verb": "was",
-    "subject": "that summer",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Only much later did I come to understand that a healthy , balanced sense of self leads happily to a commitment to others , and that this commitment in turn strengthens the self in both its inward and its outward search for a place in the world .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Only much later did I",
-    "verb": "come",
-    "subject": "that a healthy",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Perhaps true charity is offering the platitudes even though they are unacceptable , and accepting them , knowing they are unacceptable .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Perhaps true charity",
-    "verb": "is",
-    "subject": "the platitudes even though they are unacceptable",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "pp_inversion",
-    "sentence": "At first she was trapped in her martyrdom by her marriage vows and her decency , but as time went on she began to enjoy being noble .",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "At first she",
-    "verb": "was",
-    "subject": "her martyrdom by her marriage vows and her decency",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Maybe she was afraid of sex .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Maybe she",
-    "verb": "was",
-    "subject": "afraid of sex",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "pp_inversion",
-    "sentence": "Above the fiberglass roof of the carport was a space I could n't reach .",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "Above the fiberglass roof of the carport",
-    "verb": "was",
-    "subject": "a space I could n't reach",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Only a select few were mounted in the museum . <p> After a brief war with the Yugoslav National Army in 1991 , Croatia became an independent republic , but prior to the break with Belgrade , the Croatian parliament , in an early effort at nation building , had declared Brijuni a national park .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Only a select few",
-    "verb": "were",
-    "subject": "the museum",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Now he was committed to implementing the Dayton Accords , with its laisser-passer for all refugees , and to integrating Croatia 's dynastic economy into the trade belts of western Europe . <p> As we ate , we recalled the Dalmatian coast as though it were a familiar poem , and I left the evening with the confidence to journey south in the summer .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Now he",
-    "verb": "was",
-    "subject": "the Dayton Accords",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Now at the Lafodia we were footnotes in a five-year plan .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Now at the Lafodia we",
-    "verb": "were",
-    "subject": "a five-year plan",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "That condition prevailed until the late 1930s and @ @ @ @ @ @ @ @ @ @ leftist intellectuals in the city of Kingston -- began challenging the colonial system and the pervasiveness of British feeling . <p> In the little rural village where I lived until I was nine years old , Kingston and its progressive intellectuals were only a rumor .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In the little rural village where I",
-    "verb": "lived",
-    "subject": "a rumor",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "numeric_inversion",
     "sentence": "Devoutly religious , they made up the most cloistered and provincial community I 've known . <p> One of my earliest impressions of my fellow Chathamites was their reflexive recoil from the secular life of towns .",
     "constituent_type": "Numeric Expression",
     "fronted_constituent": "One of my earliest impressions of my fellow Chathamites",
     "verb": "was",
-    "subject": "the secular life of towns",
+    "subject": "their reflexive recoil from the secular life of towns",
     "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "existential",
-    "sentence": "There were no police constables in the villages and none were needed .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "were",
-    "subject": "the villages and none were needed",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "There was another reason I had thought he would never consider moving to a town .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "was",
-    "subject": "a town",
-    "is_locative": true,
     "confidence": "high"
   },
   {
@@ -856,36 +1046,6 @@
     "fronted_constituent": "One of these influences",
     "verb": "was",
     "subject": "his inherited allegiance to Empire Day",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "So there was no compelling sentimental reason for a society of colonized ex-slaves to be @ @ @ @ @ @ @ @ @ @ reign . <p> R.",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "So there",
-    "verb": "was",
-    "subject": "a society of colonized ex-slaves to be @ @ @ @ @ @ @ @ @ @ reign",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "A. represented in Jamaican life . <p> Only when I emerged from under his tutelage and began attending high school in Kingston , where a small group of radical intellectuals nurtured the spring of anti-colonial agitation , did I feel intelligent enough to look searchingly at the question @ @ @ @ @ @ @ @ @ @ the conclusion -- fairer and more plausible than the one to which I 'd been tempted to come in Falmouth -- that he was unconsciously in thrall to an inherited influence of his upbringing , that he had never seriously examined the political implication of the colonial or colonized attitude he displayed .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Only when I",
-    "verb": "emerged",
-    "subject": "that he was unconsciously in thrall to an inherited influence of his upbringing",
-    "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "ap_inversion",
-    "sentence": "And I was further stimulated by my association with a journal whose high literary standards reminded me of the New Statesman . <p> Most of the writers and editors at Public Opinion were not professional journalists but cultural and political intellectuals : men and women who adopted the paper @ @ @ @ @ @ @ @ @ @ ideals .",
-    "constituent_type": "AP (Adjective Phrase)",
-    "fronted_constituent": "Most of the writers and editors at Public Opinion",
-    "verb": "were",
-    "subject": "the paper @ @ @ @ @ @ @ @ @ @ ideals",
     "is_locative": false,
     "confidence": "high"
   },
@@ -900,46 +1060,6 @@
     "confidence": "high"
   },
   {
-    "type": "existential",
-    "sentence": "There was a strong feeling among the thriving colonial conservatives , some of whom imagined themselves to be nearly as privileged as the ruling British elite , that the new enterprise in self-government would fail and that its collapse would lead to a restoration of the colonial regime .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "was",
-    "subject": "that the new enterprise in self-government would fail and that its collapse would lead to a restoration of the colonial regime",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "coordinated_inversion",
-    "sentence": "Among his lieutenants and successors was his son , Michael , a graduate of the London School of Economics .",
-    "constituent_type": "Coordinated Structure",
-    "fronted_constituent": "Among his lieutenants and successors",
-    "verb": "was",
-    "subject": "the London School of Economics",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Perhaps the whole corpus never rises above such textual juvenility .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Perhaps the whole corpus never",
-    "verb": "rises",
-    "subject": "such textual juvenility",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "At least that is what I took him to mean , and I got busy parlaying it into a general discussion in which Russell , having said his piece , declined to participate further . <p> Once the other students had risen to the bait and were doing the talking , I had a chance to look Russell over for new damage : this week it was a thick , dark line , resembling lavishly applied lampblack , that ran under his right eye from nose to cheekbone .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "At least that",
-    "verb": "is",
-    "subject": "that ran under his right eye from nose to cheekbone",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
     "type": "numeric_inversion",
     "sentence": "One of the quiet dramas of having Russell in class was seeing what kind of punishment he had incurred of late .",
     "constituent_type": "Numeric Expression",
@@ -947,56 +1067,6 @@
     "verb": "was",
     "subject": "seeing what kind of punishment he had incurred of late",
     "is_locative": false,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "Maybe it 's worth getting banged up to learn about yourself and , you know , the rest of the world . \" There were guys down at the gym who had been in jail , who had been addicted to drugs , who had given and taken beatings in and out of the ring , who had been out on the streets broke and without prospects .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "were",
-    "subject": "the gym who had been in jail",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "adv_inversion",
-    "sentence": "Perhaps because Speight was acting like a man who expected to win , and seemed unaffected by the older man 's punches , Art forgot himself .",
-    "constituent_type": "AdvP (Adverb Phrase)",
-    "fronted_constituent": "Perhaps because Speight",
-    "verb": "was",
-    "subject": "the older man 's punches",
-    "is_locative": false,
-    "confidence": "high"
-  },
-  {
-    "type": "existential",
-    "sentence": "There was old , soft , much-torn scar tissue @ @ @ @ @ @ @ @ @ @ the kind that parts like wet paper when force is applied to it .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "was",
-    "subject": "that parts like wet paper when force is applied to it",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "pp_inversion",
-    "sentence": "Within seconds it was running down Art 's face , getting all over his chest and Speight 's gloves , then Art 's own gloves and both fighters ' trunks .",
-    "constituent_type": "PP (Prepositional Phrase)",
-    "fronted_constituent": "Within seconds it",
-    "verb": "was",
-    "subject": "all over his chest and Speight 's gloves",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "existential",
-    "sentence": "There were so many of them that Speight , instead of counterpunching in earnest to make Art pay for exposing himself so rashly , changed tactics and waited for the older man to run out of steam .",
-    "constituent_type": "AdvP (Existential)",
-    "fronted_constituent": "There",
-    "verb": "were",
-    "subject": "that Speight",
-    "is_locative": true,
     "confidence": "high"
   },
   {
@@ -1021,23 +1091,53 @@
   },
   {
     "type": "numeric_inversion",
-    "sentence": "While \" The Rough Crossing \" centers on a single bad trip , \" One Trip Abroad \" follows a couple through years of aimless wandering as they move from one hollow niche of \" society \" to another .",
+    "sentence": "Two days before the class was due to take place the student representatives came to me with a completely different demand .",
     "constituent_type": "Numeric Expression",
-    "fronted_constituent": "One Trip Abroad \"",
-    "verb": "follows",
-    "subject": "a couple through years of aimless wandering as they move from one hollow niche of \" society \" to another",
+    "fronted_constituent": "Two days before the class",
+    "verb": "was",
+    "subject": "the student representatives came to me with a completely different demand",
     "is_locative": false,
     "confidence": "medium"
   },
   {
     "type": "numeric_inversion",
-    "sentence": "Despite its unusual Gothic touches , \" One Trip \" is a schematic miniature of Tender Is the Night ( its heroine is even called Nicole ) in much the same way that \" Winter Dreams \" contains the seed of The Great Gatsby . <p> But \" One Trip Abroad \" also connects directly with Fitzgerald 's next @ @ @ @ @ @ @ @ @ @ and enduring stories , \" Babylon Revisited . \" First published in 1931 , and probably the only work of Fitzgerald 's that is as widely taught as The Great Gatsby , \" Babylon \" also has its nonfiction parallel in an oft-quoted essay written around the same time , \" Echoes of the Jazz Age . \" Always a staple for historians writing about the 1920s , the essay debunks the very period with which Fitzgerald 's name is associated ; by 1931 , less than two years after the stock-market crash , the twenties already felt like ancient history ( \" only yesterday , \" as Frederick Lewis Allen put it in the title of his famous social history , also published in 1931 ) .",
+    "sentence": "One of the aims of contemporary moral philosophy is to discover some method or style of argument that can help people resolve moral disagreements .",
     "constituent_type": "Numeric Expression",
-    "fronted_constituent": "One Trip \"",
+    "fronted_constituent": "One of the aims of contemporary moral philosophy",
     "verb": "is",
-    "subject": "that \" Winter Dreams \" contains the seed of The Great Gatsby",
+    "subject": "that can help people resolve moral disagreements",
+    "is_locative": false,
+    "confidence": "high"
+  },
+  {
+    "type": "numeric_inversion",
+    "sentence": "If you , dear reader , also share these preferences , you may find Rawls 's argument cogent . <p> One principle is : \" The aim of a just war waged by a decent democratic society is a just and lasting peace between peoples , especially with its present enemy \" ( 565 ) .",
+    "constituent_type": "Numeric Expression",
+    "fronted_constituent": "One principle",
+    "verb": "is",
+    "subject": "a just war waged by a decent democratic society is a just and lasting peace between peoples",
     "is_locative": false,
     "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "And as my agnostic voice joined with the voices of Savannah Jews to proclaim God 's singularity to the world , I suddenly felt not merely at home , but at peace , at peace with that one God I yearned for but could no longer believe in ; at peace with that one people , some of whom no longer considered me part of \" the tribe \" ; at peace with the memory-obsessed self that writers are condemned to live with ; and at peace with this melting pot called America . <p> In a world in which religious civil war threatens to destroy a Jewish state where non-observant and ultra-Orthodox can no longer even agree on what a Jew is , that age-old declaration of God 's oneness soared into the soft Southern air of a neo-Gothic @ @ @ @ @ @ @ @ @ @ used to cry , ruler punctuating the air as if it were God 's sword .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "In a world in which religious civil war threatens to destroy a Jewish state where non-observant and ultra-Orthodox can no longer even agree on what a Jew",
+    "verb": "is",
+    "subject": "that age-old declaration of God 's oneness soared into the soft Southern air of a neo-Gothic @ @ @ @ @ @ @ @ @ @ used to cry",
+    "is_locative": true,
+    "confidence": "medium"
+  },
+  {
+    "type": "coordinated_inversion",
+    "sentence": "Among his lieutenants and successors was his son , Michael , a graduate of the London School of Economics .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "Among his lieutenants and successors",
+    "verb": "was",
+    "subject": "the London School of Economics",
+    "is_locative": true,
+    "confidence": "high"
   },
   {
     "type": "coordinated_inversion",
@@ -1105,7 +1205,7 @@
     "constituent_type": "Coordinated Structure",
     "fronted_constituent": "To designate the friendship between Marlow and his correspondent as a community",
     "verb": "is",
-    "subject": "the themes of amorphousness",
+    "subject": "another variation on the themes of amorphousness",
     "is_locative": true,
     "confidence": "high"
   },
@@ -1115,7 +1215,7 @@
     "constituent_type": "Coordinated Structure",
     "fronted_constituent": "To reveal art and conceal the artist",
     "verb": "is",
-    "subject": "the leitmotif of his life and art",
+    "subject": "their sadness",
     "is_locative": true,
     "confidence": "high"
   },
@@ -1145,19 +1245,9 @@
     "constituent_type": "Coordinated Structure",
     "fronted_constituent": "In contrast to analytic somaesthetics whose logic ( whether genealogical or ontological )",
     "verb": "is",
-    "subject": "a distinctly normative",
+    "subject": "their comparative critique",
     "is_locative": true,
     "confidence": "high"
-  },
-  {
-    "type": "coordinated_inversion",
-    "sentence": "In the Second Discourse the apotheosis of social institutions and of law brings with it the complete destruction of the humanity in human beings and a regression @ @ @ @ @ @ @ @ @ @ \" Here is the ultimate stage of inequality , and the extreme point which closes the circle and touches the point from which we started .",
-    "constituent_type": "Coordinated Structure",
-    "fronted_constituent": "In the Second Discourse the apotheosis of social institutions and of law brings with it the complete destruction of the humanity in human beings and a regression @ @ @ @ @ @ @ @ @ @ \" Here",
-    "verb": "is",
-    "subject": "the ultimate stage of inequality",
-    "is_locative": true,
-    "confidence": "medium"
   },
   {
     "type": "coordinated_inversion",
@@ -1185,7 +1275,7 @@
     "constituent_type": "Coordinated Structure",
     "fronted_constituent": "In a condition in which speakers and hearers do not simply conform to usage but",
     "verb": "are",
-    "subject": "that way attach to them distinct ideas",
+    "subject": "their own lives and experience and in that way attach to them distinct ideas",
     "is_locative": true,
     "confidence": "high"
   },
@@ -1220,163 +1310,13 @@
     "confidence": "medium"
   },
   {
-    "type": "complex_pp_inversion",
-    "sentence": "I washed my face and then I ran water in the sink to soak the shirt . <p> In the months that followed , Russell found a teacher , a retired fighter who sometimes worked with novices , and eventually declared himself ready to try the Golden Gloves .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In the months that",
-    "verb": "followed",
-    "subject": "the Golden Gloves",
+    "type": "coordinated_inversion",
+    "sentence": "From a young age I was attracted to people and experiences that were different from the monocultural @ @ @ @ @ @ @ @ @ @ the 1950s .",
+    "constituent_type": "Coordinated Structure",
+    "fronted_constituent": "From a young age I was attracted to people and experiences that",
+    "verb": "were",
+    "subject": "the monocultural @ @ @ @ @ @ @ @ @ @ the 1950s",
     "is_locative": true,
     "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "At the same time I knew that there was something in what my academic critics were saying .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "At the same time I knew that there",
-    "verb": "was",
-    "subject": "my academic critics were saying",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "Thus completely satisfied by David 's assurances , I formally accepted his invitation to lecture at UCT . <p> At the stage of my acceptance of Professor Welsh 's invitation it did not seem to me that academic freedom was an issue with regard to South Africa .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "At the stage of my acceptance of Professor Welsh 's invitation it did not seem to me that academic freedom",
-    "verb": "was",
-    "subject": "an issue with regard to South Africa",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "In the course of the article I indicated that I was about to go to South Africa to teach , thereby breaking the \" academic boycott , \" which I believed to be altogether wrong and a breach of the basic principle of the international solidarity of scholars and teachers .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In the course of the article I indicated that I",
-    "verb": "was",
-    "subject": "the \" academic boycott",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "It is therefore perhaps the kindest death that the Inuit , who lacked modern drugs , could have inflicted on the elderly . <p> In those cases in which there are genuine ethical differences between ourselves and some other culture , it hardly follows that we should be tolerant of those differences .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In those cases in which there",
-    "verb": "are",
-    "subject": "that we should be tolerant of those differences",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "To the extent to which moral philosophy is an effort to reveal an objective moral order ( moral realism ) , then it rests upon a mistake . <p> Posner calls himself a relativist : \" morality is local ... there are no interesting moral universals \" ( 6 ) .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "To the extent to which moral philosophy",
-    "verb": "is",
-    "subject": "a mistake",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "In both cases the key transition to a new way of thinking was the assumption that it was not just particular wrongs that needed rectifying .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In both cases the key transition to a new way of thinking was the assumption that it",
-    "verb": "was",
-    "subject": "that needed rectifying",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "In revealing the extraordinary lengths to which one college 's administration was willing to go to use race as a basis for hiring , it may be indicative of practices prevalent in American higher education .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In revealing the extraordinary lengths to which one college 's administration",
-    "verb": "was",
-    "subject": "a basis for hiring",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "Although this search tends to be more straightforward in the hard sciences than in the humanities , there is the possibility of error in all disciplines , and disagreements are therefore expected even in the \" hardest \" of sciences . ( This sort of hard-science dispute is exemplified , for instance , by Einstein 's disagreement with such younger colleagues as Heisenberg and Bohr @ @ @ @ @ @ @ @ @ @ ) <p> To argue that the search for truth is the university 's central mission is not to say that it is the only mission .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "To argue that the search for truth",
-    "verb": "is",
-    "subject": "that it is the only mission",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "From there it passed to sociology where it was used -- most influentially , perhaps , by Max Weber -- to designate all the things that people individually and in their various social groupings care about in some reasonably stable way .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "From there it passed to sociology where it",
-    "verb": "was",
-    "subject": "that people individually and in their various social groupings care about in some reasonably stable way",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "Admittedly , it is not very clear who this \" all \" would comprise since everyone would have been shut up in his or her own ethnicity and would not @ @ @ @ @ @ @ @ @ @ others . <p> In the background of the solicitude that is felt for \" minority cultures , \" there is a quite definite political parti pris .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In the background of the solicitude that",
-    "verb": "is",
-    "subject": "a quite definite political parti pris",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "In my case Ravelstein 's opinion was that distinctiveness of observation had gone much further than it should and was being cultivated for its own strange sake .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In my case Ravelstein 's opinion was that distinctiveness of observation had gone much further than it should and",
-    "verb": "was",
-    "subject": "its own strange sake",
-    "is_locative": true,
-    "confidence": "medium"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "To say that Jim is part of Marlow 's \" right sort \" is to say nothing about him at all , nothing but that towards him Marlow feels a certain kinship .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "To say that Jim",
-    "verb": "is",
-    "subject": "that towards him Marlow feels a certain kinship",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "In spite of the redemptive sense of his writing -- that is , his belief that writing justifies and fulfills our experiences of art and reality -- an opacity surrounds Pater and his subjects , which also involves our own contribution as readers .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In spite of the redemptive sense of his writing -- that",
-    "verb": "is",
-    "subject": "that writing justifies and fulfills our experiences of art and reality -- an opacity surrounds Pater and his subjects",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "In that sense she is not a dramatic novelist .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "In that sense she",
-    "verb": "is",
-    "subject": "a dramatic novelist",
-    "is_locative": true,
-    "confidence": "high"
-  },
-  {
-    "type": "complex_pp_inversion",
-    "sentence": "The effect of religious @ @ @ @ @ @ @ @ @ @ ) seems still to be , a heavy trend to the Bight . <p> From the conversations she had in Ireland she derived an analysis which is recognizable , subtle and fair-minded .",
-    "constituent_type": "PP (Complex Prepositional Phrase)",
-    "fronted_constituent": "From the conversations she had in Ireland she derived an analysis which",
-    "verb": "is",
-    "subject": "recognizable",
-    "is_locative": true,
-    "confidence": "medium"
   }
 ]

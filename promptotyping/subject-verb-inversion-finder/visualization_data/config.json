@@ -6,7 +6,7 @@
   "dataSource": {
     "files": 5,
     "sentences": 601561,
-    "inversions": 22672
+    "inversions": 51083
   },
   "chartColors": {
     "constituentTypes": [

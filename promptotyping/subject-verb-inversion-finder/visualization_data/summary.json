@@ -2,33 +2,33 @@
   "total_files": 5,
   "total_paragraphs": 4546,
   "total_sentences": 601561,
-  "total_inversions": 22672,
-  "locative_inversions": 12599,
-  "non_locative_inversions": 10073,
-  "complex_inversions_count": 7360,
+  "total_inversions": 51083,
+  "locative_inversions": 42130,
+  "non_locative_inversions": 8953,
+  "complex_inversions_count": 36951,
   "constituent_types": {
-    "PP (Prepositional Phrase)": 3829,
-    "AdvP (Adverb Phrase)": 3407,
-    "AdvP (Existential)": 6105,
-    "Numeric Expression": 5158,
-    "AP (Adjective Phrase)": 1811,
+    "PP (Complex Prepositional Phrase)": 31499,
+    "PP (Prepositional Phrase)": 3747,
+    "AdvP (Adverb Phrase)": 2994,
+    "AdvP (Existential)": 5623,
+    "Numeric Expression": 4581,
+    "AP (Adjective Phrase)": 1629,
     "Coordinated Structure": 871,
-    "PP (Complex Prepositional Phrase)": 1331,
-    "VP (Verb Phrase)": 160
+    "VP (Verb Phrase)": 139
   },
   "confidence_levels": {
-    "high": 8959,
-    "medium": 13591,
-    "low": 122
+    "high": 26812,
+    "medium": 21217,
+    "low": 3054
   },
   "inversion_types": {
-    "pp_inversion": 3829,
-    "adv_inversion": 3407,
-    "existential": 6105,
-    "numeric_inversion": 5158,
-    "ap_inversion": 1811,
+    "complex_pp_inversion": 31499,
+    "pp_inversion": 3747,
+    "adv_inversion": 2994,
+    "existential": 5623,
+    "numeric_inversion": 4581,
+    "ap_inversion": 1629,
     "coordinated_inversion": 871,
-    "complex_pp_inversion": 1331,
-    "vp_inversion": 160
+    "vp_inversion": 139
   }
 }
