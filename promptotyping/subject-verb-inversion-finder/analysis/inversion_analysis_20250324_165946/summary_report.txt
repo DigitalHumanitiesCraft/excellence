@@ -1,0 +1,35 @@
+SUBJECT-VERB INVERSION CORPUS ANALYSIS
+=====================================
+
+Analysis Date: 2025-03-24 16:59:46
+Data Source: ../data/corpus_inversions_20250324_133147.csv
+
+Total inversions analyzed: 3377
+
+FRONTED ELEMENT TYPES
+--------------------
+VP: 1194 (35.4%)
+PP: 879 (26.0%)
+Other: 581 (17.2%)
+AdjP: 405 (12.0%)
+AdvP: 262 (7.8%)
+Quotative: 56 (1.7%)
+
+LOCATIVE VS. NON-LOCATIVE
+------------------------
+Non-locative: 2660 (78.8%)
+Locative: 717 (21.2%)
+
+DISCOURSE FUNCTIONS
+------------------
+Quotative: 1317 (39.0%)
+Discourse structuring: 1182 (35.0%)
+Scene-setting: 547 (16.2%)
+Comparative: 221 (6.5%)
+Evaluative: 110 (3.3%)
+
+INFORMATION STRUCTURE
+--------------------
+Other: 3357 (99.4%)
+Given->New: 20 (0.6%)
+

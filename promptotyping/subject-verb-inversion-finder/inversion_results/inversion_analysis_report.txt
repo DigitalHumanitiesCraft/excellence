@@ -7,9 +7,9 @@ Total inversions found: 51083 (8.49% of sentences)
 Complex inversions: 36951 (72.34% of all inversions)
 
 === Confidence Levels ===
-High: 26812 (52.5%)
-Medium: 21217 (41.5%)
-Low: 3054 (6.0%)
+High: 27082 (53.0%)
+Medium: 20942 (41.0%)
+Low: 3059 (6.0%)
 
 === Inversion Types ===
 complex_pp_inversion: 31499 (61.7%)
@@ -53,7 +53,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Prepositional Phrase)
    Fronted constituent: 'On one side'
    Verb: 'were'
-   Subject: 'the opposite side'
+   Subject: 'some signs of native plant life'
    Locative: Yes
    Confidence: High
    Validation: Clear subject with determiner and common verb
@@ -64,10 +64,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: AdvP (Adverb Phrase)
    Fronted constituent: 'Now this'
    Verb: 'is'
-   Subject: 'any length of time in the state'
+   Subject: 'a @ @ @ @ @ @ @ @ @ @ forms of clearing that destroyed dry forest elsewhere'
    Locative: No
    Confidence: Medium
-   Validation: Clear subject with determiner and common verb, Subject much longer than fronted element
+   Validation: Be-verb with substantial subject, Subject much longer than fronted element
 
 4. In short , a fire today generally spells the end of a native plant @ @ @ @ @ @ @ @ @ @ burned a couple years ago last fall , " Cabin said , pointing down the slope and to the north . " There was a huge fire on this whole side of the island .
    File: text_acad_2000.txt
@@ -75,10 +75,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: AdvP (Existential)
    Fronted constituent: 'There'
    Verb: 'was'
-   Subject: 'the island'
+   Subject: 'a huge fire on this whole side of the island'
    Locative: Yes
-   Confidence: High
-   Validation: Clear subject with determiner and common verb
+   Confidence: Medium
+   Validation: Clear subject with determiner and common verb, Subject much longer than fronted element
 
 5. In the study published in April , the researchers found 16 nonnative plants new to the preserve . " One of the species that 's really come in heavy in some places is this guy , " said Cabin , walking over to a milkweed plant and pulling it up .
    File: text_acad_2000.txt
@@ -86,7 +86,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: Numeric Expression
    Fronted constituent: 'One of the species that 's really'
    Verb: 'come'
-   Subject: 'a milkweed plant and pulling it up'
+   Subject: 'some places is this guy'
    Locative: No
    Confidence: High
    Validation: Clear subject with determiner and common verb
@@ -108,10 +108,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: AP (Adjective Phrase)
    Fronted constituent: 'Most studies cited'
    Verb: 'were'
-   Subject: 'any interactions'
+   Subject: 'a particular species or functional group provides a resource that can support a suite of organisms across the surface ( one-to-many interactions )'
    Locative: No
-   Confidence: High
-   Validation: Clear subject with determiner and common verb
+   Confidence: Medium
+   Validation: Be-verb with substantial subject, Subject much longer than fronted element
 
 8. Less was known about the extent to which biodiversity above and below the surface is linked by species-specific couplings ( 1:1 interactions ) , or whether high species diversity on one side of soils or sediments @ @ @ @ @ @ @ @ @ @ . <p> Important differences in the processes connecting biota above and below the surface of soils and sediments within and across domains were also revealed .
    File: text_acad_2000.txt
@@ -119,7 +119,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'to which biodiversity above and below the surface'
    Verb: 'is'
-   Subject: 'the processes connecting biota above and below the surface of soils and sediments within and across domains were also revealed'
+   Subject: 'her high species diversity on one side of soils or sediments @ @ @ @ @ @ @ @ @ @'
    Locative: Yes
    Confidence: Medium
    Validation: Be-verb with substantial subject, Subject much longer than fronted element
@@ -130,10 +130,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: AdvP (Existential)
    Fronted constituent: 'There'
    Verb: 'was'
-   Subject: 'that a high species diversity @ @ @ @ @ @ @ @ @ @ litter timing and quality'
+   Subject: 'her side of the soil or sediment surface'
    Locative: Yes
    Confidence: Medium
-   Validation: Be-verb with substantial subject, Subject much longer than fronted element
+   Validation: Clear subject with determiner and common verb, Subject much longer than fronted element
 
 10. However , we lack detailed information on which species are coupled and on the extent of this coupling .
    File: text_acad_2000.txt
@@ -141,7 +141,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'on which species'
    Verb: 'are'
-   Subject: 'the extent of this coupling'
+   Subject: 'this coupling'
    Locative: Yes
    Confidence: High
    Validation: Clear subject with determiner and common verb
@@ -152,7 +152,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'among a few species will be very sensitive to species loss @ @ @ @ @ @ @ @ @ @ the above-surface to below-surface interactions that regulate vital ecosystem functions the vulnerability to global change of the species or functional groups involved in these interactions the sensitivity of the ecosystem function to any changes in species or functional group composition and richness <p> This synthesis highlights the fact that soils and sediments'
    Verb: 'are'
-   Subject: 'the ecology'
+   Subject: 'a dynamic habitat'
    Locative: Yes
    Confidence: Medium
    Validation: Clear subject with determiner and common verb, Very long fronted constituent
@@ -163,10 +163,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'from the other side are sampled by different methods that examine biodiversity at different scales'
    Verb: 'are'
-   Subject: 'that reduce biodiversity at the other side of the soil or sediment surface may be regulated by factors that depend on composition of resources from across the surface independent of taxonomic diversity Box 2'
+   Subject: 'her side of the soil or sediment surface may be regulated by factors that depend on composition of resources from across the surface independent of taxonomic diversity Box 2'
    Locative: Yes
-   Confidence: Medium
-   Validation: Be-verb with substantial subject, Subject much longer than fronted element
+   Confidence: High
+   Validation: Be-verb with substantial subject
 
 13. We assess the evidence for correlation between aboveground and belowground diversity and conclude that a variety of mechanisms could lead to positive , negative , or no relationship -- depending on the strength and type of interactions among species <p> Understanding linkages between the diversity of organisms above ground and that of organisms below ground constitutes an important challenge for our knowledge of how ecological communities and processes are determined at both local and regional scales .
    File: text_acad_2000.txt
@@ -207,10 +207,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: Numeric Expression
    Fronted constituent: 'One difficulty'
    Verb: 'is'
-   Subject: 'that information on bacterial species richness in most ecosystems is quite limited'
+   Subject: 'most ecosystems is quite limited'
    Locative: No
    Confidence: Medium
-   Validation: Be-verb with substantial subject, Subject much longer than fronted element
+   Validation: Clear subject with determiner and common verb, Subject much longer than fronted element
 
 17. Carbon substrate heterogeneity may be related to plant taxonomic diversity when the presence of important plant defense compounds is linked to particular plant taxa , with consequences for the diversity of selective aboveground ( Strong et al . 1984 ) and belowground ( Andersen 1987 ) herbivores .
    File: text_acad_2000.txt
@@ -240,10 +240,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: Numeric Expression
    Fronted constituent: 'One category'
    Verb: 'is'
-   Subject: 'that loss of one guarantees loss of the other'
+   Subject: 'a certain belowground organism ( through mutualism , for example ) that loss of one guarantees loss of the other'
    Locative: No
    Confidence: Medium
-   Validation: Clear subject with determiner and common verb, Subject much longer than fronted element
+   Validation: Be-verb with substantial subject, Subject much longer than fronted element
 
 20. On the other hand , the approximately 160 species of Zygomycete fungi that form arbuscular endomycorrhizal associations are obligate symbionts , although none is host specific ( Morton 1988 , Walker 1992 ) @ @ @ @ @ @ @ @ @ @ plant may be colonized by more than one species of fungus . <p> The extent to which associations are obligate can vary also , even for partners in mutualism .
    File: text_acad_2000.txt
@@ -262,7 +262,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'between legumes and their rhizobial symbionts might lead one to assume that the bacteria'
    Verb: 'are'
-   Subject: 'the plant'
+   Subject: 'this is generally not true'
    Locative: Yes
    Confidence: High
    Validation: Clear subject with determiner and common verb
@@ -331,7 +331,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: Numeric Expression
    Fronted constituent: 'One of the species that 's really'
    Verb: 'come'
-   Subject: 'a milkweed plant and pulling it up'
+   Subject: 'some places is this guy'
    Locative: No
    Confidence: High
    Validation: Clear subject with determiner and common verb
@@ -353,7 +353,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'to which biodiversity above and below the surface'
    Verb: 'is'
-   Subject: 'the processes connecting biota above and below the surface of soils and sediments within and across domains were also revealed'
+   Subject: 'her high species diversity on one side of soils or sediments @ @ @ @ @ @ @ @ @ @'
    Locative: Yes
    Confidence: Medium
    Validation: Be-verb with substantial subject, Subject much longer than fronted element
@@ -364,7 +364,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'on which species'
    Verb: 'are'
-   Subject: 'the extent of this coupling'
+   Subject: 'this coupling'
    Locative: Yes
    Confidence: High
    Validation: Clear subject with determiner and common verb
@@ -375,7 +375,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'among a few species will be very sensitive to species loss @ @ @ @ @ @ @ @ @ @ the above-surface to below-surface interactions that regulate vital ecosystem functions the vulnerability to global change of the species or functional groups involved in these interactions the sensitivity of the ecosystem function to any changes in species or functional group composition and richness <p> This synthesis highlights the fact that soils and sediments'
    Verb: 'are'
-   Subject: 'the ecology'
+   Subject: 'a dynamic habitat'
    Locative: Yes
    Confidence: Medium
    Validation: Clear subject with determiner and common verb, Very long fronted constituent
@@ -386,10 +386,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'from the other side are sampled by different methods that examine biodiversity at different scales'
    Verb: 'are'
-   Subject: 'that reduce biodiversity at the other side of the soil or sediment surface may be regulated by factors that depend on composition of resources from across the surface independent of taxonomic diversity Box 2'
+   Subject: 'her side of the soil or sediment surface may be regulated by factors that depend on composition of resources from across the surface independent of taxonomic diversity Box 2'
    Locative: Yes
-   Confidence: Medium
-   Validation: Be-verb with substantial subject, Subject much longer than fronted element
+   Confidence: High
+   Validation: Be-verb with substantial subject
 
 8. We assess the evidence for correlation between aboveground and belowground diversity and conclude that a variety of mechanisms could lead to positive , negative , or no relationship -- depending on the strength and type of interactions among species <p> Understanding linkages between the diversity of organisms above ground and that of organisms below ground constitutes an important challenge for our knowledge of how ecological communities and processes are determined at both local and regional scales .
    File: text_acad_2000.txt
@@ -430,10 +430,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: Numeric Expression
    Fronted constituent: 'One difficulty'
    Verb: 'is'
-   Subject: 'that information on bacterial species richness in most ecosystems is quite limited'
+   Subject: 'most ecosystems is quite limited'
    Locative: No
    Confidence: Medium
-   Validation: Be-verb with substantial subject, Subject much longer than fronted element
+   Validation: Clear subject with determiner and common verb, Subject much longer than fronted element
 
 12. Carbon substrate heterogeneity may be related to plant taxonomic diversity when the presence of important plant defense compounds is linked to particular plant taxa , with consequences for the diversity of selective aboveground ( Strong et al . 1984 ) and belowground ( Andersen 1987 ) herbivores .
    File: text_acad_2000.txt
@@ -452,10 +452,10 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: Numeric Expression
    Fronted constituent: 'One category'
    Verb: 'is'
-   Subject: 'that loss of one guarantees loss of the other'
+   Subject: 'a certain belowground organism ( through mutualism , for example ) that loss of one guarantees loss of the other'
    Locative: No
    Confidence: Medium
-   Validation: Clear subject with determiner and common verb, Subject much longer than fronted element
+   Validation: Be-verb with substantial subject, Subject much longer than fronted element
 
 14. On the other hand , the approximately 160 species of Zygomycete fungi that form arbuscular endomycorrhizal associations are obligate symbionts , although none is host specific ( Morton 1988 , Walker 1992 ) @ @ @ @ @ @ @ @ @ @ plant may be colonized by more than one species of fungus . <p> The extent to which associations are obligate can vary also , even for partners in mutualism .
    File: text_acad_2000.txt
@@ -474,7 +474,7 @@ Non-locative inversions: 8953 (17.5%)
    Constituent type: PP (Complex Prepositional Phrase)
    Fronted constituent: 'between legumes and their rhizobial symbionts might lead one to assume that the bacteria'
    Verb: 'are'
-   Subject: 'the plant'
+   Subject: 'this is generally not true'
    Locative: Yes
    Confidence: High
    Validation: Clear subject with determiner and common verb

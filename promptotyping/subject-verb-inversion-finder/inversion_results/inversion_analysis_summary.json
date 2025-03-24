@@ -24,9 +24,9 @@
     "VP (Verb Phrase)": 139
   },
   "confidence_levels": {
-    "high": 26812,
-    "medium": 21217,
-    "low": 3054
+    "high": 27082,
+    "medium": 20942,
+    "low": 3059
   },
   "inversion_types": {
     "complex_pp_inversion": 31499,
