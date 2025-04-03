@@ -19,7 +19,6 @@ Custom instructions and system prompts for AI models (like Claude, ChatGPT), des
 ### 🚀 Promptotyping Implementations
 Collection of web applications demonstrating our Promptotyping methodology:
 - Crown Dashboard JSON WebApp
-- Hamlet Digital Edition TEI-to-Frontend WebApp
 - IMAREAL Room Object WebApp
 
 ### 📚 Research
