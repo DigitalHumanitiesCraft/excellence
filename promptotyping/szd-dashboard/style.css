@@ -1,0 +1,58 @@
+/* style.css - Add your dashboard styles here */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#loading-indicator {
+    font-style: italic;
+    text-align: center;
+    padding: 2rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.category-summary {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+.category-summary h2 {
+    margin-top: 0;
+    color: #555;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    border: 1px solid red;
+    padding: 10px;
+    background-color: #ffebeb;
+}
