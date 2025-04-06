@@ -3,24 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefan Zweig Digital - Dashboard</title>
-    <meta name="description" content="A dashboard visualizing data from the Stefan Zweig Digital project.">
-    <link rel="stylesheet" href="style.css">
+    <title>Stefan Zweig Digital - Visual Dashboard</title>
+    <meta name="description" content="An interactive dashboard visualizing summarized data from the Stefan Zweig Digital project.">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; margin: 0; background-color: #f8f9fa; color: #343a40; line-height: 1.6; }
+        header, footer { background-color: #343a40; color: #fff; padding: 1.2rem 1rem; text-align: center; }
+        header h1 { margin: 0; font-size: 1.8em; font-weight: 500;}
+        main { max-width: 1300px; margin: 25px auto; padding: 20px; background-color: #fff; box-shadow: 0 2px 15px rgba(0,0,0,0.08); border-radius: 10px; }
+        h2 { color: #0056b3; font-weight: 600; border-bottom: 2px solid #dee2e6; padding-bottom: 0.5em; margin-bottom: 1em;}
+        h3 { font-size: 1.15em; color: #495057; margin-bottom: 0.8em;}
+        .dashboard-section { margin-bottom: 35px; padding: 25px; border: 1px solid #e9ecef; border-radius: 8px; background-color: #fff; }
+        #filter-controls { padding: 10px 0;}
+        #filter-controls label { margin-right: 18px; margin-bottom: 10px; display: inline-block; cursor: pointer; user-select: none; font-size: 0.95em; }
+        #filter-controls input[type="checkbox"] { margin-right: 6px; vertical-align: middle; }
+        #filter-controls hr { margin: 12px 0; border: 0; border-top: 1px solid #e9ecef; }
+        .category-details-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 25px; margin-top: 20px; }
+        .category-detail-card { border: 1px solid #dee2e6; padding: 20px 25px; border-radius: 8px; background-color: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: opacity 0.3s ease-in-out, transform 0.2s ease-out; }
+        .category-detail-card:hover { transform: translateY(-2px); box-shadow: 0 3px 8px rgba(0,0,0,0.06); }
+        .category-detail-card.hidden { display: none; }
+        .category-detail-card h3 { margin-top: 0; border-bottom: 1px solid #e9ecef; padding-bottom: 10px; margin-bottom: 18px; font-weight: 600; color: #0056b3;}
+        .category-detail-card p { margin: 5px 0 12px 0; font-size: 0.98em;}
+        .chart-container { position: relative; height: 260px; width: 100%; margin-top: 20px; border-top: 1px solid #f1f3f5; padding-top: 20px;}
+        .overview-chart-container { position: relative; min-height: 300px; height: 45vh; max-height: 480px; width: 100%; margin-bottom: 20px;}
+        footer p { margin: 6px 0; font-size: 0.9em; color: #adb5bd;}
+        footer a { color: #a0cff0; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        #loading-indicator { text-align: center; padding: 50px; font-size: 1.25em; color: #6c757d;}
+        #dashboard-content { display: none; /* Hidden until data loads */}
+        .error { color: #dc3545; font-weight: 500; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 12px; border-radius: 4px; margin-top: 10px;}
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>Stefan Zweig Digital Dashboard</h1>
+        <h1>Stefan Zweig Digital - Visual Dashboard</h1>
     </header>
 
-    <main id="dashboard-container">
-        <p id="loading-indicator">Loading data...</p>
-        </main>
+    <main>
+        <div id="loading-indicator">Loading data and initializing dashboard...</div>
+
+        <div id="dashboard-content">
+            <section class="dashboard-section">
+                <h2>Overview: Entries per Category</h2>
+                <div class="overview-chart-container">
+                    <canvas id="overview-chart"></canvas>
+                </div>
+            </section>
+
+            <section class="dashboard-section">
+                <h2>Filter Categories</h2>
+                <div id="filter-controls">
+                    <label><input type="checkbox" id="filter-all" checked> Select/Deselect All</label>
+                    <hr>
+                </div>
+            </section>
+
+            <section class="dashboard-section">
+                <h2>Category Details</h2>
+                <div id="category-details-container" class="category-details-container">
+                    </div>
+            </section>
+        </div>
+    </main>
 
     <footer>
         <p>Data sourced from <a href="https://stefanzweig.digital/" target="_blank" rel="noopener noreferrer">stefanzweig.digital</a></p>
+        <p>Visualizations created using Chart.js</p>
+         <p id="current-time-location">Loading time and location...</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+    <script type="module" src="visualizations.js"></script>
     <script type="module" src="app.js"></script>
 
 </body>
