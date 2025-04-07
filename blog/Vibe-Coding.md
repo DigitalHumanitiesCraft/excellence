@@ -43,7 +43,7 @@ Dies deckt sich mit meinen eigenen Erfahrungen im Umgang mit Vibe Coding. Im dok
 ![][image4]  
 The One Snake \- Test Suite. [https://dhcraft.org/excellence/promptotyping/the-one-snake-vibe-coding/test.html](https://dhcraft.org/excellence/promptotyping/the-one-snake-vibe-coding/test.html) 
 
-Dieses Beispiel zeigt deutlich: Einfache Anwendungen lassen sich nahezu unmittelbar realisieren. Auch komplexere Aufgaben führen überraschend schnell zu funktionierenden Prototypen. Allerdings habe ich den generierten Code bisher gar nicht genauer analysiert – mir ist daher nicht bewusst, wie und warum das Spiel genau funktioniert. Dennoch funktioniert es.
+Dieses Beispiel zeigt: Einfachere Anwendungen lassen sich nahezu unmittelbar realisieren. Auch komplexere Aufgaben führen überraschend schnell zu funktionierenden Prototypen. Allerdings habe ich den generierten Code bisher gar nicht genauer analysiert – mir ist daher nicht bewusst, wie und warum das Spiel genau funktioniert. Dennoch funktioniert es.
 
 Gleichzeitig verdeutlichen meine Experimente jedoch die aktuellen Grenzen des Vibe Coding: Je komplexer und umfangreicher die Software wird, desto schwieriger wird deren langfristige Weiterentwicklung. Mit zunehmender Komplexität führen das begrenzte Kontextfenster sowie inhärente Modellbeschränkungen dazu, dass die Software immer schwerer wartbar wird oder an ihre Grenzen stößt. Dennoch unterstreichen diese Erfahrungen das enorme Potenzial der Modelle und verdeutlichen zugleich, dass Vibe Coding aktuell noch in einer frühen Phase steckt. Es ist jedoch davon auszugehen, dass in den kommenden Monaten verbesserte Prompting-Strategien und Techniken entstehen werden, die diese Herausforderungen zunehmend minimieren.
 
