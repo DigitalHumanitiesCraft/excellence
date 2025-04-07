@@ -73,10 +73,7 @@ Es zeichnet sich ab, dass klassische Programmierkompetenzen (*Coding 1.0*) zuneh
 
 [^3]:  Superwhisper ist eine lokale, KI-basierte Sprach-zu-Text-App, die Spracheingabe in beliebigen Anwendungen ermöglicht, Transkriptionen erstellt und Übersetzungen unterstützt. [https://superwhisper.com](https://superwhisper.com/)
 
-[^4]:  Andrej Karpathy. Deep Dive into LLMs like ChatGPT. [https://youtu.be/7xTGNNLPyMI](https://youtu.be/7xTGNNLPyMI).  
-Andrej Karpathy. \[1hr Talk\] Intro to Large Language Models. [https://www.youtube.com/watch?v=zjkBMFhNj\_g](https://www.youtube.com/watch?v=zjkBMFhNj_g).  
-Andrej Karpathy. How I use LLMs.[https://youtu.be/EWvNQjAaOHw](https://youtu.be/EWvNQjAaOHw?si=Q8o5X1cu_30graC6)  
-Andrej Karpathy. Let's build the GPT Tokenizer. [https://youtu.be/zduSFxRajkE](https://youtu.be/zduSFxRajkE?si=dxzi4VR5UiR68024)
+[^4]:  Andrej Karpathy. Deep Dive into LLMs like ChatGPT. [https://youtu.be/7xTGNNLPyMI](https://youtu.be/7xTGNNLPyMI). Andrej Karpathy. \[1hr Talk\] Intro to Large Language Models. [https://www.youtube.com/watch?v=zjkBMFhNj\_g](https://www.youtube.com/watch?v=zjkBMFhNj_g). Andrej Karpathy. How I use LLMs.[https://youtu.be/EWvNQjAaOHw](https://youtu.be/EWvNQjAaOHw?si=Q8o5X1cu_30graC6). Andrej Karpathy. Let's build the GPT Tokenizer. [https://youtu.be/zduSFxRajkE](https://youtu.be/zduSFxRajkE?si=dxzi4VR5UiR68024)
 
 [^5]:  [https://x.com/karpathy/status/1723140519554105733](https://x.com/karpathy/status/1723140519554105733)
 
