@@ -105,31 +105,21 @@
     <main id="content" role="main">
       <!-- Hero -->
 
-    
       <div
         class="bg-light rounded-2 content-space-2 content-space-lg-3"
         id="workSection"
       >
         <div class="container-xl container-fluid">
-        
           <div class="w-md-75 w-lg-75 text-center mx-md-auto mb-5 mb-md-9">
             <h1>
-              <span class="switchLang showLang" lang="de"
-                >Blogbeiträge</span
-              ><span class="switchLang" lang="en"
-                >Blog Articles</span
-              >
+              <span class="switchLang showLang" lang="de">Blogbeiträge</span
+              ><span class="switchLang" lang="en">Blog Articles</span>
             </h1>
           </div>
 
-        
           <div class="container content-space-b-1 content-space-b-lg-1">
-           
-
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-             
-              
-              <div class="col mb-5" >
+              <div class="col mb-5">
                 <a
                   class="card card-transition text-decoration-none"
                   href="https://dhcraft.org/excellence/blog/Vibe-Coding"
@@ -137,18 +127,20 @@
                   <img
                     alt="Task-AGI"
                     class="card-img-top"
-                    src="../assets/img/work-gallery/vibe-coding.png"
+                    src="/assets/img/work-gallery/vibe-coding.png"
                   />
                   <div class="card-body">
                     <h3 class="card-title">
-                      “Haters gonna hate”: Warum die Kritik an Vibe Coding berechtigt ist – und welche Proto-AGI-Potenziale sie übersieht
+                      “Haters gonna hate”: Warum die Kritik an Vibe Coding
+                      berechtigt ist – und welche Proto-AGI-Potenziale sie
+                      übersieht
                     </h3>
                     <span class="card-subtitle text-body">März 2025</span>
                   </div>
                 </a>
               </div>
 
-              <div class="col mb-5" >
+              <div class="col mb-5">
                 <a
                   class="card card-transition text-decoration-none"
                   href="https://dhcraft.org/excellence/blog/Task-A(G)I"
@@ -156,7 +148,7 @@
                   <img
                     alt="Task-AGI"
                     class="card-img-top"
-                    src="../assets/img/work-gallery/Task-AGI.png"
+                    src="/assets/img/work-gallery/Task-AGI.png"
                   />
                   <div class="card-body">
                     <h3 class="card-title">
@@ -168,7 +160,7 @@
               </div>
 
               <!-- Card 2 -->
-              <div class="col mb-5" >
+              <div class="col mb-5">
                 <a
                   class="card card-transition text-decoration-none"
                   href="https://dhcraft.org/excellence/blog/New-Year-New-AI-IdeaLab-25"
@@ -176,7 +168,7 @@
                   <img
                     alt="New-Year-New-AI-IdeaLab-25"
                     class="card-img-top"
-                    src="../assets/img/work-gallery/New-Year-New-AI-IdeaLab-25.png"
+                    src="/assets/img/work-gallery/New-Year-New-AI-IdeaLab-25.png"
                   />
                   <div class="card-body">
                     <h3 class="card-title">
@@ -186,7 +178,6 @@
                   </div>
                 </a>
               </div>
-              
             </div>
             <!-- End Row -->
           </div>
@@ -570,168 +561,6 @@
               element.firstElementChild.className = "bi bi-clipboard";
             }
           }
-        });
-        // INITIALIZATION OF NAV SCROLLER
-        // =======================================================
-        new HsNavScroller(".js-nav-scroller");
-
-        // INITIALIZATION OF SHUFFLE
-        // =======================================================
-        class ShufflePorfolio {
-          constructor(element) {
-            this.element = element;
-
-            // Add a date parser function
-            this.getDateFromItem = (element) => {
-              const dateText =
-                element.querySelector(".card-subtitle").textContent;
-              const dateMatch = dateText.match(/(\d{2})\.(\d{2})\.(\d{4})/);
-
-              if (dateMatch) {
-                // Convert DD.MM.YYYY to Date object
-                const [_, day, month, year] = dateMatch;
-                return new Date(year, month - 1, day);
-              } else {
-                console.warn("No date found in item:", dateText);
-                // Return old date for items without date
-                return new Date(0);
-              }
-            };
-
-            // Initialize loading and sorting
-            this.initializeWithImages();
-            this.addFilterButtons();
-          }
-
-          async initializeWithImages() {
-            // First, load visible images
-            await this.preloadVisibleImages();
-
-            // Initialize shuffle with sorting
-            this.shuffle = new Shuffle(this.element, {
-              itemSelector: ".",
-              speed: 500,
-              group: Shuffle.ALL_ITEMS,
-              sortBy: {
-                reverse: true,
-                by: (element) => {
-                  return this.getDateFromItem(element);
-                },
-              },
-            });
-            // Apply initial sort after initialization
-            this.shuffle.sort({
-              reverse: true,
-              by: (element) => this.getDateFromItem(element),
-            });
-
-            // Set up lazy loading for remaining images
-            this.setupLazyLoading();
-          }
-
-          preloadVisibleImages() {
-            const promises = [];
-            const viewportHeight = window.innerHeight;
-
-            this.element.querySelectorAll("img").forEach((img) => {
-              const rect = img.getBoundingClientRect();
-              // If image is in or near viewport
-              if (rect.top < viewportHeight + 300) {
-                // 300px buffer
-                const promise = new Promise((resolve) => {
-                  if (img.complete) {
-                    resolve();
-                  } else {
-                    img.onload = () => resolve();
-                    img.onerror = () => resolve(); // Handle errors gracefully
-                  }
-                });
-                promises.push(promise);
-              } else {
-                // Add data-src for later lazy loading
-                img.dataset.src = img.src;
-                img.src =
-                  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-              }
-            });
-
-            return Promise.all(promises);
-          }
-
-          setupLazyLoading() {
-            const options = {
-              root: null,
-              rootMargin: "50px 0px",
-              threshold: 0.1,
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  const img = entry.target;
-                  if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.onload = () => {
-                      this.shuffle.update();
-                    };
-                    observer.unobserve(img);
-                  }
-                }
-              });
-            }, options);
-
-            this.element.querySelectorAll("img[data-src]").forEach((img) => {
-              observer.observe(img);
-            });
-          }
-
-          addFilterButtons() {
-            const options = document.querySelector(".js-filter-options");
-            if (!options) {
-              return;
-            }
-
-            const filterButtons = Array.from(options.children);
-            const onClick = this._handleFilterClick.bind(this);
-            filterButtons.forEach((button) => {
-              button.addEventListener("click", onClick, false);
-            });
-          }
-
-          _handleFilterClick(evt) {
-            const btn = evt.currentTarget.firstElementChild;
-            const isActive = btn.classList.contains("active");
-            const btnGroup = btn.getAttribute("data-group");
-
-            this._removeActiveClassFromChildren(btn.parentNode.parentNode);
-
-            let filterGroup;
-            if (isActive) {
-              btn.classList.remove("active");
-              filterGroup = Shuffle.ALL_ITEMS;
-            } else {
-              btn.classList.add("active");
-              filterGroup = btnGroup;
-            }
-
-            this.shuffle.filter(filterGroup);
-            this.shuffle.sort({
-              reverse: true,
-              by: (element) => this.getDateFromItem(element),
-            });
-          }
-
-          _removeActiveClassFromChildren(parent) {
-            const { children } = parent;
-            for (let i = children.length - 1; i >= 0; i--) {
-              children[i].firstElementChild.classList.remove("active");
-            }
-          }
-        }
-
-        // Initialize when DOM is ready
-        document.addEventListener("DOMContentLoaded", () => {
-          new ShufflePorfolio(document.querySelector(".js-shuffle"));
         });
       })();
     </script>
