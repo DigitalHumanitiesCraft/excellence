@@ -74,4 +74,4 @@ In zukünftigen Beiträgen werden wir konkrete Workflows Schritt für Schritt do
 
 [image1]: img/promptotyping-logo.png
 [image2]: img/promptotyping-documents.png
-[image3]: subject-verb-inversion.png
+[image3]: img/subject-verb-inversion.png
