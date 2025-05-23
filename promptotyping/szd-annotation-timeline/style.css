@@ -291,19 +291,18 @@ input:focus,
 
 .timeline-year {
     margin: 40px 0 20px;
+    text-align: center;
 }
 
 .year-title {
-    text-align: center;
     font-size: 24px;
     font-weight: 400;
     color: var(--primary-brown);
     background: #FAFAFA;
-    padding: 10px 20px;
+    padding: 8px 16px;
     position: relative;
-    z-index: 3;
     display: inline-block;
-    margin: 0 auto;
+    border-radius: 20px;
 }
 
 .year-title::before {
@@ -311,12 +310,12 @@ input:focus,
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     background: var(--gold);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+    z-index: -1;
 }
 
 /* Timeline items */
