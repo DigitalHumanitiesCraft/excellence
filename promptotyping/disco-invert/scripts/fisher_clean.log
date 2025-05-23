@@ -1,0 +1,8 @@
+2025-05-07 15:39:41,029 [INFO] Start 2025-05-07T15:39:41
+2025-05-07 15:39:41,030 [INFO] Loading workbook C:\Users\Chrisi\Documents\GitHub\excellence\promptotyping\disco-invert\data\Fisher Corpus Texts 1-50.xlsx
+2025-05-07 15:39:41,885 [INFO] Sheet 000          → 12157 utterances (24430 raw rows)
+2025-05-07 15:39:41,887 [INFO] Sheet Tabelle1     →     0 utterances (0 raw rows)
+2025-05-07 15:39:41,966 [INFO] Merged segments : 12157 → 9340 rows  (gap ≤ 0.50s)
+2025-05-07 15:39:41,980 [INFO] Gap stats       : median 1.93s | 95-pct 6.66s
+2025-05-07 15:39:42,018 [INFO] Artefacts saved : fisher_clean.parquet  fisher_clean_merged.parquet  fisher_summary.csv  fisher_schema.yml
+2025-05-07 15:39:42,018 [INFO] Done.

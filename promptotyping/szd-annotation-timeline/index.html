@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stefan Zweig Digital - Annotationstool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-symbol">></div>
+                <span>Stefan Zweig Digital - Annotationstool</span>
+            </div>
+            <div class="header-actions">
+                <button class="export-btn" id="exportBtn">Annotationen exportieren</button>
+                <button class="import-btn" id="importBtn">Importieren</button>
+                <input type="file" id="importFile" accept=".json" style="display: none;">
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">FAKSIMILES KORRESPONDENZEN</h1>
+                <div class="page-subtitle">Forschungs- und Annotationstool</div>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Lade Korrespondenzen von GAMS...</p>
+            </div>
+
+            <div class="timeline-container" id="timelineContainer" style="display: none;">
+                <div class="controls">
+                    <div class="timeline-stats" id="stats"></div>
+                    
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Suche in Titeln, Tags oder Notizen..." aria-label="Suche in Dokumenten">
+                        <button id="clearSearch" aria-label="Suche löschen">×</button>
+                    </div>
+                    
+                    <div class="timeline-filters">
+                        <button class="filter-btn active" data-filter="all" aria-pressed="true">Alle</button>
+                        <button class="filter-btn" data-filter="dated" aria-pressed="false">Mit Datum</button>
+                        <button class="filter-btn" data-filter="undated" aria-pressed="false">Ohne Datum</button>
+                        <button class="filter-btn" data-filter="annotated" aria-pressed="false">Annotiert</button>
+                        <button class="filter-btn" data-filter="unannotated" aria-pressed="false">Noch nicht bearbeitet</button>
+                    </div>
+                </div>
+
+                <div class="timeline" id="timeline" role="main" aria-live="polite">
+                    <!-- Timeline items will be inserted here -->
+                </div>
+
+                <div class="load-more" id="loadMore" style="display: none;">
+                    <button class="load-more-btn">Weitere Dokumente laden</button>
+                </div>
+            </div>
+
+            <div class="error" id="error" style="display: none;">
+                <p>Die Korrespondenzen konnten nicht von der GAMS-Datenbank geladen werden.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Annotation Modal -->
+    <div class="modal" id="annotationModal" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button class="modal-close" aria-label="Schließen">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="tab-btn active" data-tab="details">Details</button>
+                    <button class="tab-btn" data-tab="annotations">Annotationen</button>
+                </div>
+                
+                <div class="tab-content" id="detailsTab">
+                    <div class="modal-meta" id="modalDetails"></div>
+                </div>
+                
+                <div class="tab-content" id="annotationsTab" style="display: none;">
+                    <div class="annotation-section">
+                        <h3>Forschungsstatus</h3>
+                        <div class="status-selector">
+                            <label><input type="radio" name="status" value="unprocessed"> Unbearbeitet</label>
+                            <label><input type="radio" name="status" value="in-progress"> In Bearbeitung</label>
+                            <label><input type="radio" name="status" value="completed"> Abgeschlossen</label>
+                        </div>
+                    </div>
+
+                    <div class="annotation-section">
+                        <h3>Tags</h3>
+                        <div class="tag-input-container">
+                            <input type="text" id="tagInput" placeholder="Tag hinzufügen (Enter drücken)" maxlength="30">
+                            <div class="tag-suggestions">
+                                <span class="tag-suggestion" data-tag="Literatur">Literatur</span>
+                                <span class="tag-suggestion" data-tag="Politik">Politik</span>
+                                <span class="tag-suggestion" data-tag="Exil">Exil</span>
+                                <span class="tag-suggestion" data-tag="Persönlich">Persönlich</span>
+                                <span class="tag-suggestion" data-tag="Theater">Theater</span>
+                                <span class="tag-suggestion" data-tag="Korrespondenz">Korrespondenz</span>
+                            </div>
+                        </div>
+                        <div class="current-tags" id="currentTags"></div>
+                    </div>
+
+                    <div class="annotation-section">
+                        <h3>Notizen</h3>
+                        <textarea id="notesInput" placeholder="Forschungsnotizen, Kommentare, Beobachtungen..." rows="6"></textarea>
+                        <div class="notes-info">
+                            <small>Letztes Update: <span id="lastUpdate">Noch nicht bearbeitet</span></small>
+                        </div>
+                    </div>
+
+                    <div class="annotation-actions">
+                        <button class="save-btn" id="saveAnnotation">Speichern</button>
+                        <button class="clear-btn" id="clearAnnotation">Alle Annotationen löschen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class StefanZweigAnnotationTool {
+            constructor() {
+                this.documents = [];
+                this.filteredDocuments = [];
+                this.displayedDocuments = [];
+                this.annotations = {};
+                this.currentFilter = 'all';
+                this.searchTerm = '';
+                this.itemsPerPage = 20;
+                this.currentPage = 0;
+                this.currentDocumentId = null;
+                this.isLoading = false;
+                
+                this.loadAnnotations();
+                this.init();
+            }
+
+            async init() {
+                try {
+                    await this.loadData();
+                    this.processData();
+                    this.renderTimeline();
+                    this.setupEventListeners();
+                    this.hideLoading();
+                } catch (error) {
+                    console.error('Error initializing timeline:', error);
+                    this.showError();
+                }
+            }
+
+            async loadData() {
+                const apiUrl = 'https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata';
+                
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/xml, text/xml, */*',
+                        },
+                        mode: 'cors'
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+
+                    const xmlText = await response.text();
+                    this.parseXMLData(xmlText);
+                } catch (error) {
+                    console.warn('Direct fetch failed, trying proxy approach:', error);
+                    
+                    try {
+                        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
+                        const proxyResponse = await fetch(proxyUrl);
+                        
+                        if (!proxyResponse.ok) {
+                            throw new Error('Proxy fetch failed');
+                        }
+                        
+                        const xmlText = await proxyResponse.text();
+                        this.parseXMLData(xmlText);
+                    } catch (proxyError) {
+                        console.error('All fetch attempts failed:', proxyError);
+                        throw new Error('Unable to load data from GAMS');
+                    }
+                }
+            }
+
+            parseXMLData(xmlText) {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+                
+                const parserError = xmlDoc.querySelector('parsererror');
+                if (parserError) {
+                    throw new Error('XML parsing failed');
+                }
+
+                const results = xmlDoc.querySelectorAll('result');
+                
+                if (results.length === 0) {
+                    throw new Error('No results found in XML');
+                }
+                
+                this.documents = Array.from(results).map(result => {
+                    const getTextContent = (selector) => {
+                        const element = result.querySelector(selector);
+                        return element && element.getAttribute('bound') !== 'false' ? element.textContent.trim() : null;
+                    };
+
+                    return {
+                        title: getTextContent('title') || 'Ohne Titel',
+                        identifier: getTextContent('identifier') || '',
+                        creator: getTextContent('creator') || '',
+                        contributor: getTextContent('contributor') || '',
+                        date: getTextContent('date'),
+                        container: getTextContent('container') || '',
+                        pid: result.querySelector('pid')?.getAttribute('uri') || ''
+                    };
+                }).filter(doc => doc.title !== 'Ohne Titel');
+            }
+
+            processData() {
+                this.documents.sort((a, b) => {
+                    if (a.date && b.date) {
+                        return new Date(a.date) - new Date(b.date);
+                    }
+                    if (a.date && !b.date) return -1;
+                    if (!a.date && b.date) return 1;
+                    return a.title.localeCompare(b.title, 'de');
+                });
+
+                this.applyFilters();
+            }
+
+            applyFilters() {
+                let filtered = [...this.documents];
+
+                // Apply search filter
+                if (this.searchTerm) {
+                    const searchLower = this.searchTerm.toLowerCase();
+                    filtered = filtered.filter(doc => {
+                        const annotation = this.annotations[doc.identifier];
+                        const tagMatch = annotation?.tags?.some(tag => tag.toLowerCase().includes(searchLower)) || false;
+                        const noteMatch = annotation?.notes?.toLowerCase().includes(searchLower) || false;
+                        
+                        return doc.title.toLowerCase().includes(searchLower) ||
+                               doc.creator.toLowerCase().includes(searchLower) ||
+                               (doc.contributor && doc.contributor.toLowerCase().includes(searchLower)) ||
+                               tagMatch || noteMatch;
+                    });
+                }
+
+                // Apply category filter
+                switch (this.currentFilter) {
+                    case 'dated':
+                        filtered = filtered.filter(doc => doc.date);
+                        break;
+                    case 'undated':
+                        filtered = filtered.filter(doc => !doc.date);
+                        break;
+                    case 'annotated':
+                        filtered = filtered.filter(doc => this.hasAnnotation(doc.identifier));
+                        break;
+                    case 'unannotated':
+                        filtered = filtered.filter(doc => !this.hasAnnotation(doc.identifier));
+                        break;
+                }
+
+                this.filteredDocuments = filtered;
+                this.currentPage = 0;
+                this.updateDisplayedDocuments();
+            }
+
+            hasAnnotation(docId) {
+                const annotation = this.annotations[docId];
+                return annotation && (
+                    annotation.notes || 
+                    (annotation.tags && annotation.tags.length > 0) || 
+                    annotation.status !== 'unprocessed'
+                );
+            }
+
+            updateDisplayedDocuments() {
+                const endIndex = (this.currentPage + 1) * this.itemsPerPage;
+                this.displayedDocuments = this.filteredDocuments.slice(0, endIndex);
+            }
+
+            renderTimeline() {
+                const timeline = document.getElementById('timeline');
+                const stats = document.getElementById('stats');
+                const loadMore = document.getElementById('loadMore');
+                
+                // Update stats
+                const datedCount = this.documents.filter(doc => doc.date).length;
+                const annotatedCount = this.documents.filter(doc => this.hasAnnotation(doc.identifier)).length;
+                
+                stats.innerHTML = `
+                    <div class="stat-item">
+                        <span class="stat-number">${this.filteredDocuments.length}</span>
+                        <span class="stat-label">Gefilterte Dokumente</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">${annotatedCount}</span>
+                        <span class="stat-label">Annotiert</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">${this.documents.length}</span>
+                        <span class="stat-label">Dokumente insgesamt</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">${datedCount}</span>
+                        <span class="stat-label">Mit Datum</span>
+                    </div>
+                `;
+
+                // Clear timeline
+                timeline.innerHTML = '';
+
+                if (this.displayedDocuments.length === 0) {
+                    timeline.innerHTML = '<div class="no-results">Keine Dokumente gefunden.</div>';
+                    loadMore.style.display = 'none';
+                    return;
+                }
+
+                // Group documents by year
+                const grouped = this.groupByYear(this.displayedDocuments);
+                
+                Object.keys(grouped).sort().forEach(year => {
+                    if (year !== 'undefined') {
+                        const yearSection = document.createElement('div');
+                        yearSection.className = 'timeline-year';
+                        yearSection.innerHTML = `<h2 class="year-title">${year}</h2>`;
+                        timeline.appendChild(yearSection);
+                    }
+
+                    grouped[year].forEach((doc, index) => {
+                        const item = this.createTimelineItem(doc, index);
+                        timeline.appendChild(item);
+                    });
+                });
+
+                // Handle undated items
+                if (grouped['undefined']) {
+                    const undatedSection = document.createElement('div');
+                    undatedSection.className = 'timeline-year';
+                    undatedSection.innerHTML = `<h2 class="year-title">Ohne Datum</h2>`;
+                    timeline.appendChild(undatedSection);
+                }
+
+                // Show/hide load more button
+                const hasMore = this.filteredDocuments.length > this.displayedDocuments.length;
+                loadMore.style.display = hasMore ? 'block' : 'none';
+
+                timeline.setAttribute('aria-label', `Timeline mit ${this.displayedDocuments.length} von ${this.filteredDocuments.length} Dokumenten`);
+            }
+
+            groupByYear(documents) {
+                return documents.reduce((groups, doc) => {
+                    const year = doc.date ? new Date(doc.date).getFullYear() : 'undefined';
+                    if (!groups[year]) groups[year] = [];
+                    groups[year].push(doc);
+                    return groups;
+                }, {});
+            }
+
+            createTimelineItem(doc, index) {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+                item.style.animationDelay = `${index * 0.05}s`;
+
+                const annotation = this.annotations[doc.identifier];
+                const hasAnnotations = this.hasAnnotation(doc.identifier);
+                const statusClass = annotation?.status || 'unprocessed';
+                
+                const date = doc.date ? this.formatDate(doc.date) : 'Datum unbekannt';
+                const contributor = doc.contributor ? `<div class="doc-contributor">Mit: ${doc.contributor}</div>` : '';
+                const docType = this.getDocumentType(doc.title);
+                
+                const tags = annotation?.tags ? 
+                    `<div class="doc-tags">${annotation.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : '';
+                
+                const annotationIndicator = hasAnnotations ? 
+                    `<div class="annotation-indicator ${statusClass}" title="Status: ${this.getStatusLabel(statusClass)}"></div>` : '';
+
+                item.innerHTML = `
+                    <div class="timeline-card ${hasAnnotations ? 'annotated' : ''}" tabindex="0" role="button" aria-label="Annotationen bearbeiten für ${doc.title}">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="doc-type">${docType}</div>
+                                ${annotationIndicator}
+                            </div>
+                            <h3 class="doc-title">${doc.title}</h3>
+                            <div class="doc-meta">
+                                <div class="doc-date">${date}</div>
+                                <div class="doc-creator">${doc.creator}</div>
+                                ${contributor}
+                                <div class="doc-id">${doc.identifier}</div>
+                            </div>
+                            ${tags}
+                            <div class="card-actions">
+                                <button class="action-btn annotate-btn" data-doc='${JSON.stringify(doc)}'>Annotieren</button>
+                                ${doc.pid ? `<a href="${doc.pid}" class="action-btn external-btn" target="_blank" rel="noopener">Original</a>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                return item;
+            }
+
+            getStatusLabel(status) {
+                const labels = {
+                    'unprocessed': 'Unbearbeitet',
+                    'in-progress': 'In Bearbeitung',
+                    'completed': 'Abgeschlossen'
+                };
+                return labels[status] || 'Unbearbeitet';
+            }
+
+            getDocumentType(title) {
+                const titleLower = title.toLowerCase();
+                if (titleLower.includes('brief')) return 'Brief';
+                if (titleLower.includes('karte')) return 'Karte';
+                if (titleLower.includes('vollmacht')) return 'Vollmacht';
+                if (titleLower.includes('notizbuch')) return 'Notizbuch';
+                if (titleLower.includes('theater')) return 'Theater';
+                return 'Dokument';
+            }
+
+            formatDate(dateString) {
+                try {
+                    const date = new Date(dateString);
+                    return date.toLocaleDateString('de-DE', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                } catch (error) {
+                    return dateString;
+                }
+            }
+
+            setupEventListeners() {
+                // Filter buttons
+                const filterBtns = document.querySelectorAll('.filter-btn');
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        filterBtns.forEach(b => {
+                            b.classList.remove('active');
+                            b.setAttribute('aria-pressed', 'false');
+                        });
+                        e.target.classList.add('active');
+                        e.target.setAttribute('aria-pressed', 'true');
+                        this.currentFilter = e.target.dataset.filter;
+                        this.applyFilters();
+                        this.renderTimeline();
+                    });
+                });
+
+                // Search functionality
+                const searchInput = document.getElementById('searchInput');
+                const clearSearch = document.getElementById('clearSearch');
+                
+                let searchTimeout;
+                searchInput.addEventListener('input', (e) => {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        this.searchTerm = e.target.value.trim();
+                        this.applyFilters();
+                        this.renderTimeline();
+                    }, 300);
+                });
+
+                clearSearch.addEventListener('click', () => {
+                    searchInput.value = '';
+                    this.searchTerm = '';
+                    this.applyFilters();
+                    this.renderTimeline();
+                });
+
+                // Load more functionality
+                const loadMoreBtn = document.querySelector('.load-more-btn');
+                loadMoreBtn?.addEventListener('click', () => {
+                    this.currentPage++;
+                    this.updateDisplayedDocuments();
+                    this.renderTimeline();
+                });
+
+                // Modal and annotation events
+                this.setupAnnotationEvents();
+
+                // Export/Import functionality
+                this.setupDataEvents();
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.closeModal();
+                    }
+                });
+            }
+
+            setupAnnotationEvents() {
+                const modal = document.getElementById('annotationModal');
+                const closeBtn = document.querySelector('.modal-close');
+
+                // Close modal events
+                closeBtn.addEventListener('click', () => this.closeModal());
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) this.closeModal();
+                });
+
+                // Tab switching
+                const tabBtns = document.querySelectorAll('.tab-btn');
+                tabBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const targetTab = e.target.dataset.tab;
+                        this.switchTab(targetTab);
+                    });
+                });
+
+                // Annotation events (delegated)
+                document.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('annotate-btn')) {
+                        const docData = JSON.parse(e.target.dataset.doc);
+                        this.showAnnotationModal(docData);
+                    }
+                });
+
+                // Card click events (delegated)
+                document.addEventListener('click', (e) => {
+                    const card = e.target.closest('.timeline-card');
+                    if (card && !e.target.closest('.card-actions')) {
+                        const annotateBtn = card.querySelector('.annotate-btn');
+                        if (annotateBtn) {
+                            const docData = JSON.parse(annotateBtn.dataset.doc);
+                            this.showAnnotationModal(docData);
+                        }
+                    }
+                });
+
+                // Save annotation
+                document.getElementById('saveAnnotation').addEventListener('click', () => {
+                    this.saveAnnotation();
+                });
+
+                // Clear annotation
+                document.getElementById('clearAnnotation').addEventListener('click', () => {
+                    if (confirm('Alle Annotationen für dieses Dokument löschen?')) {
+                        this.clearAnnotation();
+                    }
+                });
+
+                // Tag input
+                const tagInput = document.getElementById('tagInput');
+                tagInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && tagInput.value.trim()) {
+                        e.preventDefault();
+                        this.addTag(tagInput.value.trim());
+                        tagInput.value = '';
+                    }
+                });
+
+                // Tag suggestions
+                document.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('tag-suggestion')) {
+                        this.addTag(e.target.dataset.tag);
+                    }
+                });
+            }
+
+            setupDataEvents() {
+                // Export functionality
+                document.getElementById('exportBtn').addEventListener('click', () => {
+                    this.exportAnnotations();
+                });
+
+                // Import functionality
+                document.getElementById('importBtn').addEventListener('click', () => {
+                    document.getElementById('importFile').click();
+                });
+
+                document.getElementById('importFile').addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        this.importAnnotations(file);
+                    }
+                });
+            }
+
+            switchTab(tabName) {
+                // Update tab buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+
+                // Show/hide tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                document.getElementById(`${tabName}Tab`).style.display = 'block';
+            }
+
+            showAnnotationModal(doc) {
+                this.currentDocumentId = doc.identifier;
+                const modal = document.getElementById('annotationModal');
+                const title = document.getElementById('modalTitle');
+                const detailsTab = document.getElementById('modalDetails');
+
+                title.textContent = doc.title;
+                
+                // Show document details
+                const date = doc.date ? this.formatDate(doc.date) : 'Datum unbekannt';
+                const contributor = doc.contributor ? `<p><strong>Mitwirkende:</strong> ${doc.contributor}</p>` : '';
+                const originalLink = doc.pid ? `<p><a href="${doc.pid}" target="_blank" rel="noopener">Original-Dokument ansehen</a></p>` : '';
+
+                detailsTab.innerHTML = `
+                    <div class="modal-meta">
+                        <p><strong>Typ:</strong> ${this.getDocumentType(doc.title)}</p>
+                        <p><strong>Datum:</strong> ${date}</p>
+                        <p><strong>Ersteller:</strong> ${doc.creator}</p>
+                        ${contributor}
+                        <p><strong>Identifier:</strong> ${doc.identifier}</p>
+                        ${originalLink}
+                    </div>
+                `;
+
+                // Load existing annotations
+                this.loadAnnotationForm(doc.identifier);
+
+                // Switch to annotations tab
+                this.switchTab('annotations');
+
+                modal.style.display = 'flex';
+                modal.setAttribute('aria-hidden', 'false');
+                document.querySelector('.modal-close').focus();
+            }
+
+            loadAnnotationForm(docId) {
+                const annotation = this.annotations[docId] || {
+                    status: 'unprocessed',
+                    tags: [],
+                    notes: '',
+                    lastUpdate: null
+                };
+
+                // Load status
+                const statusRadio = document.querySelector(`input[name="status"][value="${annotation.status}"]`);
+                if (statusRadio) statusRadio.checked = true;
+
+                // Load tags
+                this.renderCurrentTags(annotation.tags);
+
+                // Load notes
+                document.getElementById('notesInput').value = annotation.notes || '';
+
+                // Update last update info
+                const lastUpdate = annotation.lastUpdate ? 
+                    new Date(annotation.lastUpdate).toLocaleString('de-DE') : 
+                    'Noch nicht bearbeitet';
+                document.getElementById('lastUpdate').textContent = lastUpdate;
+            }
+
+            renderCurrentTags(tags) {
+                const container = document.getElementById('currentTags');
+                container.innerHTML = tags.map(tag => 
+                    `<span class="tag removable" data-tag="${tag}">${tag} <button class="remove-tag">×</button></span>`
+                ).join('');
+
+                // Add remove tag event listeners
+                container.querySelectorAll('.remove-tag').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const tag = btn.parentElement.dataset.tag;
+                        this.removeTag(tag);
+                    });
+                });
+            }
+
+            addTag(tagName) {
+                if (!this.currentDocumentId) return;
+
+                const annotation = this.annotations[this.currentDocumentId] || { tags: [] };
+                if (!annotation.tags.includes(tagName)) {
+                    annotation.tags.push(tagName);
+                    this.renderCurrentTags(annotation.tags);
+                }
+            }
+
+            removeTag(tagName) {
+                if (!this.currentDocumentId) return;
+
+                const annotation = this.annotations[this.currentDocumentId];
+                if (annotation && annotation.tags) {
+                    annotation.tags = annotation.tags.filter(tag => tag !== tagName);
+                    this.renderCurrentTags(annotation.tags);
+                }
+            }
+
+            saveAnnotation() {
+                if (!this.currentDocumentId) return;
+
+                const status = document.querySelector('input[name="status"]:checked')?.value || 'unprocessed';
+                const tags = Array.from(document.querySelectorAll('#currentTags .tag')).map(el => el.dataset.tag);
+                const notes = document.getElementById('notesInput').value.trim();
+
+                this.annotations[this.currentDocumentId] = {
+                    status,
+                    tags,
+                    notes,
+                    lastUpdate: new Date().toISOString()
+                };
+
+                this.saveAnnotations();
+                this.renderTimeline();
+                
+                // Show success feedback
+                const saveBtn = document.getElementById('saveAnnotation');
+                const originalText = saveBtn.textContent;
+                saveBtn.textContent = 'Gespeichert!';
+                saveBtn.style.background = 'var(--success-color)';
+                
+                setTimeout(() => {
+                    saveBtn.textContent = originalText;
+                    saveBtn.style.background = '';
+                }, 2000);
+            }
+
+            clearAnnotation() {
+                if (!this.currentDocumentId) return;
+
+                delete this.annotations[this.currentDocumentId];
+                this.saveAnnotations();
+                this.loadAnnotationForm(this.currentDocumentId);
+                this.renderTimeline();
+            }
+
+            loadAnnotations() {
+                const stored = localStorage.getItem('zweig-annotations');
+                if (stored) {
+                    try {
+                        this.annotations = JSON.parse(stored);
+                    } catch (error) {
+                        console.error('Error loading annotations:', error);
+                        this.annotations = {};
+                    }
+                }
+            }
+
+            saveAnnotations() {
+                localStorage.setItem('zweig-annotations', JSON.stringify(this.annotations));
+            }
+
+            exportAnnotations() {
+                const exportData = {
+                    timestamp: new Date().toISOString(),
+                    version: '1.0',
+                    annotations: this.annotations,
+                    documentCount: this.documents.length
+                };
+
+                const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `zweig-annotationen-${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            async importAnnotations(file) {
+                try {
+                    const text = await file.text();
+                    const data = JSON.parse(text);
+                    
+                    if (data.annotations) {
+                        if (confirm('Bestehende Annotationen überschreiben?')) {
+                            this.annotations = data.annotations;
+                            this.saveAnnotations();
+                            this.renderTimeline();
+                            alert('Annotationen erfolgreich importiert!');
+                        }
+                    } else {
+                        alert('Ungültiges Dateiformat.');
+                    }
+                } catch (error) {
+                    console.error('Import error:', error);
+                    alert('Fehler beim Importieren der Datei.');
+                }
+            }
+
+            closeModal() {
+                const modal = document.getElementById('annotationModal');
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+                this.currentDocumentId = null;
+            }
+
+            hideLoading() {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('timelineContainer').style.display = 'block';
+            }
+
+            showError() {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+
+        // Initialize the annotation tool when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new StefanZweigAnnotationTool();
+        });
+    </script>
+</body>
+</html>

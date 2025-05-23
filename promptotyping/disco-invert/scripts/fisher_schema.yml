@@ -1,0 +1,12 @@
+columns:
+- file
+- start
+- end
+- duration
+- speaker
+- text
+- char_len
+- conv_id
+- text_clean
+gap_sec: 0.5
+version: '2025-05-07'
