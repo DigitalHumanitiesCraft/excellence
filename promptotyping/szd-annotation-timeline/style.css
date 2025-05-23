@@ -301,7 +301,9 @@ input:focus,
     background: #FAFAFA;
     padding: 10px 20px;
     position: relative;
-    z-index: 2;
+    z-index: 3;
+    display: inline-block;
+    margin: 0 auto;
 }
 
 .year-title::before {
@@ -314,7 +316,7 @@ input:focus,
     background: var(--gold);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: 1;
 }
 
 /* Timeline items */
