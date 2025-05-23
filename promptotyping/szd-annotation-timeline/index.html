@@ -158,6 +158,20 @@
             }
 
             async loadData() {
+                // Try to load local demo data first for GitHub Pages deployment
+                try {
+                    const response = await fetch('./demo-data.xml');
+                    if (response.ok) {
+                        const xmlText = await response.text();
+                        this.parseXMLData(xmlText);
+                        console.log('Loaded demo data for presentation');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('No local demo data found, trying GAMS API...');
+                }
+
+                // Fallback to GAMS API (will likely fail due to CORS)
                 const apiUrl = 'https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata';
                 
                 try {
@@ -176,22 +190,8 @@
                     const xmlText = await response.text();
                     this.parseXMLData(xmlText);
                 } catch (error) {
-                    console.warn('Direct fetch failed, trying proxy approach:', error);
-                    
-                    try {
-                        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
-                        const proxyResponse = await fetch(proxyUrl);
-                        
-                        if (!proxyResponse.ok) {
-                            throw new Error('Proxy fetch failed');
-                        }
-                        
-                        const xmlText = await proxyResponse.text();
-                        this.parseXMLData(xmlText);
-                    } catch (proxyError) {
-                        console.error('All fetch attempts failed:', proxyError);
-                        throw new Error('Unable to load data from GAMS');
-                    }
+                    console.warn('GAMS API access blocked by CORS policy');
+                    throw new Error('Daten konnten nicht geladen werden. Für die Live-Demo benötigen Sie eine lokale demo-data.xml Datei.');
                 }
             }
 
@@ -428,6 +428,7 @@
 
             getDocumentType(title) {
                 const titleLower = title.toLowerCase();
+                if (titleLower.includes('tagebuch') || titleLower.includes('diary')) return 'Tagebuch';
                 if (titleLower.includes('brief')) return 'Brief';
                 if (titleLower.includes('karte')) return 'Karte';
                 if (titleLower.includes('vollmacht')) return 'Vollmacht';
