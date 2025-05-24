@@ -9,7 +9,7 @@ published: true
 citation:
   type: "blog-post"
   container-title: "Digital Humanities Craft"
-  URL: "https://dhcraft.org/excellence/blog/Promptotyping-Von-der-Idee-zur-Anwendung"
+  URL: "https://dhcraft.org/excellence/blog/Promptotyping"
   language: "de"
   accessed: "2025-04-24"
   

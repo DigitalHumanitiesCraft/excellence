@@ -10,7 +10,7 @@ slug: new-year-new-ai-monopoly-intelligence
 citation:
   type: "blog-post"
   container-title: "Digital Humanities Craft"
-  URL: "https://dhcraft.org/excellence/blog/New-Year-New-AI-Monopoly-Intelligence"
+  URL: "https://dhcraft.org/excellence/blog/New-Year-New-AI-IdeaLab-25"
   language: "de"
   accessed: "2025-01-23"
   
@@ -34,12 +34,10 @@ abstract: "Der Beitrag analysiert das entstehende Monopol der Tech-Konzerne im B
 
 # Ergänzende technische Metadaten
 last_modified_at: 2025-01-23
-permalink: /blog/New-Year-New-AI-Monopoly-Intelligence/
+permalink: /blog/New-Year-New-AI-IdeaLab-25
 categories: ["blog", "ai", "reasoning", "monopoly", "tech-industry"]
 tags: ["ai-monopoly", "reasoning-models", "openai", "deepseek", "tech-oligarchy", "o1", "o3", "r1", "test-time-compute", "chain-of-thought", "ai-research", "prompt-engineering"]
 ---
-
-# **New Year, New AI. Das große Monopoly um die “Intelligence”**
 
 [Slides](https://docs.google.com/presentation/d/e/2PACX-1vTJFsKykxv1qOii3NFDEdi9UJ70k_w03_z8MPxEmSedxEXGASQ0pcFh3G-cUbrvd1DeJBb_e9GPoVkq/pub)
 

@@ -9,7 +9,7 @@ published: true
 citation:
   type: "blog-post"
   container-title: "Digital Humanities Craft"
-  URL: "https://dhcraft.org/excellence/blog/Task-AGI-Deep-Research"
+  URL: "https://dhcraft.org/excellence/blog/Task-A(G)I"
   language: "de"
   accessed: "2025-02-15"
   
@@ -33,12 +33,10 @@ abstract: "Der Beitrag führt das Konzept der 'Task-A(G)I' ein - spezialisierte 
 
 # Ergänzende technische Metadaten
 last_modified_at: 2025-02-15
-permalink: /blog/Task-AGI-Deep-Research/
+permalink: /blog/Task-A(G)I/
 categories: ["blog", "ai", "research", "education"]
-tags: ["task-agi", "openai", "deep-research", "reasoning-models", "ai-research", "scientific-research", "education", "europe"]
+tags: ["Deep-Research", "Reasoning-Models"]
 ---
-
-# OpenAI’s Deep Research und erste “Task-A(G)I” Systeme?
 
 ![lurchy_httpss mj run2hlwcORSqyk_white_background_fading_out_--a_ad7eea4a-c59c-4476-aa13-1e0cf3436556](https://github.com/user-attachments/assets/807a54a8-24ad-46a6-acfe-72854ade9f50)
 
