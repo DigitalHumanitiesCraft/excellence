@@ -18,9 +18,12 @@ dublin_core:
   publisher: "Digital Humanities Craft"
   subject: ["Artificial General Intelligence", "AGI", "Task-AGI", "OpenAI", "Deep Research", "Reasoning Models", "o3", "AI Research", "Prompt Engineering", "Digital Humanities"]
   description: "Eine kritische Analyse der Entwicklung spezialisierter KI-Systeme am Beispiel von OpenAI's Deep Research und dem Konzept der Task-A(G)I - KI-Systeme, die bei hochspezialisierten Aufgaben menschliche Fähigkeiten erreichen oder übertreffen"
-  type: "Text"
+  type: "Blogpost"
   format: "text/html"
-  rights: "CC-BY"
+  rights: "CC BY 4.0"
+  language: "de"
+
+
 
 schema_type: "BlogPosting"
 keywords: ["Task-AGI", "OpenAI Deep Research", "o3", "Reasoning Models", "AGI", "AI Research", "Test-Time Compute", "Reinforcement Learning", "Leopold Aschenbrenner", "Scientific Research AI", "Prompt Engineering", "AI Agents"]

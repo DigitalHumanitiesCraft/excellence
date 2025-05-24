@@ -19,9 +19,10 @@ dublin_core:
   publisher: "Digital Humanities Craft"
   subject: ["Artificial Intelligence", "AI Monopoly", "Reasoning Models", "OpenAI", "Google", "Microsoft", "DeepSeek", "R1", "o1", "o3", "Tech-Oligarchen", "AI Research", "Test-Time Compute", "Prompt Engineering", "Digital Humanities"]
   description: "Eine Analyse des AI-Monopols der Tech-Konzerne und der Entwicklung von Reasoning-Modellen. Der Beitrag untersucht, wie OpenAI, Microsoft, Google und andere Tech-Oligarchen ihre Monopole im Bereich des AI-Reasoning ausbauen und welche Auswirkungen DeepSeeks R1-Modell auf dieses Machtgefüge hat."
-  type: "Text"
+  type: "Blogpost"
   format: "text/html"
-  rights: "CC-BY"
+  rights: "CC BY 4.0"
+  language: "de"
 
 schema_type: "BlogPosting"
 keywords: ["AI Monopoly", "Reasoning Models", "OpenAI", "o1", "o3", "DeepSeek R1", "Tech-Oligarchen", "Microsoft", "Google", "Meta", "Anthropic", "Nvidia", "xAI", "Test-Time Compute", "Chain of Thought", "François Chollet", "ARC Benchmark", "Prompt Engineering", "AI Research", "Stargate", "Intelligence", "System 1", "System 2", "Kahneman"]

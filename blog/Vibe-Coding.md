@@ -11,12 +11,20 @@ citation:
   container-title: "Digital Humanities Craft"
   URL: "https://dhcraft.org/excellence/blog/Vibe-Coding"
   language: "de"
+  abstract: "test"
   
 dublin_core:
   creator: "Christopher Pollin"
   publisher: "Digital Humanities Craft"
   subject: ["Digital Humanities", "Applied Generative AI", "Vibe Coding", "Prompt Engineering"]
   description: "Eine kritische Analyse der Vibe-Coding-Methodik und ihrer Grenzen"
+  type: "Blogpost"
+  format: "text/html"
+  rights: "CC BY 4.0"
+  language: "de"
+
+coins_data:
+  rft_type: "blogPost"  # Standard COinS Format
 
 schema_type: "BlogPosting"
 keywords: ["Vibe Coding", "LLM", "Digital Humanities", "Prompt Engineering"]

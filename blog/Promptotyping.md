@@ -18,9 +18,10 @@ dublin_core:
   publisher: "Digital Humanities Craft"
   subject: ["Digital Humanities", "Applied Generative AI", "Promptotyping", "Prompt Engineering", "Requirements Engineering", "Scholar-Centred Design", "User-Centred Design", "Context Compression"]
   description: "Eine methodische Ausarbeitung von Promptotyping als strukturierte Prompt Engineering Methode für die systematische Entwicklung von Anforderungsdokumenten zur LLM-gestützten Softwareentwicklung"
-  type: "Text"
+  type: "Blogpost"
   format: "text/html"
-  rights: "CC-BY"
+  rights: "CC BY 4.0"
+  language: "de"
 
 schema_type: "BlogPosting"
 keywords: ["Promptotyping", "Prompt Engineering", "Vibe Coding", "Digital Humanities", "AI", "LLM", "Requirements Engineering", "User-Centred Design", "Scholar-Centred Design", "Context Compression", "Context Amplification"]
