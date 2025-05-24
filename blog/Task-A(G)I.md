@@ -1,8 +1,41 @@
 ---
-layout: default
-title: "test"
-date: 2025-05-24
-author: Ihr Name
+layout: post
+title: "OpenAI's Deep Research und erste \"Task-A(G)I\" Systeme?"
+author: "Christopher Pollin"
+date: 2025-02-15
+published: true
+
+# Spezifische Metadaten für diesen Post
+citation:
+  type: "blog-post"
+  container-title: "Digital Humanities Craft"
+  URL: "https://dhcraft.org/excellence/blog/Task-AGI-Deep-Research"
+  language: "de"
+  accessed: "2025-02-15"
+  
+dublin_core:
+  creator: "Christopher Pollin"
+  publisher: "Digital Humanities Craft"
+  subject: ["Artificial General Intelligence", "AGI", "Task-AGI", "OpenAI", "Deep Research", "Reasoning Models", "o3", "AI Research", "Prompt Engineering", "Digital Humanities"]
+  description: "Eine kritische Analyse der Entwicklung spezialisierter KI-Systeme am Beispiel von OpenAI's Deep Research und dem Konzept der Task-A(G)I - KI-Systeme, die bei hochspezialisierten Aufgaben menschliche Fähigkeiten erreichen oder übertreffen"
+  type: "Text"
+  format: "text/html"
+  rights: "CC-BY"
+
+schema_type: "BlogPosting"
+keywords: ["Task-AGI", "OpenAI Deep Research", "o3", "Reasoning Models", "AGI", "AI Research", "Test-Time Compute", "Reinforcement Learning", "Leopold Aschenbrenner", "Scientific Research AI", "Prompt Engineering", "AI Agents"]
+
+# Zusätzliche Zotero-Metadaten
+website_title: "Digital Humanities Craft"
+website_type: "Blog"
+short_title: "Task-A(G)I und Deep Research"
+abstract: "Der Beitrag führt das Konzept der 'Task-A(G)I' ein - spezialisierte KI-Systeme, die bei hochspezialisierten Aufgaben menschliche Fähigkeiten erreichen oder übertreffen, während sie bei anderen Aufgaben deutliche Grenzen haben. Am Beispiel von OpenAI's Deep Research wird gezeigt, wie solche Systeme komplexe intellektuelle Herausforderungen wie wissenschaftliches Recherchieren übernehmen können. Der Autor diskutiert die Implikationen für Bildung, Wissenschaft und Gesellschaft und fordert umfassende Kompetenzentwicklung in Europa."
+
+# Ergänzende technische Metadaten
+last_modified_at: 2025-02-15
+permalink: /blog/Task-AGI-Deep-Research/
+categories: ["blog", "ai", "research", "education"]
+tags: ["task-agi", "openai", "deep-research", "reasoning-models", "ai-research", "scientific-research", "education", "europe"]
 ---
 
 # OpenAI’s Deep Research und erste “Task-A(G)I” Systeme?

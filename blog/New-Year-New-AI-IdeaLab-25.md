@@ -1,8 +1,42 @@
 ---
-layout: default
-title: "test"
-date: 2025-05-24
-author: Ihr Name
+layout: post
+title: "New Year, New AI. Das große Monopoly um die \"Intelligence\""
+author: Christopher Pollin
+date: 2025-01-23
+published: true
+slug: new-year-new-ai-monopoly-intelligence
+
+# Spezifische Metadaten für diesen Post
+citation:
+  type: "blog-post"
+  container-title: "Digital Humanities Craft"
+  URL: "https://dhcraft.org/excellence/blog/New-Year-New-AI-Monopoly-Intelligence"
+  language: "de"
+  accessed: "2025-01-23"
+  
+dublin_core:
+  creator: "Christopher Pollin"
+  publisher: "Digital Humanities Craft"
+  subject: ["Artificial Intelligence", "AI Monopoly", "Reasoning Models", "OpenAI", "Google", "Microsoft", "DeepSeek", "R1", "o1", "o3", "Tech-Oligarchen", "AI Research", "Test-Time Compute", "Prompt Engineering", "Digital Humanities"]
+  description: "Eine Analyse des AI-Monopols der Tech-Konzerne und der Entwicklung von Reasoning-Modellen. Der Beitrag untersucht, wie OpenAI, Microsoft, Google und andere Tech-Oligarchen ihre Monopole im Bereich des AI-Reasoning ausbauen und welche Auswirkungen DeepSeeks R1-Modell auf dieses Machtgefüge hat."
+  type: "Text"
+  format: "text/html"
+  rights: "CC-BY"
+
+schema_type: "BlogPosting"
+keywords: ["AI Monopoly", "Reasoning Models", "OpenAI", "o1", "o3", "DeepSeek R1", "Tech-Oligarchen", "Microsoft", "Google", "Meta", "Anthropic", "Nvidia", "xAI", "Test-Time Compute", "Chain of Thought", "François Chollet", "ARC Benchmark", "Prompt Engineering", "AI Research", "Stargate", "Intelligence", "System 1", "System 2", "Kahneman"]
+
+# Zusätzliche Zotero-Metadaten
+website_title: "Digital Humanities Craft"
+website_type: "Blog"
+short_title: "New Year, New AI - AI Monopoly"
+abstract: "Der Beitrag analysiert das entstehende Monopol der Tech-Konzerne im Bereich der künstlichen Intelligenz, insbesondere bei Reasoning-Modellen. Ausgehend von einer Monopoly-Metapher wird untersucht, wie OpenAI, Microsoft, Google, Meta, Anthropic, Nvidia und xAI systematisch ihre Marktposition ausbauen. Ein besonderer Fokus liegt auf der Entwicklung von o1 und o3 Modellen sowie dem überraschenden Markteintritt von DeepSeeks R1-Modell, das als Open Source Alternative das bestehende Machtgefüge herausfordert. Der Autor diskutiert die technischen Grundlagen von Reasoning-Modellen, Test-Time Compute und die Unterschiede zwischen System 1 und System 2 Denken nach Kahneman."
+
+# Ergänzende technische Metadaten
+last_modified_at: 2025-01-XX
+permalink: /blog/New-Year-New-AI-Monopoly-Intelligence/
+categories: ["blog", "ai", "reasoning", "monopoly", "tech-industry"]
+tags: ["ai-monopoly", "reasoning-models", "openai", "deepseek", "tech-oligarchy", "o1", "o3", "r1", "test-time-compute", "chain-of-thought", "ai-research", "prompt-engineering"]
 ---
 
 # **New Year, New AI. Das große Monopoly um die “Intelligence”**
