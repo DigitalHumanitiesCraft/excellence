@@ -64,8 +64,8 @@ Der *Promptotyping*\-Prozess erfolgt konkret in vier iterativen und aufeinander 
 
 Der *Subject-Verb Inversion Finder***[^11]** entstand ursprünglich als exploratives Vibe-Coding-Experiment, das ich für einen Vortrag erarbeitet habe.[^12] Obwohl ich selbst kein Domänenexperte bin, erlaubten mir meine bisherigen Erfahrungen aus den Digital Humanities zumindest grundlegende Fragestellungen und mögliche Anforderungen abzuschätzen. Mithilfe von Claude 3.7 Sonnet entstand relativ rasch, also an einem Nachmittag, ein erster Prototyp, dessen einziger Input die Korpusdaten (als Snippets) und eine PowerPoint-Folie war, auf der mögliche Forschungsfragen anhand einiger Beispiele umrissen wurden (*WHAT*). Dabei zeigte sich allerdings schnell, dass eine exakte methodische Umsetzung schwierig wird, wenn domänenspezifisches Fachwissen fehlt – wie ich ohnehin erwartet hatte.  
 
-![][image3]  
-[Folie mit Forschungsfrage als initiales ‚Vibe Coding' für den Prompting-Prozess sowie Screenshot des daraus entstandenen Analyse-Tools als exemplarischer Output.]{: .image-caption}
+![][image3]
+<p class="image-caption">Folie mit Forschungsfrage als initiales ‚Vibe Coding' für den Prompting-Prozess sowie Screenshot des daraus entstandenen Analyse-Tools als exemplarischer Output.</p>
 
 Im Experiment wurden zwei unterschiedliche Lösungswege ausprobiert: Der erste  von Claude vorgeschlagene Ansatz war die Identifikation der Inversionen mithilfe regulärer Ausdrücke (RegEx). Hierbei merkte Claude jedoch stets an, dass dies keine vollständige Lösung darstellen könnte. Der zweite Ansatz wurde von mir initiiert und bestand darin, das Problem mithilfe der NLP-Bibliothek *spaCy*[^13] anzugehen, die mir bekannt war, mit der ich aber zuvor noch nicht gearbeitet hatte. Ziel war jeweils, aus einem Plain-Text-Korpus automatisch Subject-Verb-Inversionen zu extrahieren.
 

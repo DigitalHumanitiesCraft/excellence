@@ -584,9 +584,4 @@ td {
   font-size: var(--font-size-sm);
   text-decoration: none;
   border-bottom: none;
-  
-  &:hover {
-    color: var(--color-primary);
-    text-decoration: underline;
-  }
 }
