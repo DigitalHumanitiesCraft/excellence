@@ -33,7 +33,7 @@ short_title: "New Year, New AI - AI Monopoly"
 abstract: "Der Beitrag analysiert das entstehende Monopol der Tech-Konzerne im Bereich der künstlichen Intelligenz, insbesondere bei Reasoning-Modellen. Ausgehend von einer Monopoly-Metapher wird untersucht, wie OpenAI, Microsoft, Google, Meta, Anthropic, Nvidia und xAI systematisch ihre Marktposition ausbauen. Ein besonderer Fokus liegt auf der Entwicklung von o1 und o3 Modellen sowie dem überraschenden Markteintritt von DeepSeeks R1-Modell, das als Open Source Alternative das bestehende Machtgefüge herausfordert. Der Autor diskutiert die technischen Grundlagen von Reasoning-Modellen, Test-Time Compute und die Unterschiede zwischen System 1 und System 2 Denken nach Kahneman."
 
 # Ergänzende technische Metadaten
-last_modified_at: 2025-01-XX
+last_modified_at: 2025-01-23
 permalink: /blog/New-Year-New-AI-Monopoly-Intelligence/
 categories: ["blog", "ai", "reasoning", "monopoly", "tech-industry"]
 tags: ["ai-monopoly", "reasoning-models", "openai", "deepseek", "tech-oligarchy", "o1", "o3", "r1", "test-time-compute", "chain-of-thought", "ai-research", "prompt-engineering"]
