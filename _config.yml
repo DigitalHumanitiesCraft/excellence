@@ -1,6 +1,6 @@
 # Site Settings
 title: "Digital Humanities Craft"
-description: "Professional insights into AI, development, and digital humanities"
+description: "Blogging about applied generative AI, LLM and Prompt Engineering for research support"
 url: "https://dhcraft.org"
 baseurl: "/excellence"
 
@@ -36,8 +36,11 @@ exclude:
   - .jekyll-cache/
 
 # SEO and Social
-twitter_username: your_twitter
-github_username: your_github
+linkedin_username: christopher-pollin-463b0a204
+mastodon:
+  - username: chpollin
+    instance: fedihum.org
+github_username: chpollin
 
 # Timezone
 timezone: Europe/Vienna

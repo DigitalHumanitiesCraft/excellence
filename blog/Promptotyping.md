@@ -9,17 +9,26 @@ published: true
 citation:
   type: "blog-post"
   container-title: "Digital Humanities Craft"
-  URL: "https://dhcraft.org/excellence/blog/Vibe-Coding"
+  URL: "https://dhcraft.org/excellence/blog/Promptotyping-Von-der-Idee-zur-Anwendung"
   language: "de"
+  accessed: "2025-04-24"
   
 dublin_core:
   creator: "Christopher Pollin"
   publisher: "Digital Humanities Craft"
-  subject: ["Digital Humanities", "Applied Generative AI", "Vibe Coding", "Prompt Engineering"]
-  description: "Eine kritische Analyse der Vibe-Coding-Methodik und ihrer Grenzen"
+  subject: ["Digital Humanities", "Applied Generative AI", "Promptotyping", "Prompt Engineering", "Requirements Engineering", "Scholar-Centred Design", "User-Centred Design", "Context Compression"]
+  description: "Eine methodische Ausarbeitung von Promptotyping als strukturierte Prompt Engineering Methode für die systematische Entwicklung von Anforderungsdokumenten zur LLM-gestützten Softwareentwicklung"
+  type: "Text"
+  format: "text/html"
+  rights: "CC-BY"
 
 schema_type: "BlogPosting"
-keywords: ["Promptotyping", "Prompt Engineering"]
+keywords: ["Promptotyping", "Prompt Engineering", "Vibe Coding", "Digital Humanities", "AI", "LLM", "Requirements Engineering", "User-Centred Design", "Scholar-Centred Design", "Context Compression", "Context Amplification"]
+
+website_title: "Digital Humanities Craft"
+website_type: "Blog"
+short_title: "Promptotyping: Von der Idee zur Anwendung"
+abstract: "In diesem Beitrag wird Promptotyping als methodische Weiterentwicklung des Vibe Coding vorgestellt. Promptotyping ist eine strukturierte Prompt Engineering Methode, die systematisch Anforderungsdokumente (Promptotyping Documents) entwickelt, um LLM-gestützte Softwareentwicklung zu optimieren. Die Methode kombiniert Prinzipien aus Requirements Engineering, User-Centred Design und Scholar-Centred Design und nutzt Context Compression zur effizienten Übertragung komplexer Informationen an Large Language Models."
 ---
 
 ![][image1]
