@@ -1,3 +1,10 @@
+---
+layout: default
+title: "test"
+date: 2025-05-24
+author: Ihr Name
+---
+
 # OpenAI’s Deep Research und erste “Task-A(G)I” Systeme?
 
 ![lurchy_httpss mj run2hlwcORSqyk_white_background_fading_out_--a_ad7eea4a-c59c-4476-aa13-1e0cf3436556](https://github.com/user-attachments/assets/807a54a8-24ad-46a6-acfe-72854ade9f50)

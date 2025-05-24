@@ -1,15 +1,8 @@
 ---
-title: "Promptotyping: Von der Idee zur Anwendung"
-author: "Christopher Pollin"
-orcid: "https://orcid.org/0000-0002-4879-129X"
-date: "2025-04-16"
-publisher: "Digital Humanities Craft"
-url: "https://https://dhcraft.org/excellence/blog/promptotyping"
-citation: "Pollin, Christopher (2025). Promptotyping: Von der Idee zur Anwendung. Digital Humanities Craft."
-keywords: ["Prompt Engineering", "Digital Humanities", "LLM", "Requirements Engineering"]
-license: "CC-BY-4.0"
-type: "blog-post"
-lang: "de"
+layout: default
+title: "test"
+date: 2025-05-24
+author: Ihr Name
 ---
 
 # ***Promptotyping*****: Von der Idee zur Anwendung**

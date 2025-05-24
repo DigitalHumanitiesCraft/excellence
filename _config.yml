@@ -1,0 +1,8 @@
+title: Ihr Site-Titel
+description: Beschreibung Ihrer Website
+theme: minima
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
