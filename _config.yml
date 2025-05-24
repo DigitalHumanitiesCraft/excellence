@@ -1,8 +1,43 @@
-title: Ihr Site-Titel
-description: Beschreibung Ihrer Website
-theme: minima
+# Site Settings
+title: "Digital Humanities Craft"
+description: "Professional insights into AI, development, and digital humanities"
+url: "https://dhcraft.org/excellence"
+baseurl: ""
+
+# Author
+author:
+  name: "Christopher Pollin"
+  email: "christopher.pollin@dhcraft.org"
+
+# Build settings
 markdown: kramdown
 highlighter: rouge
+permalink: /:categories/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+
+# SEO and Social
+twitter_username: your_twitter
+github_username: your_github
+
+# Timezone
+timezone: Europe/Vienna

@@ -1,13 +1,26 @@
 ---
-layout: default
-title: "test"
-date: 2025-05-24
-author: Ihr Name
+layout: post
+title: "Promptotyping: Von der Idee zur Anwendung"
+author: "Christopher Pollin"
+date: 2025-04-24
+published: true
+
+# Spezifische Metadaten für diesen Post
+citation:
+  type: "blog-post"
+  container-title: "Digital Humanities Craft"
+  URL: "https://dhcraft.org/excellence/blog/Vibe-Coding"
+  language: "de"
+  
+dublin_core:
+  creator: "Christopher Pollin"
+  publisher: "Digital Humanities Craft"
+  subject: ["Digital Humanities", "Applied Generative AI", "Vibe Coding", "Prompt Engineering"]
+  description: "Eine kritische Analyse der Vibe-Coding-Methodik und ihrer Grenzen"
+
+schema_type: "BlogPosting"
+keywords: ["Promptotyping", "Prompt Engineering"]
 ---
-
-# ***Promptotyping*****: Von der Idee zur Anwendung**
-
-## *Christopher Pollin \- Digital Humanities Craft*
 
 ![][image1]
 

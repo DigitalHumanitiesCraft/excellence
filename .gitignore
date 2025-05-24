@@ -2,3 +2,5 @@
 /promptotyping/subject-verb-inversion-finder/data/working
 *.pyc
 /promptotyping/subject-verb-inversion-finder/working
+/_site
+/.sass-cache

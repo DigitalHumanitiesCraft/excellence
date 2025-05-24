@@ -1,6 +1,26 @@
-# **“Haters gonna hate”: Warum die Kritik an Vibe Coding berechtigt ist – und welche Proto-AGI-Potenziale sie übersieht**
+---
+layout: post
+title: "Haters gonna hate: Warum die Kritik an Vibe Coding berechtigt ist"
+author: "Christopher Pollin"
+date: 2025-03-15
+published: true
 
-## *Christopher Pollin \- Digital Humanities Craft*
+# Spezifische Metadaten für diesen Post
+citation:
+  type: "blog-post"
+  container-title: "Digital Humanities Craft"
+  URL: "https://dhcraft.org/excellence/blog/Vibe-Coding"
+  language: "de"
+  
+dublin_core:
+  creator: "Christopher Pollin"
+  publisher: "Digital Humanities Craft"
+  subject: ["Digital Humanities", "Applied Generative AI", "Vibe Coding", "Prompt Engineering"]
+  description: "Eine kritische Analyse der Vibe-Coding-Methodik und ihrer Grenzen"
+
+schema_type: "BlogPosting"
+keywords: ["Vibe Coding", "LLM", "Digital Humanities", "Prompt Engineering"]
+---
 
 ![][image1]
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    {% seo %}
+    {% feed_meta %}
+</head>
+<body>
+    <header class="site-header">
+    <div class="wrapper">
+        <div class="header-brand">
+            <div class="brand-icon">
+                <img src="{{ '/assets/svg/logos/dhcraft_logo_invert.svg' | relative_url }}" 
+                     alt="Digital Humanities Craft Logo" 
+                     class="logo-svg">
+            </div>
+            <div class="brand-text">
+                <h1 class="site-title">
+                    <a href="{{ '/' | relative_url }}">Digital Humanities Craft</a>
+                </h1>
+            </div>
+        </div>
+        <nav class="site-nav">
+            <a href="{{ '/blog/' | relative_url }}" class="nav-link">Blogbeiträge</a>
+            <a href="https://dhcraft.org" class="nav-link">About</a>
+        </nav>
+    </div>
+</header>
+
+    <main class="page-content">
+        <div class="wrapper">
+            {{ content }}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrapper">
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

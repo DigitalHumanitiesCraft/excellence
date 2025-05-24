@@ -2,15 +2,88 @@
 layout: default
 ---
 
-<article>
-    <header>
-        <h1>{{ page.title }}</h1>
-        <p>Veröffentlicht am {{ page.date | date: "%d.%m.%Y" }}</p>
-    </header>
-    
+<!-- JSON-LD für Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ page.schema_type | default: 'BlogPosting' }}",
+  "headline": "{{ page.title }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: site.author.name }}"
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "description": "{{ page.dublin_core.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+  "url": "{{ page.url | absolute_url }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  },
+  "keywords": {{ page.keywords | jsonify }},
+  "inLanguage": "{{ page.citation.language | default: 'de' }}"
+}
+</script>
+
+<!-- Dublin Core Meta Tags -->
+<meta name="DC.title" content="{{ page.title }}">
+<meta name="DC.creator" content="{{ page.dublin_core.creator | default: page.author }}">
+<meta name="DC.date" content="{{ page.date | date_to_xmlschema }}">
+<meta name="DC.publisher" content="{{ page.dublin_core.publisher | default: site.title }}">
+<meta name="DC.description" content="{{ page.dublin_core.description }}">
+<meta name="DC.language" content="{{ page.citation.language | default: 'de' }}">
+<meta name="DC.type" content="Text">
+<meta name="DC.format" content="text/html">
+{% for subject in page.dublin_core.subject %}
+<meta name="DC.subject" content="{{ subject }}">
+{% endfor %}
+
+<!-- COinS für Zotero -->
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2F{{ site.url | remove: 'https://' | remove: 'http://' }}%3Agenerator&amp;rft.type={{ page.citation.type | default: 'blogPost' }}&amp;rft.title={{ page.title | url_encode }}&amp;rft.source={{ site.title | url_encode }}&amp;rft.date={{ page.date | date: '%Y-%m-%d' }}&amp;rft.identifier={{ page.url | absolute_url | url_encode }}&amp;rft.language={{ page.citation.language | default: 'de' }}&amp;rft.aulast={{ page.author | split: ' ' | last | url_encode }}&amp;rft.aufirst={{ page.author | split: ' ' | first | url_encode }}"></span>
+
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    {% if page.keywords %}
+    <div class="keywords">
+        <strong>Schlagwörter:</strong>
+        {% for keyword in page.keywords %}
+        <span class="keyword">{{ keyword }}</span>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="post-meta">
+    <div class="author-info">
+        <span class="author">{{ page.author | default: site.author.name }}</span>
+        <span class="date">{{ page.date | date: "%d.%m.%Y" }}</span>
+    </div>
+    </div>
+  </header>
+
+  <div class="post-content">
     {{ content }}
-    
-    <footer>
-        <p>Von {{ page.author }}</p>
-    </footer>
+  </div>
+  
+  <!-- Zitiervorschlag -->
+  <footer class="post-citation">
+    <h3>Zitiervorschlag</h3>
+    <div class="citation-format" id="citation-text">
+      {{ page.author | default: site.author.name }}. "{{ page.title }}." <em>{{ site.title }}</em>, {{ page.date | date: "%d.%m.%Y" }}. {{ page.url | absolute_url }}.
+    </div>
+  </footer>
 </article>
+
+<script>
+function copyCitation() {
+  const citation = document.getElementById('citation-text').innerText;
+  navigator.clipboard.writeText(citation).then(() => {
+    alert('Zitation kopiert!');
+  });
+}
+</script>
