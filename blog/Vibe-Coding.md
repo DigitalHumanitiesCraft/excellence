@@ -51,7 +51,7 @@ Genau hier setzt berechtigte Kritik an: Technische Grenzen des Vibe Coding zeige
 Zudem entstehen Schwierigkeiten bei der Erweiterung komplexer Systeme, da LLM-generierter Code überwiegend isoliert entsteht und oft nicht ausreichend in bestehende Systemarchitekturen integriert ist. Die mangelnde Konsistenz architektonischer Entscheidungen über mehrere Entwicklungszyklen erschwert eine nachhaltige Weiterentwicklung. Das bedeutet jedoch nicht, dass umfangreichere, LLM-basierte Programmierumgebungen künftig nicht doch die Bewältigung höherer Komplexität ermöglichen könnten. Aufgrund dieser aktuellen Einschränkungen eignet sich Vibe Coding momentan primär für Prototypen oder unkritische Aufgaben in der Datenverarbeitung. Gleichzeitig bietet der Ansatz eindeutige Vorteile für alltägliche Aufgaben wie schnelle Datenanalysen, Visualisierungen, Datentransformationen oder einfache Skripte. Insbesondere temporäre, lokal genutzte Software ohne komplexe Backends oder APIs lässt sich aus meiner Sicht gut mit Vibe Coding realisieren und schafft hier unmittelbaren Mehrwert. Gezielt und kompetent eingesetzt, kann sich das anfänglich naive *Vibe Coding* zunehmend zu einem effektiven *Vibe Engineering* weiterentwickeln.
 
 ![][image3]
-<p class="image-caption"><a href="https://www.reddit.com/r/ChatGPTCoding/comments/1jqpu4x/vibe_coding_vs_vibe_engineering/?rdt=47429#:~:text=%E2%80%A2">Vibe Coding vs Vibe Engineering</a></p>
+[Vibe Coding vs Vibe Engineering. https://www.reddit.com](https://www.reddit.com/r/ChatGPTCoding/comments/1jqpu4x/vibe_coding_vs_vibe_engineering/?rdt=47429#:~:text=%E2%80%A2){: .image-caption}
 
 ## **Wenn “die KI” alles codet – was lernen wir dann noch?**
 
@@ -62,7 +62,7 @@ Neben technischen Einschränkungen bestehen erhebliche erkenntnistheoretische He
 Dies deckt sich mit meinen eigenen Erfahrungen im Umgang mit Vibe Coding. Im dokumentierten Beispiel „The One Snake“ habe ich mithilfe von Claude 3.5 Sonnet ein vollständiges, funktionales Snake-Spiel ausschließlich über gezielte Prompts erstellt. Bereits nach dem initialen Prompt generierte Claude automatisch Design-Dokumente, eine Testsuite sowie ein visuell ansprechendes und funktionierendes User-Interface. Ein iterativer Debugging-Prozess lieferte zusätzlichen Kontext über das Programm und ermöglichte dadurch eine schnelle Fehlerbehebung. Eine der Iterationen der Test Suite ist hier abgebildet:
 
 ![][image4]
-<p class="image-caption"><a href="https://dhcraft.org/excellence/promptotyping/the-one-snake-vibe-coding/test.html">The One Snake - Test Suite</a></p>
+[The One Snake - Test Suite. https://dhcraft.org/excellence/promptotyping/the-one-snake-vibe-coding/test.html](https://dhcraft.org/excellence/promptotyping/the-one-snake-vibe-coding/test.html){: .image-caption}
 
 Dieses Beispiel zeigt: Einfachere Anwendungen lassen sich nahezu unmittelbar realisieren. Auch komplexere Aufgaben führen überraschend schnell zu funktionierenden Prototypen. Allerdings habe ich den generierten Code bisher gar nicht genauer analysiert – mir ist daher nicht bewusst, wie und warum das Spiel genau funktioniert. Dennoch funktioniert es.
 

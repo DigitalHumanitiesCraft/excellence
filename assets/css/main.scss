@@ -573,15 +573,32 @@ td {
   h2 { font-size: 1.5rem; }
 }
 
-// ===== IMAGE CAPTIONS =====
+// Für Paragraphen mit image-caption Links
+p {
+  &:has(.image-caption) {
+    text-align: center;
+    margin-top: calc(var(--spacing-md) * -1);
+    margin-bottom: var(--spacing-xl);
+    font-style: italic;
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+  }
+}
+
+// Fallback für Browser ohne :has() Support
 .image-caption {
-  display: block;
+  // Entferne den ursprünglichen Code und ersetze durch:
+  text-decoration: none !important;
+  border-bottom: none !important;
+  color: var(--color-text-light) !important;
+}
+
+// Für den parent paragraph
+p:last-of-type:has(.image-caption) {
   text-align: center;
-  margin-top: calc(var(--spacing-md) * -1); // -1rem um näher zum Bild zu rücken
+  margin-top: calc(var(--spacing-md) * -1);
   margin-bottom: var(--spacing-xl);
   font-style: italic;
   color: var(--color-text-light);
   font-size: var(--font-size-sm);
-  text-decoration: none;
-  border-bottom: none;
 }
