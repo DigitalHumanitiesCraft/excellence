@@ -30,12 +30,6 @@ website_title: "Digital Humanities Craft"
 website_type: "Blog"
 short_title: "Task-A(G)I und Deep Research"
 abstract: "Der Beitrag führt das Konzept der 'Task-A(G)I' ein - spezialisierte KI-Systeme, die bei hochspezialisierten Aufgaben menschliche Fähigkeiten erreichen oder übertreffen, während sie bei anderen Aufgaben deutliche Grenzen haben. Am Beispiel von OpenAI's Deep Research wird gezeigt, wie solche Systeme komplexe intellektuelle Herausforderungen wie wissenschaftliches Recherchieren übernehmen können. Der Autor diskutiert die Implikationen für Bildung, Wissenschaft und Gesellschaft und fordert umfassende Kompetenzentwicklung in Europa."
-
-# Ergänzende technische Metadaten
-last_modified_at: 2025-02-15
-permalink: /blog/Task-A(G)I/
-categories: ["blog", "ai", "research", "education"]
-tags: ["Deep-Research", "Reasoning-Models"]
 ---
 
 ![lurchy_httpss mj run2hlwcORSqyk_white_background_fading_out_--a_ad7eea4a-c59c-4476-aa13-1e0cf3436556](https://github.com/user-attachments/assets/807a54a8-24ad-46a6-acfe-72854ade9f50)
