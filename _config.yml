@@ -1,8 +1,8 @@
 # Site Settings
 title: "Digital Humanities Craft"
 description: "Professional insights into AI, development, and digital humanities"
-url: "https://dhcraft.org/excellence"
-baseurl: ""
+url: "https://dhcraft.org"
+baseurl: "/excellence"
 
 # Author
 author:
