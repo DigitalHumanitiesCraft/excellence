@@ -2,7 +2,7 @@
 layout: post
 title: Wie LLMs „wirklich“ funktionieren: Halluzinierende System-1.42-Maschinen
 author: "Christopher Pollin"
-date: 2025-05
+date: 2025-05-25
 published: true
 
 # Spezifische Metadaten für diesen Post
