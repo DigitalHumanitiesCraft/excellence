@@ -16,7 +16,7 @@ citation:
 dublin_core:
   creator: "Christopher Pollin"
   publisher: "Digital Humanities Craft"
-  subject: ["Digital Humanities", "Applied Generative AI", "Vibe Coding", "Prompt Engineering"]
+  subject: ["Applied Generative AI", "LLM"]
   description: "todo"
   type: "Blogpost"
   format: "text/html"
