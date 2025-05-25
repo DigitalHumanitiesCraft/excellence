@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wie LLMs „wirklich“ funktionieren: Halluzinierende System-1.42-Maschinen
+title: Wie LLMs "wirklich" funktionieren: Halluzinierende System-1.42-Maschinen
 author: "Christopher Pollin"
 date: 2025-05-25
 published: true
@@ -32,5 +32,6 @@ keywords: ["LLM"]
 
 ![][image1]
 
+In Anlehnung an Daniel Kahneman schlage ich vor, LLMs ab GPT-4-Level als System 1.42 zu bezeichnen. Diese KI-Modelle basieren zwar auf intuitiver Mustererkennung (System 1), liefern aber Ergebnisse, die teilweise logisch und analytisch wirken (ähnlich System 2). Dabei wichtig: Sie erreichen niemals echtes Verstehen, bewusste Reflexion oder systematische Problemlösung – sie sind nie System-2-Systeme.
 
 [image1]: img/system1-42.png
