@@ -26,11 +26,15 @@ dublin_core:
 coins_data:
   rft_type: "blogPost"  # Standard COinS Format
 
+website_title: "Digital Humanities Craft"
+website_type: "Blog"
+short_title: "Promptotyping mit Claude Sonnet 4. Vibe-Coding erfordert den Critical-Expert-in-the-Loop"
+abstract: "Der Beitrag zeigt, wie Promptotyping – ein dreistufiges Framework aus Prompt-Engineering, iterativem Requirements-Engineering und kritisch-epistemischer Reflexion – mit „Vibe Coding“ und Claude 4 Sonnet zusammenwirkt, um binnen zwei Stunden ein browserbasiertes Timeline-Annotationstool für Stefan Zweig Digital zu erstellen. Er argumentiert, dass erst ein Critical-Expert-in-the-Loop die sycophantische Neigung großer Sprachmodelle zügelt und die kreative Intuition des Vibe Codings in robuste Forschungstools überführt."
+---
+
 schema_type: "BlogPosting"
 keywords: ["Applied Generative AI", "LLM", "Digital Humanities", "Vibe Coding", "Human-AI Collaboration"]
 ---
-
-# **Promptotyping mit Claude Sonnet 4\.** Vibe-Coding erfordert den “Critical-Expert-in-the-Loop”
 
 ![][image1]
 
