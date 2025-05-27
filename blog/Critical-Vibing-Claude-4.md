@@ -112,6 +112,7 @@ Solche scheinbar marginalen Details führen in der praktischen Umsetzung schnell
 Ein Screenshot der originalen Stefan Zweig Digital Website diente als Design-Referenz. Die Anweisung `Orientiere das Design am Screenshot` übertrug ästhetische Anforderungen.
 
 ![][image2]
+[https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/](https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/){: .image-caption}
 
 Es ist auch wichtig, dass man nicht alles auf einmal implementiert, sondern es *schrittweise umsetzt*, so wie man es auch selbst entwickeln würde: Zuerst sicherstellen, dass alle Daten korrekt geladen werden (mit einem kleinen Test), dann die HTML-Seite und das Design erstellen, und erst danach die Funktionalität implementieren. Man sollte also Stück für Stück von der Basis zu den Erweiterungen und zum Feinschliff gehen, und dafür braucht man eben Erfahrung, wie man das umsetzt. Im Screenshot sieht man die direkte Aufforderung, immer nur einen Teil zu erzeugen (`Erzeuge die Dateien index.html und style.css`): LLMs haben immer *begrenzte Output-Token*, es kann sein, dass sie bei Antworten, wo sie mehr Token brauchen würden als im Output möglich sind, dann Teile mit \[...\] angeben.
 
@@ -120,6 +121,7 @@ Ich glaube aber, dass man diese Kompetenzen und den strukturierten Ablauf auch N
 Nach der erfolgreichen Timeline-Implementation fragte ich Claude: `Könnten wir daraus ein Annotationstool machen, mit dem Forscher:innen zusätzliche Daten zu den Briefen hinzufügen können?` Diese Erweiterung bot die Möglichkeit, verschiedene Implementierungsebenen zu evaluieren, von einfachen Notizen bis hin zu komplexen Kollaborationsfeatures. Ein wichtiger Schritt meinerseits war dann, Komplexität rauszunehmen und den Fokus wieder auf die Kernfunktionen zu legen. Mein Prompt war “*mache eine einfache Version ohne KI-Unterstützung, Kollaboration und ohne Visualisierung*”, die von Claude vorgeschlagen wurden. Ein Modell wie Claude Sonnet 4 muss für solche Aufgaben nicht mehr aufwendig promptet werden. Das Prompting verändert sich also kontinuierlich mit den Modellen.
 
 ![][image3]
+[https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/](https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/){: .image-caption}
 
 Das finale Tool ist vollständig browserbasiert und erfordert keine externen Abhängigkeiten. Annotationen werden lokal gespeichert und können als JSON exportiert werden. Daraus ließe sich eine pragmatische Lösung für die individuelle Forschungsarbeit ziemlich schnell umsetzen. Im konkreten Fall bleibt es jedoch ein Experiment.
 
