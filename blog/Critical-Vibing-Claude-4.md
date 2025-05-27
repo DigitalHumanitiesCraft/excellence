@@ -67,38 +67,38 @@ Der Prompt war sehr konkret formuliert und damit kein eigentliches Vibe Coding m
 
 ```md  
 XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata:  
-\`\`\`  
-\<sparql xmlns="http://www.w3.org/2001/sw/DataAccess/rf1/result"\>  
-\<head\>  
-\<variable name="container"/\>  
-\<variable name="cid"/\>  
-\<variable name="pid"/\>  
-\<variable name="model"/\>  
-\<variable name="title"/\>  
-\<variable name="identifier"/\>  
-\<variable name="creator"/\>  
-\<variable name="contributor"/\>  
-\<variable name="date"/\>  
-\</head\>  
-\<results\>  
-\<result\>  
-\<container\>Korrespondenzen\</container\>  
-\<cid\>context:szd.facsimiles.korrespondenzen\</cid\>  
-\<pid uri="info:fedora/o:szd.161"/\>  
-\<model uri="info:fedora/cm:dfgMETS"/\>  
-\<title\>Theaterkarte zur Uraufführung von „Jeremias“ 1918, SZ-SDP/L2\</title\>  
-\<identifier\>o:szd.161\</identifier\>  
-\<creator\>Zweig, Stefan\</creator\>  
-\<contributor bound="false"/\>  
-\<date bound="false"/\>  
-\</result\>  
-\<result\>  
-\`\`\`  
+***
+<sparql xmlns="http://www.w3.org/2001/sw/DataAccess/rf1/result"\>  
+<head\>  
+<variable name="container"/\>  
+<variable name="cid"/\>  
+<variable name="pid"/\>  
+<variable name="model"/\>  
+<variable name="title"/\>  
+<variable name="identifier"/\>  
+<variable name="creator"/\>  
+<variable name="contributor"/\>  
+<variable name="date"/\>  
+</head\>  
+<results\>  
+<result\>  
+<container\>Korrespondenzen</container\>  
+<cid\>context:szd.facsimiles.korrespondenzen</cid\>  
+<pid uri="info:fedora/o:szd.161"/\>  
+<model uri="info:fedora/cm:dfgMETS"/\>  
+<title\>Theaterkarte zur Uraufführung von „Jeremias“ 1918, SZ-SDP/L2</title\>  
+<identifier\>o:szd.161</identifier\>  
+<creator\>Zweig, Stefan</creator\>  
+<contributor bound="false"/\>  
+<date bound="false"/\>  
+</result\>  
+<result\>  
+***
 Das zeigt die Korrespondenzstücke mit:  
-\* \<title\>  
-\* \<date\> (optional)   
-\* \<creator\> (optional)    
-\* \<contributor\> (optional) 
+\* <title\>  
+\* <date\> (optional)   
+\* <creator\> (optional)    
+\* <contributor\> (optional) 
 
 Ich möchte eine timeline aller dieser Briefe erzeugen. Und zwar möchte ich das XML direkt fetchen mit JavaScript und eine Single page Application erzeugen, bei der ich runterscrollen kann, damit ich die Sequenz der Briefe habe.
 
