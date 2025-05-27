@@ -250,6 +250,16 @@ article {
     margin-top: 0;
   }
   
+  // Blocksatz für Artikel-Paragraphen (nur auf größeren Bildschirmen)
+  @media (min-width: 769px) {
+    p {
+      text-align: justify;
+      hyphens: auto;
+      word-spacing: 0.1em;
+      text-align-last: left;
+    }
+  }
+  
   ul, ol {
     margin: var(--spacing-2xl) 0;
     padding-left: var(--spacing-xl);
@@ -276,6 +286,11 @@ article {
     p:last-child {
       margin-bottom: 0;
     }
+    
+    // Blockquotes bleiben linksbündig
+    p {
+      text-align: left !important;
+    }
   }
   
   img {
@@ -300,6 +315,7 @@ article {
       font-size: var(--font-size-sm);
       color: var(--color-text-light);
       font-style: italic;
+      text-align: center !important; // Bildunterschriften bleiben zentriert
     }
   }
 }
@@ -383,6 +399,7 @@ pre {
     
     p {
       margin-bottom: var(--spacing-md);
+      text-align: left !important; // Footnotes bleiben linksbündig
       
       &:last-child {
         margin-bottom: 0;
@@ -399,6 +416,7 @@ pre {
   border-radius: var(--border-radius-md);
   margin: var(--spacing-md) 0;
   font-style: italic;
+  text-align: left !important; // Author-Info bleibt linksbündig
 }
 
 // ===== FOOTER =====
@@ -535,6 +553,13 @@ td {
   
   @include mobile-spacing;
   
+  // Auf kleinen Bildschirmen linksbündig lassen
+  article p {
+    text-align: left !important;
+    hyphens: none;
+    word-spacing: normal;
+  }
+  
   article {
     ul, ol {
       margin: var(--spacing-xl) 0;
@@ -573,10 +598,11 @@ td {
   h2 { font-size: 1.5rem; }
 }
 
+// ===== IMAGE CAPTIONS =====
 // Für Paragraphen mit image-caption Links
 p {
   &:has(.image-caption) {
-    text-align: center;
+    text-align: center !important;
     margin-top: calc(var(--spacing-md) * -1);
     margin-bottom: var(--spacing-xl);
     font-style: italic;
@@ -587,7 +613,6 @@ p {
 
 // Fallback für Browser ohne :has() Support
 .image-caption {
-  // Entferne den ursprünglichen Code und ersetze durch:
   text-decoration: none !important;
   border-bottom: none !important;
   color: var(--color-text-light) !important;
@@ -595,7 +620,7 @@ p {
 
 // Für den parent paragraph
 p:last-of-type:has(.image-caption) {
-  text-align: center;
+  text-align: center !important;
   margin-top: calc(var(--spacing-md) * -1);
   margin-bottom: var(--spacing-xl);
   font-style: italic;
