@@ -155,7 +155,7 @@ So würde Rick Rubin vielleicht klingen, wenn man Claude Sonnet 4 beauftragt, ei
 
 [^14]:  Wie immer gibt es ein ausgezeichnetes Video von Philip von AI Explained. Claude 4: Full 120 Page Breakdown … Is it the Best New Model? [https://youtu.be/Xn\_5aIhrJOE](https://youtu.be/Xn_5aIhrJOE) 
 
-[^15]:  Alignment faking in large language models. [https://youtu.be/9eXV64O2Xp8](https://youtu.be/9eXV64O2Xp8) und How difficult is AI alignment? | Anthropic Research Salon: [https://youtu.be/IPmt8b-qLgk](https://youtu.be/IPmt8b-qLgk)
+[^15]:  Alignment faking in large language models. [https://youtu.be/9eXV64O2Xp8](https://youtu.be/9eXV64O2Xp8) und How difficult is AI alignment?. Anthropic Research Salon: [https://youtu.be/IPmt8b-qLgk](https://youtu.be/IPmt8b-qLgk)
 
 [^16]:  Anthropic's Responsible Scaling Policy: [https://www.anthropic.com/news/anthropics-responsible-scaling-policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) 
 
@@ -173,7 +173,7 @@ So würde Rick Rubin vielleicht klingen, wenn man Claude Sonnet 4 beauftragt, ei
 
 [^23]:  Dario Amodei. The Future of U.S. AI Leadership with CEO of Anthropic Dario Amodei. [https://www.youtube.com/live/esCSpbDPJik](https://www.youtube.com/live/esCSpbDPJik) 
 
-[^24]:  Dieses 5-stündige Interview mit Dario Amodei und der promovierten Ethikerin Amanda Askell, die für den „Charakter“ von Claude zuständig ist, finde ich persönlich überzeugend. Dario Amodei: Anthropic CEO on Claude, AGI & the Future of AI & Humanity | Lex Fridman Podcast. [https://youtu.be/ugvHCXCOmm4?si=zZ3Tb5Tj4jiwXaPm](https://youtu.be/ugvHCXCOmm4?si=zZ3Tb5Tj4jiwXaPm) 
+[^24]:  Dieses 5-stündige Interview mit Dario Amodei und der promovierten Ethikerin Amanda Askell, die für den „Charakter“ von Claude zuständig ist, finde ich persönlich überzeugend. Dario Amodei: Anthropic CEO on Claude, AGI & the Future of AI & Humanity. Lex Fridman Podcast. [https://youtu.be/ugvHCXCOmm4?si=zZ3Tb5Tj4jiwXaPm](https://youtu.be/ugvHCXCOmm4?si=zZ3Tb5Tj4jiwXaPm) 
 
 [^25]:  [https://stefanzweig.digital](https://stefanzweig.digital)   
 
@@ -183,6 +183,8 @@ So würde Rick Rubin vielleicht klingen, wenn man Claude Sonnet 4 beauftragt, ei
 
 [^28]:  The AI Daily Brief: Artificial Intelligence News. Rick Rubin on Art, Life, and Vibe Coding. [https://youtu.be/6BDsFUvPqI0](https://youtu.be/6BDsFUvPqI0).
 
-[image1]: /blog/img/critical-vibing.png
-[image2]: /blog/img/szd-tool-1.png
-[image3]: /blog/img/szd-tool-2.png
+
+
+[image1]: img/critical-vibing.png
+[image2]: img/szd-tool-1.png
+[image3]: img/szd-tool-2.png
