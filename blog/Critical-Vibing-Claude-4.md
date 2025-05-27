@@ -11,13 +11,13 @@ citation:
   container-title: "Digital Humanities Craft"
   URL: "https://dhcraft.org/excellence/blog/Critical-Vibing-Claude-4"
   language: "de"
-  abstract: "Der Beitrag zeigt, wie Promptotyping – ein dreistufiges Framework aus Prompt-Engineering, iterativem Requirements-Engineering und kritisch-epistemischer Reflexion – mit „Vibe Coding“ und Claude 4 Sonnet zusammenwirkt, um binnen zwei Stunden ein browserbasiertes Timeline-Annotationstool für Stefan Zweig Digital zu erstellen. Er argumentiert, dass erst ein Critical-Expert-in-the-Loop die sycophantische Neigung großer Sprachmodelle zügelt und die kreative Intuition des Vibe Codings in robuste Forschungstools überführt."
+  abstract: "Der Beitrag zeigt, wie Promptotyping – ein dreistufiges Framework aus Prompt-Engineering, iterativem Requirements-Engineering und kritisch-epistemischer Reflexion – mit „Vibe Coding“ und Claude 4 Sonnet zusammenwirkt, um binnen zwei Stunden ein browserbasiertes Timeline-Annotationstool für Stefan Zweig Digital zu erstellen. Er argumentiert, dass erst ein Critical-Expert-in-the-Loop die sycophantische Neigung großer Sprachmodelle zügelt und die kreative Intuition des Vibe Codings in Prototypen von Forschungstools überführt."
   
 dublin_core:
   creator: "Christopher Pollin"
   publisher: "Digital Humanities Craft"
   subject: ["Applied Generative AI", "LLM", "Digital Humanities", "Vibe Coding", "Human-AI Collaboration"]
-  description: "Der Beitrag zeigt, wie Promptotyping – ein dreistufiges Framework aus Prompt-Engineering, iterativem Requirements-Engineering und kritisch-epistemischer Reflexion – mit „Vibe Coding“ und Claude 4 Sonnet zusammenwirkt, um binnen zwei Stunden ein browserbasiertes Timeline-Annotationstool für Stefan Zweig Digital zu erstellen. Er argumentiert, dass erst ein Critical-Expert-in-the-Loop die sycophantische Neigung großer Sprachmodelle zügelt und die kreative Intuition des Vibe Codings in robuste Forschungstools überführt."
+  description: "Der Beitrag zeigt, wie Promptotyping – ein dreistufiges Framework aus Prompt-Engineering, iterativem Requirements-Engineering und kritisch-epistemischer Reflexion – mit „Vibe Coding“ und Claude 4 Sonnet zusammenwirkt, um binnen zwei Stunden ein browserbasiertes Timeline-Annotationstool für Stefan Zweig Digital zu erstellen. Er argumentiert, dass erst ein Critical-Expert-in-the-Loop die sycophantische Neigung großer Sprachmodelle zügelt und die kreative Intuition des Vibe Codings in Prototypen von Forschungstools überführt."
   type: "Blogpost"
   format: "text/html"
   rights: "CC BY 4.0"
@@ -29,7 +29,7 @@ coins_data:
 website_title: "Digital Humanities Craft"
 website_type: "Blog"
 short_title: "Promptotyping mit Claude Sonnet 4. Vibe-Coding erfordert den Critical-Expert-in-the-Loop"
-abstract: "Der Beitrag zeigt, wie Promptotyping – ein dreistufiges Framework aus Prompt-Engineering, iterativem Requirements-Engineering und kritisch-epistemischer Reflexion – mit „Vibe Coding“ und Claude 4 Sonnet zusammenwirkt, um binnen zwei Stunden ein browserbasiertes Timeline-Annotationstool für Stefan Zweig Digital zu erstellen. Er argumentiert, dass erst ein Critical-Expert-in-the-Loop die sycophantische Neigung großer Sprachmodelle zügelt und die kreative Intuition des Vibe Codings in robuste Forschungstools überführt."
+abstract: "Der Beitrag zeigt, wie Promptotyping – ein dreistufiges Framework aus Prompt-Engineering, iterativem Requirements-Engineering und kritisch-epistemischer Reflexion – mit „Vibe Coding“ und Claude 4 Sonnet zusammenwirkt, um binnen zwei Stunden ein browserbasiertes Timeline-Annotationstool für Stefan Zweig Digital zu erstellen. Er argumentiert, dass erst ein Critical-Expert-in-the-Loop die sycophantische Neigung großer Sprachmodelle zügelt und die kreative Intuition des Vibe Codings in Prototypen von Forschungstools überführt."
 
 schema_type: "BlogPosting"
 keywords: ["Applied Generative AI", "LLM", "Digital Humanities", "Vibe Coding", "Human-AI Collaboration"]
