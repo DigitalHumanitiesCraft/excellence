@@ -437,7 +437,7 @@
                 return 'Dokument';
             }
 
-            ormatDate(dateString) {
+formatDate(dateString) {
     try {
         // Handle German date format DD.MM.YYYY
         if (dateString && dateString.includes('.')) {
@@ -473,6 +473,7 @@
         // If all parsing fails, return original string
         return dateString;
     } catch (error) {
+        console.warn('Date formatting error:', error);
         return dateString;
     }
 }
