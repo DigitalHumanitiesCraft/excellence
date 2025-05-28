@@ -153,7 +153,7 @@ So würde Rick Rubin vielleicht klingen, wenn man Claude Sonnet 4 beauftragt, ei
 
 [^12]:  “Kostenlos”. Man bezahlt nicht mit Geld, sondern mit seinen Daten und einem erhöhten CO2-Abdruck.
 
-[^13]:  Introducing Claude 4\. [https://www.anthropic.com/news/claude-4](https://www.anthropic.com/news/claude-4) 
+[^13]:  Introducing Claude 4\. [https://www.anthropic.com/news/claude-4](https://www.anthropic.com/news/claude-4). The AI Daily Brief: Artificial Intelligence News. What to Use Claude 4 For. https://youtu.be/ukYjpCghCMM 
 
 [^14]:  Wie immer gibt es ein ausgezeichnetes Video von Philip von AI Explained. Claude 4: Full 120 Page Breakdown … Is it the Best New Model? [https://youtu.be/Xn\_5aIhrJOE](https://youtu.be/Xn_5aIhrJOE) 
 
