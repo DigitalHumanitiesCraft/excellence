@@ -437,18 +437,45 @@
                 return 'Dokument';
             }
 
-            formatDate(dateString) {
-                try {
-                    const date = new Date(dateString);
+            ormatDate(dateString) {
+    try {
+        // Handle German date format DD.MM.YYYY
+        if (dateString && dateString.includes('.')) {
+            const parts = dateString.split('.');
+            if (parts.length === 3) {
+                const day = parts[0].padStart(2, '0');
+                const month = parts[1].padStart(2, '0');
+                const year = parts[2];
+                // Convert to ISO format YYYY-MM-DD
+                const isoDate = `${year}-${month}-${day}`;
+                const date = new Date(isoDate);
+                
+                if (!isNaN(date.getTime())) {
                     return date.toLocaleDateString('de-DE', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric'
                     });
-                } catch (error) {
-                    return dateString;
                 }
             }
+        }
+        
+        // Fallback: try parsing as-is
+        const date = new Date(dateString);
+        if (!isNaN(date.getTime())) {
+            return date.toLocaleDateString('de-DE', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+        
+        // If all parsing fails, return original string
+        return dateString;
+    } catch (error) {
+        return dateString;
+    }
+}
 
             setupEventListeners() {
                 // Filter buttons
