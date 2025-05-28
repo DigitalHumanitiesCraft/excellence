@@ -640,6 +640,13 @@ formatDate(dateString) {
                 document.getElementById(`${tabName}Tab`).style.display = 'block';
             }
 
+            buildMiradorUrl(doc) {
+                if (!doc.identifier) return null;
+                
+                // Baue die IIIF Mirador URL aus der Identifier
+                return `https://gams.uni-graz.at/archive/objects/${doc.identifier}/methods/sdef:IIIF/getMirador`;
+            }
+            
             showAnnotationModal(doc) {
                 this.currentDocumentId = doc.identifier;
                 const modal = document.getElementById('annotationModal');
@@ -651,7 +658,8 @@ formatDate(dateString) {
                 // Show document details
                 const date = doc.date ? this.formatDate(doc.date) : 'Datum unbekannt';
                 const contributor = doc.contributor ? `<p><strong>Mitwirkende:</strong> ${doc.contributor}</p>` : '';
-                const originalLink = doc.pid ? `<p><a href="${doc.pid}" target="_blank" rel="noopener">Original-Dokument ansehen</a></p>` : '';
+                const miradorUrl = this.buildMiradorUrl(doc);
+                const originalLink = miradorUrl ? `<a href="${miradorUrl}" class="action-btn external-btn" target="_blank" rel="noopener">Original</a>` : '';
 
                 detailsTab.innerHTML = `
                     <div class="modal-meta">
@@ -852,6 +860,8 @@ formatDate(dateString) {
         document.addEventListener('DOMContentLoaded', () => {
             new StefanZweigAnnotationTool();
         });
+
+
     </script>
 </body>
 </html>
