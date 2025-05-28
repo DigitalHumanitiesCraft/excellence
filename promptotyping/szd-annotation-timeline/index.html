@@ -372,50 +372,54 @@
                 }, {});
             }
 
-            createTimelineItem(doc, index) {
-                const item = document.createElement('div');
-                item.className = 'timeline-item';
-                item.style.animationDelay = `${index * 0.05}s`;
+            ccreateTimelineItem(doc, index) {
+    const item = document.createElement('div');
+    item.className = 'timeline-item';
+    item.style.animationDelay = `${index * 0.05}s`;
 
-                const annotation = this.annotations[doc.identifier];
-                const hasAnnotations = this.hasAnnotation(doc.identifier);
-                const statusClass = annotation?.status || 'unprocessed';
-                
-                const date = doc.date ? this.formatDate(doc.date) : 'Datum unbekannt';
-                const contributor = doc.contributor ? `<div class="doc-contributor">Mit: ${doc.contributor}</div>` : '';
-                const docType = this.getDocumentType(doc.title);
-                
-                const tags = annotation?.tags ? 
-                    `<div class="doc-tags">${annotation.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : '';
-                
-                const annotationIndicator = hasAnnotations ? 
-                    `<div class="annotation-indicator ${statusClass}" title="Status: ${this.getStatusLabel(statusClass)}"></div>` : '';
+    const annotation = this.annotations[doc.identifier];
+    const hasAnnotations = this.hasAnnotation(doc.identifier);
+    const statusClass = annotation?.status || 'unprocessed';
+    
+    const date = doc.date ? this.formatDate(doc.date) : 'Datum unbekannt';
+    const contributor = doc.contributor ? `<div class="doc-contributor">Mit: ${doc.contributor}</div>` : '';
+    const docType = this.getDocumentType(doc.title);
+    
+    const tags = annotation?.tags ? 
+        `<div class="doc-tags">${annotation.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : '';
+    
+    const annotationIndicator = hasAnnotations ? 
+        `<div class="annotation-indicator ${statusClass}" title="Status: ${this.getStatusLabel(statusClass)}"></div>` : '';
 
-                item.innerHTML = `
-                    <div class="timeline-card ${hasAnnotations ? 'annotated' : ''}" tabindex="0" role="button" aria-label="Annotationen bearbeiten für ${doc.title}">
-                        <div class="card-content">
-                            <div class="card-header">
-                                <div class="doc-type">${docType}</div>
-                                ${annotationIndicator}
-                            </div>
-                            <h3 class="doc-title">${doc.title}</h3>
-                            <div class="doc-meta">
-                                <div class="doc-date">${date}</div>
-                                <div class="doc-creator">${doc.creator}</div>
-                                ${contributor}
-                                <div class="doc-id">${doc.identifier}</div>
-                            </div>
-                            ${tags}
-                            <div class="card-actions">
-                                <button class="action-btn annotate-btn" data-doc='${JSON.stringify(doc)}'>Annotieren</button>
-                                ${doc.pid ? `<a href="${doc.pid}" class="action-btn external-btn" target="_blank" rel="noopener">Original</a>` : ''}
-                            </div>
-                        </div>
-                    </div>
-                `;
+    // Verwende buildMiradorUrl statt doc.pid
+    const miradorUrl = this.buildMiradorUrl(doc);
+    const originalLink = miradorUrl ? `<a href="${miradorUrl}" class="action-btn external-btn" target="_blank" rel="noopener">Original</a>` : '';
 
-                return item;
-            }
+    item.innerHTML = `
+        <div class="timeline-card ${hasAnnotations ? 'annotated' : ''}" tabindex="0" role="button" aria-label="Annotationen bearbeiten für ${doc.title}">
+            <div class="card-content">
+                <div class="card-header">
+                    <div class="doc-type">${docType}</div>
+                    ${annotationIndicator}
+                </div>
+                <h3 class="doc-title">${doc.title}</h3>
+                <div class="doc-meta">
+                    <div class="doc-date">${date}</div>
+                    <div class="doc-creator">${doc.creator}</div>
+                    ${contributor}
+                    <div class="doc-id">${doc.identifier}</div>
+                </div>
+                ${tags}
+                <div class="card-actions">
+                    <button class="action-btn annotate-btn" data-doc='${JSON.stringify(doc)}'>Annotieren</button>
+                    ${originalLink}
+                </div>
+            </div>
+        </div>
+    `;
+
+    return item;
+}
 
             getStatusLabel(status) {
                 const labels = {
@@ -648,40 +652,40 @@ formatDate(dateString) {
             }
             
             showAnnotationModal(doc) {
-                this.currentDocumentId = doc.identifier;
-                const modal = document.getElementById('annotationModal');
-                const title = document.getElementById('modalTitle');
-                const detailsTab = document.getElementById('modalDetails');
+    this.currentDocumentId = doc.identifier;
+    const modal = document.getElementById('annotationModal');
+    const title = document.getElementById('modalTitle');
+    const detailsTab = document.getElementById('modalDetails');
 
-                title.textContent = doc.title;
-                
-                // Show document details
-                const date = doc.date ? this.formatDate(doc.date) : 'Datum unbekannt';
-                const contributor = doc.contributor ? `<p><strong>Mitwirkende:</strong> ${doc.contributor}</p>` : '';
-                const miradorUrl = this.buildMiradorUrl(doc);
-                const originalLink = miradorUrl ? `<a href="${miradorUrl}" class="action-btn external-btn" target="_blank" rel="noopener">Original</a>` : '';
+    title.textContent = doc.title;
+    
+    // Show document details
+    const date = doc.date ? this.formatDate(doc.date) : 'Datum unbekannt';
+    const contributor = doc.contributor ? `<p><strong>Mitwirkende:</strong> ${doc.contributor}</p>` : '';
+    const miradorUrl = this.buildMiradorUrl(doc);
+    const originalLink = miradorUrl ? `<p><a href="${miradorUrl}" target="_blank" rel="noopener">Original-Dokument in IIIF Mirador ansehen</a></p>` : '';
 
-                detailsTab.innerHTML = `
-                    <div class="modal-meta">
-                        <p><strong>Typ:</strong> ${this.getDocumentType(doc.title)}</p>
-                        <p><strong>Datum:</strong> ${date}</p>
-                        <p><strong>Ersteller:</strong> ${doc.creator}</p>
-                        ${contributor}
-                        <p><strong>Identifier:</strong> ${doc.identifier}</p>
-                        ${originalLink}
-                    </div>
-                `;
+    detailsTab.innerHTML = `
+        <div class="modal-meta">
+            <p><strong>Typ:</strong> ${this.getDocumentType(doc.title)}</p>
+            <p><strong>Datum:</strong> ${date}</p>
+            <p><strong>Ersteller:</strong> ${doc.creator}</p>
+            ${contributor}
+            <p><strong>Identifier:</strong> ${doc.identifier}</p>
+            ${originalLink}
+        </div>
+    `;
 
-                // Load existing annotations
-                this.loadAnnotationForm(doc.identifier);
+    // Load existing annotations
+    this.loadAnnotationForm(doc.identifier);
 
-                // Switch to annotations tab
-                this.switchTab('annotations');
+    // Switch to annotations tab
+    this.switchTab('annotations');
 
-                modal.style.display = 'flex';
-                modal.setAttribute('aria-hidden', 'false');
-                document.querySelector('.modal-close').focus();
-            }
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+    document.querySelector('.modal-close').focus();
+}
 
             loadAnnotationForm(docId) {
                 const annotation = this.annotations[docId] || {
