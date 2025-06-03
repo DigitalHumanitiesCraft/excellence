@@ -61,11 +61,11 @@ Anthropic veröffentlicht nicht nur ihre Prinzipien zu einer ***Constitutional A
 
 ## **Promptotype: Timeline-Annotations-Tool für Stefan Zweig Digital**
 
-Die digitale Nachlassrekonstruktion Stefan Zweig Digital[^25] des Literaturarchivs Salzburg, an der ich seit 2017 als Entwickler arbeite, stellt über einen Disseminator im GAMS[^26] digitalisierten Korrespondenzen bereit. Die Daten liegen als XML-Struktur vor und enthalten Metadaten zu Titel, Datum, Ersteller:innen und Mitwirkenden. Da ich alle Parameter gut kannte, bot sich hier eine ideale Gelegenheit für ein Experiment, einen sogenannten *Vibe-Check*[^27], um ein Gespür dafür zu bekommen, wie Claude Sonnet 4 tickt und was es leisten kann. Hier ist der Link zum Prototyp des Timeline-Annotations-Tool: [https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/](https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/)
+Die digitale Nachlassrekonstruktion Stefan Zweig Digital[^25] des Literaturarchivs Salzburg, an der ich seit 2017 als Entwickler arbeite, stellt über einen Disseminator im GAMS[^26] digitalisierten Korrespondenzen bereit. Die Daten liegen als XML-Struktur vor und enthalten Metadaten zu Titel, Datum, Ersteller:innen und Mitwirkenden. Da ich alle Parameter gut kannte, bot sich hier eine ideale Gelegenheit für ein Experiment, einen sogenannten *Vibe-Check*[^27], um ein Gespür dafür zu bekommen, wie Claude Sonnet 4 tickt und was es leisten kann. Hier ist der Link zum Prototyp des Timeline-Annotations-Tool: [https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/](https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline)
 
 Der Prompt war sehr konkret formuliert und damit kein eigentliches Vibe Coding mehr. Gefordert wurde eine Timeline aller Briefe, die direkt auf Basis der XML-Daten mittels JavaScript als *Single Page Application* umgesetzt werden sollte. Zur Verdeutlichung wurde ein Ausschnitt aus der XML-Struktur bereitgestellt, sodass Claude die genaue Datenstruktur kennenlernte. Die Informationen über die Daten und deren Struktur oder Modell werden typischerweise beim *Promptotyping* in einem sogenannten *Promptotyping Document*, wie `DATA.md`, abgelegt. Ausführlichere und konkrete Anforderungen an die Anwendung oder das Tool gehören in das Dokument `REQUIREMENTS.md`. Alle weiteren Informationen, etwa methodische Überlegungen, Kontext, Reflexionen oder sonstige Erläuterungen, werden im Dokument `README.md` festgehalten. Da dieses Beispiel nicht so umfangreich war, reicht es, alles in einem Prompt zu beschreiben.
 
-```md  
+```txt
 XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata:  
 ***
 <sparql xmlns="http://www.w3.org/2001/sw/DataAccess/rf1/result"\>  
@@ -94,11 +94,12 @@ XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.kor
 </result\>  
 <result\>  
 ***
+
 Das zeigt die Korrespondenzstücke mit:  
-\* <title\>  
-\* <date\> (optional)   
-\* <creator\> (optional)    
-\* <contributor\> (optional) 
+* <title\>  
+* <date\> (optional)   
+* <creator\> (optional)    
+* <contributor\> (optional) 
 
 Ich möchte eine timeline aller dieser Briefe erzeugen. Und zwar möchte ich das XML direkt fetchen mit JavaScript und eine Single page Application erzeugen, bei der ich runterscrollen kann, damit ich die Sequenz der Briefe habe.
 
@@ -107,12 +108,11 @@ Können wir das umsetzen? Denke Schritt für Schritt.
 
 Eine der zentralen Voraussetzungen für den Erfolg des Experiments war ein vorhandenes technisches Grundverständnis. Begriffe wie “fetchen”, “JavaScript” oder “Single Page Application”, also Grundwissen im Bereich der Webentwicklung, sind sehr wichtig, um ein Modell in die richtige Richtung zu lenken. Mit "Single Page Application" haben wir beispielsweise ein spezifisches Feature im LLM aktiviert, das sich von anderen Implementierungsansätzen unterscheidet. Während “Single Page Application” typischerweise eine einzelne HTML-Datei mit eingebettetem JavaScript und CSS triggert, würde der Begriff "Web App" eher zu einer React-basierten Implementierung führen. Solche begrifflichen Nuancen bestimmen maßgeblich die Architektur der generierten Lösung. Genau das ist Prompt Engineering.
 
-Solche scheinbar marginalen Details führen in der praktischen Umsetzung schnell zu komplexen Fehlern. Anders gesagt: Alle blöden Fehler, die man als Entwickler:in auch macht, bleiben ärgerlich – egal ob Mensch oder Maschine. Aus Erfahrung kennt man die Klassiker und kann vorbeugen: Verwirrungen bei Variablennamen, Dateipfaden oder unklaren Namensräumen (Namespaces). Entscheidend ist auch die Synchronisation: LLM und Entwickler:in müssen immer denselben Stand haben, manuelle Änderungen müssen zurück ins LLM kommuniziert werden. Noch ist das lästiges Herumkopieren mit viel Mikromanagement – aber wer Warcraft, StarCraft oder Age of Empires gespielt hat, sollte das doch schaffen ;)
+Solche scheinbar marginalen Details führen in der praktischen Umsetzung schnell zu komplexen Fehlern. Anders gesagt: Alle blöden Fehler, die man als Entwickler:in auch macht, bleiben ärgerlich – egal ob Mensch oder Maschine. Aus Erfahrung kennt man die Klassiker und kann vorbeugen: Verwirrungen bei Variablennamen, Dateipfaden oder unklaren Namespaces. Entscheidend ist auch die Synchronisation: LLM und Entwickler:in müssen immer denselben Stand haben, manuelle Änderungen müssen zurück ins LLM kommuniziert werden. Noch ist das lästiges Herumkopieren mit viel Mikromanagement – aber wer, wie ich, viel WarCraft, StarCraft oder Age of Empires gespielt hat, sollte das doch schaffen! ;)
 
 Ein Screenshot der originalen Stefan Zweig Digital Website diente als Design-Referenz. Die Anweisung `Orientiere das Design am Screenshot` übertrug ästhetische Anforderungen.
 
 ![][image2]
-[https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/](https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/){: .image-caption}
 
 Es ist auch wichtig, dass man nicht alles auf einmal implementiert, sondern es *schrittweise umsetzt*, so wie man es auch selbst entwickeln würde: Zuerst sicherstellen, dass alle Daten korrekt geladen werden (mit einem kleinen Test), dann die HTML-Seite und das Design erstellen, und erst danach die Funktionalität implementieren. Diese "step by step" Herangehensweise erfordert aber Entwicklungserfahrung. Im Screenshot sieht man die direkte Aufforderung, immer nur einen Teil zu erzeugen (`Erzeuge die Dateien index.html und style.css`): LLMs haben immer *begrenzte Output-Token*, es kann sein, dass sie bei Antworten, wo sie mehr Token brauchen würden als im Output möglich sind, dann Teile mit \[...\] angeben.
 
@@ -121,7 +121,6 @@ Ich glaube, dass man diese Kompetenzen auch Nicht-Programmierer:innen relativ z�
 Nach der erfolgreichen Timeline-Implementation fragte ich Claude: `Könnten wir daraus ein Annotationstool machen, mit dem Forscher:innen zusätzliche Daten zu den Briefen hinzufügen können?` Diese Erweiterung bot die Möglichkeit, verschiedene Implementierungsebenen zu evaluieren, von einfachen Notizen bis hin zu komplexen Kollaborationsfeatures. Ein wichtiger Schritt meinerseits war dann, Komplexität rauszunehmen und den Fokus wieder auf die Kernfunktionen zu legen. Mein Prompt war “*mache eine einfache Version ohne KI-Unterstützung, Kollaboration und ohne Visualisierung*”, die von Claude vorgeschlagen wurden. Ein Modell wie Claude Sonnet 4 muss für solche Aufgaben nicht mehr aufwendig promptet werden. Das Prompting verändert sich also kontinuierlich mit den Modellen.
 
 ![][image3]
-[https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/](https://dhcraft.org/excellence/promptotyping/szd-annotation-timeline/){: .image-caption}
 
 Das finale Tool ist vollständig browserbasiert und erfordert keine externen Abhängigkeiten. Annotationen werden lokal gespeichert und können als JSON exportiert werden. Daraus ließe sich eine pragmatische Lösung für die individuelle Forschungsarbeit ziemlich schnell umsetzen. Im konkreten Fall bleibt es jedoch ein Experiment.
 
