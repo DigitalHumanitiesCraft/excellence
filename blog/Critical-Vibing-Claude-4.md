@@ -81,17 +81,18 @@ XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.kor
 <variable name="date"/\>  
 </head\>  
 <results\>  
-<result\>  
-<container\>Korrespondenzen</container\>  
-<cid\>context:szd.facsimiles.korrespondenzen</cid\>  
-<pid uri="info:fedora/o:szd.161"/\>  
-<model uri="info:fedora/cm:dfgMETS"/\>  
-<title\>Theaterkarte zur Uraufführung von „Jeremias“ 1918, SZ-SDP/L2</title\>  
-<identifier\>o:szd.161</identifier\>  
-<creator\>Zweig, Stefan</creator\>  
-<contributor bound="false"/\>  
-<date bound="false"/\>  
-</result\>  
+ <result\>  
+  <container\>Korrespondenzen</container\>  
+  <cid\>context:szd.facsimiles.korrespondenzen</cid\>  
+  <pid uri="info:fedora/o:szd.161"/\>  
+  <model uri="info:fedora/cm:dfgMETS"/\>  
+  <title\>Theaterkarte zur Uraufführung von „Jeremias“ 1918, SZ-SDP/L2</title\>  
+  <identifier\>o:szd.161</identifier\>  
+  <creator\>Zweig, Stefan</creator\>  
+  <contributor bound="false"/\>  
+  <date bound="false"/\>  
+ </result\>
+ <!-- ... -->  
 <result\>  
 ***
 
