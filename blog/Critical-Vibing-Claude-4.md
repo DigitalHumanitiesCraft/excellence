@@ -67,7 +67,7 @@ Der Prompt war sehr konkret formuliert und damit kein eigentliches Vibe Coding m
 
 ```txt
 XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata:  
-***
+---
 <sparql xmlns="http://www.w3.org/2001/sw/DataAccess/rf1/result"\>  
 <head\>  
 <variable name="container"/\>  
@@ -94,7 +94,7 @@ XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.kor
  </result\>
  <!-- ... -->  
 <result\>  
-***
+---
 
 Das zeigt die Korrespondenzstücke mit:  
 * <title\>  
