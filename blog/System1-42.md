@@ -126,6 +126,7 @@ Zwar bilden Sprachmodelle durchaus breit angelegte konzeptuelle Kategorien, die 
 Führt das Ermitteln des nächsten Token in einem ausreichend großen und im Post-Training adaptierten neuronalen Netz tatsächlich zu Zwischenschritten und Vorausplanen? Lässt sich das noch als bloßes Autocomplete erklären? Tatsächlich konnten große Sprachmodelle ab einer kritischen Größe plötzlich komplexe logische und arithmetische Aufgaben lösen, die kleinere Modelle nicht bewältigten.[^37] Solche Fähigkeitssprünge bezeichnet man als **emergente Eigenschaften**, definiert als Fähigkeiten, die bei kleinen Modellen nicht vorhanden sind und erst ab einer bestimmten Parameterzahl sichtbar werden, ohne dass dies durch lineare Skalierung vorhersehbar ist.[^38] 
 
 Bei großen Modellen scheinen Fähigkeiten oft abrupt aufzutreten, was jedoch meist auf binäre Messmethoden ("kann/kann nicht“) zurückzuführen ist, während die tatsächliche Entwicklung kontinuierlich verläuft.[^39] Dennoch existieren empirisch belegte Fälle, in denen Modelle komplexe interne Abläufe entwickeln, die über reines Autocomplete hinausgehen. Diese Fortschritte sind allerdings stark abhängig von Trainingsbedingungen.[^40] Daher bleibt offen, ob es sich um echte Emergenz handelt oder lediglich um eine überzeugende Simulation dank umfangreicherer Trainingsdaten. Denn Modelle simulieren nicht nur reines “Weltwissen”, sondern entwickeln zunehmend unterschiedliche interne “Programme”, also spezifische Problemlösungsstrategien. Eines dieser Problemlösungsprogramme ist übrigens “Let’s think step by step”. Dieses sogenannte “Chain-of-Thought” (CoT) wurde erst nachträglich entdeckt und wird häufig als emergente Eigenschaft interpretiert, ist allerdings weiterhin Gegenstand aktueller Debatten.  
+
 Ein neuronales Netz zeigt beim sogenannten **Grokking**[^41] nach abgeschlossenem Training plötzlich einen Übergang von reiner Memorierung zu echter Generalisierung. Dieses Phänomen trat bislang hauptsächlich bei speziellen, künstlich erzeugten Aufgaben auf, bei denen kleine Datensätze, genau eingestellte Trainingsparameter sowie eine starke Regulierung entscheidend waren. Grokking wird jedoch zunehmend als mögliches Trainingsartefakt interpretiert. Unklar bleibt weiterhin, ob neuronale Netze tatsächlich abstrakte Regeln generalisieren oder nur überzeugend simulieren. Diese Unsicherheit zeigt sich besonders deutlich bei der umstrittenen Fähigkeit des sogenannten "Reasonings“, also logischer Schlussfolgerungen, die typischerweise bei sehr großen Modellen untersucht wird. Dabei bleibt offen, ob Reasoning eine echte emergente Eigenschaft skalierender Modelle darstellt oder vielleicht eher ein Grokking-ähnliches Phänomen ist, also ein plötzlicher Durchbruch nach bereits abgeschlossenem Training.
 
 # **Reasoning?**
@@ -242,9 +243,10 @@ Verstehen und Denken sind Eigenschaften, die wir Menschen vorbehalten wollen und
 
 [^49]:  AI Won’t Plateau — if We Give It Time To Think | Noam Brown | TED. [https://youtu.be/MG9oqntiJKg](https://youtu.be/MG9oqntiJKg) 
 
-[^50]:  Learning to Reason with LLMs. [https://www.youtube.com/live/Gr\_eYXdHFis](https://www.youtube.com/live/Gr_eYXdHFis)
+[^50]:  Learning to Reason with LLMs. [https://www.youtube.com/live/Gr_eYXdHFis](https://www.youtube.com/live/Gr_eYXdHFis)
 
-[^51]:  Banerjee, Sourav, Ayushi Agarwal, and Saloni Singla. "LLMs Will Always Hallucinate, and We Need to Live With This.“ arXiv, 9\. September 2024\. [https://doi.org/10.48550/arXiv.2409.05746](https://doi.org/10.48550/arXiv.2409.05746). Siehe auch kritische Diskussion: [https://x.com/Afinetheorem/status/1931853801293484358](https://x.com/Afinetheorem/status/1931853801293484358). 
+[^51]:  Banerjee, Sourav, Ayushi Agarwal, and Saloni Singla. "LLMs Will Always Hallucinate, and We Need to Live With This.“ arXiv, 9\. September 2024\. [https://doi.org/10.48550/arXiv.2409.05746](https://doi.org/10.48550/arXiv.2409.05746). Siehe auch kritische Diskussion: [https://x.com/Afinetheorem/status/1931853801293484358](https://x.com/Afinetheorem/status/1931853801293484358)
+
 
 [image1]: img/system1-42.png
 [image2]: img/tokenizer.png
