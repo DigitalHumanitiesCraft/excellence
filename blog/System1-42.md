@@ -197,7 +197,7 @@ Verstehen und Denken sind Eigenschaften, die wir Menschen vorbehalten wollen und
 
 [^26]:  Reinforcement Learning from Human Feedback (RLHF) Explained. [https://youtu.be/T_X4XFwKX8k](https://youtu.be/T_X4XFwKX8k)
 
-[^27]:  Eine sehr anschauliche Darstellung, die zeigt, wie Transformer funktionieren, gibt es bei 3Blue1Brown. But what is a GPT? Visual intro to transformers | Chapter 5, Deep Learning. [https://www.3blue1brown.com/lessons/gpt](https://www.3blue1brown.com/lessons/gpt) 
+[^27]:  Eine sehr anschauliche Darstellung, die zeigt, wie Transformer funktionieren, gibt es bei 3Blue1Brown. But what is a GPT? Visual intro to transformers. Chapter 5, Deep Learning. [https://www.3blue1brown.com/lessons/gpt](https://www.3blue1brown.com/lessons/gpt) 
 
 [^28]:  Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, und Illia Polosukhin. "Attention Is All You Need“. v7. arXiv, 2017. [https://doi.org/10.48550/arXiv.1706.03762](https://doi.org/10.48550/arXiv.1706.03762).
 
