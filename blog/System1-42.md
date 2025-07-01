@@ -195,7 +195,7 @@ Verstehen und Denken sind Eigenschaften, die wir Menschen vorbehalten wollen und
 
 [^25]:  Reinforcement Learning (RL) bezeichnet einen Bereich des maschinellen Lernens, bei dem ein Agent durch Ausprobieren lernt, optimale Entscheidungen zu treffen. Der Agent erhält nach jeder Handlung Rückmeldungen ("Rewards“), die anzeigen, wie gut die Aktion war, und nutzt diese Erfahrungen, um zukünftige Entscheidungen so anzupassen, dass die langfristig akkumulierte Belohnung maximiert wird. Es wird dabei keine explizite Lösung vorgegeben; der Agent lernt allein durch die Interaktion mit seiner Umgebung. Reinforcement Learning \- Computerphile. [https://www.youtube.com/watch?v=844U9T\_SOrA](https://www.youtube.com/watch?v=844U9T_SOrA) 
 
-[^26]:  Reinforcement Learning from Human Feedback (RLHF) Explained. [https://youtu.be/T\_X4XFwKX8k](https://youtu.be/T_X4XFwKX8k)
+[^26]:  Reinforcement Learning from Human Feedback (RLHF) Explained. [https://youtu.be/T_X4XFwKX8k](https://youtu.be/T_X4XFwKX8k)
 
 [^27]:  Eine sehr anschauliche Darstellung, die zeigt, wie Transformer funktionieren, gibt es bei 3Blue1Brown. But what is a GPT? Visual intro to transformers | Chapter 5, Deep Learning. [https://www.3blue1brown.com/lessons/gpt](https://www.3blue1brown.com/lessons/gpt) 
 
