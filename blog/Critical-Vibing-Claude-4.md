@@ -67,7 +67,6 @@ Die digitale Nachlassrekonstruktion Stefan Zweig Digital[^25] des Literaturarchi
 
 Der Prompt war sehr konkret formuliert und damit kein eigentliches Vibe Coding mehr. Gefordert wurde eine Timeline aller Briefe, die direkt auf Basis der XML-Daten mittels JavaScript als *Single Page Application* umgesetzt werden sollte. Zur Verdeutlichung wurde ein Ausschnitt aus der XML-Struktur bereitgestellt, sodass Claude die genaue Datenstruktur kennenlernte. Die Informationen über die Daten und deren Struktur oder Modell werden typischerweise beim *Promptotyping* in einem sogenannten *Promptotyping Document*, wie `DATA.md`, abgelegt. Ausführlichere und konkrete Anforderungen an die Anwendung oder das Tool gehören in das Dokument `REQUIREMENTS.md`. Alle weiteren Informationen, etwa methodische Überlegungen, Kontext, Reflexionen oder sonstige Erläuterungen, werden im Dokument `README.md` festgehalten. Da dieses Beispiel nicht so umfangreich war, reicht es, alles in einem Prompt zu beschreiben.
 
-```txt
 XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata:  
 ---
 <sparql xmlns="http://www.w3.org/2001/sw/DataAccess/rf1/result"\>  
@@ -107,7 +106,7 @@ Das zeigt die Korrespondenzstücke mit:
 Ich möchte eine timeline aller dieser Briefe erzeugen. Und zwar möchte ich das XML direkt fetchen mit JavaScript und eine Single page Application erzeugen, bei der ich runterscrollen kann, damit ich die Sequenz der Briefe habe.
 
 Können wir das umsetzen? Denke Schritt für Schritt.  
-```
+
 
 Eine der zentralen Voraussetzungen für den Erfolg des Experiments war ein vorhandenes technisches Grundverständnis. Begriffe wie “fetchen”, “JavaScript” oder “Single Page Application”, also Grundwissen im Bereich der Webentwicklung, sind sehr wichtig, um ein Modell in die richtige Richtung zu lenken. Mit "Single Page Application" haben wir beispielsweise ein spezifisches Feature im LLM aktiviert, das sich von anderen Implementierungsansätzen unterscheidet. Während “Single Page Application” typischerweise eine einzelne HTML-Datei mit eingebettetem JavaScript und CSS triggert, würde der Begriff "Web App" eher zu einer React-basierten Implementierung führen. Solche begrifflichen Nuancen bestimmen maßgeblich die Architektur der generierten Lösung. Genau das ist Prompt Engineering.
 
