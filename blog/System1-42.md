@@ -11,22 +11,28 @@ citation:
   container-title: "Digital Humanities Craft"
   URL: "https://dhcraft.org/excellence/blog/System1-42"
   language: "de"
-  abstract: "Frontier-LLMs folgen weder Kahnemans schnellem System 1 noch dem analytischen System 2, sondern operieren als hybrides System 1.42 – so lautet zumindest meine These, mit der ich die Diskussion anregen möchte. Diese “halluzinierenden Reasoner” erzeugen plausible Antworten, ohne eine verlässliche Selbstprüfung durchzuführen. Mit zunehmender Skalierung (mehr Daten, mehr Rechenzeit, mehr Token) halluzinieren sie zwar immer häufiger korrekte Antworten, jedoch nicht für alle Probleme und auch nicht immer. Ist das alles nur eine (für manche) überzeugende Simulation? Oder emergiere hier tatsächlich Generalisierung und damit echtes Reasoning? Die “42”-Referenz symbolisiert diese fundamentale Ungewissheit über etwas qualitativ Neues, für das es keine einfachen Antworten gibt. Der Text erklärt die technischen Grundlagen und spannt den Bogen von *Autocomplete* über *Emergenz* und *Grokking* bis zu *Reasoning*. Wie gehen wir mit Systemen um, die funktional so tun, als ob sie verstehen, und die gleichzeitig ziemlich andersartig sind als wir? Der Text ist der Versuch, all das mit zahlreichen Referenzen zu kontextualisieren."
+  abstract: "Frontier-LLMs folgen weder Kahnemans schnellem System 1 noch dem analytischen System 2, sondern operieren als hybrides System 1.42 – so lautet zumindest meine These, mit der ich die Diskussion anregen möchte. Diese “halluzinierenden Reasoner” erzeugen plausible Antworten, ohne eine verlässliche Selbstprüfung durchzuführen. Mit zunehmender Skalierung (mehr Daten, mehr Rechenzeit, mehr Token) halluzinieren sie zwar immer häufiger korrekte Antworten, jedoch nicht für alle Probleme und auch nicht immer. Ist das alles nur eine (für manche) überzeugende Simulation? Oder emergiere hier tatsächlich Generalisierung und damit echtes Reasoning? Die “42”-Referenz symbolisiert diese fundamentale Ungewissheit über etwas qualitativ Neues, für das es keine einfachen Antworten gibt. Der Text erklärt die technischen Grundlagen und spannt den Bogen von LLM als Autocomplete über Emergenz und Grokking bis zu Reasoning. Wie gehen wir mit Systemen um, die funktional so tun, als ob sie verstehen, und die gleichzeitig ziemlich andersartig sind als wir? Der Text ist der Versuch, all das mit zahlreichen Referenzen zu kontextualisieren."
   
 dublin_core:
   creator: "Christopher Pollin"
   publisher: "Digital Humanities Craft"
-  subject: ["Applied Generative AI", "LLM"]
-  description: "Frontier-LLMs folgen weder Kahnemans schnellem System 1 noch dem analytischen System 2, sondern operieren als hybrides System 1.42 – so lautet zumindest meine These, mit der ich die Diskussion anregen möchte. Diese “halluzinierenden Reasoner” erzeugen plausible Antworten, ohne eine verlässliche Selbstprüfung durchzuführen. Mit zunehmender Skalierung (mehr Daten, mehr Rechenzeit, mehr Token) halluzinieren sie zwar immer häufiger korrekte Antworten, jedoch nicht für alle Probleme und auch nicht immer. Ist das alles nur eine (für manche) überzeugende Simulation? Oder emergiere hier tatsächlich Generalisierung und damit echtes Reasoning? Die “42”-Referenz symbolisiert diese fundamentale Ungewissheit über etwas qualitativ Neues, für das es keine einfachen Antworten gibt. Der Text erklärt die technischen Grundlagen und spannt den Bogen von *Autocomplete* über *Emergenz* und *Grokking* bis zu *Reasoning*. Wie gehen wir mit Systemen um, die funktional so tun, als ob sie verstehen, und die gleichzeitig ziemlich andersartig sind als wir? Der Text ist der Versuch, all das mit zahlreichen Referenzen zu kontextualisieren."
+  subject: ["Applied Generative AI", "LLM", "Reasoning"]
+  description: "Frontier-LLMs folgen weder Kahnemans schnellem System 1 noch dem analytischen System 2, sondern operieren als hybrides System 1.42 – so lautet zumindest meine These, mit der ich die Diskussion anregen möchte. Diese “halluzinierenden Reasoner” erzeugen plausible Antworten, ohne eine verlässliche Selbstprüfung durchzuführen. Mit zunehmender Skalierung (mehr Daten, mehr Rechenzeit, mehr Token) halluzinieren sie zwar immer häufiger korrekte Antworten, jedoch nicht für alle Probleme und auch nicht immer. Ist das alles nur eine (für manche) überzeugende Simulation? Oder emergiere hier tatsächlich Generalisierung und damit echtes Reasoning? Die “42”-Referenz symbolisiert diese fundamentale Ungewissheit über etwas qualitativ Neues, für das es keine einfachen Antworten gibt. Der Text erklärt die technischen Grundlagen und spannt den Bogen von LLM als Autocomplete über Emergenz und Grokking bis zu Reasoning. Wie gehen wir mit Systemen um, die funktional so tun, als ob sie verstehen, und die gleichzeitig ziemlich andersartig sind als wir? Der Text ist der Versuch, all das mit zahlreichen Referenzen zu kontextualisieren."
   type: "Blogpost"
   format: "text/html"
   rights: "CC BY 4.0"
   language: "de"
 
 coins_data:
- rft_type: "blogPost"  # Standard COinS Format
- schema_type: "BlogPosting"
- keywords: ["LLM"]
+  rft_type: "blogPost"  # Standard COinS Format
+
+website_title: "Digital Humanities Craft"
+website_type: "Blog"
+short_title: "Promptotyping mit Claude Sonnet 4. Vibe-Coding erfordert den Critical-Expert-in-the-Loop"
+abstract: "Frontier-LLMs folgen weder Kahnemans schnellem System 1 noch dem analytischen System 2, sondern operieren als hybrides System 1.42 – so lautet zumindest meine These, mit der ich die Diskussion anregen möchte. Diese “halluzinierenden Reasoner” erzeugen plausible Antworten, ohne eine verlässliche Selbstprüfung durchzuführen. Mit zunehmender Skalierung (mehr Daten, mehr Rechenzeit, mehr Token) halluzinieren sie zwar immer häufiger korrekte Antworten, jedoch nicht für alle Probleme und auch nicht immer. Ist das alles nur eine (für manche) überzeugende Simulation? Oder emergiere hier tatsächlich Generalisierung und damit echtes Reasoning? Die “42”-Referenz symbolisiert diese fundamentale Ungewissheit über etwas qualitativ Neues, für das es keine einfachen Antworten gibt. Der Text erklärt die technischen Grundlagen und spannt den Bogen von LLM als Autocomplete über Emergenz und Grokking bis zu Reasoning. Wie gehen wir mit Systemen um, die funktional so tun, als ob sie verstehen, und die gleichzeitig ziemlich andersartig sind als wir? Der Text ist der Versuch, all das mit zahlreichen Referenzen zu kontextualisieren."
+
+schema_type: "BlogPosting"
+keywords: ["Applied Generative AI", "LLM", "Reasoning"]
 ---
 
 ![][image1]
