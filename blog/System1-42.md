@@ -185,7 +185,7 @@ Verstehen und Denken sind Eigenschaften, die wir Menschen vorbehalten wollen und
 
 [^20]:  The Future of U.S. AI Leadership with CEO of Anthropic Dario Amodei. [https://www.youtube.com/watch?v=esCSpbDPJik](https://www.youtube.com/watch?v=esCSpbDPJik)
 
-[^21]:  Andrej Karpathy. Deep Dive into LLMs like ChatGPT. [https://youtu.be/7xTGNNLPyMI](https://youtu.be/7xTGNNLPyMI). Andrej Karpathy. How I use LLMs. [https://youtu.be/EWvNQjAaOHw](https://youtu.be/EWvNQjAaOHw). Andrej Karpathy. \[1hr Talk\] Intro to Large Language Models. [https://www.youtube.com/watch?v=zjkBMFhNj\_g](https://www.youtube.com/watch?v=zjkBMFhNj_g)
+[^21]:  Andrej Karpathy. Deep Dive into LLMs like ChatGPT. [https://youtu.be/7xTGNNLPyMI](https://youtu.be/7xTGNNLPyMI). Andrej Karpathy. How I use LLMs. [https://youtu.be/EWvNQjAaOHw](https://youtu.be/EWvNQjAaOHw). Andrej Karpathy. [1hr Talk] Intro to Large Language Models. [https://www.youtube.com/watch?v=zjkBMFhNj_g](https://www.youtube.com/watch?v=zjkBMFhNj_g)
 
 [^22]:  Allerdings hinkt der Vergleich an einer entscheidenden Stelle: Im Gegensatz zu einer ZIP-Datei erfolgt die “Dekompression” bei LLMs nicht verlustfrei, da es unmöglich ist, aus dem trainierten Modell sämtliche ursprünglichen Texte exakt wiederherzustellen. Dennoch halte ich den Vergleich für ein anschauliches und didaktisch sinnvolles Bild.
 
