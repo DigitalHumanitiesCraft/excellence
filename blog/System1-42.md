@@ -245,7 +245,7 @@ Verstehen und Denken sind Eigenschaften, die wir Menschen vorbehalten wollen und
 
 [^50]:  Banerjee, Sourav, Ayushi Agarwal, and Saloni Singla. "LLMs Will Always Hallucinate, and We Need to Live With This.“ arXiv, 9. September 2024. [https://doi.org/10.48550/arXiv.2409.05746](https://doi.org/10.48550/arXiv.2409.05746). Siehe auch kritische Diskussion: [https://x.com/Afinetheorem/status/1931853801293484358](https://x.com/Afinetheorem/status/1931853801293484358) 
 
-[^50]:Vgl. dazu die kritische Sichtweise in dem Video, das argumentiert, dass heutige LLMs unter ihrer Oberfläche “fractured entangled representations” besitzen und lediglich funktional Intelligenz vortäuschen. Echte, modulare und tiefere Repräsentationen könnten nur durch alternative Methoden wie offene, evolutionäre Suchprozesse entstehen. LLMs seien somit nützliche, aber letztlich oberflächliche “Impostors” auf dem Weg zu echter KI. AI doesn't work the way you think it does. https://youtu.be/o1q6Hhz0MAg
+[^51]:Vgl. dazu die kritische Sichtweise in dem Video, das argumentiert, dass heutige LLMs unter ihrer Oberfläche “fractured entangled representations” besitzen und lediglich funktional Intelligenz vortäuschen. Echte, modulare und tiefere Repräsentationen könnten nur durch alternative Methoden wie offene, evolutionäre Suchprozesse entstehen. LLMs seien somit nützliche, aber letztlich oberflächliche “Impostors” auf dem Weg zu echter KI. AI doesn't work the way you think it does. [https://youtu.be/o1q6Hhz0MAg](https://youtu.be/o1q6Hhz0MAg)
 
 [image1]: img/system1-42.png
 [image2]: img/tokenizer.png
