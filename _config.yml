@@ -27,6 +27,7 @@ plugins:
   - jekyll-seo-tag
 
 # Exclude from processing
+# Only process blog markdown posts - everything else is static
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -34,6 +35,15 @@ exclude:
   - vendor/
   - .sass-cache/
   - .jekyll-cache/
+  - promptotyping/          # Static web apps, no Jekyll needed
+  - system_prompts/          # Documentation only, no Jekyll needed
+  # NOTE: assets/ excluded on GitHub Pages but needed for local testing
+  # Comment out the next line for local testing with `bundle exec jekyll serve`
+  # - assets/                  # Served from parent site in production
+  - index.html               # Static HTML, no Jekyll needed
+  - README.md                # Repository documentation
+  - CLAUDE.md                # AI assistant documentation
+  - CITATION.cff             # Citation metadata
 
 # SEO and Social
 linkedin_username: christopher-pollin-463b0a204

@@ -86,11 +86,23 @@ layout: default
     
     <div class="post-meta">
       <div class="author-info">
-          <span class="author">{{ page.author | default: site.author.name }}</span>
-          <span class="date">{{ page.date | date: "%d.%m.%Y" }}</span>
+          <span class="meta-item">
+              <strong>Autor:</strong> {{ page.author | default: site.author.name }}
+          </span>
+          <span class="meta-separator">•</span>
+          <span class="meta-item">
+              <strong>Veröffentlicht:</strong> {{ page.date | date: "%d.%m.%Y" }}
+          </span>
           {% if page.dublin_core.rights %}
-          <span class="rights">{{ page.dublin_core.rights }}</span>
+          <span class="meta-separator">•</span>
+          <span class="meta-item">
+              <strong>Lizenz:</strong> {{ page.dublin_core.rights }}
+          </span>
           {% endif %}
+      </div>
+      <div class="post-actions">
+          <a href="/excellence/blog/" class="btn-back-to-blog">← Zurück zur Blogübersicht</a>
+          <button onclick="window.print()" class="btn-print-pdf">📄 Als PDF drucken</button>
       </div>
     </div>
   </header>
@@ -99,46 +111,39 @@ layout: default
     {{ content }}
   </div>
   
-  <!-- Erweiterte Zitiervorschläge -->
+  <!-- Zitiervorschlag -->
   <footer class="post-citation">
-    <h3>Zitiervorschlag</h3>
-    
-    <!-- Standard Citation -->
-    <div class="citation-format" id="citation-standard">
-      {{ page.author | default: site.author.name }}. "{{ page.title }}." <em>{{ site.title }}</em>, {{ page.date | date: "%d.%m.%Y" }}. {{ page.url | absolute_url }}. {{ page.dublin_core.rights | default: 'CC BY 4.0' }}.
-    </div>
-    
-    <!-- APA Style -->
-    <div class="citation-format" id="citation-apa" style="margin-top: 1rem;">
-      <strong>APA:</strong><br>
+    <h3>Zitiervorschlag (APA)</h3>
+
+    <div class="citation-format" id="citation-apa">
       {{ page.author | default: site.author.name | split: ' ' | last }}, {{ page.author | default: site.author.name | split: ' ' | first | slice: 0 }}. ({{ page.date | date: "%Y, %B %d" }}). {{ page.title }}. <em>{{ site.title }}</em>. {{ page.url | absolute_url }}
     </div>
-    
+
     <div class="citation-tools">
-      <button class="citation-btn" onclick="copyCitation('standard')">Standard kopieren</button>
-      <button class="citation-btn" onclick="copyCitation('apa')">APA kopieren</button>
+      <button class="citation-btn" onclick="copyCitation(event)">Zitiervorschlag kopieren</button>
     </div>
   </footer>
 </article>
 
 <script>
-function copyCitation(format) {
-  const element = document.getElementById('citation-' + format);
-  let citation = element.innerText;
-  
-  // Remove format label if present
-  if (format === 'apa') {
-    citation = citation.replace(/^APA:\s*/, '');
-  }
-  
+function copyCitation(e) {
+  const element = document.getElementById('citation-apa');
+  const citation = element.innerText;
+  const button = e.target;
+
   navigator.clipboard.writeText(citation).then(() => {
-    const button = event.target;
     const originalText = button.innerText;
-    button.innerText = 'Kopiert!';
+    button.innerText = 'Kopiert! ✓';
     button.classList.add('copied');
     setTimeout(() => {
       button.innerText = originalText;
       button.classList.remove('copied');
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy citation:', err);
+    button.innerText = 'Fehler beim Kopieren';
+    setTimeout(() => {
+      button.innerText = 'Zitiervorschlag kopieren';
     }, 2000);
   });
 }

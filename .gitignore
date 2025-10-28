@@ -1,4 +1,12 @@
 /_site
 /.sass-cache
+/.jekyll-cache
+/.claude
 /promptotyping/subject-verb-inversion-finder/data/working/Lib
 /promptotyping/subject-verb-inversion-finder
+/assets
+
+# Note: _site is gitignored because:
+# - Parent site likely pulls source files and runs its own Jekyll build, OR
+# - A GitHub Action builds and deploys to parent site
+# If you need to commit built files, remove _site from this list
