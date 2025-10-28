@@ -40,10 +40,12 @@ exclude:
   # NOTE: assets/ excluded on GitHub Pages but needed for local testing
   # Comment out the next line for local testing with `bundle exec jekyll serve`
   # - assets/                  # Served from parent site in production
-  - index.html               # Static HTML, no Jekyll needed
   - README.md                # Repository documentation
   - CLAUDE.md                # AI assistant documentation
   - CITATION.cff             # Citation metadata
+
+# Note: index.html is NOT excluded - Jekyll will copy it to _site/ without Liquid processing
+# (no front matter = no processing, just copied as-is)
 
 # SEO and Social
 linkedin_username: christopher-pollin-463b0a204
