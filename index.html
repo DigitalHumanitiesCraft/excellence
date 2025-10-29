@@ -2864,17 +2864,40 @@ Von historischen Daten zu KI. IZMF. Universität Salzburg. 24.10.2025
             this.getDateFromItem = (element) => {
               const dateText =
                 element.querySelector(".card-subtitle").textContent;
-              const dateMatch = dateText.match(/(\d{2})\.(\d{2})\.(\d{4})/);
 
+              // Try DD.MM.YYYY format first
+              const dateMatch = dateText.match(/(\d{2})\.(\d{2})\.(\d{4})/);
               if (dateMatch) {
-                // Convert DD.MM.YYYY to Date object
                 const [_, day, month, year] = dateMatch;
                 return new Date(year, month - 1, day);
-              } else {
-                console.warn("No date found in item:", dateText);
-                // Return old date for items without date
-                return new Date(0);
               }
+
+              // Try "Month YYYY" format (e.g., "April 2025")
+              const monthYearMatch = dateText.match(/(Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember|January|February|March|May|June|July|August|September|October|November|December)\s+(\d{4})/i);
+              if (monthYearMatch) {
+                const monthMap = {
+                  'januar': 0, 'january': 0,
+                  'februar': 1, 'february': 1,
+                  'märz': 2, 'march': 2,
+                  'april': 3,
+                  'mai': 4, 'may': 4,
+                  'juni': 5, 'june': 5,
+                  'juli': 6, 'july': 6,
+                  'august': 7,
+                  'september': 8,
+                  'oktober': 9, 'october': 9,
+                  'november': 10,
+                  'dezember': 11, 'december': 11
+                };
+                const month = monthMap[monthYearMatch[1].toLowerCase()];
+                const year = monthYearMatch[2];
+                // Use first day of month for sorting
+                return new Date(year, month, 1);
+              }
+
+              // No date found - return epoch (sorts to bottom)
+              console.warn("No date found in item:", dateText);
+              return new Date(0);
             };
 
             // Initialize loading and sorting
