@@ -35,7 +35,6 @@ exclude:
   - vendor/
   - .sass-cache/
   - .jekyll-cache/
-  - promptotyping/          # Static web apps, no Jekyll needed
   - system_prompts/          # Documentation only, no Jekyll needed
   # NOTE: assets/ excluded on GitHub Pages but needed for local testing
   # Comment out the next line for local testing with `bundle exec jekyll serve`
@@ -44,8 +43,8 @@ exclude:
   - CLAUDE.md                # AI assistant documentation
   - CITATION.cff             # Citation metadata
 
-# Note: index.html is NOT excluded - Jekyll will copy it to _site/ without Liquid processing
-# (no front matter = no processing, just copied as-is)
+# Note: Static files (index.html, promptotyping/, blog/index.html) are NOT excluded
+# Jekyll will copy them to _site/ without Liquid processing (no front matter = no processing)
 
 # SEO and Social
 linkedin_username: christopher-pollin-463b0a204
