@@ -13,12 +13,14 @@ This script:
 
 import re
 import sys
-import os
-import shutil
 from pathlib import Path
-from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
+
+# Fix Windows console encoding for emoji/unicode output
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 
 
 # Configuration
@@ -26,7 +28,6 @@ GM_DH_HTML_URL = "https://raw.githubusercontent.com/chpollin/GM-DH/refs/heads/ma
 GM_DH_IMAGE_BASE = "https://chpollin.github.io/GM-DH/img/"
 EXCELLENCE_INDEX = "index.html"
 IMAGE_TARGET_DIR = "assets/img/work-gallery"
-BACKUP_SUFFIX = ".backup"
 
 # Categories
 CATEGORIES = {
@@ -86,29 +87,26 @@ def parse_gm_dh_presentations(html):
     # Find the #vortraege section
     vortraege_section = soup.find('section', id='vortraege')
     if not vortraege_section:
-        print("✗ Could not find #vortraege section in GM-DH HTML")
+        print("X Could not find #vortraege section in GM-DH HTML")
         return []
 
     cards = []
-    card_containers = vortraege_section.find_all('div', class_='col-sm-4')
+    # New structure: a.card-link wraps div.card directly
+    # Columns use col-12 col-sm-6 col-md-4
+    card_links = vortraege_section.find_all('a', class_='card-link')
 
-    for container in card_containers:
-        # Check if card has a link
-        link = container.find('a', class_='card-link')
-        if not link:
-            # Skip cards without links (non-clickable)
-            title_elem = container.find('h5', class_='card-title')
-            if title_elem:
-                title = title_elem.get_text(strip=True)
-                print(f"⚠️  Skipping non-clickable card: {title[:50]}...")
-            continue
-
+    for link in card_links:
         href = link.get('href', '').strip()
         if not href:
             continue
 
+        # The card div is inside the link
+        card_div = link.find('div', class_='card')
+        if not card_div:
+            continue
+
         # Extract card body elements
-        card_body = container.find('div', class_='card-body')
+        card_body = card_div.find('div', class_='card-body')
         if not card_body:
             continue
 
@@ -122,7 +120,7 @@ def parse_gm_dh_presentations(html):
         subtitle = subtitle_elem.get_text(strip=True) if subtitle_elem else None
 
         # Image info
-        img = container.find('img', class_='card-img-top')
+        img = card_div.find('img', class_='card-img-top')
         if img:
             img_src = img.get('src', '')
             img_filename = img_src.split('/')[-1] if img_src else ''
@@ -134,7 +132,7 @@ def parse_gm_dh_presentations(html):
         card = PresentationCard(href, title, subtitle, img_filename, img_alt)
         cards.append(card)
 
-    print(f"✓ Found {len(cards)} cards in GM-DH #vortraege section")
+    print(f"+ Found {len(cards)} cards in GM-DH #vortraege section")
     return cards
 
 
@@ -355,13 +353,6 @@ def insert_card_into_html(html_content, card_html):
     return new_html
 
 
-def create_backup(filepath):
-    """Create a backup of the file."""
-    backup_path = filepath + BACKUP_SUFFIX
-    shutil.copy2(filepath, backup_path)
-    print(f"✓ Created backup: {backup_path}")
-
-
 def main():
     """Main import workflow."""
     print_header("GM-DH to Excellence Presentation Import")
@@ -398,10 +389,6 @@ def main():
     if not new_cards:
         print("\n✓ No new cards to import. All cards already exist in excellence!")
         return
-
-    # Create backup
-    print("\n💾 Creating backup...")
-    create_backup(EXCELLENCE_INDEX)
 
     # Process each new card
     imported_cards = []
