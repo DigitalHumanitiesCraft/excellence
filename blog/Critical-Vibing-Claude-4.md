@@ -67,41 +67,42 @@ Die digitale Nachlassrekonstruktion Stefan Zweig Digital[^25] des Literaturarchi
 
 Der Prompt war sehr konkret formuliert und damit kein eigentliches Vibe Coding mehr. Gefordert wurde eine Timeline aller Briefe, die direkt auf Basis der XML-Daten mittels JavaScript als *Single Page Application* umgesetzt werden sollte. Zur Verdeutlichung wurde ein Ausschnitt aus der XML-Struktur bereitgestellt, sodass Claude die genaue Datenstruktur kennenlernte. Die Informationen über die Daten und deren Struktur oder Modell werden typischerweise beim *Promptotyping* in einem sogenannten *Promptotyping Document*, wie `DATA.md`, abgelegt. Ausführlichere und konkrete Anforderungen an die Anwendung oder das Tool gehören in das Dokument `REQUIREMENTS.md`. Alle weiteren Informationen, etwa methodische Überlegungen, Kontext, Reflexionen oder sonstige Erläuterungen, werden im Dokument `README.md` festgehalten. Da dieses Beispiel nicht so umfangreich war, reicht es, alles in einem Prompt zu beschreiben.
 
-XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata:  
----
-<sparql xmlns="http://www.w3.org/2001/sw/DataAccess/rf1/result"\>  
-<head\>  
-<variable name="container"/\>  
-<variable name="cid"/\>  
-<variable name="pid"/\>  
-<variable name="model"/\>  
-<variable name="title"/\>  
-<variable name="identifier"/\>  
-<variable name="creator"/\>  
-<variable name="contributor"/\>  
-<variable name="date"/\>  
-</head\>  
-<results\>  
- <result\>  
-  <container\>Korrespondenzen</container\>  
-  <cid\>context:szd.facsimiles.korrespondenzen</cid\>  
-  <pid uri="info:fedora/o:szd.161"/\>  
-  <model uri="info:fedora/cm:dfgMETS"/\>  
-  <title\>Theaterkarte zur Uraufführung von „Jeremias“ 1918, SZ-SDP/L2</title\>  
-  <identifier\>o:szd.161</identifier\>  
-  <creator\>Zweig, Stefan</creator\>  
-  <contributor bound="false"/\>  
-  <date bound="false"/\>  
- </result\>
- <!-- ... -->  
-<result\>  
----
+XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata:
 
-Das zeigt die Korrespondenzstücke mit:  
-* <title\>  
-* <date\> (optional)   
-* <creator\> (optional)    
-* <contributor\> (optional) 
+```xml
+<sparql xmlns="http://www.w3.org/2001/sw/DataAccess/rf1/result">
+<head>
+<variable name="container"/>
+<variable name="cid"/>
+<variable name="pid"/>
+<variable name="model"/>
+<variable name="title"/>
+<variable name="identifier"/>
+<variable name="creator"/>
+<variable name="contributor"/>
+<variable name="date"/>
+</head>
+<results>
+ <result>
+  <container>Korrespondenzen</container>
+  <cid>context:szd.facsimiles.korrespondenzen</cid>
+  <pid uri="info:fedora/o:szd.161"/>
+  <model uri="info:fedora/cm:dfgMETS"/>
+  <title>Theaterkarte zur Uraufführung von „Jeremias" 1918, SZ-SDP/L2</title>
+  <identifier>o:szd.161</identifier>
+  <creator>Zweig, Stefan</creator>
+  <contributor bound="false"/>
+  <date bound="false"/>
+ </result>
+ <!-- ... -->
+<result>
+```
+
+Das zeigt die Korrespondenzstücke mit:
+* `<title>`
+* `<date>` (optional)
+* `<creator>` (optional)
+* `<contributor>` (optional) 
 
 Ich möchte eine timeline aller dieser Briefe erzeugen. Und zwar möchte ich das XML direkt fetchen mit JavaScript und eine Single page Application erzeugen, bei der ich runterscrollen kann, damit ich die Sequenz der Briefe habe.
 
