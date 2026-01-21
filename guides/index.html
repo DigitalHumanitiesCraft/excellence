@@ -206,21 +206,331 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="gradient-x-overlay-sm-primary overflow-hidden" id="footer">
-      <div class="container pb-4">
-        <div class="row content-space-1">
-          <div class="col-12 text-center">
+      <div class="container content-space-t-2 content-space-b-1">
+        <!-- CTA -->
+        <div
+          class="row justify-content-md-between align-items-md-center text-center text-md-start"
+        >
+          <div class="col-md mb-3 mb-md-0">
             <h2 class="text-indigo">
-              <a
-                class="text-reset text-decoration-none"
-                href="https://excellence.dhcraft.org"
-                >excellence.dhcraft.org</a
+              <span class="switchLang showLang" lang="de"
+                >Wir freuen uns auf Ihre Anfrage!</span
+              >
+              <span class="switchLang" lang="en"
+                >We look forward to your inquiry!</span
               >
             </h2>
           </div>
+
+          <div class="col-md-auto">
+            <div
+              class="d-grid d-sm-flex justify-content-sm-center align-items-sm-center gap-2"
+            >
+              <div>
+                <span
+                  class="text-dark text-highlight-warning fw-bold fs-3 mailAdress"
+                  >office@dhcraft.org</span
+                ><button
+                  class="btn btn-ghost-dark btn-icon btn-transition copyToClipboard"
+                  data-clipboard-target=".mailAdress"
+                  title="Copy to clipboard"
+                >
+                  <i class="bi bi-clipboard" style="font-size: 1.4em"></i>
+                </button>
+              </div>
+            </div>
+            <div
+              class="d-grid d-sm-flex justify-content-sm-center align-items-sm-center"
+            >
+              <a
+                class="btn btn-warning btn-transition"
+                href="mailto:office@dhcraft.org"
+                ><span class="switchLang showLang" lang="de">Kontakt</span
+                ><span class="switchLang" lang="en">Contact us</span></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- End CTA -->
+
+        <hr class="my-9" />
+
+        <!-- Content -->
+        <div class="row">
+          <div class="col-6 col-md-3 order-md-2 mb-7 mb-md-0">
+            <h5>
+              <span class="switchLang showLang" lang="de">Unternehmen</span
+              ><span class="switchLang" lang="en">Company</span>
+            </h5>
+
+            <!-- List -->
+            <ul class="list-unstyled list-py-1 mb-0">
+              <li>
+                <a
+                  class="link link-sm link-secondary"
+                  href="https://dhcraft.org/excellence"
+                  ><span>Excellence</span></a
+                >
+              </li>
+              <li>
+                <a
+                  class="link link-sm link-secondary"
+                  href="https://dhcraft.org/index#aboutSection"
+                  ><span class="switchLang showLang" lang="de">Angebot</span
+                  ><span class="switchLang" lang="en">Services</span></a
+                >
+              </li>
+              <li>
+                <a
+                  class="link link-sm link-secondary"
+                  href="https://dhcraft.org/#pricingSection"
+                  ><span class="switchLang showLang" lang="de">Preise</span
+                  ><span class="switchLang" lang="en">Pricing</span></a
+                >
+              </li>
+              <li>
+                <a
+                  class="link link-sm link-secondary"
+                  href="https://dhcraft.org/#workSection"
+                  ><span class="switchLang showLang" lang="de">Arbeit</span
+                  ><span class="switchLang" lang="en">Work</span></a
+                >
+              </li>
+
+              <li>
+                <a
+                  class="link link-sm link-secondary"
+                  href="https://dhcraft.org/#teamSection"
+                  >Team</a
+                >
+              </li>
+            </ul>
+            <!-- End List -->
+          </div>
+
+          <div class="col-6 col-md-2 order-md-3 mb-7 mb-md-0">
+            <h5>
+              <span class="switchLang showLang" lang="de">Rechtliches</span
+              ><span class="switchLang" lang="en">Legal</span>
+            </h5>
+
+            <!-- List -->
+            <ul class="list-unstyled list-py-1 mb-0">
+              <li>
+                <a
+                  class="link link-sm link-secondary"
+                  href="https://dhcraft.org/imprint"
+                  ><span class="switchLang showLang" lang="de">Impressum</span
+                  ><span class="switchLang" lang="en">Imprint</span></a
+                >
+              </li>
+            </ul>
+            <!-- End List -->
+          </div>
+
+          <div class="col-sm-6 col-md-3 order-md-1 mb-3 mb-md-0">
+            <!-- Logo -->
+            <a
+              class="d-inline-flex align-items-center"
+              href="/index.html"
+              aria-label="Dh Craft"
+            >
+              <img
+                class="brand"
+                src="/assets/svg/logos/dhcraft_logo_invert.svg"
+                alt="Logo"
+              />
+            </a>
+            <!-- End Logo -->
+          </div>
+
+          <div
+            class="col-sm-6 col-md-4 order-md-4 align-self-center align-self-md-start"
+          >
+            <p class="small">&copy; 2025 Digital Humanities Craft</p>
+
+            <!-- Socials -->
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a
+                  class="btn btn-soft-secondary btn-xs btn-icon"
+                  href="https://bsky.app/profile/dhcraft.bsky.social"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565C.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479c.815 2.736 3.713 3.66 6.383 3.364q.204-.03.415-.056q-.207.033-.415.056c-3.912.58-7.387 2.005-2.83 7.078c5.013 5.19 6.87-1.113 7.823-4.308c.953 3.195 2.05 9.271 7.733 4.308c4.267-4.308 1.172-6.498-2.74-7.078a9 9 0 0 1-.415-.056q.21.026.415.056c2.67.297 5.568-.628 6.383-3.364c.246-.828.624-5.79.624-6.478c0-.69-.139-1.861-.902-2.206c-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a
+                  class="btn btn-soft-secondary btn-xs btn-icon"
+                  href="https://www.instagram.com/digitalhumanitiescraft"
+                >
+                  <i class="bi-instagram"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a
+                  class="btn btn-soft-secondary btn-xs btn-icon"
+                  href="https://www.linkedin.com/company/dhcraft"
+                >
+                  <i class="bi-linkedin"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a
+                  class="btn btn-soft-secondary btn-xs btn-icon"
+                  href="https://fedihum.org/@dhcraft"
+                >
+                  <i class="bi-mastodon"></i>
+                </a>
+              </li>
+
+              <li class="list-inline-item">
+                <a
+                  class="btn btn-soft-secondary btn-xs btn-icon"
+                  href="//github.com/DigitalHumanitiesCraft/excellence"
+                >
+                  <i class="bi-github"></i>
+                </a>
+              </li>
+
+              <li class="list-inline-item">
+                <!-- Button Group -->
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn btn-soft-secondary btn-xs dropdown-toggle"
+                    id="footerSelectLanguage"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-dropdown-animation
+                  >
+                    <span class="d-flex align-items-center">
+                      <span class="switchLang showLang" lang="de">Sprache</span>
+                      <span class="switchLang" lang="en">Language</span>
+                    </span>
+                  </button>
+
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="footerSelectLanguage"
+                  >
+                    <a
+                      class="dropdown-item d-flex align-items-center"
+                      href="#"
+                      onclick="switchLangToEN()"
+                    >
+                      <span>English</span>
+                    </a>
+                    <a
+                      class="dropdown-item d-flex align-items-center"
+                      href="#"
+                      onclick="switchLangToDE()"
+                    >
+                      <span>Deutsch</span>
+                    </a>
+                  </div>
+                </div>
+                <!-- End Button Group -->
+              </li>
+            </ul>
+            <!-- End Socials -->
+          </div>
         </div>
       </div>
+      <!-- End Content -->
+
+      <!-- SVG Background Shape -->
+      <figure
+        class="position-absolute top-0 end-0 zi-n1 mt-n10 me-n10"
+        style="width: 32rem"
+      >
+        <svg
+          viewBox="0 0 451 902"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M451 820C247.2 820 82 654.8 82 451C82 247.2 247.2 82 451 82"
+            stroke="white"
+            stroke-width="164"
+            stroke-miterlimit="10"
+          />
+        </svg>
+      </figure>
+      <!-- End SVG Background Shape -->
+
+      <!-- SVG Background Shape -->
+      <figure
+        class="position-absolute bottom-0 start-0 zi-n1 mb-n10 me-n10"
+        style="width: 21rem"
+      >
+        <svg
+          viewBox="0 0 451 902"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            opacity="0.125"
+            d="M0 82C203.8 82 369 247.2 369 451C369 654.8 203.8 820 0 820"
+            stroke="url(#paint0_linear)"
+            stroke-width="164"
+            stroke-miterlimit="10"
+          />
+          <defs>
+            <lineargradient
+              id="paint0_linear"
+              x1="323.205"
+              y1="785.242"
+              x2="-97.6164"
+              y2="56.3589"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0" stop-color="white" stop-opacity="0" />
+              <stop offset="1" stop-color="#25B6C7" />
+            </lineargradient>
+          </defs>
+        </svg>
+      </figure>
+      <!-- End SVG Background Shape -->
     </footer>
+
     <!-- ========== END FOOTER ========== -->
+
+    <!-- ========== SECONDARY CONTENTS ========== -->
+    <!-- Go To -->
+    <a
+      class="js-go-to go-to position-fixed"
+      href="javascript:;"
+      style="visibility: hidden"
+      data-hs-go-to-options='{
+         "offsetTop": 700,
+         "position": {
+           "init": {
+             "right": "2rem"
+           },
+           "show": {
+             "bottom": "2rem"
+           },
+           "hide": {
+             "bottom": "-2rem"
+           }
+         }
+       }'
+    >
+      <i class="bi-chevron-up"></i>
+    </a>
+    <!-- ========== END SECONDARY CONTENTS ========== -->
 
     <!-- JS Implementing Plugins -->
     <script src="/assets/js/vendor.min.js"></script>
@@ -228,44 +538,68 @@
     <!-- JS Front -->
     <script src="/assets/js/theme.min.js"></script>
 
-    <!-- Language switching script -->
+    <!-- JS Plugins Init. -->
     <script>
       (function () {
-        // Check URL parameters for language setting
-        const params = new URLSearchParams(window.location.search);
-        const urlLang = params.get("lang");
+        // INITIALIZATION OF GO TO
+        // =======================================================
+        new HSGoTo(".js-go-to");
 
-        // Default language or URL parameter or browser preference
-        let preferredLang =
-          urlLang ||
-          localStorage.getItem("preferredLanguage") ||
-          (navigator.language.startsWith("de") ? "de" : "en");
+        // INITIALIZATION OF CLIPBOARD JS
+        // =======================================================
+        let clipboard = new ClipboardJS(".copyToClipboard");
 
-        // If URL param exists, save it
-        if (urlLang) {
-          localStorage.setItem("preferredLanguage", urlLang);
-        }
+        clipboard.on("success", function (e) {
+          e.trigger.title = "Copied";
+          e.trigger.firstElementChild.className = "bi bi-check2";
 
-        // Apply language on load
-        if (preferredLang === "en") {
-          document.querySelectorAll(".switchLang").forEach((el) => {
-            el.classList.toggle("showLang");
-          });
-          document.documentElement.setAttribute("lang", "en");
-        }
+          e.clearSelection();
+
+          const clipboardTimeout = setTimeout(changeBackClipboard, 2500);
+
+          function changeBackClipboard() {
+            const elements = document.getElementsByClassName("copyToClipboard");
+            for (let element of elements) {
+              element.title = "Copy to clipboard";
+              element.firstElementChild.className = "bi bi-clipboard";
+            }
+          }
+        });
       })();
+    </script>
 
-      function switchLang() {
-        const x = document.querySelectorAll(".switchLang");
-        const currentLang = document.documentElement.getAttribute("lang");
+    <!-- Choose language according to Browser Settings -->
+    <script>
+      const changeLangPage = function () {
+        var userLang = navigator.language || navigator.userLanguage;
+        var x = document.querySelectorAll(".switchLang");
 
-        if (currentLang === "en") {
-          localStorage.setItem("preferredLanguage", "de");
-          x.forEach((p) => p.classList.toggle("showLang"));
-          document.documentElement.setAttribute("lang", "de");
+        if (userLang.startsWith("de")) {
           return;
         } else {
-          localStorage.setItem("preferredLanguage", "en");
+          x.forEach((p) => p.classList.toggle("showLang"));
+          document.documentElement.setAttribute("lang", "en");
+        }
+      };
+      changeLangPage();
+    </script>
+    <!-- Choose Language with select -->
+    <script>
+      function switchLangToDE() {
+        var x = document.querySelectorAll(".switchLang");
+        if (document.documentElement.lang === "de") {
+          return;
+        } else {
+          x.forEach((p) => p.classList.toggle("showLang"));
+          document.documentElement.setAttribute("lang", "de");
+        }
+      }
+
+      function switchLangToEN() {
+        var x = document.querySelectorAll(".switchLang");
+        if (document.documentElement.lang === "en") {
+          return;
+        } else {
           x.forEach((p) => p.classList.toggle("showLang"));
           document.documentElement.setAttribute("lang", "en");
         }
