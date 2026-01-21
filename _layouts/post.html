@@ -65,65 +65,85 @@ layout: default
 <!-- Optimierte COinS für Zotero Blog Post -->
 <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2F{{ site.url | remove: 'https://' | remove: 'http://' }}%3Agenerator&amp;rft.type=blogPost&amp;rft.title={{ page.title | url_encode }}&amp;rft.creator={{ page.author | url_encode }}&amp;rft.publisher={{ site.title | url_encode }}&amp;rft.source={{ site.title | url_encode }}&amp;rft.date={{ page.date | date: '%Y-%m-%d' }}&amp;rft.identifier={{ page.url | absolute_url | url_encode }}&amp;rft.language={{ page.citation.language | default: 'de' }}&amp;rft.rights={{ page.dublin_core.rights | default: 'CC BY 4.0' | url_encode }}{% if page.abstract %}&amp;rft.description={{ page.abstract | strip_html | truncate: 200 | url_encode }}{% endif %}"></span>
 
-<article class="blog-post">
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
+<div class="row">
+  <!-- TOC Sidebar -->
+  <aside class="col-lg-3 d-none d-lg-block">
+    <nav class="toc-sidebar sticky-top" style="top: 20px;">
+      <h6 class="text-uppercase fw-bold mb-3"><i class="bi bi-list-ul"></i> Inhalt</h6>
+      <nav id="toc" class="nav flex-column"></nav>
+    </nav>
+  </aside>
 
-    {% if page.abstract %}
-    <div class="post-abstract">
-        <strong>Abstract:</strong> {{ page.abstract }}
-    </div>
-    {% endif %}
+  <!-- Main Content -->
+  <article class="blog-post col-lg-9">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
 
-    {% if page.keywords %}
-    <div class="keywords">
-        <strong>Schlagwörter:</strong>
-        {% for keyword in page.keywords %}
-        <span class="keyword">{{ keyword }}</span>{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-    </div>
-    {% endif %}
-    
-    <div class="post-meta">
-      <div class="author-info">
-          <span class="meta-item">
-              <strong>Autor:</strong> {{ page.author | default: site.author.name }}
-          </span>
-          <span class="meta-separator">•</span>
-          <span class="meta-item">
-              <strong>Veröffentlicht:</strong> {{ page.date | date: "%d.%m.%Y" }}
-          </span>
-          {% if page.dublin_core.rights %}
-          <span class="meta-separator">•</span>
-          <span class="meta-item">
-              <strong>Lizenz:</strong> {{ page.dublin_core.rights }}
-          </span>
-          {% endif %}
+      {% if page.abstract %}
+      <div class="post-abstract">
+          <strong>Abstract:</strong> {{ page.abstract }}
       </div>
-      <div class="post-actions">
-          <a href="/excellence/blog/" class="btn-back-to-blog">← Zurück zur Blogübersicht</a>
-          <button onclick="window.print()" class="btn-print-pdf">📄 Als PDF drucken</button>
+      {% endif %}
+
+      {% if page.keywords %}
+      <div class="keywords">
+          <strong>Schlagwörter:</strong>
+          {% for keyword in page.keywords %}
+          <span class="keyword">{{ keyword }}</span>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
       </div>
-    </div>
-  </header>
+      {% endif %}
 
-  <div class="post-content">
-    {{ content }}
-  </div>
-  
-  <!-- Zitiervorschlag -->
-  <footer class="post-citation">
-    <h3>Zitiervorschlag (APA)</h3>
+      <div class="post-meta">
+        <div class="author-info">
+            <span class="meta-item">
+                <strong>Autor:</strong> {{ page.author | default: site.author.name }}
+            </span>
+            <span class="meta-separator">•</span>
+            <span class="meta-item">
+                <strong>Veröffentlicht:</strong> {{ page.date | date: "%d.%m.%Y" }}
+            </span>
+            {% if page.dublin_core.rights %}
+            <span class="meta-separator">•</span>
+            <span class="meta-item">
+                <strong>Lizenz:</strong> {{ page.dublin_core.rights }}
+            </span>
+            {% endif %}
+        </div>
+        <div class="post-actions">
+            <a href="/excellence/blog/" class="btn btn-secondary btn-transition">
+              <i class="bi bi-arrow-left"></i> Zurück zur Blogübersicht
+            </a>
+            <button onclick="window.print()" class="btn btn-secondary btn-transition">
+              <i class="bi bi-file-pdf"></i> Als PDF drucken
+            </button>
+            <a href="https://raw.githubusercontent.com/DigitalHumanitiesCraft/excellence/refs/heads/main/blog/{{ page.name }}"
+               target="_blank"
+               class="btn btn-secondary btn-transition">
+              <i class="bi bi-markdown"></i> Markdown
+            </a>
+        </div>
+      </div>
+    </header>
 
-    <div class="citation-format" id="citation-apa">
-      {{ page.author | default: site.author.name | split: ' ' | last }}, {{ page.author | default: site.author.name | split: ' ' | first | slice: 0 }}. ({{ page.date | date: "%Y, %B %d" }}). {{ page.title }}. <em>{{ site.title }}</em>. {{ page.url | absolute_url }}
+    <div class="post-content" id="post-content">
+      {{ content }}
     </div>
 
-    <div class="citation-tools">
-      <button class="citation-btn" onclick="copyCitation(event)">Zitiervorschlag kopieren</button>
-    </div>
-  </footer>
-</article>
+    <!-- Zitiervorschlag -->
+    <footer class="post-citation">
+      <h3>Zitiervorschlag (APA)</h3>
+
+      <div class="citation-format" id="citation-apa">
+        {{ page.author | default: site.author.name | split: ' ' | last }}, {{ page.author | default: site.author.name | split: ' ' | first | slice: 0 }}. ({{ page.date | date: "%Y, %B %d" }}). {{ page.title }}. <em>{{ site.title }}</em>. {{ page.url | absolute_url }}
+      </div>
+
+      <div class="citation-tools">
+        <button class="btn btn-secondary btn-transition" onclick="copyCitation(event)"><i class="bi bi-clipboard"></i> Zitiervorschlag kopieren</button>
+      </div>
+    </footer>
+  </article>
+</div>
 
 <script>
 function copyCitation(e) {
@@ -147,4 +167,42 @@ function copyCitation(e) {
     }, 2000);
   });
 }
+
+// Generate TOC from headings
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.getElementById('post-content');
+  const toc = document.getElementById('toc');
+  const headings = content.querySelectorAll('h2, h3');
+
+  // Add page title as first TOC item
+  const titleLink = document.createElement('a');
+  titleLink.className = 'nav-link fw-bold';
+  titleLink.href = '#';
+  titleLink.textContent = document.querySelector('.post-title').textContent;
+  titleLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  toc.appendChild(titleLink);
+
+  headings.forEach(function(heading, index) {
+    // Add id to heading if not present
+    if (!heading.id) {
+      heading.id = 'heading-' + index;
+    }
+
+    // Create TOC link
+    const link = document.createElement('a');
+    link.className = 'nav-link' + (heading.tagName === 'H3' ? ' ms-3' : '');
+    link.href = '#' + heading.id;
+    link.textContent = heading.textContent;
+
+    toc.appendChild(link);
+  });
+
+  // Hide TOC if no headings
+  if (headings.length === 0) {
+    document.querySelector('.toc-sidebar').style.display = 'none';
+  }
+});
 </script>

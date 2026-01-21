@@ -518,6 +518,53 @@ pre {
   color: var(--color-text-light);
 }
 
+// ===== TOC SIDEBAR =====
+.toc-sidebar {
+  padding: var(--spacing-lg);
+  background: var(--color-background-light);
+  border-radius: var(--border-radius-lg);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  h6 {
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 0.75rem;
+  }
+
+  #toc {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: var(--spacing-xs) 0;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    border-left: 2px solid transparent;
+    padding-left: var(--spacing-sm);
+    transition: var(--transition-fast);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      color: var(--color-primary);
+      border-left-color: var(--color-primary);
+    }
+
+    &.active {
+      color: var(--color-primary);
+      border-left-color: var(--color-primary);
+      font-weight: 600;
+    }
+  }
+}
+
 // ===== CITATION TOOLS =====
 .citation-tools {
   margin-top: var(--spacing-lg);
@@ -762,13 +809,14 @@ p {
   }
 
   // Hide navigation and buttons, but NOT the post-header
-  header:not(.post-header), 
-  footer:not(.post-citation), 
-  .site-header, 
-  .site-footer, 
-  .post-actions, 
-  nav, 
-  .go-to {
+  header:not(.post-header),
+  footer:not(.post-citation),
+  .site-header,
+  .site-footer,
+  .post-actions,
+  nav,
+  .go-to,
+  .toc-sidebar {
     display: none !important;
   }
 
