@@ -67,7 +67,7 @@ Die digitale Nachlassrekonstruktion Stefan Zweig Digital[^25] des Literaturarchi
 
 Der Prompt war sehr konkret formuliert und damit kein eigentliches Vibe Coding mehr. Gefordert wurde eine Timeline aller Briefe, die direkt auf Basis der XML-Daten mittels JavaScript als *Single Page Application* umgesetzt werden sollte. Zur Verdeutlichung wurde ein Ausschnitt aus der XML-Struktur bereitgestellt, sodass Claude die genaue Datenstruktur kennenlernte. Die Informationen über die Daten und deren Struktur oder Modell werden typischerweise beim *Promptotyping* in einem sogenannten *Promptotyping Document*, wie `DATA.md`, abgelegt. Ausführlichere und konkrete Anforderungen an die Anwendung oder das Tool gehören in das Dokument `REQUIREMENTS.md`. Alle weiteren Informationen, etwa methodische Überlegungen, Kontext, Reflexionen oder sonstige Erläuterungen, werden im Dokument `README.md` festgehalten. Da dieses Beispiel nicht so umfangreich war, reicht es, alles in einem Prompt zu beschreiben.
 
-XML snippet: https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata:
+**XML snippet:** [gams.uni-graz.at/.../getMetadata](https://gams.uni-graz.at/archive/objects/context:szd.facsimiles.korrespondenzen/methods/sdef:Object/getMetadata)
 
 ```xml
 <sparql xmlns="http://www.w3.org/2001/sw/DataAccess/rf1/result">
