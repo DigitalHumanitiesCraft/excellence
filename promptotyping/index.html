@@ -562,6 +562,14 @@
           </div>
         </div>
         <!-- End Row -->
+
+        <!-- Back to Excellence Button -->
+        <div class="text-center mt-5">
+          <a href="/excellence/" class="btn-back-to-blog">
+            <span class="switchLang showLang" lang="de">← Zurück zu Excellence</span>
+            <span class="switchLang" lang="en">← Back to Excellence</span>
+          </a>
+        </div>
       </div>
     </main>
     <!-- ========== END MAIN CONTENT ========== -->
@@ -1002,21 +1010,7 @@
           return;
         } else {
           x.forEach((p) => p.classList.toggle("showLang"));
-          document.documentElement.setAttribute("lang", "de");
-          document.querySelector("#aboutSectionLink").innerHTML = "Angebot";
-          document.querySelector("#pricingSectionLink").innerHTML = "Preise";
-          document.querySelector("#workSectionLink").innerHTML = "Arbeit";
-          document.querySelector("#footerLink").innerHTML = "Kontakt";
-          document.querySelector("#ongoingSectionLink").innerHTML = "Laufend";
-          document.querySelector("#partnerSectionLink").innerHTML = "Partner";
-
-          document.querySelector("#all").innerHTML = "Alle";
-          document.querySelector("#digital-archive").innerHTML =
-            "Digitales Archiv";
-          document.querySelector("#digital-edition").innerHTML =
-            "Digitale Edition";
-          document.querySelector("#generative-ai").innerHTML = "Generative KI";
-          document.querySelector("#teaching").innerHTML = "Lehre";
+          document.documentElement.setAttribute("lang", "en");
         }
       };
       changeLangPage();
@@ -1030,20 +1024,6 @@
         } else {
           x.forEach((p) => p.classList.toggle("showLang"));
           document.documentElement.setAttribute("lang", "de");
-          document.querySelector("#aboutSectionLink").innerHTML = "Angebot";
-          document.querySelector("#pricingSectionLink").innerHTML = "Preise";
-          document.querySelector("#workSectionLink").innerHTML = "Arbeit";
-          document.querySelector("#footerLink").innerHTML = "Kontakt";
-          document.querySelector("#ongoingSectionLink").innerHTML = "Laufend";
-          document.querySelector("#partnerSectionLink").innerHTML = "Partner";
-
-          document.querySelector("#all").innerHTML = "Alle";
-          document.querySelector("#digital-archive").innerHTML =
-            "Digitales Archiv";
-          document.querySelector("#digital-edition").innerHTML =
-            "Digitale Edition";
-          document.querySelector("#generative-ai").innerHTML = "Generative KI";
-          document.querySelector("#teaching").innerHTML = "Lehre";
         }
       }
 
@@ -1054,20 +1034,6 @@
         } else {
           x.forEach((p) => p.classList.toggle("showLang"));
           document.documentElement.setAttribute("lang", "en");
-          document.querySelector("#aboutSectionLink").innerHTML = "Services";
-          document.querySelector("#pricingSectionLink").innerHTML = "Pricing";
-          document.querySelector("#workSectionLink").innerHTML = "Work";
-          document.querySelector("#footerLink").innerHTML = "Contact";
-          document.querySelector("#ongoingSectionLink").innerHTML = "Ongoing";
-          document.querySelector("#partnerSectionLink").innerHTML = "Partners";
-
-          document.querySelector("#all").innerHTML = "All";
-          document.querySelector("#digital-archive").innerHTML =
-            "Digital Archive";
-          document.querySelector("#digital-edition").innerHTML =
-            "Digital Edition";
-          document.querySelector("#generative-ai").innerHTML = "Generative AI";
-          document.querySelector("#teaching").innerHTML = "Teaching";
         }
       }
     </script>
