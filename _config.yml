@@ -43,8 +43,9 @@ exclude:
   - CLAUDE.md                # AI assistant documentation
   - CITATION.cff             # Citation metadata
 
-# Note: Static files (index.html, promptotyping/, blog/index.html) are NOT excluded
+# Note: Static files (index.html, promptotyping/, blog/index.html, blog/interactive/) are NOT excluded
 # Jekyll will copy them to _site/ without Liquid processing (no front matter = no processing)
+# blog/interactive/ contains self-contained HTML apps (interactive blog articles with custom UI)
 
 # SEO and Social
 linkedin_username: christopher-pollin-463b0a204
