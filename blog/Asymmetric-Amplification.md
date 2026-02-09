@@ -88,8 +88,8 @@ And this is exactly why understanding the foundations matters. If you work with 
 Large Language Models are fundamentally based on **next token prediction**. The model computes a probability distribution over possible next tokens given a specific context. This is illustrated by the neural network diagram: given “cat sat on a”, the model predicts "mat" with 97% probability.
 
 <figure>
-<img src="/excellence/blog/img/basics-1.png" alt="Workshop slide: Next token prediction, Transformer architecture, and tokenization">
-<figcaption>Workshop slide: Next token prediction, Transformer architecture, and tokenization</figcaption>
+<img src="/excellence/blog/img/basics-1.png" alt="Workshop slide: Next token prediction, Transformer architecture, and tokenization. Sources: Karpathy, Alan Smith, 3Blue1Brown, Mollick">
+<figcaption>Workshop slide: Next token prediction, Transformer architecture, and tokenization. Sources: Karpathy (Deep Dive into LLMs), Alan Smith (Inside GPT), 3Blue1Brown (Visual intro to Transformers), Mollick (Thinking Like an AI)</figcaption>
 </figure>
 
 But context changes the prediction. If the context is “*Christopher is sitting at his desk, programming, the cat sat on the*”, the next token might be “*keyboard*” rather than “*mat*”. The **Transformer architecture**[^36] enables this by processing the relationships between all tokens in the input simultaneously. This produces something that functions like “understanding” of context. The quotation marks around “understanding” are deliberate. Whether this constitutes understanding in any meaningful sense is a deep question we cannot resolve here.[^37] For our purposes, the functional description is sufficient: the model relates all tokens to each other and uses these relationships for prediction. The attention mechanism will become relevant again when we discuss the context window.
@@ -107,8 +107,8 @@ This compression is not uniform. Frequent patterns are represented more stably t
 However, and this is important, the model can **use tools** to compensate not just for procedural limitations but also for gaps in its training data. It can search the web, retrieve documents, extract text from specific sources, and bring that information into its context window. This is what Retrieval Augmented Generation (RAG), tool use, and agentic workflows are about. The boundary of the model is not the boundary of the system.
 
 <figure>
-<img src="/excellence/blog/img/basics-2.png" alt="Workshop slide: Pre-training, post-training, and the training pipeline">
-<figcaption>Workshop slide: Pre-training, post-training, and the training pipeline</figcaption>
+<img src="/excellence/blog/img/basics-2.png" alt="Workshop slide: Pre-training, post-training, and embeddings. Sources: Karpathy, 3Blue1Brown">
+<figcaption>Workshop slide: Pre-training, post-training, and embeddings. Sources: Karpathy, 3Blue1Brown (But what is a GPT? Visual intro to Transformers, Chapter 5)</figcaption>
 </figure>
 
 **Pre-training[^40]** is the phase that requires enormous energy, data, and compute. As a rough approximation, pre-training is where the model acquires its general capabilities. What exactly is stored in the process — whether it deserves the label "knowledge" — is debatable.
@@ -121,8 +121,8 @@ Now, the areas in the model that get activated, these are the **embeddings**. Fo
 Consider the classic example. "*King*" minus "*Man*" plus "*Woman*" approximately equals "*Queen*". This suggests that dimensions in the embedding space encode something like thematic directions, where the distance between “*King*” and “*Queen*” mirrors the distance between “*Man*” and “*Woman*”. But this is a simplification. Embeddings are polysemous. The token “*Queen*” is pulled simultaneously toward monarchy, toward the band Queen, toward drag culture, and the surrounding context determines which associations dominate. Anthropic’s research on internal model mechanisms provides evidence that such contextual associations correspond to identifiable feature circuits, distributed across the network’s layers. This has a direct practical consequence. “*The King doth wake tonight and takes his rouse…*” activates feature circuits associated with Shakespearean language and early modern political contexts. The same content in normalized modern English would activate different circuits, producing different outputs. Small changes in formulation shift which internal pathways the model follows. This is **prompt brittleness[^42]**, and it will be directly relevant in the hands-on exercise.
 
 <figure>
-<img src="/excellence/blog/img/embedding.png" alt="Workshop slide: Embedding space and vector arithmetic (King - Man + Woman ≈ Queen)">
-<figcaption>Workshop slide: Embedding space and vector arithmetic (King - Man + Woman ≈ Queen)</figcaption>
+<img src="/excellence/blog/img/embedding.png" alt="Embedding space and vector arithmetic: E(queen) - E(king) ≈ E(woman) - E(man). Source: 3Blue1Brown">
+<figcaption>Embedding space and vector arithmetic: E(queen) - E(king) ≈ E(woman) - E(man). Source: 3Blue1Brown (But what is a GPT? Visual intro to Transformers, Chapter 5, Deep Learning)</figcaption>
 </figure>
 
 François Chollet, who is notably skeptical of LLM capabilities, describes what happens in the latent space as **“vector programs”**[^43] being activated and applied to data. He designed the **ARC-AGI** benchmark specifically to test what LLMs supposedly cannot do, namely abstraction and generalization to novel patterns. It is worth noting that current frontier models are performing increasingly well on exactly this benchmark.[^44] This does not necessarily mean they are truly abstracting. There may be other explanations. The researcher who constructed one of the hardest tests against LLM capabilities is seeing his benchmark increasingly solved. What this means remains open. It may be genuine abstraction, it may be sophisticated benchmark optimization, or, if the optimization succeeds across all relevant benchmarks simultaneously, the distinction may lose its meaning.
@@ -134,8 +134,8 @@ The context window is the “short-term memory” of the model. Everything the m
 Models can have different context window sizes. You need to know which model you are using and what your specific subscription provides. Claude Opus 4.6 has a one million token context window in beta, available through the API and Claude Code. In the chat interface on claude.ai, the standard 200K window applies. So you also need to know the differences in subscriptions and access methods. Claude Opus 4.5 had 200,000 tokens.[^46] One million tokens is roughly 1,500 pages of text, depending on text density and language.
 
 <figure>
-<img src="/excellence/blog/img/basics-3.png" alt="Workshop slide: Context window mechanics and token limits">
-<figcaption>Workshop slide: Context window mechanics and token limits</figcaption>
+<img src="/excellence/blog/img/basics-3.png" alt="Workshop slide: Context window mechanics — 8K token window example with input/output token allocation">
+<figcaption>Workshop slide: Context window mechanics — 8K token window example with input/output token allocation. Source: Unlocking LLM Secrets (What is a Context Window?)</figcaption>
 </figure>
 
 The diagram shows a simplified example with an 8K token window. If we input 6,000 tokens and the model generates 1,500 tokens of output, everything fits. But if we have already accumulated 10,000 tokens in our conversation, the older tokens at the top are no longer in the window. The model may still behave as if it knows about them, because it can extrapolate plausible continuations from the remaining context. But this is not knowledge, it is prediction. This connects directly to hallucination. The model generates coherent-sounding output about information it no longer has access to. This is why long conversations become unreliable and why critical verification matters most precisely when the conversation feels fluent.
@@ -190,8 +190,8 @@ The honest answer as of early 2026 is that standard LLMs, used conversationally,
 Now we move from theory to practice. And we start with a problem that connects directly to what we just discussed about the context window and context rot. I have a dataset on international patent cooperation. It contains roughly 138.000 rows, around 60 countries, time range 2000 to 2018. It is a weighted edge list with firms cooperating across national borders, with a cooperation frequency per year. A classic research dataset for network analysis.[^58] 
 
 <figure>
-<img src="/excellence/blog/img/data-llms.png" alt="Workshop slide: Getting 138.000 rows of binary data into a context window">
-<figcaption>Workshop slide: Getting 138.000 rows of binary data into a context window</figcaption>
+<img src="/excellence/blog/img/data-llms.png" alt="Workshop slide: Data and LLMs — strategy for getting 138.000 rows of binary data into a context window">
+<figcaption>Workshop slide: Data and LLMs — strategy for getting 138.000 rows of binary data into a context window</figcaption>
 </figure>
 
 But there are two problems. First, the data is stored as an RDS file, which is R's native binary serialisation format. No LLM can process this natively as text input. You cannot paste it into a chat. This is a practical limitation that many researchers encounter immediately. Your data exists in a format that the model cannot read without tool use.
@@ -209,8 +209,8 @@ I took an R course roughly ten years ago. I learned the basics of R and RStudio,
 And yet, within minutes, I had a working analysis environment. The first attempt failed because tidyverse was not installed. The second attempt failed because the file path was wrong. Classic problems, nothing exotic. But I knew what to do with these errors. Not because I remembered the exact R syntax, but because I have enough foundational understanding of how software environments work. I know that packages need to be installed before you can use them. I know that file paths can be relative or absolute. I know what an error message is telling me, even if I do not immediately know the solution. So I copied the error message back into the chat, Claude gave me the fix, I applied it, and we moved on to the next problem.
 
 <figure>
-<img src="/excellence/blog/img/Informed-Vibe-Coding.png" alt="Workshop slide: Computer Literacy, Computational Thinking, and Informed Vibe Coding as three layers of LLM competence">
-<figcaption>Workshop slide: Computer Literacy, Computational Thinking, and Informed Vibe Coding as three layers of LLM competence</figcaption>
+<img src="/excellence/blog/img/Informed-Vibe-Coding.png" alt="Workshop slide: Computer Literacy, Computational Thinking, and Informed Vibe Coding — three layers of competence for working with frontier LLMs">
+<figcaption>Workshop slide: Computer Literacy, Computational Thinking, and Informed Vibe Coding — three layers of competence for working with frontier LLMs</figcaption>
 </figure>
 
 There are three layers here. The first is **Computer Literacy**, the basic operational understanding of how computers, files, software, and environments work. The second is **Computational Thinking**[^60], the ability to decompose a problem, to recognise patterns, to evaluate whether a proposed solution makes structural sense. Wing's original definition emphasises designing solutions and systems. In the context of LLM-assisted work, the emphasis shifts to judging them, but the underlying competence remains the same. And the third, the new layer, is what I call **Informed Vibe Coding**. The practice of working iteratively with a frontier LLM, maintaining critical judgement while systematically collaborating with the model to solve problems that neither you nor the model could often solve as efficiently alone. This builds on Mollick's concept of Co-Intelligence[^61] as a general framework for human-AI collaboration and refines Karpathy's Vibe Coding[^62] by adding the requirement of critical evaluation grounded in the first two layers.
@@ -234,8 +234,8 @@ Here is what I want you to do, and I want to be explicit about the workflow. Do 
 The following prompt initiated the exercise. It illustrates the Context Engineering strategy discussed above: instead of uploading the full dataset, the prompt provides a compressed description — column names, data types, a sample of rows, and the research question. The screenshot below shows the prompt in context. The full prompt is available as a [separate Markdown file](files/prompt-patent-cooperation.md) for download and reuse.
 
 <figure>
-<img src="/excellence/blog/img/hands-on-R.png" alt="Screenshot: The Context Engineering prompt for patent cooperation analysis in Claude">
-<figcaption>Screenshot: The Context Engineering prompt for patent cooperation analysis in Claude</figcaption>
+<img src="/excellence/blog/img/hands-on-R.png" alt="Workshop slide: Hands-on exercise — exploring the patent cooperation network with Claude using Context Engineering">
+<figcaption>Workshop slide: Hands-on exercise — exploring the patent cooperation network with Claude using Context Engineering</figcaption>
 </figure>
 
 ## **Let the Model Check Its Own Work. But Know What It Can and Cannot See.**
@@ -243,8 +243,8 @@ The following prompt initiated the exercise. It illustrates the Context Engineer
 Then I did something that I want you to start doing as a habit. I asked the model to evaluate its own results. I simply asked, does this make sense?
 
 <figure>
-<img src="/excellence/blog/img/let-check.png" alt="Screenshot: Claude evaluating the patent cooperation analysis results in a separate conversation">
-<figcaption>Screenshot: Claude evaluating the patent cooperation analysis results in a separate conversation</figcaption>
+<img src="/excellence/blog/img/let-check.png" alt="Workshop slide: Let the model check its own work — self-evaluation, Schrödinger's cat, and the Critical Expert in the Loop">
+<figcaption>Workshop slide: Let the model check its own work — self-evaluation, Schrödinger's cat, and the Critical Expert in the Loop</figcaption>
 </figure>
 
 I opened a separate conversation, one where Claude had no information that the dataset was synthetic. It immediately identified the data as likely synthetic or heavily noised. It pointed out that the Top 10 countries (Taiwan, Poland, Ukraine, Hong Kong, Qatar, Sweden) do not match real patent cooperation patterns, where you would expect the United States, Germany, Japan, China, and South Korea to dominate. It flagged that the distributions were too uniform, that real cooperation networks show power-law structures with a few dominant hubs and many peripheral nodes. It noticed that the partner diversity across top countries was nearly identical, which contradicts how real networks behave.
@@ -286,8 +286,8 @@ Both use cases were built using Promptotyping.
 The second use case is deliberately constructed as a contrast to the first. Where the patent cooperation exercise demonstrated the workflow with domain expertise, this one tests what happens without it.
 
 <figure>
-<img src="/excellence/blog/img/FIGARO.png" alt="Use Case 2: FIGARO-NAM agentic workflow with Claude Code — time series and cross-country comparison">
-<figcaption>Use Case 2: FIGARO-NAM agentic workflow with Claude Code — time series and cross-country comparison</figcaption>
+<img src="/excellence/blog/img/FIGARO.png" alt="Workshop slide: Use Case 2 — FIGARO-NAM agentic workflow with Claude Code, showing Germany's key aggregates and COVID-19 cross-country comparison">
+<figcaption>Workshop slide: Use Case 2 — FIGARO-NAM agentic workflow with Claude Code, showing Germany's key aggregates (2010–2023) and COVID-19 cross-country comparison</figcaption>
 </figure>
 
 Instead of a chat-based analysis iterated into a web application, this is a structured agentic workflow with Claude Code from the start. The dataset is Eurostat’s FIGARO National Accounts Matrix, used in input-output analysis. The workflow followed the Promptotyping methodology, with six project-specific phases specified in advance as a Markdown document.[^66] Inspect the data, explore it, select research questions, plan the analysis, execute, summarise.
@@ -451,4 +451,65 @@ This text does not resolve the asymmetry it describes. It names it, because nami
 [^71]:  Kambhampati, Subbarao. '(How) Do LLMs Reason?' Talk given at MILA/ChandarLab. YouTube. [https://youtu.be/VfCoUl1g2PI](https://youtu.be/VfCoUl1g2PI). See also: 'AI for Scientific Discovery'. [https://youtu.be/TOIKa_gKycE](https://youtu.be/TOIKa_gKycE); 'Do Reasoning Models Actually Search?'. [https://youtu.be/2xFTNXK6AzQ](https://youtu.be/2xFTNXK6AzQ)
 
 [image1]: img/asymmetric-claude.png
+
+<style>
+figure img {
+  cursor: zoom-in;
+  transition: opacity 0.2s;
+}
+figure img:hover {
+  opacity: 0.9;
+}
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  cursor: zoom-out;
+  justify-content: center;
+  align-items: center;
+}
+.lightbox-overlay.active {
+  display: flex;
+}
+.lightbox-overlay img {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+</style>
+
+<div class="lightbox-overlay" id="lightbox">
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const overlay = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('figure img').forEach(function(img) {
+    img.addEventListener('click', function() {
+      lightboxImg.src = this.src;
+      lightboxImg.alt = this.alt;
+      overlay.classList.add('active');
+    });
+  });
+
+  overlay.addEventListener('click', function() {
+    overlay.classList.remove('active');
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      overlay.classList.remove('active');
+    }
+  });
+});
+</script>
 
