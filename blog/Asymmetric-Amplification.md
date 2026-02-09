@@ -37,11 +37,11 @@ keywords: ["Applied Generative AI", "LLM", "Asymmetric Amplification", "Promptot
 
 ![][image1]
 
-This text is based on a workshop ([slides](https://docs.google.com/presentation/d/1b-zJ8hyv7FhHXzR5HjMcp2kEtU2WhqCd_cugsMrPdjg/edit?usp=sharing)) held at the Vienna Institute for International Economic Studies (wiiw), an economic research institute focused on Central, East, and Southeast Europe, in February 2026\. It preserves the workshop's alternating structure of theoretical introductions, hands-on exercises, live demonstrations, and discussion blocks. It reads accordingly — more like a guided session than a linear argument.
+This text is based on a workshop ([slides](https://docs.google.com/presentation/d/1b-zJ8hyv7FhHXzR5HjMcp2kEtU2WhqCd_cugsMrPdjg/edit?usp=sharing)) held at the Vienna Institute for International Economic Studies (wiiw), an economic research institute focused on Central, East, and Southeast Europe, in February 2026. It preserves the workshop's alternating structure of theoretical introductions, hands-on exercises, live demonstrations, and discussion blocks. It reads accordingly — more like a guided session than a linear argument.
 
 ## "The big goal that we are working towards is automating research” 
 
-- Jakub Pachocki \- OpenAI’s chief scientist
+- Jakub Pachocki - OpenAI's chief scientist
 
 I want to start with a provocation. Since at least December 2025, we can observe that the major tech companies, OpenAI, Google, and Anthropic, are actively working toward automating research. And I do not mean this as a vague aspiration. It is their primary strategic goal. Research is one form of knowledge work, arguably among the most demanding. But the business model, as I read it, only works if the automation of knowledge work succeeds broadly, not just in research. The investments being made, *Stargate*[^1], Manhattan-sized data centers[^2], the massive infrastructure buildout in the United States, these are billions that can only be recouped if these systems actually replace significant parts of human knowledge work.
 
@@ -49,7 +49,7 @@ What does automating research mean concretely? These companies are building auto
 
 This sounds like science fiction, and many in the scientific community and in the media dismiss it as hype. I want to be explicit about my position. As someone who has worked on this topic essentially full-time for two to three years, who reads the research, uses the tools daily, and builds workflows with them, I see far more evidence and indicators pointing toward this trajectory than against it. Since January 2026, my own work has changed structurally. I use Claude Code and Obsidian*[^4]* to orchestrate multiple research projects in parallel. Software tools that would have taken weeks to build now take days. I have shifted from executing to orchestrating. I notice this so acutely because my daily work sits exactly where these models are being optimised, at the intersection of programming, research, and workflow development. These are precisely the tasks that frontier LLMs amplify most. This is the asymmetry in practice.
 
-Here is a partial list of what has happened in recent weeks alone. On February 5th[^5] Anthropic released **Claude Opus 4\.6**[^6] with a one million token context window (in the API only) and *agent teams*, coordinated multi-agent systems that split complex tasks across parallel workers. OpenAI released **GPT-5.3-Codex**[^7], which according to the company debugged its own training runs and managed its own deployment. Claude Opus 4.6, during testing, independently identified over 500 previously unknown zero-day vulnerabilities in open-source libraries without task-specific tooling, custom scaffolding, or specialized prompting. GPT-5.3-Codex is the first OpenAI model classified as “high capability risk” for cybersecurity.[^8] This is not hypothetical. Anthropic has documented the first reported case of a large-scale cyberattack executed largely without human intervention, using Claude Code as the operational tool.[^9] These are not research previews but shipping products.
+Here is a partial list of what has happened in recent weeks alone. On February 5th[^5] Anthropic released **Claude Opus 4.6**[^6] with a one million token context window (in the API only) and *agent teams*, coordinated multi-agent systems that split complex tasks across parallel workers. OpenAI released **GPT-5.3-Codex**[^7], which according to the company debugged its own training runs and managed its own deployment. Claude Opus 4.6, during testing, independently identified over 500 previously unknown zero-day vulnerabilities in open-source libraries without task-specific tooling, custom scaffolding, or specialized prompting. GPT-5.3-Codex is the first OpenAI model classified as “high capability risk” for cybersecurity.[^8] This is not hypothetical. Anthropic has documented the first reported case of a large-scale cyberattack executed largely without human intervention, using Claude Code as the operational tool.[^9] These are not research previews but shipping products.
 
 OpenAI has built a specialised **in-house data agent for data analysis**. Scaled, multi-agent systems with sufficient compute are working systems. **PRISM**[^10] is a free LaTeX workspace for scientists, and it is not a gift. It is a strategy, as I interpret it, to collect data on how researchers work, to train models that can simulate research workflows. The same logic applies to **Claude Code**: it is built to better understand how software developers work, generating training data to improve Anthropic's agentic coding tools that are already transforming how software gets built. And Claude Code is, in my opinion, insanely good at amplifying my work, not only as a software developer but as a researcher. It is a general-purpose agentic tool that happens to work through code.
 
@@ -63,7 +63,7 @@ This is the framing for everything that follows today. We are not here to celebr
 
 ## **The European Position**
 
-So where does Europe stand in all of this? European alternatives exist. Mistral[^20] from France is a serious company delivering solid mid-tier models. And what Mistral represents is actually what we (and I want to emphasise this European “we”\!) should want: a sovereign infrastructure where we control the full stack, the hardware, the data, the models, the tooling, and where we can ensure transparency, ethical standards, ecological responsibility, and regulation.
+So where does Europe stand in all of this? European alternatives exist. Mistral[^20] from France is a serious company delivering solid mid-tier models. And what Mistral represents is actually what we (and I want to emphasise this European "we"!) should want: a sovereign infrastructure where we control the full stack, the hardware, the data, the models, the tooling, and where we can ensure transparency, ethical standards, ecological responsibility, and regulation.
 
 But the honest assessment is that Mistral is only a mid-tier and no frontier model producer. Europe has nothing that is capable of competing at the frontier, and not the AI infrastructure to do so in the coming years. The common counterargument, that Europe is strong in specialised and domain-specific models, does not address the central point. There are attempts like *Aleph Alpha*[^21] from Germany or *Apertus[^22]* from Swiss AI, which may work for specialised, narrow domains. There may well be other European models I am not tracking. And yes, these should be explored and applied where they fit. But there is a critical distinction here, and it comes from Andrej Karpathy. The difference between LLMs as natural language processing tools and LLMs as something like an operating system.[^23] European models can function as NLP tools, for translation, text analysis, domain-specific tasks. But frontier models have become something qualitatively different. They are the foundation for AI Agents[^24], for coding assistants, for multi-agent workflows. In that category, Europe has some mid-tier products, and it is an open question whether they can keep competing or whether the gap is widening.
 
@@ -175,7 +175,7 @@ The honest answer as of early 2026 is that standard LLMs, used conversationally,
 
 ## **Data and LLMs: Getting 138.000 Rows of Binary Data into a Context Window**
 
-Now we move from theory to practice. And we start with a problem that connects directly to what we just discussed about the context window and context rot. I have a dataset on international patent cooperation. It contains roughly 138.000 rows, around 60 countries, time range 2000 to 2018\. It is a weighted edge list with firms cooperating across national borders, with a cooperation frequency per year. A classic research dataset for network analysis.[^58] 
+Now we move from theory to practice. And we start with a problem that connects directly to what we just discussed about the context window and context rot. I have a dataset on international patent cooperation. It contains roughly 138.000 rows, around 60 countries, time range 2000 to 2018. It is a weighted edge list with firms cooperating across national borders, with a cooperation frequency per year. A classic research dataset for network analysis.[^58] 
 
 ![][image7]
 
@@ -235,7 +235,7 @@ Second, never treat the model's self-evaluation as verification. The model evalu
 
 ## **Promptotyping — Mapping of Research Data and Domain Expertise to Research Artefacts through Frontier LLMs**
 
-Promptotyping is one methodological response to the problem of structuring sustained collaboration between researchers and frontier LLMs, not the only possible one. Other structured approaches to human-AI collaboration in research are emerging, and the field is far from settled. What follows is the approach I have developed and tested. The term combines "prompt" and "prototyping" and denotes the **systematic, researcher-centred creation of research tools, workflows, and models through structured iteration between a domain expert and a frontier LLM, guided by Context Engineering**. Concretely, this means a phased process in which research data, domain knowledge, and analytical requirements are distilled into structured documents that serve simultaneously as context for the model and as project documentation for the researcher. The methodology grew out of my dissertation[^64] work and has been refined through a series of workshops in 2025 and early 2026\. It is described in detail in a publication on the LISA Wissenschaftsportal of the Gerda Henkel Stiftung.[^65]
+Promptotyping is one methodological response to the problem of structuring sustained collaboration between researchers and frontier LLMs, not the only possible one. Other structured approaches to human-AI collaboration in research are emerging, and the field is far from settled. What follows is the approach I have developed and tested. The term combines "prompt" and "prototyping" and denotes the **systematic, researcher-centred creation of research tools, workflows, and models through structured iteration between a domain expert and a frontier LLM, guided by Context Engineering**. Concretely, this means a phased process in which research data, domain knowledge, and analytical requirements are distilled into structured documents that serve simultaneously as context for the model and as project documentation for the researcher. The methodology grew out of my dissertation[^64] work and has been refined through a series of workshops in 2025 and early 2026. It is described in detail in a publication on the LISA Wissenschaftsportal of the Gerda Henkel Stiftung.[^65]
 
 Why does this need a methodology? Because without structure, the collaboration degrades. A single prompt works for a bounded task. But a project with multiple files, evolving requirements, and development over days or weeks loses coherence if the researcher has no systematic way to accumulate decisions, document context, and keep the model oriented.
 
@@ -285,15 +285,15 @@ This text does not resolve the asymmetry it describes. It names it, because nami
 
 [^5]:  Claude Opus 4.6 and GPT 5.3 Codex: 250 page breakdown. [https://youtu.be/1PxEziv5XIU](https://youtu.be/1PxEziv5XIU)
 
-[^6]:  Anthropic. 'Introducing Claude Opus 4.6'. Februar 2026\. https://www.anthropic.com/news/claude-opus-4-6
+[^6]:  Anthropic. 'Introducing Claude Opus 4.6'. Februar 2026. https://www.anthropic.com/news/claude-opus-4-6
 
-[^7]:  OpenAI. 'Introducing GPT-5.3-Codex'. 5 February 2026\. [https://openai.com/index/introducing-gpt-5-3-codex](https://openai.com/index/introducing-gpt-5-3-codex) 
+[^7]:  OpenAI. 'Introducing GPT-5.3-Codex'. 5 February 2026. [https://openai.com/index/introducing-gpt-5-3-codex](https://openai.com/index/introducing-gpt-5-3-codex) 
 
-[^8]:  OpenAI. 'GPT-5.3-Codex System Card'. 5 February 2026\. [https://openai.com/index/gpt-5-3-codex-system-card/](https://openai.com/index/gpt-5-3-codex-system-card/)
+[^8]:  OpenAI. 'GPT-5.3-Codex System Card'. 5 February 2026. [https://openai.com/index/gpt-5-3-codex-system-card/](https://openai.com/index/gpt-5-3-codex-system-card/)
 
 [^9]:  Anthropic. Disrupting the first reported AI-orchestrated cyber espionage campaign. [https://www.anthropic.com/news/disrupting-AI-espionage](https://www.anthropic.com/news/disrupting-AI-espionage) 
 
-[^10]:  OpenAI. 'Introducing Prism'. 27 January 2026\. [https://openai.com/index/introducing-prism/](https://openai.com/index/introducing-prism/)
+[^10]:  OpenAI. 'Introducing Prism'. 27 January 2026. [https://openai.com/index/introducing-prism/](https://openai.com/index/introducing-prism/)
 
 [^11]:  [https://grokipedia.com](https://grokipedia.com/)
 
@@ -307,12 +307,11 @@ This text does not resolve the asymmetry it describes. It names it, because nami
 
 [^16]:  Thomas Friedman. The One Danger That Should Unite the U.S. and China.  [https://www.nytimes.com/2025/09/02/opinion/ai-us-china.html](https://www.nytimes.com/2025/09/02/opinion/ai-us-china.html)
 
-[^17]:  Pollin, C. (2025, January 23). New Year, New AI. Das große Monopoly um die "Intelligence". Digital Humanities Craft. [https://dhcraft.org/excellence/blog/New-Year-New-AI-IdeaLab-25](https://dhcraft.org/excellence/blog/New-Year-New-AI-IdeaLab-25);   
-Pollin, Christopher. 'Generative KI: Sommer bis Herbst 2025\. Der Versuch eines Überblicks'. Aufspringen auf den “Tech-Bro-AGI-Hypetrain”\!?. AGKI-DH Webinar, 17 Oktober 2025\. 
+[^17]:  Pollin, C. (2025, January 23). New Year, New AI. Das große Monopoly um die "Intelligence". Digital Humanities Craft. [https://dhcraft.org/excellence/blog/New-Year-New-AI-IdeaLab-25](https://dhcraft.org/excellence/blog/New-Year-New-AI-IdeaLab-25); Pollin, Christopher. 'Generative KI: Sommer bis Herbst 2025. Der Versuch eines Überblicks'. Aufspringen auf den "Tech-Bro-AGI-Hypetrain"!?. AGKI-DH Webinar, 17 Oktober 2025.
 
 [^18]:  This Is What a Digital Coup Looks Like | Carole Cadwalladr | TED. [https://youtu.be/TZOoT8AbkNE](https://youtu.be/TZOoT8AbkNE)
 
-[^19]:  Bennett, Michael Timothy. 'What the F\*ck Is Artificial General Intelligence?' In Artificial General Intelligence. AGI 2025\. Lecture Notes in Computer Science, vol 16057\. Springer, 2025\. [https://doi.org/10.1007/978-3-032-00686-8\_4](https://doi.org/10.1007/978-3-032-00686-8_4)
+[^19]:  Bennett, Michael Timothy. 'What the F*ck Is Artificial General Intelligence?' In Artificial General Intelligence. AGI 2025. Lecture Notes in Computer Science, vol 16057. Springer, 2025. [https://doi.org/10.1007/978-3-032-00686-8_4](https://doi.org/10.1007/978-3-032-00686-8_4)
 
 [^20]:  [https://mistral.ai](https://mistral.ai)
 
@@ -322,7 +321,7 @@ Pollin, Christopher. 'Generative KI: Sommer bis Herbst 2025\. Der Versuch eines 
 
 [^23]:  Andrej Karpathy. [https://x.com/karpathy/status/1723140519554105733](https://x.com/karpathy/status/1723140519554105733)
 
-[^24]:  Sapkota, Ranjan, Konstantinos I. Roumeliotis, and Manoj Karkee. 'AI Agents vs. Agentic AI: A Conceptual Taxonomy, Applications and Challenges'. Information Fusion 126 (2025): 103599\. [https://doi.org/10.1016/j.inffus.2025.103599](https://doi.org/10.1016/j.inffus.2025.103599)
+[^24]:  Sapkota, Ranjan, Konstantinos I. Roumeliotis, and Manoj Karkee. 'AI Agents vs. Agentic AI: A Conceptual Taxonomy, Applications and Challenges'. Information Fusion 126 (2025): 103599. [https://doi.org/10.1016/j.inffus.2025.103599](https://doi.org/10.1016/j.inffus.2025.103599)
 
 [^25]:  [https://eur-lex.europa.eu/eli/reg/2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689)
 
@@ -334,33 +333,33 @@ Pollin, Christopher. 'Generative KI: Sommer bis Herbst 2025\. Der Versuch eines 
 
 [^29]:  [https://www.kimi.com](https://www.kimi.com/)
 
-[^30]:  Saran, C. 'DeepSeek-R1: Budgeting challenges for on-premise deployments'. Computer Weekly, 18 February 2025\. [https://www.computerweekly.com/news/366619398/DeepSeek-R1-Budgeting-challenges-for-on-premise-deployments](https://www.computerweekly.com/news/366619398/DeepSeek-R1-Budgeting-challenges-for-on-premise-deployments)
+[^30]:  Saran, C. 'DeepSeek-R1: Budgeting challenges for on-premise deployments'. Computer Weekly, 18 February 2025. [https://www.computerweekly.com/news/366619398/DeepSeek-R1-Budgeting-challenges-for-on-premise-deployments](https://www.computerweekly.com/news/366619398/DeepSeek-R1-Budgeting-challenges-for-on-premise-deployments)
 
 [^31]:  Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. ‘On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜’. Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency (New York, NY, USA), FAccT ’21, 1 March 2021, 610–23. [https://doi.org/10.1145/3442188.3445922](https://doi.org/10.1145/3442188.3445922). 
 
 [^32]:  Liesenfeld, A., & Dingemanse, M. (2024). Rethinking open source generative AI: Open-washing and the EU AI Act. Proceedings of the 2024 ACM Conference on Fairness, Accountability, and Transparency, 1774–1787. [https://doi.org/10.1145/3630106.3659005](https://doi.org/10.1145/3630106.3659005).
 
-[^33]:  Dell'Acqua, Fabrizio, Edward McFowland III, Ethan Mollick, et al. 'Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of AI on Knowledge Worker Productivity and Quality'. Harvard Business School Working Paper 24-013, September 2023\. [https://www.hbs.edu/ris/Publication%20Files/24-013\_d9b45b68-9e74-42d6-a1c6-c72fb70c7571.pdf](https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7571.pdf)
+[^33]:  Dell'Acqua, Fabrizio, Edward McFowland III, Ethan Mollick, et al. 'Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of AI on Knowledge Worker Productivity and Quality'. Harvard Business School Working Paper 24-013, September 2023. [https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7571.pdf](https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7571.pdf)
 
-[^34]:  Summerfield, Christopher. These Strange New Minds: How AI Learned to Talk and What It Means. Viking, 2025\.
+[^34]:  Summerfield, Christopher. These Strange New Minds: How AI Learned to Talk and What It Means. Viking, 2025.
 
 [^35]:  “Emotionale KI: Was bedeutet sie für unser Menschsein?” Vortrag vom Philosophen Prof. Markus Gabriel. [https://youtu.be/x3xaNApgNWA](https://youtu.be/x3xaNApgNWA?si=HjrNEDZ2oVqE5Qkp)
 
-[^36]:  Vaswani, Ashish, Noam Shazeer, Niki Parmar, et al. 'Attention Is All You Need'. NeurIPS 2017\. [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
+[^36]:  Vaswani, Ashish, Noam Shazeer, Niki Parmar, et al. 'Attention Is All You Need'. NeurIPS 2017. [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
 
-[^37]:  LLM Understanding: 23\. David CHALMERS. [https://youtu.be/yyRzTL201zI](https://youtu.be/yyRzTL201zI?si=o8lKMWRyEPx4EzNo)
+[^37]:  LLM Understanding: 23. David CHALMERS. [https://youtu.be/yyRzTL201zI](https://youtu.be/yyRzTL201zI?si=o8lKMWRyEPx4EzNo)
 
-[^38]:  Lindsey, Jack, Wes Gurnee, Emmanuel Ameisen, et al. "On the Biology of a Large Language Model." Transformer Circuits Thread, Anthropic, March 2025\. [https://transformer-circuits.pub/2025/attribution-graphs/biology.html](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)
+[^38]:  Lindsey, Jack, Wes Gurnee, Emmanuel Ameisen, et al. "On the Biology of a Large Language Model." Transformer Circuits Thread, Anthropic, March 2025. [https://transformer-circuits.pub/2025/attribution-graphs/biology.html](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)
 
 [^39]:  Andrej Karpathy. Deep Dive into LLMs like ChatGPT: [https://youtu.be/7xTGNNLPyMI](https://youtu.be/7xTGNNLPyMI?si=tVt2WPo3O8qQj5I8)
 
-[^40]:  State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI | Lex Fridman Podcast \#490. [https://youtu.be/EV7WhVT270Q](https://youtu.be/EV7WhVT270Q?si=WC2tFmc4bS_E2hOx)
+[^40]:  State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI | Lex Fridman Podcast #490. [https://youtu.be/EV7WhVT270Q](https://youtu.be/EV7WhVT270Q?si=WC2tFmc4bS_E2hOx)
 
-[^41]:  Anthropic. "Claude's Character." June 2024\. [https://www.anthropic.com/news/claude-character](https://www.anthropic.com/news/claude-character) — For the full constitution, see [https://www.anthropic.com/constitution](https://www.anthropic.com/constitution)
+[^41]:  Anthropic. "Claude's Character." June 2024. [https://www.anthropic.com/news/claude-character](https://www.anthropic.com/news/claude-character) — For the full constitution, see [https://www.anthropic.com/constitution](https://www.anthropic.com/constitution)
 
-[^42]:  For a systematic survey of prompting techniques and their sensitivity effects, see Schulhoff et al. 2025\. Ceron et al. 2024 demonstrate empirically how small prompt variations shift LLM outputs in the domain of political stance detection. Ceron, Tanise, Neele Falk, Ana Barić, Dmitry Nikolaev, and Sebastian Padó. ‘Beyond Prompt Brittleness: Evaluating the Reliability and Consistency of Political Worldviews in LLMs’. Transactions of the Association for Computational Linguistics 12 (November 2024): 1378–400. [https://doi.org/10.1162/tacl\_a\_00710](https://doi.org/10.1162/tacl_a_00710)
+[^42]:  For a systematic survey of prompting techniques and their sensitivity effects, see Schulhoff et al. 2025. Ceron et al. 2024 demonstrate empirically how small prompt variations shift LLM outputs in the domain of political stance detection. Ceron, Tanise, Neele Falk, Ana Barić, Dmitry Nikolaev, and Sebastian Padó. 'Beyond Prompt Brittleness: Evaluating the Reliability and Consistency of Political Worldviews in LLMs'. Transactions of the Association for Computational Linguistics 12 (November 2024): 1378–400. [https://doi.org/10.1162/tacl_a_00710](https://doi.org/10.1162/tacl_a_00710)
 
-[^43]:  François Chollet \- Creating Keras 3\. [https://youtu.be/JDaMpwCiiJU](https://youtu.be/JDaMpwCiiJU?si=sNuGk6CAEfaWVJYS)
+[^43]:  François Chollet - Creating Keras 3. [https://youtu.be/JDaMpwCiiJU](https://youtu.be/JDaMpwCiiJU?si=sNuGk6CAEfaWVJYS)
 
 [^44]:  https://arcprize.org/leaderboard
 
@@ -370,53 +369,53 @@ Pollin, Christopher. 'Generative KI: Sommer bis Herbst 2025\. Der Versuch eines 
 
 [^47]:  Server-side context compaction for managing long conversations that approach context window limits. https://platform.claude.com/docs/en/build-with-claude/compaction 
 
-[^48]:  Hong, K., Troynikov, A., and Huber, J. 'Context Rot: How Increasing Input Tokens Impacts LLM Performance'. Chroma, 2025\. [https://research.trychroma.com/context-rot](https://research.trychroma.com/context-rot)
+[^48]:  Hong, K., Troynikov, A., and Huber, J. 'Context Rot: How Increasing Input Tokens Impacts LLM Performance'. Chroma, 2025. [https://research.trychroma.com/context-rot](https://research.trychroma.com/context-rot)
 
-[^49]:  Pollin, Christopher. ‘System 1.42: Wie (Frontier-)LLMs “tatsächlich” funktionieren’. Digital Humanities Craft \- Research Blogs, 1 July 2025\. [https://dhcraft.org/excellence/blog/System1-42](https://dhcraft.org/excellence/blog/System1-42/)
+[^49]:  Pollin, Christopher. 'System 1.42: Wie (Frontier-)LLMs "tatsächlich" funktionieren'. Digital Humanities Craft - Research Blogs, 1 July 2025. [https://dhcraft.org/excellence/blog/System1-42](https://dhcraft.org/excellence/blog/System1-42/)
 
-[^50]:  Malmqvist, Lars. ‘Sycophancy in Large Language Models: Causes and Mitigations’. Preprint, 22 November 2024\. [https://arxiv.org/abs/2411.15287v1](https://arxiv.org/abs/2411.15287v1)
+[^50]:  Malmqvist, Lars. 'Sycophancy in Large Language Models: Causes and Mitigations'. Preprint, 22 November 2024. [https://arxiv.org/abs/2411.15287v1](https://arxiv.org/abs/2411.15287v1)
 
-[^51]:  World Modeling Workshop \- Day 1\. [https://www.youtube.com/live/7Gyuar7nMz0?si=WhdxoTc0Gtia4RB6\&t=20566](https://www.youtube.com/live/7Gyuar7nMz0?si=WhdxoTc0Gtia4RB6&t=20566) 
+[^51]:  World Modeling Workshop - Day 1. [https://www.youtube.com/live/7Gyuar7nMz0?si=WhdxoTc0Gtia4RB6&t=20566](https://www.youtube.com/live/7Gyuar7nMz0?si=WhdxoTc0Gtia4RB6&t=20566) 
 
 [^52]:  [https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models](https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/)
 
 [^53]:  [https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks](https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/)
 
-[^54]:  Snell, Charlie, Jaehoon Lee, Kelvin Xu, and Aviral Kumar. 'Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters'. arXiv:2408.03314, 2024\. [https://arxiv.org/abs/2408.03314](https://arxiv.org/abs/2408.03314)
+[^54]:  Snell, Charlie, Jaehoon Lee, Kelvin Xu, and Aviral Kumar. 'Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters'. arXiv:2408.03314, 2024. [https://arxiv.org/abs/2408.03314](https://arxiv.org/abs/2408.03314)
 
 [^55]:  [https://arcprize.org/blog/oai-o3-pub-breakthrough](https://arcprize.org/blog/oai-o3-pub-breakthrough)
 
 [^56]:  Hubert, Thomas, Rishi Mehta, Laurent Sartran, et al. 'Olympiad-Level Formal Mathematical Reasoning with Reinforcement Learning'. Nature (2025). [https://doi.org/10.1038/s41586-025-09833-y](https://doi.org/10.1038/s41586-025-09833-y)
 
-[^57]:  Novikov, Alexander, Ngân Vũ, Marvin Eisenberger, et al. 'AlphaEvolve: A Coding Agent for Scientific and Algorithmic Discovery'. Google DeepMind, May 2025\. [https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/AlphaEvolve.pdf](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/AlphaEvolve.pdf)
+[^57]:  Novikov, Alexander, Ngân Vũ, Marvin Eisenberger, et al. 'AlphaEvolve: A Coding Agent for Scientific and Algorithmic Discovery'. Google DeepMind, May 2025. [https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/AlphaEvolve.pdf](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/AlphaEvolve.pdf)
 
 [^58]:  Use Case 1 “Patent Cooperation Network”. [https://github.com/DigitalHumanitiesCraft/wiiw-patent-analysis-demo](https://github.com/DigitalHumanitiesCraft/wiiw-patent-analysis-demo)
 
-[^59]:  Denison, Carson, et al. 'Natural Emergent Misalignment from Reward Hacking in Production RL'. Anthropic, 2025\. [https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf](https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf)
+[^59]:  Denison, Carson, et al. 'Natural Emergent Misalignment from Reward Hacking in Production RL'. Anthropic, 2025. [https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf](https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf)
 
 [^60]:  Wing, Jeannette M. "Computational Thinking." *Communications of the ACM* 49.3 (2006), 33–35. [https://dl.acm.org/doi/10.1145/1118178.1118215](https://dl.acm.org/doi/10.1145/1118178.1118215) 
 
-[^61]:  Mollick, Ethan. *Co-Intelligence. Living and Working with AI.* Portfolio/Penguin, 2024\.
+[^61]:  Mollick, Ethan. *Co-Intelligence. Living and Working with AI.* Portfolio/Penguin, 2024.
 
-[^62]:  Karpathy, Andrej. "Vibe Coding." X/Twitter, February 2025\. [https://x.com/karpathy/status/1886192184808149383](https://x.com/karpathy/status/1886192184808149383)
+[^62]:  Karpathy, Andrej. "Vibe Coding." X/Twitter, February 2025. [https://x.com/karpathy/status/1886192184808149383](https://x.com/karpathy/status/1886192184808149383)
 
 [^63]:  [https://github.com/DigitalHumanitiesCraft/wiiw-patent-analysis-demo](https://github.com/DigitalHumanitiesCraft/wiiw-patent-analysis-demo)
 
-[^64]:  Pollin, Christopher. ‘Modelling, Operationalising and Exploring Historical Information. Using Historical Financial Sources as an Example’. 2025\. [http://unipub.uni-graz.at/obvugrhs/12127700](http://unipub.uni-graz.at/obvugrhs/12127700).
+[^64]:  Pollin, Christopher. 'Modelling, Operationalising and Exploring Historical Information. Using Historical Financial Sources as an Example'. 2025. [http://unipub.uni-graz.at/obvugrhs/12127700](http://unipub.uni-graz.at/obvugrhs/12127700).
 
-[^65]:  Pollin, Christopher. "Promptotyping: Zwischen Vibe Coding, Vibe Research und Context Engineering." L.I.S.A. Wissenschaftsportal Gerda Henkel Stiftung, 17 January 2026\. [https://lisa.gerda-henkel-stiftung.de/digitale\_geschichte\_pollin](https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin)
+[^65]:  Pollin, Christopher. "Promptotyping: Zwischen Vibe Coding, Vibe Research und Context Engineering." L.I.S.A. Wissenschaftsportal Gerda Henkel Stiftung, 17 January 2026. [https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin](https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin)
 
 [^66]:  Use Case 2 "FIGARO-NAM Agentic Workflow. [https://github.com/chpollin/wiiw-figaro-nam-demo](https://github.com/chpollin/wiiw-figaro-nam-demo). Markdown documents are in the "knowledge" folder.
 
-[^67]:  Schaeffer, Rylan, Brando Miranda, and Sanmi Koyejo. 'Are Emergent Abilities of Large Language Models a Mirage?' NeurIPS 2023\. [https://arxiv.org/abs/2304.15004](https://arxiv.org/abs/2304.15004)
+[^67]:  Schaeffer, Rylan, Brando Miranda, and Sanmi Koyejo. 'Are Emergent Abilities of Large Language Models a Mirage?' NeurIPS 2023. [https://arxiv.org/abs/2304.15004](https://arxiv.org/abs/2304.15004)
 
-[^68]:  Kaplan, Jared, Sam McCandlish, Tom Henighan, et al. 'Scaling Laws for Neural Language Models'. arXiv:2001.08361, 2020\. [https://doi.org/10.48550/arXiv.2001.08361](https://doi.org/10.48550/arXiv.2001.08361)
+[^68]:  Kaplan, Jared, Sam McCandlish, Tom Henighan, et al. 'Scaling Laws for Neural Language Models'. arXiv:2001.08361, 2020. [https://doi.org/10.48550/arXiv.2001.08361](https://doi.org/10.48550/arXiv.2001.08361)
 
-[^69]:  Chollet, François. 'Pattern Recognition vs True Intelligence'. YouTube, 2024\. [https://youtu.be/JTU8Ha4Jyfc](https://youtu.be/JTU8Ha4Jyfc). See also: 'François Chollet on OpenAI o-models and ARC'. [https://youtu.be/w9WE1aOPjHc](https://youtu.be/w9WE1aOPjHc)
+[^69]:  Chollet, François. 'Pattern Recognition vs True Intelligence'. YouTube, 2024. [https://youtu.be/JTU8Ha4Jyfc](https://youtu.be/JTU8Ha4Jyfc). See also: 'François Chollet on OpenAI o-models and ARC'. [https://youtu.be/w9WE1aOPjHc](https://youtu.be/w9WE1aOPjHc)
 
-[^70]:  Hochreiter, Sepp. 'KI Entwicklung, LSTM, OpenAI'. Eduard Heindl Energiegespräch \#100. YouTube. [https://youtu.be/LG1If4ccEDc](https://youtu.be/LG1If4ccEDc). See also: 'LSTM: The Comeback Story?'. [https://youtu.be/8u2pW2zZLCs](https://youtu.be/8u2pW2zZLCs); 'Prof. Sepp Hochreiter: A Pioneer in Deep Learning'. [https://youtu.be/IwdwCmv\_TNY](https://youtu.be/IwdwCmv_TNY)
+[^70]:  Hochreiter, Sepp. 'KI Entwicklung, LSTM, OpenAI'. Eduard Heindl Energiegespräch #100. YouTube. [https://youtu.be/LG1If4ccEDc](https://youtu.be/LG1If4ccEDc). See also: 'LSTM: The Comeback Story?'. [https://youtu.be/8u2pW2zZLCs](https://youtu.be/8u2pW2zZLCs); 'Prof. Sepp Hochreiter: A Pioneer in Deep Learning'. [https://youtu.be/IwdwCmv_TNY](https://youtu.be/IwdwCmv_TNY)
 
-[^71]:  Kambhampati, Subbarao. '(How) Do LLMs Reason?' Talk given at MILA/ChandarLab. YouTube. [https://youtu.be/VfCoUl1g2PI](https://youtu.be/VfCoUl1g2PI). See also: 'AI for Scientific Discovery'. [https://youtu.be/TOIKa\_gKycE](https://youtu.be/TOIKa_gKycE); 'Do Reasoning Models Actually Search?'. [https://youtu.be/2xFTNXK6AzQ](https://youtu.be/2xFTNXK6AzQ)
+[^71]:  Kambhampati, Subbarao. '(How) Do LLMs Reason?' Talk given at MILA/ChandarLab. YouTube. [https://youtu.be/VfCoUl1g2PI](https://youtu.be/VfCoUl1g2PI). See also: 'AI for Scientific Discovery'. [https://youtu.be/TOIKa_gKycE](https://youtu.be/TOIKa_gKycE); 'Do Reasoning Models Actually Search?'. [https://youtu.be/2xFTNXK6AzQ](https://youtu.be/2xFTNXK6AzQ)
 
 [image1]: img/asymmetric-claude.png
 [image2]: img/basics-1.png
