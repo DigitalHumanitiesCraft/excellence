@@ -39,7 +39,7 @@ keywords: ["Applied Generative AI", "LLM", "Asymmetric Amplification", "Promptot
 
 This text is based on a workshop ([slides](https://docs.google.com/presentation/d/1b-zJ8hyv7FhHXzR5HjMcp2kEtU2WhqCd_cugsMrPdjg/edit?usp=sharing)) held at the Vienna Institute for International Economic Studies (wiiw), an economic research institute focused on Central, East, and Southeast Europe, in February 2026. It preserves the workshop's alternating structure of theoretical introductions, hands-on exercises, live demonstrations, and discussion blocks. It reads accordingly — more like a guided session than a linear argument.
 
-## "The big goal that we are working towards is automating research” 
+## "The big goal that we are working towards is *automating research*"
 
 - Jakub Pachocki - OpenAI's chief scientist
 
