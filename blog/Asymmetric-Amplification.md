@@ -308,7 +308,7 @@ Building local infrastructure without understanding frontier models means buildi
 
 This text does not resolve the asymmetry it describes. It names it, because naming it is the precondition for any response that does not simply reproduce it.
 
-[^1]:  Inside OpenAI's Stargate Megafactory with Sam Altman | The Circuit. [https://youtu.be/GhIJs4zbH0o](https://youtu.be/GhIJs4zbH0o)
+[^1]:  Inside OpenAI's Stargate Megafactory with Sam Altman \| The Circuit. [https://youtu.be/GhIJs4zbH0o](https://youtu.be/GhIJs4zbH0o)
 
 [^2]:  Meta Builds Manhattan-Sized AI Data Centers in Multi-Billion Dollar Tech Race. [https://www.ctol.digital/news/meta-builds-manhattan-sized-ai-data-centers-tech-race](https://www.ctol.digital/news/meta-builds-manhattan-sized-ai-data-centers-tech-race).
 
@@ -336,13 +336,13 @@ This text does not resolve the asymmetry it describes. It names it, because nami
 
 [^14]:  The Adolescence of Technology. Confronting and Overcoming the Risks of Powerful AI. [https://darioamodei.com/essay/the-adolescence-of-technology](https://darioamodei.com/essay/the-adolescence-of-technology)
 
-[^15]:  FULL DISCUSSION: Google's Demis Hassabis, Anthropic's Dario Amodei Debate the World After AGI | AI1G. [https://youtu.be/02YLwsCKUww](https://youtu.be/02YLwsCKUww?si=6F9AxaIUjxff0fCX)
+[^15]:  FULL DISCUSSION: Google's Demis Hassabis, Anthropic's Dario Amodei Debate the World After AGI \| AI1G. [https://youtu.be/02YLwsCKUww](https://youtu.be/02YLwsCKUww?si=6F9AxaIUjxff0fCX)
 
 [^16]:  Thomas Friedman. The One Danger That Should Unite the U.S. and China.  [https://www.nytimes.com/2025/09/02/opinion/ai-us-china.html](https://www.nytimes.com/2025/09/02/opinion/ai-us-china.html)
 
 [^17]:  Pollin, C. (2025, January 23). New Year, New AI. Das große Monopoly um die "Intelligence". Digital Humanities Craft. [https://dhcraft.org/excellence/blog/New-Year-New-AI-IdeaLab-25](https://dhcraft.org/excellence/blog/New-Year-New-AI-IdeaLab-25); Pollin, Christopher. 'Generative KI: Sommer bis Herbst 2025. Der Versuch eines Überblicks'. Aufspringen auf den "Tech-Bro-AGI-Hypetrain"!?. AGKI-DH Webinar, 17 Oktober 2025.
 
-[^18]:  This Is What a Digital Coup Looks Like | Carole Cadwalladr | TED. [https://youtu.be/TZOoT8AbkNE](https://youtu.be/TZOoT8AbkNE)
+[^18]:  This Is What a Digital Coup Looks Like \| Carole Cadwalladr \| TED. [https://youtu.be/TZOoT8AbkNE](https://youtu.be/TZOoT8AbkNE)
 
 [^19]:  Bennett, Michael Timothy. 'What the F*ck Is Artificial General Intelligence?' In Artificial General Intelligence. AGI 2025. Lecture Notes in Computer Science, vol 16057. Springer, 2025. [https://doi.org/10.1007/978-3-032-00686-8_4](https://doi.org/10.1007/978-3-032-00686-8_4)
 
@@ -386,7 +386,7 @@ This text does not resolve the asymmetry it describes. It names it, because nami
 
 [^39]:  Andrej Karpathy. Deep Dive into LLMs like ChatGPT: [https://youtu.be/7xTGNNLPyMI](https://youtu.be/7xTGNNLPyMI?si=tVt2WPo3O8qQj5I8)
 
-[^40]:  State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI | Lex Fridman Podcast #490. [https://youtu.be/EV7WhVT270Q](https://youtu.be/EV7WhVT270Q?si=WC2tFmc4bS_E2hOx)
+[^40]:  State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI \| Lex Fridman Podcast #490. [https://youtu.be/EV7WhVT270Q](https://youtu.be/EV7WhVT270Q?si=WC2tFmc4bS_E2hOx)
 
 [^41]:  Anthropic. "Claude's Character." June 2024. [https://www.anthropic.com/news/claude-character](https://www.anthropic.com/news/claude-character) — For the full constitution, see [https://www.anthropic.com/constitution](https://www.anthropic.com/constitution)
 
