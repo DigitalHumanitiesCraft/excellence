@@ -88,7 +88,7 @@ And this is exactly why understanding the foundations matters. If you work with 
 Large Language Models are fundamentally based on **next token prediction**. The model computes a probability distribution over possible next tokens given a specific context. This is illustrated by the neural network diagram: given “cat sat on a”, the model predicts "mat" with 97% probability.
 
 <figure>
-<img src="img/basics-1.png" alt="Workshop slide: Next token prediction, Transformer architecture, and tokenization">
+<img src="/excellence/blog/img/basics-1.png" alt="Workshop slide: Next token prediction, Transformer architecture, and tokenization">
 <figcaption>Workshop slide: Next token prediction, Transformer architecture, and tokenization</figcaption>
 </figure>
 
@@ -107,7 +107,7 @@ This compression is not uniform. Frequent patterns are represented more stably t
 However, and this is important, the model can **use tools** to compensate not just for procedural limitations but also for gaps in its training data. It can search the web, retrieve documents, extract text from specific sources, and bring that information into its context window. This is what Retrieval Augmented Generation (RAG), tool use, and agentic workflows are about. The boundary of the model is not the boundary of the system.
 
 <figure>
-<img src="img/basics-2.png" alt="Workshop slide: Pre-training, post-training, and the training pipeline">
+<img src="/excellence/blog/img/basics-2.png" alt="Workshop slide: Pre-training, post-training, and the training pipeline">
 <figcaption>Workshop slide: Pre-training, post-training, and the training pipeline</figcaption>
 </figure>
 
@@ -121,7 +121,7 @@ Now, the areas in the model that get activated, these are the **embeddings**. Fo
 Consider the classic example. "*King*" minus "*Man*" plus "*Woman*" approximately equals "*Queen*". This suggests that dimensions in the embedding space encode something like thematic directions, where the distance between “*King*” and “*Queen*” mirrors the distance between “*Man*” and “*Woman*”. But this is a simplification. Embeddings are polysemous. The token “*Queen*” is pulled simultaneously toward monarchy, toward the band Queen, toward drag culture, and the surrounding context determines which associations dominate. Anthropic’s research on internal model mechanisms provides evidence that such contextual associations correspond to identifiable feature circuits, distributed across the network’s layers. This has a direct practical consequence. “*The King doth wake tonight and takes his rouse…*” activates feature circuits associated with Shakespearean language and early modern political contexts. The same content in normalized modern English would activate different circuits, producing different outputs. Small changes in formulation shift which internal pathways the model follows. This is **prompt brittleness[^42]**, and it will be directly relevant in the hands-on exercise.
 
 <figure>
-<img src="img/embedding.png" alt="Workshop slide: Embedding space and vector arithmetic (King - Man + Woman ≈ Queen)">
+<img src="/excellence/blog/img/embedding.png" alt="Workshop slide: Embedding space and vector arithmetic (King - Man + Woman ≈ Queen)">
 <figcaption>Workshop slide: Embedding space and vector arithmetic (King - Man + Woman ≈ Queen)</figcaption>
 </figure>
 
@@ -134,7 +134,7 @@ The context window is the “short-term memory” of the model. Everything the m
 Models can have different context window sizes. You need to know which model you are using and what your specific subscription provides. Claude Opus 4.6 has a one million token context window in beta, available through the API and Claude Code. In the chat interface on claude.ai, the standard 200K window applies. So you also need to know the differences in subscriptions and access methods. Claude Opus 4.5 had 200,000 tokens.[^46] One million tokens is roughly 1,500 pages of text, depending on text density and language.
 
 <figure>
-<img src="img/basics-3.png" alt="Workshop slide: Context window mechanics and token limits">
+<img src="/excellence/blog/img/basics-3.png" alt="Workshop slide: Context window mechanics and token limits">
 <figcaption>Workshop slide: Context window mechanics and token limits</figcaption>
 </figure>
 
@@ -177,7 +177,7 @@ Sepp Hochreiter takes a more reductive position. For him, a **large language mod
 Subbarao Kambhampati describes LLMs as **"n-gram models on steroids doing approximate retrieval, not reasoning"**.[^71] The reasoning we observe is pattern matching that breaks when inputs are obfuscated and needs external verifiers. This connects directly to our previous point about verification and the expert-in-the-loop.
 
 <figure>
-<img src="img/Subbarao-Kambhampati.png" alt="Subbarao Kambhampati: LLMs and the boundary of human knowledge">
+<img src="/excellence/blog/img/Subbarao-Kambhampati.png" alt="Subbarao Kambhampati: LLMs and the boundary of human knowledge">
 <figcaption>Subbarao Kambhampati: LLMs and the boundary of human knowledge</figcaption>
 </figure>
 
@@ -190,7 +190,7 @@ The honest answer as of early 2026 is that standard LLMs, used conversationally,
 Now we move from theory to practice. And we start with a problem that connects directly to what we just discussed about the context window and context rot. I have a dataset on international patent cooperation. It contains roughly 138.000 rows, around 60 countries, time range 2000 to 2018. It is a weighted edge list with firms cooperating across national borders, with a cooperation frequency per year. A classic research dataset for network analysis.[^58] 
 
 <figure>
-<img src="img/data-llms.png" alt="Workshop slide: Getting 138.000 rows of binary data into a context window">
+<img src="/excellence/blog/img/data-llms.png" alt="Workshop slide: Getting 138.000 rows of binary data into a context window">
 <figcaption>Workshop slide: Getting 138.000 rows of binary data into a context window</figcaption>
 </figure>
 
@@ -209,7 +209,7 @@ I took an R course roughly ten years ago. I learned the basics of R and RStudio,
 And yet, within minutes, I had a working analysis environment. The first attempt failed because tidyverse was not installed. The second attempt failed because the file path was wrong. Classic problems, nothing exotic. But I knew what to do with these errors. Not because I remembered the exact R syntax, but because I have enough foundational understanding of how software environments work. I know that packages need to be installed before you can use them. I know that file paths can be relative or absolute. I know what an error message is telling me, even if I do not immediately know the solution. So I copied the error message back into the chat, Claude gave me the fix, I applied it, and we moved on to the next problem.
 
 <figure>
-<img src="img/Informed-Vibe-Coding.png" alt="Workshop slide: Computer Literacy, Computational Thinking, and Informed Vibe Coding as three layers of LLM competence">
+<img src="/excellence/blog/img/Informed-Vibe-Coding.png" alt="Workshop slide: Computer Literacy, Computational Thinking, and Informed Vibe Coding as three layers of LLM competence">
 <figcaption>Workshop slide: Computer Literacy, Computational Thinking, and Informed Vibe Coding as three layers of LLM competence</figcaption>
 </figure>
 
@@ -234,7 +234,7 @@ Here is what I want you to do, and I want to be explicit about the workflow. Do 
 The following prompt initiated the exercise. It illustrates the Context Engineering strategy discussed above: instead of uploading the full dataset, the prompt provides a compressed description — column names, data types, a sample of rows, and the research question. The screenshot below shows the prompt in context. The full prompt is available as a [separate Markdown file](files/prompt-patent-cooperation.md) for download and reuse.
 
 <figure>
-<img src="img/hands-on-R.png" alt="Screenshot: The Context Engineering prompt for patent cooperation analysis in Claude">
+<img src="/excellence/blog/img/hands-on-R.png" alt="Screenshot: The Context Engineering prompt for patent cooperation analysis in Claude">
 <figcaption>Screenshot: The Context Engineering prompt for patent cooperation analysis in Claude</figcaption>
 </figure>
 
@@ -243,7 +243,7 @@ The following prompt initiated the exercise. It illustrates the Context Engineer
 Then I did something that I want you to start doing as a habit. I asked the model to evaluate its own results. I simply asked, does this make sense?
 
 <figure>
-<img src="img/let-check.png" alt="Screenshot: Claude evaluating the patent cooperation analysis results in a separate conversation">
+<img src="/excellence/blog/img/let-check.png" alt="Screenshot: Claude evaluating the patent cooperation analysis results in a separate conversation">
 <figcaption>Screenshot: Claude evaluating the patent cooperation analysis results in a separate conversation</figcaption>
 </figure>
 
@@ -264,14 +264,14 @@ Promptotyping is one methodological response to the problem of structuring susta
 Why does this need a methodology? Because without structure, the collaboration degrades. A single prompt works for a bounded task. But a project with multiple files, evolving requirements, and development over days or weeks loses coherence if the researcher has no systematic way to accumulate decisions, document context, and keep the model oriented.
 
 <figure>
-<img src="img/promptotyping-wiiw.png" alt="Promptotyping: Mapping research data and domain expertise to research artefacts through frontier LLMs">
+<img src="/excellence/blog/img/promptotyping-wiiw.png" alt="Promptotyping: Mapping research data and domain expertise to research artefacts through frontier LLMs">
 <figcaption>Promptotyping: Mapping research data and domain expertise to research artefacts through frontier LLMs</figcaption>
 </figure>
 
 Four components interact in Promptotyping. On the input side, **Research Data** and the **Research Domain** with an **Expert in the Loop**. As the processing mechanism, a Frontier-LLM with Context Engineering. On the output side, **Research Artefacts**. The patent cooperation exercise is one instance of this mapping. The same data could be mapped onto different artefacts, a statistical report, an interactive dashboard, a network model. The research question determines the artefact, and the researcher's domain expertise determines whether the artefact is meaningful. Neither the researcher alone nor the model alone produces the result.
 
 <figure>
-<img src="img/promptotyping-wiiw-phases.png" alt="The four phases of Promptotyping: Preparation, Exploration, Distillation, Implementation">
+<img src="/excellence/blog/img/promptotyping-wiiw-phases.png" alt="The four phases of Promptotyping: Preparation, Exploration, Distillation, Implementation">
 <figcaption>The four phases of Promptotyping: Preparation, Exploration, Distillation, Implementation</figcaption>
 </figure>
 
@@ -286,7 +286,7 @@ Both use cases were built using Promptotyping.
 The second use case is deliberately constructed as a contrast to the first. Where the patent cooperation exercise demonstrated the workflow with domain expertise, this one tests what happens without it.
 
 <figure>
-<img src="img/FIGARO.png" alt="Use Case 2: FIGARO-NAM agentic workflow with Claude Code — time series and cross-country comparison">
+<img src="/excellence/blog/img/FIGARO.png" alt="Use Case 2: FIGARO-NAM agentic workflow with Claude Code — time series and cross-country comparison">
 <figcaption>Use Case 2: FIGARO-NAM agentic workflow with Claude Code — time series and cross-country comparison</figcaption>
 </figure>
 
