@@ -95,7 +95,7 @@ And this is exactly why understanding the foundations matters. If you work with 
 
 Large Language Models are fundamentally based on **next token prediction**. The model computes a probability distribution over possible next tokens given a specific context. This is illustrated by the neural network diagram: given “cat sat on a”, the model predicts "mat" with 97% probability.
 
-![Next token prediction diagram](img/basics-1.png)
+![][image2]
 
 But context changes the prediction. If the context is “*Christopher is sitting at his desk, programming, the cat sat on the*”, the next token might be “*keyboard*” rather than “*mat*”. The **Transformer architecture**[^36] enables this by processing the relationships between all tokens in the input simultaneously. This produces something that functions like “understanding” of context. The quotation marks around “understanding” are deliberate. Whether this constitutes understanding in any meaningful sense is a deep question we cannot resolve here.[^37] For our purposes, the functional description is sufficient: the model relates all tokens to each other and uses these relationships for prediction. The attention mechanism will become relevant again when we discuss the context window.
 
@@ -111,7 +111,7 @@ This compression is not uniform. Frequent patterns are represented more stably t
 
 However, and this is important, the model can **use tools** to compensate not just for procedural limitations but also for gaps in its training data. It can search the web, retrieve documents, extract text from specific sources, and bring that information into its context window. This is what Retrieval Augmented Generation (RAG), tool use, and agentic workflows are about. The boundary of the model is not the boundary of the system.
 
-![Pre-training and post-training](img/basics-2.png)
+![][image3]
 
 **Pre-training[^40]** is the phase that requires enormous energy, data, and compute. As a rough approximation, pre-training is where the model acquires its general capabilities. What exactly is stored in the process — whether it deserves the label "knowledge" — is debatable.
 
@@ -122,7 +122,7 @@ Now, the areas in the model that get activated, these are the **embeddings**. Fo
 
 Consider the classic example. "*King*" minus "*Man*" plus "*Woman*" approximately equals "*Queen*". This suggests that dimensions in the embedding space encode something like thematic directions, where the distance between “*King*” and “*Queen*” mirrors the distance between “*Man*” and “*Woman*”. But this is a simplification. Embeddings are polysemous. The token “*Queen*” is pulled simultaneously toward monarchy, toward the band Queen, toward drag culture, and the surrounding context determines which associations dominate. Anthropic’s research on internal model mechanisms provides evidence that such contextual associations correspond to identifiable feature circuits, distributed across the network’s layers. This has a direct practical consequence. “*The King doth wake tonight and takes his rouse…*” activates feature circuits associated with Shakespearean language and early modern political contexts. The same content in normalized modern English would activate different circuits, producing different outputs. Small changes in formulation shift which internal pathways the model follows. This is **prompt brittleness[^42]**, and it will be directly relevant in the hands-on exercise.
 
-![Embeddings: King - Man + Woman ≈ Queen](img/embedding.png)
+![][image4]
 
 François Chollet, who is notably skeptical of LLM capabilities, describes what happens in the latent space as **“vector programs”**[^43] being activated and applied to data. He designed the **ARC-AGI** benchmark specifically to test what LLMs supposedly cannot do, namely abstraction and generalization to novel patterns. It is worth noting that current frontier models are performing increasingly well on exactly this benchmark.[^44] This does not necessarily mean they are truly abstracting. There may be other explanations. The researcher who constructed one of the hardest tests against LLM capabilities is seeing his benchmark increasingly solved. What this means remains open. It may be genuine abstraction, it may be sophisticated benchmark optimization, or, if the optimization succeeds across all relevant benchmarks simultaneously, the distinction may lose its meaning.
 
@@ -132,7 +132,7 @@ The context window is the “short-term memory” of the model. Everything the m
 
 Models can have different context window sizes. You need to know which model you are using and what your specific subscription provides. Claude Opus 4.6 has a one million token context window in beta, available through the API and Claude Code. In the chat interface on claude.ai, the standard 200K window applies. So you also need to know the differences in subscriptions and access methods. Claude Opus 4.5 had 200,000 tokens.[^46] One million tokens is roughly 1,500 pages of text, depending on text density and language.
 
-![Context window diagram](img/basics-3.png)
+![][image5]
 
 The diagram shows a simplified example with an 8K token window. If we input 6,000 tokens and the model generates 1,500 tokens of output, everything fits. But if we have already accumulated 10,000 tokens in our conversation, the older tokens at the top are no longer in the window. The model may still behave as if it knows about them, because it can extrapolate plausible continuations from the remaining context. But this is not knowledge, it is prediction. This connects directly to hallucination. The model generates coherent-sounding output about information it no longer has access to. This is why long conversations become unreliable and why critical verification matters most precisely when the conversation feels fluent.
 
@@ -172,7 +172,7 @@ Sepp Hochreiter takes a more reductive position. For him, a **large language mod
 
 Subbarao Kambhampati describes LLMs as **“n-gram models on steroids doing approximate retrieval, not reasoning”**. The reasoning we observe is pattern matching that breaks when inputs are obfuscated and needs external verifiers. This connects directly to our previous point about verification and the expert-in-the-loop.
 
-![Kambhampati: LLMs and the boundary of human knowledge](img/Subbarao-Kambhampati.png)
+![][image6]
 
 Now look at the diagram on the right. It shows humanity's knowledge as a closure, with procedural and propositional knowledge, common sense, and at the boundary, new discoveries. The critical question for this workshop and for the automation of research that we discussed on slide 2 is: can these systems reach beyond the boundary? Can they produce genuinely new knowledge, or can they only recombine what is already inside the closure?
 
@@ -182,7 +182,7 @@ The honest answer as of early 2026 is that standard LLMs, used conversationally,
 
 Now we move from theory to practice. And we start with a problem that connects directly to what we just discussed about the context window and context rot. I have a dataset on international patent cooperation. It contains roughly 138.000 rows, around 60 countries, time range 2000 to 2018\. It is a weighted edge list with firms cooperating across national borders, with a cooperation frequency per year. A classic research dataset for network analysis.[^58] 
 
-![Data and LLMs](img/data-llms.png)
+![][image7]
 
 But there are two problems. First, the data is stored as an RDS file, which is R's native binary serialisation format. No LLM can process this natively as text input. You cannot paste it into a chat. This is a practical limitation that many researchers encounter immediately. Your data exists in a format that the model cannot read without tool use.
 
@@ -198,7 +198,7 @@ I took an R course roughly ten years ago. I learned the basics of R and RStudio,
 
 And yet, within minutes, I had a working analysis environment. The first attempt failed because tidyverse was not installed. The second attempt failed because the file path was wrong. Classic problems, nothing exotic. But I knew what to do with these errors. Not because I remembered the exact R syntax, but because I have enough foundational understanding of how software environments work. I know that packages need to be installed before you can use them. I know that file paths can be relative or absolute. I know what an error message is telling me, even if I do not immediately know the solution. So I copied the error message back into the chat, Claude gave me the fix, I applied it, and we moved on to the next problem.
 
-![Three layers: Computer Literacy, Computational Thinking, Informed Vibe Coding](img/Informed-Vibe-Coding.png)
+![][image8]
 
 There are three layers here. The first is **Computer Literacy**, the basic operational understanding of how computers, files, software, and environments work. The second is **Computational Thinking**[^60], the ability to decompose a problem, to recognise patterns, to evaluate whether a proposed solution makes structural sense. Wing's original definition emphasises designing solutions and systems. In the context of LLM-assisted work, the emphasis shifts to judging them, but the underlying competence remains the same. And the third, the new layer, is what I call **Informed Vibe Coding**. The practice of working iteratively with a frontier LLM, maintaining critical judgement while systematically collaborating with the model to solve problems that neither you nor the model could often solve as efficiently alone. This builds on Mollick's concept of Co-Intelligence[^61] as a general framework for human-AI collaboration and refines Karpathy's Vibe Coding[^62] by adding the requirement of critical evaluation grounded in the first two layers.
 
@@ -220,7 +220,7 @@ Here is what I want you to do, and I want to be explicit about the workflow. Do 
 
 The following prompt initiated the exercise.
 
-![Hands-on exercise prompt](img/hands-on-R.png)
+![][image9]
 
 I have a dataset on international patent cooperation as a weighted edge list.
 
@@ -307,7 +307,7 @@ Write R code using tidyverse and ggplot2 for an exploratory analysis.
 
 Then I did something that I want you to start doing as a habit. I asked the model to evaluate its own results. I simply asked, does this make sense?
 
-![Let the model check its own work](img/let-check.png)
+![][image10]
 
 I opened a separate conversation, one where Claude had no information that the dataset was synthetic. It immediately identified the data as likely synthetic or heavily noised. It pointed out that the Top 10 countries (Taiwan, Poland, Ukraine, Hong Kong, Qatar, Sweden) do not match real patent cooperation patterns, where you would expect the United States, Germany, Japan, China, and South Korea to dominate. It flagged that the distributions were too uniform, that real cooperation networks show power-law structures with a few dominant hubs and many peripheral nodes. It noticed that the partner diversity across top countries was nearly identical, which contradicts how real networks behave.
 
@@ -325,11 +325,11 @@ Promptotyping is one methodological response to the problem of structuring susta
 
 Why does this need a methodology? Because without structure, the collaboration degrades. A single prompt works for a bounded task. But a project with multiple files, evolving requirements, and development over days or weeks loses coherence if the researcher has no systematic way to accumulate decisions, document context, and keep the model oriented.
 
-![Promptotyping: Mapping of research data and domain expertise to research artefacts](img/promptotyping-wiiw.png)
+![][image11]
 
 Four components interact in Promptotyping. On the input side, **Research Data** and the **Research Domain** with an **Expert in the Loop**. As the processing mechanism, a Frontier-LLM with Context Engineering. On the output side, **Research Artefacts**. The patent cooperation exercise is one instance of this mapping. The same data could be mapped onto different artefacts, a statistical report, an interactive dashboard, a network model. The research question determines the artefact, and the researcher's domain expertise determines whether the artefact is meaningful. Neither the researcher alone nor the model alone produces the result.
 
-![Promptotyping phases: Preparation, Exploration & Mapping, Distillation, Implementation](img/promptotyping-wiiw-phases.png)
+![][image12]
 
 The methodology unfolds in four phases. **Preparation** is where data and sources are collected and the project scope is defined. **Exploration and Mapping** is where the researcher and the model jointly survey the material, identify relevant structures, and formulate research questions. This might involve having the model write a script to explore a dataset, but it equally includes reviewing literature, identifying ontological structures, or testing analytical framings. **Distillation** is where knowledge is deliberately compressed into Markdown documents. DATA.md describes the dataset, its columns, types, structure, and limitations. REQUIREMENT.md defines the research questions, the expected outputs, and the evaluation criteria. RESEARCH.md captures domain knowledge, methodological decisions, and references. These documents serve a dual purpose. They are context for the model, optimised for the context window. And they are project documentation for the researcher, capturing what has been decided and why. These three documents are not a fixed template. The specific files depend on the project and the domain. What matters is that each document is deliberately curated, not a raw dump of information but a compressed, structured representation that maximises relevance within the constraints of the context window.
 
@@ -341,7 +341,7 @@ Both use cases were built using Promptotyping.
 
 The second use case is deliberately constructed as a contrast to the first. Where the patent cooperation exercise demonstrated the workflow with domain expertise, this one tests what happens without it.
 
-![FIGARO-NAM Agentic Workflow](img/FIGARO.png)
+![][image13]
 
 Instead of a chat-based analysis iterated into a web application, this is a structured agentic workflow with Claude Code from the start. The dataset is Eurostat’s FIGARO National Accounts Matrix, used in input-output analysis. The workflow followed the Promptotyping methodology, with six project-specific phases specified in advance as a Markdown document.[^66] Inspect the data, explore it, select research questions, plan the analysis, execute, summarise.
 
@@ -525,4 +525,16 @@ Pollin, Christopher. 'Generative KI: Sommer bis Herbst 2025\. Der Versuch eines 
 [^66]:  Use Case 2 "FIGARO-NAM Agentic Workflow. [https://github.com/chpollin/wiiw-figaro-nam-demo](https://github.com/chpollin/wiiw-figaro-nam-demo). Markdown documents are in the "knowledge" folder.
 
 [image1]: img/asymmetric-claude.png
+[image2]: img/basics-1.png
+[image3]: img/basics-2.png
+[image4]: img/embedding.png
+[image5]: img/basics-3.png
+[image6]: img/Subbarao-Kambhampati.png
+[image7]: img/data-llms.png
+[image8]: img/Informed-Vibe-Coding.png
+[image9]: img/hands-on-R.png
+[image10]: img/let-check.png
+[image11]: img/promptotyping-wiiw.png
+[image12]: img/promptotyping-wiiw-phases.png
+[image13]: img/FIGARO.png
 
