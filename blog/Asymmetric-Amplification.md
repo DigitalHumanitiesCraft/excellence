@@ -43,13 +43,7 @@ keywords: ["Applied Generative AI", "LLM", "Asymmetric Amplification", "Promptot
 
 This text is based on a workshop ([slides](https://docs.google.com/presentation/d/1b-zJ8hyv7FhHXzR5HjMcp2kEtU2WhqCd_cugsMrPdjg/edit?usp=sharing)) held at the Vienna Institute for International Economic Studies (wiiw), an economic research institute focused on Central, East, and Southeast Europe, in February 2026\. It preserves the workshop's alternating structure of theoretical introductions, hands-on exercises, live demonstrations, and discussion blocks. It reads accordingly — more like a guided session than a linear argument.
 
-### Abstract
-
-The leading AI labs are developing their frontier large language models with the explicit goal of automating research. This text argues that what these systems actually do is qualitatively different, but no less disruptive. They do not automate research. They massively amplify computer-based research work, and this amplification is deeply asymmetric. Those who can judge quality, who understand their data and their domain, and who have access to frontier models and the infrastructure behind them, gain disproportionate leverage. Those who cannot are left behind.
-
-The text is structured as a workshop for researchers who want to work productively and critically with frontier LLMs. It opens with a political and institutional framing of the current AI landscape, including the concentration of infrastructure, the European position, and the arms race dynamic between the US and China. A technical foundation covers transformer architecture, embeddings, context windows, and the limitations that make LLMs “jagged, alien intelligences” rather than reliable reasoning systems. A hands-on exercise applies these concepts to a research dataset on international patent cooperation, introducing three competence layers that build on each other: *Computer Literacy*, *Computational Thinking*, and a newly introduced *Informed Vibe Coding*. The text then presents *Promptotyping*, a methodology for the systematic, researcher-centred creation of research tools and workflows using frontier LLMs and *Context Engineering*. Two use cases demonstrate the methodology, one with a domain expert evaluating outputs, one without, using *Deep Research* to approximate missing expertise. The central claim is that the *Critical-Expert-in-the-Loop* is not a safeguard added after the fact but a structural necessity without which these systems produce plausible but unverifiable outputs.
-
-## **“*The big goal that we are working towards is automating research*” (Jakub Pachocki \- OpenAI’s chief scientist)**
+## **"*The big goal that we are working towards is automating research*” (Jakub Pachocki \- OpenAI’s chief scientist)**
 
 I want to start with a provocation. Since at least December 2025, we can observe that the major tech companies, OpenAI, Google, and Anthropic, are actively working toward automating research. And I do not mean this as a vague aspiration. It is their primary strategic goal. Research is one form of knowledge work, arguably among the most demanding. But the business model, as I read it, only works if the automation of knowledge work succeeds broadly, not just in research. The investments being made, *Stargate*[^1], Manhattan-sized data centers[^2], the massive infrastructure buildout in the United States, these are billions that can only be recouped if these systems actually replace significant parts of human knowledge work.
 
@@ -99,7 +93,7 @@ Large Language Models are fundamentally based on **next token prediction**. The 
 
 But context changes the prediction. If the context is “*Christopher is sitting at his desk, programming, the cat sat on the*”, the next token might be “*keyboard*” rather than “*mat*”. The **Transformer architecture**[^36] enables this by processing the relationships between all tokens in the input simultaneously. This produces something that functions like “understanding” of context. The quotation marks around “understanding” are deliberate. Whether this constitutes understanding in any meaningful sense is a deep question we cannot resolve here.[^37] For our purposes, the functional description is sufficient: the model relates all tokens to each other and uses these relationships for prediction. The attention mechanism will become relevant again when we discuss the context window.
 
-The key insight is that this simple mechanism does not stay simple when scaled. The path from GPT-2 (1.5B parameters) to GPT-3 (175B) to GPT-4 shows this. The architecture remained the same, but adding more data and compute produced what the philosopher David Chalmers has called “weakly emergent” capabilities, distinguishing them deliberately from strong emergence. Whether these are genuinely emergent or an artifact of how we measure performance is still debated (Schaeffer et al., 2023). The **scaling laws** (Kaplan et al., 2020\) formalized the relationship between compute, data, parameters, and performance. This connects directly to why we called LLMs “jagged, alien intelligences” earlier: the gap between the simplicity of the mechanism and the complexity of the behavior is what makes these systems difficult to reason about.
+The key insight is that this simple mechanism does not stay simple when scaled. The path from GPT-2 (1.5B parameters) to GPT-3 (175B) to GPT-4 shows this. The architecture remained the same, but adding more data and compute produced what the philosopher David Chalmers has called “weakly emergent” capabilities, distinguishing them deliberately from strong emergence. Whether these are genuinely emergent or an artifact of how we measure performance is still debated.[^67] The **scaling laws**[^68] formalized the relationship between compute, data, parameters, and performance. This connects directly to why we called LLMs “jagged, alien intelligences” earlier: the gap between the simplicity of the mechanism and the complexity of the behavior is what makes these systems difficult to reason about.
 
 **Tokens** are the atomic units of this process. They are not words, not characters, but subword segments determined by the tokenizer. “*Hello World*” becomes three tokens across twelve characters and “*hello*” is a single token. Ask Claude to spell “hello”. It will succeed. But the point is not whether it can, but how. When the model spells correctly, it does so through learned internal representations, not through the character-level procedure a human performs. Anthropic's research on the internal mechanisms of Claude 3.5 Haiku has shown that even simple tasks involve surprisingly complex internal circuits — chains of features that interact in ways their developers did not design and do not fully understand.[^38] The right output, produced through a fundamentally different process. And when the process fails, the model has a second path available. It can write code that spells correctly, solving through tool use what its native architecture handles differently than we do.
 
@@ -166,13 +160,16 @@ And finally there is **never an internal mechanism that verifies outputs**. Mode
 
 What are LLMs actually doing? Three researchers, all serious voices in the field, offer answers that converge in a similar direction but with different levels of radicality.
 
-François Chollet describes **LLMs as “stores of knowledge and programs”** that have stored patterns from the internet as vector programs. When you query an LLM, you retrieve a program from latent space and run it on your data. The model can interpolate between these stored programs, which is why it often produces surprisingly good results. But it cannot deviate from memorized patterns, and generalization is patchy: it fails at genuinely unfamiliar scenarios. In Chollet's framing, prompt engineering is essentially searching for the best "program coordinate" in latent space. Chollet is notably skeptical of LLM capabilities, and yet his ARC-AGI benchmark, designed to test exactly what LLMs supposedly cannot do, abstraction and generalization, is being increasingly solved by frontier models. This does not settle the debate, but it shifts the burden of proof.
+François Chollet describes **LLMs as "stores of knowledge and programs"**[^69] that have stored patterns from the internet as vector programs. When you query an LLM, you retrieve a program from latent space and run it on your data. The model can interpolate between these stored programs, which is why it often produces surprisingly good results. But it cannot deviate from memorized patterns, and generalization is patchy: it fails at genuinely unfamiliar scenarios. In Chollet's framing, prompt engineering is essentially searching for the best "program coordinate" in latent space. Chollet is notably skeptical of LLM capabilities, and yet his ARC-AGI benchmark, designed to test exactly what LLMs supposedly cannot do, abstraction and generalization, is being increasingly solved by frontier models. This does not settle the debate, but it shifts the burden of proof.
 
-Sepp Hochreiter takes a more reductive position. For him, a **large language model is “a database technology”, not artificial intelligence**. It grabs all human knowledge in text and code and stores it. Current reasoning is just "repeating reasoning things which have been already seen". The model cannot create genuinely new concepts or reasoning approaches. Hochreiter is developing xLSTM as an alternative architecture, which means his critique is also a research program.
+Sepp Hochreiter takes a more reductive position. For him, a **large language model is "a database technology", not artificial intelligence**.[^70] It grabs all human knowledge in text and code and stores it. Current reasoning is just "repeating reasoning things which have been already seen". The model cannot create genuinely new concepts or reasoning approaches. Hochreiter is developing xLSTM as an alternative architecture, which means his critique is also a research program.
 
-Subbarao Kambhampati describes LLMs as **“n-gram models on steroids doing approximate retrieval, not reasoning”**. The reasoning we observe is pattern matching that breaks when inputs are obfuscated and needs external verifiers. This connects directly to our previous point about verification and the expert-in-the-loop.
+Subbarao Kambhampati describes LLMs as **"n-gram models on steroids doing approximate retrieval, not reasoning"**.[^71] The reasoning we observe is pattern matching that breaks when inputs are obfuscated and needs external verifiers. This connects directly to our previous point about verification and the expert-in-the-loop.
 
-![][image6]
+<figure>
+<img src="img/Subbarao-Kambhampati.png" alt="Subbarao Kambhampati: LLMs and the boundary of human knowledge">
+<figcaption>Subbarao Kambhampati: LLMs and the boundary of human knowledge</figcaption>
+</figure>
 
 Now look at the diagram on the right. It shows humanity's knowledge as a closure, with procedural and propositional knowledge, common sense, and at the boundary, new discoveries. The critical question for this workshop and for the automation of research that we discussed on slide 2 is: can these systems reach beyond the boundary? Can they produce genuinely new knowledge, or can they only recombine what is already inside the closure?
 
@@ -218,90 +215,11 @@ Here is what I want you to do, and I want to be explicit about the workflow. Do 
 4. Once the basic analysis runs, start asking follow-up questions. Which country pairs cooperate most frequently? How has this changed over time? Can you visualise the top countries as a network? Each follow-up prompt generates new code, and each result opens new questions.  
 5. The most important one. Pick one result, one number, one visualisation, one output that presents itself as a finding, and verify it manually. Look at the actual data in RStudio. Does the number match? Are the axis labels correct? Did the model make an assumption you did not ask for? This is where you are the Critical Expert in the Loop.
 
-The following prompt initiated the exercise.
+The following prompt initiated the exercise. It illustrates the Context Engineering strategy discussed above: instead of uploading the full dataset, the prompt provides a compressed description — column names, data types, a sample of rows, and the research question.
 
 ![][image9]
 
-I have a dataset on international patent cooperation as a weighted edge list.
-
-**Here is the structure:**
-
-\`\`\`  
-glimpse(df)  
-Rows: 137,990  
-Columns: 6  
-$ year\_application \<dbl\> 2013, 2011, 2017, 2018, 2011, 2010, 2016, 2012…  
-$ owner1           \<chr\> "QA3470001011260", "AT1341110434146", "SG00084…  
-$ country\_1        \<chr\> "QA", "AT", "SG", "SA", "DK", "DE", "SK", "FI"…  
-$ owner2           \<chr\> "IN6180001080984", "MC5012401013038", "JP14821…  
-$ country\_2        \<chr\> "IN", "MC", "JP", "LI", "BY", "GR", "CN", "EG"…  
-$ weight           \<dbl\> 5, 4, 4, 5, 2, 3, 2, 3, 3, 2, 8, 2, 4, 3, 3, 5…  
-\`\`\`
-
-**Here are 15 sample rows:**
-
-\`\`\`  
-\> head(df, 15\)
-
-    year\_application          owner1 country\_1          owner2 country\_2
-
-               \<num\>          \<char\>    \<char\>          \<char\>    \<char\>
-
- 1:             2013 QA3470001011260        QA IN6180001080984        IN
-
- 2:             2011 AT1341110434146        AT MC5012401013038        MC
-
- 3:             2017     SG000849327        SG    JP148214588L        JP
-
- 4:             2018    SA132902414L        SA       LIKR75683        LI
-
- 5:             2011    DK6070518285        DK    BY164180403L        BY
-
- 6:             2010    DE169362426L        DE      GR91004103        GR
-
- 7:             2016    SK\*863000131        SK CN2001110378525        CN
-
- 8:             2012    FI8330385155        FI      EG91902435        EG
-
- 9:             2016     NOB73805731        NO      ZA28950255        ZA
-
-10:             2012    CZ126368579L        CZ EG1101113676660        EG
-
-11:             2010      LT17108431        LT KY8250005001432        KY
-
-12:             2012 TH1101113479494        TH    HK277888337L        HK
-
-13:             2013 MD5011201005245        MD FR6010905002126        FR
-
-14:             2013     NZ384449773        NZ    FR135642846L        FR
-
-15:             2016    SE3190220743        SE CW1101114952093        CW
-
-    weight
-
-     \<num\>  
- 1:      5  
- 2:      4  
- 3:      4  
- 4:      5  
- 5:      2  
- 6:      3  
- 7:      2  
- 8:      3  
- 9:      3  
-10:      2  
-11:      8  
-12:      2  
-13:      4  
-14:      3  
-15:      3  
-\`\`\`
-
-\~138.000 rows, \~60 countries, time range 2000–2018.
-
-Research question: How do international patent cooperation patterns evolve over time, and which countries occupy central positions in the cooperation network?
-
-Write R code using tidyverse and ggplot2 for an exploratory analysis.
+**[Download the full prompt (Markdown)](files/prompt-patent-cooperation.md)**
 
 ## **Let the Model Check Its Own Work. But Know What It Can and Cannot See.**
 
@@ -360,36 +278,6 @@ This workshop exists because of the gap between the two. After years of sustaine
 Building local infrastructure without understanding frontier models means building for a world that has already moved on. Working with frontier models without building alternatives means deepening a dependency on systems controlled by a small number of companies in two countries. Researchers, institutions, and policymakers need to pursue both simultaneously, knowing that neither path alone leads to sovereignty or competence.
 
 This text does not resolve the asymmetry it describes. It names it, because naming it is the precondition for any response that does not simply reproduce it.
-
-## **References**
-
-- Bennett, Michael Timothy. 'What the F\*ck Is Artificial General Intelligence?' In Artificial General Intelligence. AGI 2025\. Lecture Notes in Computer Science, vol 16057\. Springer, 2025\. [https://doi.org/10.1007/978-3-032-00686-8\_4](https://doi.org/10.1007/978-3-032-00686-8_4)  
-- Chollet, François. 'François Chollet on OpenAI o-models and ARC'. YouTube, 2024\. [https://youtu.be/w9WE1aOPjHc](https://youtu.be/w9WE1aOPjHc)  
-- Chollet, François. 'Pattern Recognition vs True Intelligence'. YouTube, 2024\. [https://youtu.be/JTU8Ha4Jyfc](https://youtu.be/JTU8Ha4Jyfc)  
-- Hao, Karen. Empire of AI: Dreams and Nightmares in Sam Altman's OpenAI. Penguin Press, 2025\. [https://www.penguinrandomhouse.com/books/743569/empire-of-ai-by-karen-hao/](https://www.penguinrandomhouse.com/books/743569/empire-of-ai-by-karen-hao/)  
-- Hochreiter, Sepp. 'KI Entwicklung, LSTM, OpenAI'. Eduard Heindl Energiegespräch \#100. YouTube. [https://youtu.be/LG1If4ccEDc](https://youtu.be/LG1If4ccEDc)  
-- Hochreiter, Sepp. 'LSTM: The Comeback Story?'. YouTube. [https://youtu.be/8u2pW2zZLCs](https://youtu.be/8u2pW2zZLCs)  
-- Hochreiter, Sepp. 'Prof. Sepp Hochreiter: A Pioneer in Deep Learning'. YouTube. [https://youtu.be/IwdwCmv\_TNY](https://youtu.be/IwdwCmv_TNY)  
-- Hong, K., Troynikov, A., and Huber, J. 'Context Rot: How Increasing Input Tokens Impacts LLM Performance'. Chroma, 2025\. [https://research.trychroma.com/context-rot](https://research.trychroma.com/context-rot)  
-- Kambhampati, Subbarao. '(How) Do LLMs Reason?' Talk given at MILA/ChandarLab. YouTube. [https://youtu.be/VfCoUl1g2PI](https://youtu.be/VfCoUl1g2PI)  
-- Kambhampati, Subbarao. 'AI for Scientific Discovery'. Briefing and Panel Remarks at National Academies Workshop. YouTube. [https://youtu.be/TOIKa\_gKycE](https://youtu.be/TOIKa_gKycE)  
-- Kambhampati, Subbarao. 'Do Reasoning Models Actually Search?'. YouTube. [https://youtu.be/2xFTNXK6AzQ](https://youtu.be/2xFTNXK6AzQ)  
-- Kaplan, Jared, Sam McCandlish, Tom Henighan, et al. 'Scaling Laws for Neural Language Models'. arXiv:2001.08361, 2020\. [https://doi.org/10.48550/arXiv.2001.08361](https://doi.org/10.48550/arXiv.2001.08361)  
-- Lindsey, Jack, et al. 'On the Biology of a Large Language Model'. Anthropic / Transformer Circuits, 2025\. [https://transformer-circuits.pub/2025/attribution-graphs/biology.html](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)  
-- Malmqvist, L. 'Sycophancy in Large Language Models: Causes and Mitigations'. 2024\. [https://arxiv.org/abs/2411.15287v1](https://arxiv.org/abs/2411.15287v1)  
-- Mei, Lingrui, Jiayu Yao, Yuyao Ge, et al. 'A Survey of Context Engineering for Large Language Models'. arXiv:2507.13334, 2025\. [https://doi.org/10.48550/arXiv.2507.13334](https://doi.org/10.48550/arXiv.2507.13334)  
-- Mollick, Ethan. Co-Intelligence: Living and Working with AI. Portfolio/Penguin, 2024\. [https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/](https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/)  
-- Mollick, Ethan. 'Three Years from GPT-3 to Gemini 3: From Chatbots to Agents'. One Useful Thing, 18 November 2025\. [https://www.oneusefulthing.org/p/three-years-from-gpt-3-to-gemini](https://www.oneusefulthing.org/p/three-years-from-gpt-3-to-gemini)   
-- Munzner, Tamara. Visualization Analysis and Design. CRC Press, 2014\. [https://doi.org/10.1201/b17511](https://doi.org/10.1201/b17511)  
-- Pollin, Christopher. 'Generative KI: Sommer bis Herbst 2025\. Der Versuch eines Überblicks'. AGKI-DH Webinar, 17 Oktober 2025\. [https://agki-dh.github.io/pages/webinar/page-16.html](https://agki-dh.github.io/pages/webinar/page-16.html)  
-- Pollin, Christopher. 'Promptotyping: Zwischen Vibe Coding, Vibe Research und Context Engineering'. L.I.S.A. Wissenschaftsportal Gerda Henkel Stiftung, 17 January 2026\. [https://lisa.gerda-henkel-stiftung.de/digitale\_geschichte\_pollin](https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin)  
-- Pollin, Christopher. 'System 1.42: Wie (Frontier-)LLMs "tatsächlich" funktionieren'. Digital Humanities Craft, 1 July 2025\. [https://dhcraft.org/excellence/blog/System1-42](https://dhcraft.org/excellence/blog/System1-42)  
-- Pollin, Christopher. 'Workshopreihe "Angewandte Generative KI in den (digitalen) Geisteswissenschaften"' (v1.1.0). Zenodo, 2025\. [https://doi.org/10.5281/zenodo.10647754](https://doi.org/10.5281/zenodo.10647754)  
-- Sapkota, Ranjan, Konstantinos I. Roumeliotis, and Manoj Karkee. 'AI Agents vs. Agentic AI: A Conceptual Taxonomy, Applications and Challenges'. Information Fusion 126 (2025): 103599\. [https://doi.org/10.1016/j.inffus.2025.103599](https://doi.org/10.1016/j.inffus.2025.103599)  
-- Schaeffer, Rylan, Brando Miranda, and Sanmi Koyejo. 'Are Emergent Abilities of Large Language Models a Mirage?' NeurIPS 2023\. [https://arxiv.org/abs/2304.15004](https://arxiv.org/abs/2304.15004)  
-- Schulhoff, Sander, Michael Ilie, Nishant Balepur, et al. 'The Prompt Report: A Systematic Survey of Prompt Engineering Techniques'. arXiv:2406.06608, 2025\. [https://doi.org/10.48550/arXiv.2406.06608](https://doi.org/10.48550/arXiv.2406.06608)  
-- Summerfield, Christopher. These Strange New Minds: How AI Learned to Talk and What It Means. Viking, 2025\. [https://www.penguinrandomhouse.com/books/750406/these-strange-new-minds-by-christopher-summerfield/9780593831717/](https://www.penguinrandomhouse.com/books/750406/these-strange-new-minds-by-christopher-summerfield/9780593831717/)  
-- Vaswani, Ashish, Noam Shazeer, Niki Parmar, et al. 'Attention Is All You Need'. NeurIPS 2017\. [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
 
 [^1]:  Inside OpenAI's Stargate Megafactory with Sam Altman | The Circuit. [https://youtu.be/GhIJs4zbH0o](https://youtu.be/GhIJs4zbH0o)
 
@@ -523,6 +411,16 @@ Pollin, Christopher. 'Generative KI: Sommer bis Herbst 2025\. Der Versuch eines 
 [^65]:  Pollin, Christopher. "Promptotyping: Zwischen Vibe Coding, Vibe Research und Context Engineering." L.I.S.A. Wissenschaftsportal Gerda Henkel Stiftung, 17 January 2026\. [https://lisa.gerda-henkel-stiftung.de/digitale\_geschichte\_pollin](https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin)
 
 [^66]:  Use Case 2 "FIGARO-NAM Agentic Workflow. [https://github.com/chpollin/wiiw-figaro-nam-demo](https://github.com/chpollin/wiiw-figaro-nam-demo). Markdown documents are in the "knowledge" folder.
+
+[^67]:  Schaeffer, Rylan, Brando Miranda, and Sanmi Koyejo. 'Are Emergent Abilities of Large Language Models a Mirage?' NeurIPS 2023\. [https://arxiv.org/abs/2304.15004](https://arxiv.org/abs/2304.15004)
+
+[^68]:  Kaplan, Jared, Sam McCandlish, Tom Henighan, et al. 'Scaling Laws for Neural Language Models'. arXiv:2001.08361, 2020\. [https://doi.org/10.48550/arXiv.2001.08361](https://doi.org/10.48550/arXiv.2001.08361)
+
+[^69]:  Chollet, François. 'Pattern Recognition vs True Intelligence'. YouTube, 2024\. [https://youtu.be/JTU8Ha4Jyfc](https://youtu.be/JTU8Ha4Jyfc). See also: 'François Chollet on OpenAI o-models and ARC'. [https://youtu.be/w9WE1aOPjHc](https://youtu.be/w9WE1aOPjHc)
+
+[^70]:  Hochreiter, Sepp. 'KI Entwicklung, LSTM, OpenAI'. Eduard Heindl Energiegespräch \#100. YouTube. [https://youtu.be/LG1If4ccEDc](https://youtu.be/LG1If4ccEDc). See also: 'LSTM: The Comeback Story?'. [https://youtu.be/8u2pW2zZLCs](https://youtu.be/8u2pW2zZLCs); 'Prof. Sepp Hochreiter: A Pioneer in Deep Learning'. [https://youtu.be/IwdwCmv\_TNY](https://youtu.be/IwdwCmv_TNY)
+
+[^71]:  Kambhampati, Subbarao. '(How) Do LLMs Reason?' Talk given at MILA/ChandarLab. YouTube. [https://youtu.be/VfCoUl1g2PI](https://youtu.be/VfCoUl1g2PI). See also: 'AI for Scientific Discovery'. [https://youtu.be/TOIKa\_gKycE](https://youtu.be/TOIKa_gKycE); 'Do Reasoning Models Actually Search?'. [https://youtu.be/2xFTNXK6AzQ](https://youtu.be/2xFTNXK6AzQ)
 
 [image1]: img/asymmetric-claude.png
 [image2]: img/basics-1.png
