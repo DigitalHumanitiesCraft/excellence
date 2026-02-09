@@ -1,6 +1,39 @@
-# **Asymmetric Amplification. Why AI Does Not Automate Research — But Disruptively Amplifies Computer-Based Research Work**
+---
+layout: post
+title: "Asymmetric Amplification. Why AI Does Not Automate Research — But Disruptively Amplifies Computer-Based Research Work"
+author: "Christopher Pollin"
+date: 2026-02-09
+published: true
 
-## Christopher Pollin, Digital Humanities Craft
+# Spezifische Metadaten für diesen Post
+citation:
+  type: "blog-post"
+  container-title: "Digital Humanities Craft"
+  URL: "https://dhcraft.org/excellence/blog/Asymmetric-Amplification"
+  language: "en"
+  abstract: "The leading AI labs are developing their frontier large language models with the explicit goal of automating research. This text argues that what these systems actually do is qualitatively different, but no less disruptive. They do not automate research. They massively amplify computer-based research work, and this amplification is deeply asymmetric. Those who can judge quality, who understand their data and their domain, and who have access to frontier models and the infrastructure behind them, gain disproportionate leverage. Those who cannot are left behind. The text is structured as a workshop for researchers who want to work productively and critically with frontier LLMs."
+
+dublin_core:
+  creator: "Christopher Pollin"
+  publisher: "Digital Humanities Craft"
+  subject: ["Applied Generative AI", "LLM", "Digital Humanities", "Promptotyping", "Context Engineering", "AI Literacy", "Research Methodology"]
+  description: "The leading AI labs are developing their frontier large language models with the explicit goal of automating research. This text argues that what these systems actually do is qualitatively different, but no less disruptive. They do not automate research. They massively amplify computer-based research work, and this amplification is deeply asymmetric. Those who can judge quality, who understand their data and their domain, and who have access to frontier models and the infrastructure behind them, gain disproportionate leverage. Those who cannot are left behind. The text is structured as a workshop for researchers who want to work productively and critically with frontier LLMs."
+  type: "Blogpost"
+  format: "text/html"
+  rights: "CC BY 4.0"
+  language: "en"
+
+coins_data:
+  rft_type: "blogPost"  # Standard COinS Format
+
+website_title: "Digital Humanities Craft"
+website_type: "Blog"
+short_title: "Asymmetric Amplification"
+abstract: "The leading AI labs are developing their frontier large language models with the explicit goal of automating research. This text argues that what these systems actually do is qualitatively different, but no less disruptive. They do not automate research. They massively amplify computer-based research work, and this amplification is deeply asymmetric. Those who can judge quality, who understand their data and their domain, and who have access to frontier models and the infrastructure behind them, gain disproportionate leverage. Those who cannot are left behind. The text is structured as a workshop for researchers who want to work productively and critically with frontier LLMs."
+
+schema_type: "BlogPosting"
+keywords: ["Applied Generative AI", "LLM", "Asymmetric Amplification", "Promptotyping", "Context Engineering", "AI Literacy", "Critical Expert in the Loop", "Research Methodology", "Frontier Models"]
+---
 
 ![][image1]
 
