@@ -37,13 +37,11 @@ keywords: ["Applied Generative AI", "LLM", "Asymmetric Amplification", "Promptot
 
 ![][image1]
 
-# **Asymmetric Amplification. Why AI Does Not Automate Research — But Disruptively Amplifies Computer-Based Research Work**
-
-## Christopher Pollin, Digital Humanities Craft
-
 This text is based on a workshop ([slides](https://docs.google.com/presentation/d/1b-zJ8hyv7FhHXzR5HjMcp2kEtU2WhqCd_cugsMrPdjg/edit?usp=sharing)) held at the Vienna Institute for International Economic Studies (wiiw), an economic research institute focused on Central, East, and Southeast Europe, in February 2026\. It preserves the workshop's alternating structure of theoretical introductions, hands-on exercises, live demonstrations, and discussion blocks. It reads accordingly — more like a guided session than a linear argument.
 
-## **"*The big goal that we are working towards is automating research*” (Jakub Pachocki \- OpenAI’s chief scientist)**
+## "The big goal that we are working towards is automating research” 
+
+- Jakub Pachocki \- OpenAI’s chief scientist
 
 I want to start with a provocation. Since at least December 2025, we can observe that the major tech companies, OpenAI, Google, and Anthropic, are actively working toward automating research. And I do not mean this as a vague aspiration. It is their primary strategic goal. Research is one form of knowledge work, arguably among the most demanding. But the business model, as I read it, only works if the automation of knowledge work succeeds broadly, not just in research. The investments being made, *Stargate*[^1], Manhattan-sized data centers[^2], the massive infrastructure buildout in the United States, these are billions that can only be recouped if these systems actually replace significant parts of human knowledge work.
 
@@ -215,11 +213,9 @@ Here is what I want you to do, and I want to be explicit about the workflow. Do 
 4. Once the basic analysis runs, start asking follow-up questions. Which country pairs cooperate most frequently? How has this changed over time? Can you visualise the top countries as a network? Each follow-up prompt generates new code, and each result opens new questions.  
 5. The most important one. Pick one result, one number, one visualisation, one output that presents itself as a finding, and verify it manually. Look at the actual data in RStudio. Does the number match? Are the axis labels correct? Did the model make an assumption you did not ask for? This is where you are the Critical Expert in the Loop.
 
-The following prompt initiated the exercise. It illustrates the Context Engineering strategy discussed above: instead of uploading the full dataset, the prompt provides a compressed description — column names, data types, a sample of rows, and the research question.
+The following prompt initiated the exercise. It illustrates the Context Engineering strategy discussed above: instead of uploading the full dataset, the prompt provides a compressed description — column names, data types, a sample of rows, and the research question. The screenshot below shows the prompt in context. The full prompt is available as a [separate Markdown file](files/prompt-patent-cooperation.md) for download and reuse.
 
 ![][image9]
-
-**[Download the full prompt (Markdown)](files/prompt-patent-cooperation.md)**
 
 ## **Let the Model Check Its Own Work. But Know What It Can and Cannot See.**
 
