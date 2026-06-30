@@ -1,0 +1,47 @@
+<svg viewBox="0 0 600 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematisches Motiv der agentischen Editionspipeline und ihrer Verifikation">
+  <defs>
+    <linearGradient id="amp" x1="300" y1="300" x2="572" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#667eea" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#667eea" stop-opacity="0.06"/>
+    </linearGradient>
+    <radialGradient id="node" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#cdd4ff"/><stop offset="0.5" stop-color="#667eea"/><stop offset="1" stop-color="#667eea" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- pipeline spine -->
+  <line x1="120" y1="90" x2="120" y2="430" stroke="#2f3645" stroke-width="2"/>
+
+  <!-- stages -->
+  <!-- 1 det -->
+  <circle cx="120" cy="90" r="12" fill="#0e1014" stroke="#5ec6a8" stroke-width="2.5"/>
+  <line x1="140" y1="90" x2="186" y2="90" stroke="#5ec6a8" stroke-width="1.4" opacity="0.55"/>
+  <!-- 2 llm (opaque step, emits fan) -->
+  <circle cx="120" cy="175" r="13" fill="url(#node)"/><circle cx="120" cy="175" r="5" fill="#eef0ff"/>
+  <!-- 3 det -->
+  <circle cx="120" cy="260" r="12" fill="#0e1014" stroke="#5ec6a8" stroke-width="2.5"/>
+  <line x1="140" y1="260" x2="186" y2="260" stroke="#5ec6a8" stroke-width="1.4" opacity="0.55"/>
+  <!-- 4 hybrid -->
+  <circle cx="120" cy="345" r="12" fill="#0e1014" stroke="#667eea" stroke-width="2.5"/>
+  <path d="M108 345 a12 12 0 0 1 24 0" fill="#5ec6a8" opacity="0.5"/>
+  <!-- 5 validierung det -->
+  <circle cx="120" cy="430" r="12" fill="#0e1014" stroke="#5ec6a8" stroke-width="2.5"/>
+
+  <!-- amplification fan from opaque step -->
+  <g stroke-linecap="round" fill="none">
+    <path d="M120 175 Q 330 120 572 96"  stroke="url(#amp)" stroke-width="2.2" opacity="0.85"/>
+    <path d="M120 175 Q 330 160 572 160" stroke="url(#amp)" stroke-width="2.6" opacity="0.95"/>
+    <path d="M120 175 Q 330 205 572 232" stroke="url(#amp)" stroke-width="2"   opacity="0.6"/>
+    <path d="M120 175 Q 330 245 572 308" stroke="url(#amp)" stroke-width="1.7" opacity="0.45"/>
+  </g>
+  <g stroke="#667eea" fill="none" opacity="0.3">
+    <circle cx="120" cy="175" r="30" stroke-width="1.2"/>
+    <circle cx="120" cy="175" r="52" stroke-width="1"/>
+  </g>
+
+  <!-- human verification node -->
+  <circle cx="430" cy="430" r="16" fill="#0e1014" stroke="#c2683c" stroke-width="2.5"/>
+  <path d="M423 430 l5 6 l10 -13" stroke="#e0a07f" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="132" y1="430" x2="414" y2="430" stroke="#2f3645" stroke-width="2" stroke-dasharray="2 6"/>
+  <text x="430" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#8b909c">Urteilskraft</text>
+</svg>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'de' }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <title>{{ page.title }} | Digital Humanities Craft</title>
+  <meta name="description" content="{{ page.description }}" />
+  <meta name="author" content="{{ page.author | default: site.author.name }}" />
+  {% if page.keywords %}<meta name="keywords" content="{{ page.keywords | join: ', ' }}" />{% endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.description }}" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  <meta property="og:image" content="{{ page.og_image }}" />
+  <meta property="og:site_name" content="Digital Humanities Craft" />
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Citation meta (Zotero/Scholar) -->
+  <meta name="citation_title" content="{{ page.title }}. {{ page.subtitle }}" />
+  <meta name="citation_author" content="{{ page.author | default: site.author.name }}" />
+  <meta name="citation_publication_date" content="{{ page.date | date: '%Y/%m/%d' }}" />
+  <meta name="citation_journal_title" content="Digital Humanities Craft" />
+  <meta name="citation_language" content="{{ page.lang | default: 'de' }}" />
+
+  <!-- Favicon (served from parent site in production) -->
+  <link rel="icon" href="/assets/img/favicon/excellence/icon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="/assets/img/favicon/excellence/favicon.ico" sizes="any" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "alternativeHeadline": {{ page.subtitle | jsonify }},
+    "description": {{ page.description | jsonify }},
+    "inLanguage": "{{ page.lang | default: 'de' }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "author": { "@type": "Person", "name": {{ page.author | default: site.author.name | jsonify }} },
+    "publisher": { "@type": "Organization", "name": "Digital Humanities Craft" },
+    "keywords": {{ page.keywords | join: ', ' | jsonify }},
+    "mainEntityOfPage": "{{ page.url | absolute_url }}",
+    "image": {{ page.og_image | jsonify }}
+  }
+  </script>
+
+  <style>
+    :root {
+      --ink:        #15171e;
+      --ink-soft:   #3a3f4c;
+      --muted:      #6b7280;
+      --paper:      #f6f3ec;
+      --paper-card: #fbf9f4;
+      --line:       #e2dccf;
+      --hero-bg:    #0e1014;
+      --hero-bg-2:  #181c26;
+      --hero-text:  #ece8df;
+      --accent:     #667eea;
+      --accent-ink: #4b54b8;
+      --human:      #c2683c;
+      --serif:      "Source Serif 4", Georgia, "Times New Roman", serif;
+      --display:    "Fraunces", Georgia, serif;
+      --mono:       "IBM Plex Mono", "SF Mono", Menlo, monospace;
+      --measure:    40rem;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: var(--serif); font-size: 1.18rem; line-height: 1.75;
+      font-optical-sizing: auto; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    a { color: var(--accent-ink); text-underline-offset: 0.18em; text-decoration-thickness: 0.06em; }
+    a:hover { color: var(--accent); }
+    .wrap { width: 100%; max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Mini-Header */
+    .mini-header { border-bottom: 1px solid var(--line); background: var(--paper); }
+    .mini-header .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 1.1rem; padding-bottom: 1.1rem; }
+    .wordmark { font-family: var(--display); font-weight: 600; font-size: 0.92rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .wordmark span { color: var(--accent-ink); }
+    .nav-back { font-family: var(--display); font-size: 0.86rem; letter-spacing: 0.04em; text-decoration: none; color: var(--muted); }
+    .nav-back:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero { background: radial-gradient(120% 120% at 80% 0%, var(--hero-bg-2) 0%, var(--hero-bg) 60%); color: var(--hero-text); overflow: hidden; }
+    .hero .wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.5rem; align-items: center; padding-top: 5rem; padding-bottom: 5rem; }
+    .kicker { font-family: var(--display); margin: 0 0 1.4rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
+    .hero-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.6rem, 6.5vw, 4.6rem); line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 1.3rem; }
+    .hero-subtitle { font-family: var(--serif); font-size: clamp(1.1rem, 2.2vw, 1.4rem); line-height: 1.45; font-weight: 400; color: #c7c3ba; max-width: 40ch; margin: 0 0 1.8rem; }
+    .hero-meta { font-family: var(--display); font-size: 0.92rem; letter-spacing: 0.05em; color: #8b909c; margin: 0; }
+    .hero-figure { margin: 0; }
+    .hero-figure img { width: 100%; height: auto; display: block; }
+
+    /* Article */
+    .manifest { max-width: var(--measure); margin: 0 auto; padding: 4.5rem 1.5rem 2rem; counter-reset: ch; }
+    .manifest > p { margin: 0 0 1.5rem; hyphens: auto; }
+    .manifest > p:first-of-type::first-letter { font-family: var(--display); font-weight: 800; float: left; font-size: 4.6rem; line-height: 0.78; padding: 0.35rem 0.6rem 0 0; color: var(--accent-ink); }
+    .manifest h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.12; letter-spacing: -0.015em; margin: 3.6rem 0 1.3rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+    .manifest h2::before { counter-increment: ch; content: counter(ch, decimal-leading-zero); display: block; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 0.5rem; font-family: var(--display); }
+    .manifest blockquote { margin: 2.6rem 0; padding: 0.2rem 0 0.2rem 1.6rem; border-left: 4px solid var(--accent); font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.3rem, 3vw, 1.6rem); line-height: 1.32; color: var(--ink); }
+    .manifest blockquote p { margin: 0; }
+    .manifest em { font-style: italic; }
+    .manifest strong { font-weight: 700; }
+    .manifest code { font-family: var(--mono); font-size: 0.86em; background: #efeadf; padding: 0.1em 0.35em; border-radius: 4px; }
+
+    /* Footnotes */
+    .manifest .footnotes { margin-top: 3.5rem; padding-top: 1.6rem; border-top: 1px solid var(--line); font-family: var(--serif); font-size: 0.92rem; line-height: 1.6; color: var(--muted); }
+    .manifest .footnotes ol { padding-left: 1.2rem; }
+    .manifest .footnotes li { margin-bottom: 0.6rem; }
+    .manifest sup a, .manifest a.footnote { color: var(--accent-ink); text-decoration: none; font-weight: 600; }
+
+    /* ---------- Interactive panel ---------- */
+    .io-figure { max-width: 60rem; margin: 3rem auto; padding: 0; }
+    .io-panel { background: var(--hero-bg); color: #d6d9e0; border-radius: 14px; overflow: hidden; box-shadow: 0 18px 50px rgba(14,16,20,0.18); font-family: var(--serif); }
+    .io-head { padding: 1.3rem 1.5rem 0; }
+    .io-eyebrow { font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7f8492; margin: 0 0 0.9rem; }
+    .io-tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .io-tab { font-family: var(--display); font-size: 0.82rem; letter-spacing: 0.03em; color: #aab0bd; background: transparent; border: 1px solid #2b303b; border-bottom: none; border-radius: 8px 8px 0 0; padding: 0.55rem 1rem; cursor: pointer; transition: all 0.18s ease; }
+    .io-tab:hover { color: #fff; }
+    .io-tab[aria-selected="true"] { background: #1b2030; color: #fff; border-color: var(--accent); }
+    .io-body { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 1.4rem; padding: 1.4rem 1.5rem 1.6rem; border-top: 1px solid #2b303b; }
+    .io-detail { font-size: 0.98rem; line-height: 1.6; }
+    .io-detail .io-d-tag { display: inline-block; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2em 0.6em; border-radius: 999px; margin-bottom: 0.7rem; }
+    .io-detail h4 { font-family: var(--display); font-size: 1.15rem; color: #fff; margin: 0 0 0.6rem; line-height: 1.2; }
+    .io-detail p { margin: 0 0 0.6rem; color: #c2c7d2; }
+    .io-detail .io-d-check { font-size: 0.86rem; color: #9aa0ad; border-top: 1px dashed #2b303b; padding-top: 0.6rem; margin-top: 0.7rem; }
+    .io-detail .io-d-check b { color: var(--accent); font-weight: 600; }
+    .io-viz { display: flex; flex-direction: column; gap: 0.4rem; }
+    .io-item { display: flex; align-items: center; gap: 0.7rem; text-align: left; width: 100%; background: #14171f; border: 1px solid #262c39; color: #c2c7d2; border-radius: 9px; padding: 0.7rem 0.85rem; cursor: pointer; font-family: var(--serif); font-size: 0.92rem; transition: all 0.16s ease; }
+    .io-item:hover { border-color: #3a4150; background: #181c26; }
+    .io-item[aria-selected="true"] { border-color: var(--accent); background: #1b2030; color: #fff; }
+    .io-item .io-num { font-family: var(--mono); font-size: 0.72rem; color: #7f8492; min-width: 1.4em; }
+    .io-item .io-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+    .io-dot.det { background: #5ec6a8; }
+    .io-dot.llm { background: var(--accent); }
+    .io-dot.hyb { background: linear-gradient(90deg, #5ec6a8 50%, var(--accent) 50%); }
+    .io-dot.auto { background: #5ec6a8; }
+    .io-dot.human { background: var(--human); }
+    .io-divider { font-family: var(--display); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--human); margin: 0.5rem 0 0.2rem; padding-left: 0.2rem; }
+    .io-legend { display: flex; gap: 1.1rem; flex-wrap: wrap; font-size: 0.74rem; color: #8b909c; padding: 0 1.5rem 1.3rem; }
+    .io-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .io-legend i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+    .io-status-grid { display: grid; grid-template-columns: auto repeat(3, 1fr); gap: 0.35rem; align-items: center; }
+    .io-status-grid .io-sg-h { font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: #7f8492; text-align: center; padding-bottom: 0.2rem; }
+    .io-status-grid .io-sg-row { font-family: var(--mono); font-size: 0.8rem; color: #c2c7d2; }
+    .io-cell { height: 1.7rem; border-radius: 6px; border: 1px solid #262c39; }
+    .io-cell.s0 { background: #1b1d22; }
+    .io-cell.s1 { background: rgba(102,126,234,0.28); border-color: var(--accent); }
+    .io-cell.s2 { background: rgba(94,198,168,0.30); border-color: #5ec6a8; }
+    .io-figcap { font-family: var(--serif); font-size: 0.86rem; color: var(--muted); margin-top: 0.8rem; text-align: left; line-height: 1.5; }
+
+    /* Mini-Footer */
+    .mini-footer { background: var(--hero-bg); color: #b9bdc7; }
+    .mini-footer .wrap { padding-top: 3rem; padding-bottom: 3rem; }
+    .cite-label { font-family: var(--display); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7f8492; margin: 0 0 0.8rem; }
+    .cite-text { font-family: var(--serif); font-size: 0.98rem; line-height: 1.6; color: #d6d9e0; margin: 0 0 1.6rem; max-width: 54rem; }
+    .cite-text a { color: var(--accent); }
+    .footer-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .btn-copy, .btn-blog { font-family: var(--display); font-size: 0.84rem; letter-spacing: 0.04em; border: 1px solid #2b303b; background: transparent; color: #d6d9e0; padding: 0.55rem 1.1rem; border-radius: 999px; cursor: pointer; text-decoration: none; transition: all 0.2s ease; }
+    .btn-copy:hover, .btn-blog:hover { border-color: var(--accent); color: #fff; }
+
+    @media (max-width: 768px) {
+      body { font-size: 1.08rem; }
+      .hero .wrap { grid-template-columns: 1fr; gap: 2rem; padding-top: 3.5rem; padding-bottom: 3.5rem; }
+      .hero-figure { order: -1; max-width: 60%; }
+      .manifest { padding-top: 3rem; }
+      .manifest > p:first-of-type::first-letter { font-size: 3.6rem; }
+      .io-body { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero-figure { max-width: 75%; }
+      .manifest h2 { margin-top: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="mini-header">
+    <div class="wrap">
+      <a class="wordmark" href="https://dhcraft.org/excellence/">DHCraft <span>Excellence</span></a>
+      <a class="nav-back" href="{{ site.baseurl }}/blog/">← Forschungsblog</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-text">
+          <p class="kicker">Forschungsblog · Agentic Engineering</p>
+          <h1 class="hero-title">{{ page.title }}</h1>
+          <p class="hero-subtitle">{{ page.subtitle }}</p>
+          <p class="hero-meta">{{ page.author | default: site.author.name }} · {{ page.date | date: "%d.%m.%Y" }}</p>
+        </div>
+        <figure class="hero-figure">
+          <img src="{{ site.baseurl }}/blog/{{ page.hero_image }}" alt="Schematisches Motiv der agentischen Editionspipeline und ihrer Verifikation" />
+        </figure>
+      </div>
+    </section>
+
+    <article class="manifest">
+      {{ content }}
+    </article>
+  </main>
+
+  <footer class="mini-footer">
+    <div class="wrap">
+      <p class="cite-label">Zitiervorschlag</p>
+      <p class="cite-text" id="citation">Pollin, Christopher. „{{ page.title }}. {{ page.subtitle }}". Digital Humanities Craft, {{ page.date | date: "%d.%m.%Y" }}. <a href="{{ page.url | absolute_url }}">{{ page.url | absolute_url }}</a></p>
+      <div class="footer-actions">
+        <button class="btn-copy" id="copyCite" type="button">Zitat kopieren</button>
+        <a class="btn-blog" href="{{ site.baseurl }}/blog/">Zurück zum Forschungsblog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // ---- Citation copy ----
+      var btn = document.getElementById('copyCite'), cite = document.getElementById('citation');
+      if (btn && cite && navigator.clipboard) {
+        btn.addEventListener('click', function () {
+          navigator.clipboard.writeText(cite.innerText).then(function () {
+            var t = btn.textContent; btn.textContent = 'Kopiert';
+            setTimeout(function () { btn.textContent = t; }, 2000);
+          });
+        });
+      }
+
+      // ---- Interactive pipeline/verification panel ----
+      var mount = document.getElementById('io-panel');
+      if (!mount) return;
+
+      var KIND = {
+        det:  { cls: 'det',   label: 'deterministisch' },
+        llm:  { cls: 'llm',   label: 'LLM-Schritt' },
+        hyb:  { cls: 'hyb',   label: 'hybrid (Regel + LLM)' },
+        auto: { cls: 'auto',  label: 'automatisierbar' },
+        human:{ cls: 'human', label: 'menschliches Urteil' }
+      };
+
+      var DATA = {
+        pipeline: {
+          eyebrow: 'Pipeline · sechs Stufen',
+          legend: [['det','deterministisch'],['llm','LLM-Schritt'],['hyb','hybrid']],
+          items: [
+            { n:'01', t:'Bilderzeugung', k:'det', d:'Aus jedem PDF werden Seitenbilder (PNG) erzeugt, die gemeinsame Referenz aller bildbezogenen Folgeschritte.', c:'Vollständigkeit der Seiten gegen das Original.' },
+            { n:'02', t:'Klassifikation', k:'llm', d:'Ein Modell bestimmt Dokumenttyp und Sprache und damit die Verarbeitungsstrategie. Für Sprachmetadaten behält die kuratierte Masterfile Vorrang.', c:'Typ und Sprache gegen den Katalog.' },
+            { n:'03', t:'OCR / HTR', k:'det', d:'Texterkennung als Markdown pro Seite (OCR im Druckfall, Vision-Modell im Handschriftenfall). Eine LLM-Postkorrektur bleibt optional, weil sie bei niedriger Fehlerrate schadet.', c:'Erkannter Text gegen das Faksimile.' },
+            { n:'04', t:'Layoutanalyse', k:'hyb', d:'Ein quelloffenes Werkzeug erkennt Regionen, ein Modell prüft, korrigiert oder detektiert neu. Beide Versionen bleiben als Dateien erhalten, Provenienz dokumentiert. Parallel PAGE-XML mit METS.', c:'Regionen-Overlay auf dem Seitenbild.' },
+            { n:'05', t:'TEI-Auszeichnung', k:'hyb', d:'Regelbasiertes Gerüst aus Metadaten, LLM-Überführung von Text und Regionen in TEI-Fragmente (DTA-Basisformat), regelbasierte Assembly. Strukturen oberhalb der Seite bleiben der Kuratierung vorbehalten.', c:'Struktur und Auszeichnung.' },
+            { n:'06', t:'Validierung', k:'det', d:'Validierung gegen ein aus einer ODD-Spezifikation generiertes RelaxNG-Schema. Die Erzeugungsprovenienz wandert in den revisionDesc des TEI-Headers.', c:'Schema-Validität (formal, nicht semantisch).' }
+          ]
+        },
+        verifikation: {
+          eyebrow: 'Verifikation · fünf Prüfwege',
+          legend: [['auto','automatisierbar'],['human','menschliches Urteil']],
+          items: [
+            { n:'1', t:'Plaintext-Vergleich', k:'auto', d:'Abgleich des reinen Textes gegen die Referenz, die unterste, härteste Schicht.', c:'Maschinell prüfbar.' },
+            { n:'2', t:'Schema-Validierung', k:'auto', d:'RelaxNG aus ODD. Betrifft die formale Gültigkeit, nicht die semantische Korrektheit.', c:'Maschinell prüfbar.' },
+            { n:'3', t:'XPath- / Projektregeln', k:'auto', d:'Projektspezifische Regeln über die Grammatik hinaus, als Warnregeln dokumentiert.', c:'Maschinell prüfbar.' },
+            { n:'4', t:'LLM-as-a-Judge', k:'auto', d:'Cross-Provider-Prüfung durch ein zweites Modell eines anderen Anbieters. Dient der Priorisierung des menschlichen Reviews und ersetzt es nicht. Selbstbewertung durch dasselbe Modell ist ausgeschlossen.', c:'Maschinell, aber nur priorisierend.' },
+            { n:'5', t:'Expert-Review', k:'human', d:'Die nicht automatisierbare Stufe. Domänenexpertise, technisches Modellverständnis und metakognitive Wachsamkeit gegenüber dem nicht explorierten Möglichkeitsraum.', c:'Nur durch den Critical-Expert-in-the-Loop.' }
+          ]
+        },
+        status: {
+          eyebrow: 'Statusmodell · drei Ströme',
+          note: 'Jedes Dokument führt für die drei Datenströme je einen von drei Zuständen. Der Status wird ausschließlich von Menschen gesetzt, mit Zeitpunkt und Kürzel protokolliert und in den revisionDesc des TEI-Headers projiziert.'
+        }
+      };
+
+      function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+      var panel = el('div', 'io-panel');
+      var head = el('div', 'io-head');
+      var eyebrow = el('p', 'io-eyebrow', DATA.pipeline.eyebrow);
+      var tabs = el('div', 'io-tabs');
+      var TABKEYS = [['pipeline','Pipeline'],['verifikation','Verifikation'],['status','Status']];
+      head.appendChild(eyebrow); head.appendChild(tabs);
+      var body = el('div', 'io-body');
+      var legend = el('div', 'io-legend');
+      panel.appendChild(head); panel.appendChild(body); panel.appendChild(legend);
+
+      var figcap = el('figcaption', 'io-figcap', 'Schematische Ansicht der agentischen Editionspipeline ohne Projektzahlen. Tabs wechseln zwischen den sechs Stufen, den fünf Prüfwegen und dem Drei-Strom-Statusmodell; ein Klick öffnet die Stufe.');
+
+      var state = { tab: 'pipeline', sel: 0 };
+
+      function renderLegend(items) {
+        legend.innerHTML = '';
+        items.forEach(function (l) {
+          var s = el('span'); var i = el('i'); i.className = '';
+          i.style.background = ({det:'#5ec6a8', llm:'#667eea', hyb:'#667eea', auto:'#5ec6a8', human:'#c2683c'})[l[0]] || '#888';
+          if (l[0] === 'hyb') i.style.background = 'linear-gradient(90deg,#5ec6a8 50%,#667eea 50%)';
+          s.appendChild(i); s.appendChild(document.createTextNode(l[1])); legend.appendChild(s);
+        });
+      }
+
+      function renderDetail(item, kind) {
+        var d = el('div', 'io-detail');
+        var k = KIND[kind || item.k];
+        var tag = el('span', 'io-d-tag');
+        tag.textContent = k.label;
+        tag.style.color = '#0e1014';
+        tag.style.background = ({det:'#5ec6a8', llm:'#aab4ff', hyb:'#9fd9c8', auto:'#5ec6a8', human:'#e0a07f'})[item.k] || '#aaa';
+        d.appendChild(tag);
+        d.appendChild(el('h4', null, item.t));
+        d.appendChild(el('p', null, item.d));
+        if (item.c) { var c = el('div', 'io-d-check', '<b>Prüfpunkt</b> · ' + item.c); d.appendChild(c); }
+        return d;
+      }
+
+      function render() {
+        // tabs
+        tabs.innerHTML = '';
+        TABKEYS.forEach(function (tk) {
+          var b = el('button', 'io-tab'); b.textContent = tk[1]; b.type = 'button';
+          b.setAttribute('aria-selected', state.tab === tk[0] ? 'true' : 'false');
+          b.addEventListener('click', function () { state.tab = tk[0]; state.sel = 0; render(); });
+          tabs.appendChild(b);
+        });
+        body.innerHTML = '';
+
+        if (state.tab === 'status') {
+          eyebrow.textContent = DATA.status.eyebrow;
+          var detail = el('div', 'io-detail');
+          detail.appendChild(el('h4', null, 'Verifikation als Eigenschaft des Artefakts'));
+          detail.appendChild(el('p', null, DATA.status.note));
+          body.appendChild(detail);
+          var grid = el('div', 'io-status-grid');
+          grid.appendChild(el('div', 'io-sg-h', ''));
+          ['unverifiziert','in Arbeit','verifiziert'].forEach(function (s, i) { grid.appendChild(el('div', 'io-sg-h', s)); });
+          ['OCR','Layout','TEI'].forEach(function (stream) {
+            grid.appendChild(el('div', 'io-sg-row', stream));
+            ['s0','s1','s2'].forEach(function (s) { grid.appendChild(el('div', 'io-cell ' + s)); });
+          });
+          var vz = el('div', 'io-viz'); vz.appendChild(grid); body.appendChild(vz);
+          renderLegend([['auto','verifiziert'],['llm','in Arbeit'],['human','nur von Menschen gesetzt']]);
+          legend.firstChild && (legend.firstChild.firstChild.style.background = '#5ec6a8');
+          body.appendChild(figcap);
+          return;
+        }
+
+        var d = DATA[state.tab];
+        eyebrow.textContent = d.eyebrow;
+        var sel = d.items[state.sel] || d.items[0];
+        body.appendChild(renderDetail(sel));
+        var viz = el('div', 'io-viz');
+        d.items.forEach(function (it, idx) {
+          if (state.tab === 'verifikation' && idx === 4) viz.appendChild(el('div', 'io-divider', '— Grenze der Automatisierung —'));
+          var b = el('button', 'io-item'); b.type = 'button';
+          b.setAttribute('aria-selected', idx === state.sel ? 'true' : 'false');
+          var num = el('span', 'io-num', it.n);
+          var dot = el('span', 'io-dot ' + KIND[it.k].cls);
+          var lab = el('span', null, it.t);
+          b.appendChild(num); b.appendChild(dot); b.appendChild(lab);
+          b.addEventListener('click', function () { state.sel = idx; render(); });
+          viz.appendChild(b);
+        });
+        body.appendChild(viz);
+        renderLegend(d.legend);
+        body.appendChild(figcap);
+      }
+
+      mount.innerHTML = '';
+      mount.appendChild(panel);
+      render();
+    })();
+  </script>
+</body>
+</html>

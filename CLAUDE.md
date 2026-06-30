@@ -183,6 +183,20 @@ Blog posts cover:
 - "Vibe Coding" and critical expert review
 - System-1.42 mental model for LLMs
 
+### Feature Posts with Immersive Standalone Layouts
+
+Beyond the standard `post` layout, a single post can use a **bespoke, fully standalone layout** for a distinct reading experience. Current instance: `blog/Agentische-Edition.md` with `_layouts/agentic-edition.html`.
+
+Conventions for such layouts:
+
+1. **Standalone document, no parent chrome.** The layout provides its own complete `<!DOCTYPE html>` and does NOT set `layout: default`. It deliberately omits the parent-site header/footer, the `{% seo %}` tag, the sticky TOC and the print/PDF button of the standard post layout. In exchange it gains full control over typography and structure.
+2. **All CSS and JS inline in the layout.** Because `assets/` is gitignored and is NOT deployed, any stylesheet or script placed under `assets/` will never reach the live site. Put CSS in a `<style>` block and JS in a `<script>` block directly in the layout. External CDNs (e.g. Google Fonts) load fine.
+3. **Hand-rolled metadata.** Since `{% seo %}` is gone, add title, description, canonical, Open Graph, `citation_*` meta and a JSON-LD `BlogPosting` block in the layout `<head>`, driven by front matter (`title`, `subtitle`, `description`, `keywords`, `date`, `og_image`, `citation`, `dublin_core`).
+4. **Images live in this repo, referenced repo-locally.** Hero/figure SVGs go in `blog/img/`; reference the hero via `{{ site.baseurl }}/blog/<file>`. The blog-index card image also goes in `blog/img/<slug>-card.svg` and is referenced **relatively** (`img/<slug>-card.svg`) in `blog/index.html`, deviating from the parent-site `/assets/img/work-gallery/` convention so the image deploys from this repo and is not blocked on the parent repo.
+5. **Interactive figures are self-contained widgets.** Mount on an empty `<div id="...">` placed in the markdown body; build the widget with inline JS in the layout, data embedded in the JS, no external chart libraries. Always provide a `<noscript>` fallback.
+
+Front matter for a feature post sets `layout: <bespoke-layout>` plus the meta fields above. kramdown footnotes, blockquotes and `<figure>` mounts in the markdown work as in any post.
+
 ### System Prompts
 
 The `system_prompts/` directory contains advanced prompting methodologies:

@@ -1,0 +1,44 @@
+<svg viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Epistemische Infrastruktur, Agentic Engineering und Digitale Edition">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#181c26"/><stop offset="0.65" stop-color="#0e1014"/><stop offset="1" stop-color="#0b0d11"/>
+    </linearGradient>
+    <linearGradient id="cAmp" x1="880" y1="300" x2="1190" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#667eea" stop-opacity="0.85"/><stop offset="1" stop-color="#667eea" stop-opacity="0.04"/>
+    </linearGradient>
+    <radialGradient id="cNode" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#cdd4ff"/><stop offset="0.5" stop-color="#667eea"/><stop offset="1" stop-color="#667eea" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  <!-- pipeline + fan + human-check motif, upper right -->
+  <line x1="930" y1="95" x2="930" y2="250" stroke="#2f3645" stroke-width="2.5"/>
+  <circle cx="930" cy="95" r="10" fill="#0e1014" stroke="#5ec6a8" stroke-width="3"/>
+  <circle cx="930" cy="172" r="14" fill="url(#cNode)"/><circle cx="930" cy="172" r="6" fill="#eef0ff"/>
+  <circle cx="930" cy="250" r="10" fill="#0e1014" stroke="#5ec6a8" stroke-width="3"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M930 172 Q 1060 135 1190 120" stroke="url(#cAmp)" stroke-width="2.2" opacity="0.85"/>
+    <path d="M930 172 Q 1060 172 1190 182" stroke="url(#cAmp)" stroke-width="2.4" opacity="0.95"/>
+    <path d="M930 172 Q 1060 210 1190 255" stroke="url(#cAmp)" stroke-width="1.8" opacity="0.5"/>
+  </g>
+  <circle cx="1090" cy="300" r="16" fill="#0e1014" stroke="#c2683c" stroke-width="3"/>
+  <path d="M1083 300 l5 6 l10 -13" stroke="#e0a07f" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- kicker -->
+  <text x="84" y="130" font-family="Georgia, serif" font-size="24" letter-spacing="5" fill="#667eea">AGENTIC ENGINEERING · FORSCHUNGSBLOG</text>
+
+  <!-- title (3 lines) -->
+  <text x="84" y="248" font-family="Georgia, serif" font-weight="bold" font-size="62" fill="#ece8df">Epistemische Infrastruktur,</text>
+  <text x="84" y="326" font-family="Georgia, serif" font-weight="bold" font-size="62" fill="#ece8df">Agentic Engineering und</text>
+  <text x="84" y="404" font-family="Georgia, serif" font-weight="bold" font-size="62" fill="#ece8df">Digitale Edition</text>
+
+  <!-- subtitle -->
+  <text x="86" y="468" font-family="Georgia, serif" font-size="29" fill="#b9bdc7">Wo die wissenschaftliche Verifikation sitzt,</text>
+  <text x="86" y="505" font-family="Georgia, serif" font-size="29" fill="#b9bdc7">wenn Modelle den Editionsstack erzeugen</text>
+
+  <!-- footer -->
+  <line x1="86" y1="578" x2="1114" y2="578" stroke="#2b303b" stroke-width="1"/>
+  <text x="86" y="624" font-family="Georgia, serif" font-size="26" fill="#8b909c">Christopher Pollin · Digital Humanities Craft</text>
+  <text x="1114" y="624" text-anchor="end" font-family="Georgia, serif" font-size="26" fill="#8b909c">30.06.2026</text>
+</svg>
